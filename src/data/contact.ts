@@ -7,7 +7,7 @@ export const CONTACTS = [
   },
   {
     type: "linkedin",
-    href: "linkedin.com/in/jrtilak/",
+    href: "https://www.linkedin.com/in/jrtilak/",
     label: "Tilak Thapa",
     image: "https://www.svgrepo.com/show/508852/linkedin.svg",
   },

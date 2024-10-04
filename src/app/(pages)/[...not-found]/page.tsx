@@ -1,3 +1,3 @@
-import Error404 from "@/components/blocks/404";
+import Error404 from "@/app/blocks/404";
 
 export default Error404;

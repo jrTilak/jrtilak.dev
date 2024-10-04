@@ -15,32 +15,32 @@ import Link from "next/link";
 const DetailsCard = () => {
   return (
     <div className="text-center">
-      <Card>
+      <Card className="h-[60vh] md:h-[40vh] flex items-center justify-center flex-col lg:h-auto">
         <CardHeader>
-          <div className="p-6">
+          <div className="p-6 hidden lg:block">
             <Image
               src={"/images/avatar.png"}
               alt=""
               height={600}
               width={600}
-              className="w-full h-fit object-cover object-center"
+              className="w-full h-fit object-cover object-center rounded-full"
             />
           </div>
-          <CardTitle className="text-3xl">Tilak Thapa 👋</CardTitle>
-          <CardDescription>
-            A Passionate Full Stack Developer 🖥️
+          <CardTitle className="text-4xl">Tilak Thapa 👋</CardTitle>
+          <CardDescription className="text-base">
+            Full Stack Web/App Developer 💻 with more than 2 year of experience.
           </CardDescription>
         </CardHeader>
         <CardFooter className="flex items-center justify-center gap-4">
           {CONTACTS.map((contact) => (
             <Link
               href={contact.href}
-              target="_blank"
+              target={contact.type !== "mail" ? "_blank" : undefined}
               key={contact.href}
               className={buttonVariants({
                 variant: "outline",
                 size: "icon",
-                className: "aspect-square h-5 group",
+                className: "aspect-square group",
               })}
               title={contact.label}
             >

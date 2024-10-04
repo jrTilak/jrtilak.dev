@@ -15,17 +15,20 @@ const MoreInfo = () => {
   return (
     <Card className="flex-grow">
       <CardHeader>
-        <CardDescription className="text-lg">Hello There!</CardDescription>
-        <CardTitle className="text-4xl">
-          I’m Bentos Walker, a product designer crafting user-centric design
-          with pixel-perfect precision.
+        <CardDescription className="text-xs sm:text-lg">
+          🙋‍♂️ Greetings! I'm Tilak Thapa (jrTilak)
+        </CardDescription>
+        <CardTitle className="text-xl sm:text-4xl">
+          Passionate dev with 1.8+ years of experience building apps with the
+          MERN stack + Next.js, along with DevOps in AWS, Docker, and CI/CD
+          pipelines.
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <h4 className="font-medium">Available For:</h4>
         <ul className="flex flex-col gap-1 ml-9 list-disc">
-          <li>Freelancing</li>
-          <li>Job Offer</li>
+          <li>Freelancing 💼</li>
+          <li>Job Offer 📨 </li>
         </ul>
       </CardContent>
       <CardFooter className="mt-auto">

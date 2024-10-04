@@ -10,7 +10,10 @@ const ThemeToggle = ({ className }: { className?: string }) => {
 
   return (
     <Button
-      className={cn("h-fit w-fit bg-background p-1.5 aspect-square", className)}
+      className={cn(
+        "h-fit w-fit p-1.5 aspect-square bg-transparent",
+        className
+      )}
       variant="ghost"
       size="icon"
       onClick={toggleTheme}
