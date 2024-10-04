@@ -16,6 +16,7 @@ import { EXPERIENCES } from "@/data/experiences";
 import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
+import { getCertificationDetails } from "@/helpers/get-certification.details";
 
 const Experience = () => {
   return (
@@ -62,8 +63,33 @@ const Experience = () => {
                       {experience.date.duration})
                     </span>
                   </AccordionTrigger>
-                  <AccordionContent className="font-normal">
-                    {experience.description}
+
+                  <AccordionContent className="font-normal flex flex-col gap-4">
+                    <div> {experience.description}</div>
+
+                    <div className="flex flex-wrap gap-2.5">
+                      {experience.certifications?.map((certification, i) => {
+                        const certificationData =
+                          getCertificationDetails(certification);
+                        return (
+                          <Link
+                            key={i}
+                            href={certificationData.image}
+                            target="_blank"
+                            className="hover:scale-110 transition-all"
+                          >
+                            <Image
+                              src={certificationData.image}
+                              alt={certificationData.title}
+                              height={60}
+                              width={60}
+                              key={i}
+                              className="rounded-md object-cover object-center"
+                            />
+                          </Link>
+                        );
+                      })}
+                    </div>
                   </AccordionContent>
                 </div>
               </div>

@@ -5,6 +5,7 @@ import Testimonials from "@/components/globals/testimonials";
 import AreYouReady from "@/components/globals/are-you-ready";
 import Experience from "./_components/experience";
 import Education from "./_components/education";
+import Certifications from "./_components/certifications";
 
 const Page = () => {
   return (
@@ -20,6 +21,7 @@ const Page = () => {
         <Experience />
         <Education />
       </section>
+      <Certifications />
       <Testimonials />
       <AreYouReady />
     </div>

@@ -1,3 +1,5 @@
+import { CertificationId } from "./certification";
+
 export type Experience = {
   position: string;
   company: {
@@ -11,7 +13,7 @@ export type Experience = {
     duration: string;
   };
   description: React.ReactNode;
-  certifications?: Array<string>;
+  certifications?: Array<CertificationId>;
 };
 
 export const EXPERIENCES: Array<Experience> = [
@@ -32,5 +34,6 @@ export const EXPERIENCES: Array<Experience> = [
       </p>
     ),
     position: "Internship",
+    certifications: ["lor-prodigy"],
   },
 ];
