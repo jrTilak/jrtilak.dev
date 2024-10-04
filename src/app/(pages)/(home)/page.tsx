@@ -3,6 +3,7 @@ import Hero from "./_components/hero";
 import TrustedBy from "./_components/trusted-by";
 import AreaOfExpertise from "./_components/area-of-expertise";
 import WorksAndProjects from "@/components/globals/works-and-projects";
+import AreYouReady from "@/components/globals/are-you-ready";
 
 const Page = () => {
   return (
@@ -15,6 +16,7 @@ const Page = () => {
         <AreaOfExpertise />
       </div>
       <WorksAndProjects />
+      <AreYouReady />
     </div>
   );
 };

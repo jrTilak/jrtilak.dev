@@ -32,11 +32,12 @@ const WorksAndProjects = () => {
               .sort(),
           ].map((c, i) => (
             <Button
-              variant={"outline"}
+              variant={
+                activeCategory === c?.toLowerCase() ? "default" : "outline"
+              }
               size={"sm"}
               key={i}
               onClick={() => {
-                console.log(c);
                 setActiveCategory(c?.toLowerCase());
               }}
               className="text-sm capitalize min-w-12"

@@ -63,7 +63,7 @@ const Header = () => {
   };
 
   return (
-    <header className="fixed inset-0 h-fit w-full bg-background/20 backdrop-blur-sm">
+    <header className="fixed inset-0 h-fit w-full bg-background/20 backdrop-blur-sm z-50">
       <div className="container mx-auto flex justify-between items-center py-4 border-b">
         <Link href={"/"} className="text-2xl font-bold">
           jrTilak.
@@ -86,7 +86,7 @@ const Header = () => {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2.5">
           <ThemeToggle className="size-9" />
           {/* mobile nav */}
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
