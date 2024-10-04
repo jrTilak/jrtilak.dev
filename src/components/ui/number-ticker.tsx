@@ -2,7 +2,6 @@
 
 import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
-import { cn } from "@/helpers/cn";
 
 export function NumberTicker({
   value,

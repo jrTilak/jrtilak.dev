@@ -77,7 +77,7 @@ const ProjectCard = (props: Project) => {
               {props.techs.map((tech, i) => {
                 const skill = getSkillDetails(tech);
                 return (
-                  <Link target="_blank" href={skill?.href}>
+                  <Link key={i} target="_blank" href={skill?.href}>
                     <Badge
                       variant={"outline"}
                       key={i}

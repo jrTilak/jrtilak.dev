@@ -1,7 +1,6 @@
 import React from "react";
 import {
   Card,
-  CardContent,
   CardDescription,
   CardFooter,
   CardHeader,
@@ -10,7 +9,6 @@ import {
 import Link from "next/link";
 import { HandshakeIcon } from "lucide-react";
 import { buttonVariants } from "../ui/button";
-import { section } from "framer-motion/client";
 
 const AreYouReady = () => {
   return (
@@ -21,8 +19,8 @@ const AreYouReady = () => {
             Are You Ready for magic?
           </CardTitle>
           <CardDescription className="text-base max-w-4xl mx-auto pt-2">
-            Reach out and let's make it happen ✨. I'm also available for
-            full-time or Part-time opportunities to push the boundaries of
+            Reach out and let&apos;s make it happen ✨. I&apos;m also available
+            for full-time or Part-time opportunities to push the boundaries of
             design and deliver exceptional work.
           </CardDescription>
         </CardHeader>

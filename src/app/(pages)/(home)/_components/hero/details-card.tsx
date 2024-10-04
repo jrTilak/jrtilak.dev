@@ -7,8 +7,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Image from "next/image";
-import { Button, buttonVariants } from "@/components/ui/button";
-import { CopyIcon, PhoneCallIcon } from "lucide-react";
+import { buttonVariants } from "@/components/ui/button";
 import { CONTACTS } from "@/data/contact";
 import Link from "next/link";
 

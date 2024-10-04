@@ -16,7 +16,7 @@ const MoreInfo = () => {
     <Card className="flex-grow">
       <CardHeader>
         <CardDescription className="text-xs sm:text-lg">
-          🙋‍♂️ Greetings! I'm Tilak Thapa (jrTilak)
+          🙋‍♂️ Greetings! I&apos;m Tilak Thapa (jrTilak)
         </CardDescription>
         <CardTitle className="text-xl sm:text-4xl">
           Passionate dev with 1.8+ years of experience building apps with the
