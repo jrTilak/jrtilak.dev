@@ -27,13 +27,13 @@ const ProjectCard = (props: Project) => {
           role="button"
           className="group cursor-pointer hover:shadow-md transition-colors hover:bg-muted"
         >
-          <div className="w-fit h-fit">
+          <div className="w-full h-fit">
             <Image
               src={props.image}
               alt={props.title}
               width={300}
               height={200}
-              className="w-full h-auto object-cover object-left-top sm:h-[200px]"
+              className="w-full h-auto object-cover object-top sm:h-[200px]"
             />
           </div>
           <CardHeader className="pt-2">
