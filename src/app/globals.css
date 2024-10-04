@@ -68,8 +68,4 @@
   body {
     @apply bg-background text-foreground font-bricolage-grotesque;
   }
-
-  a.__link {
-    @apply text-primary underline;
-  }
 }

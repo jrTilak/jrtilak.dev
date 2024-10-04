@@ -49,7 +49,7 @@ export const TESTIMONIALS: Testimonial[] = [
         helped me a lot, the projects he has done are very nice, especially the{" "}
         <Link
           href="https://bumblebee.thapatilak.com.np/"
-          className="link"
+          className="text-primary underline"
           target="_blank"
         >
           Bumblebee - AI Powered Chatbot project.

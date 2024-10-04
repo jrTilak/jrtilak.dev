@@ -20,6 +20,13 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTrigger,
+} from "@/components/ui/dialog";
+
 const Testimonials = () => {
   return (
     <section id="testimonials" className="container mx-auto">
@@ -62,13 +69,46 @@ const Testimonials = () => {
                     <p>
                       {testimony.inShort.substring(0, 200)} ...
                       &nbsp;&nbsp;&nbsp;&nbsp;
-                      <Button
-                        variant={"outline"}
-                        size={"sm"}
-                        className="h-fit py-1"
-                      >
-                        See More
-                      </Button>
+                      <Dialog>
+                        <DialogTrigger>
+                          <Button
+                            variant={"outline"}
+                            size={"sm"}
+                            className="h-fit py-1"
+                          >
+                            See More
+                          </Button>
+                        </DialogTrigger>
+                        <DialogContent>
+                          <DialogHeader>
+                            <div className="flex items-center gap-2.5">
+                              <Image
+                                src={
+                                  testimony.image ?? "/images/placeholder.png"
+                                }
+                                alt={testimony.name}
+                                className="rounded-full size-12 sm:size-16 object-cover object-center"
+                                height={80}
+                                width={80}
+                              />
+                              <div className="flex flex-col justify-center">
+                                <span className="text-xs">⭐⭐⭐⭐⭐</span>
+                                <Link
+                                  href={testimony.contactUrl}
+                                  target="_blank"
+                                  className="font-medium text-base sm:text-lg underline hover:text-primary"
+                                >
+                                  {testimony.name}
+                                </Link>
+                                <span className="text-muted-foreground text-xs sm:text-sm">
+                                  {testimony.position}
+                                </span>
+                              </div>
+                            </div>
+                          </DialogHeader>
+                          <p>{testimony.content}</p>
+                        </DialogContent>
+                      </Dialog>
                     </p>
                   </div>
                 </CarouselItem>
