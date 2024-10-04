@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import {
   Card,
   CardContent,
@@ -7,10 +8,11 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import ProjectCard from "./project-card";
-import { PROJECTS } from "@/data/projects";
+import { Project, PROJECTS } from "@/data/projects";
 import { Button } from "../ui/button";
 
 const WorksAndProjects = () => {
+  const [activeCategory, setActiveCategory] = useState("all");
   return (
     <section id="work-and-projects" className="container mx-auto">
       <Card>
@@ -25,15 +27,18 @@ const WorksAndProjects = () => {
         <div className="flex gap-2 flex-wrap px-6 py-2">
           {[
             "All",
-            ...new Array(
-              // @ts-expect-error
-              ...new Set(...PROJECTS.map((p) => p.category))
-            ).sort(),
-          ].map((c) => (
+            ...Array.from(new Set(PROJECTS.map((p) => p.category)))
+              .flat()
+              .sort(),
+          ].map((c, i) => (
             <Button
               variant={"outline"}
               size={"sm"}
-              key={c}
+              key={i}
+              onClick={() => {
+                console.log(c);
+                setActiveCategory(c?.toLowerCase());
+              }}
               className="text-sm capitalize min-w-12"
             >
               {c}
@@ -41,8 +46,12 @@ const WorksAndProjects = () => {
           ))}
         </div>
         <CardContent className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
-          {Array.from({ length: 6 }).map((_, index) => (
-            <ProjectCard key={index} {...PROJECTS[0]} />
+          {PROJECTS.filter((project) =>
+            activeCategory === "all"
+              ? true
+              : project.category.includes(activeCategory?.toLowerCase() as any)
+          ).map((project, index) => (
+            <ProjectCard key={index} {...project} />
           ))}
         </CardContent>
       </Card>

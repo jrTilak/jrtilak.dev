@@ -17,6 +17,7 @@ import {
 import Link from "next/link";
 import { GithubIcon, TrendingUpIcon } from "lucide-react";
 import toast from "react-hot-toast";
+import { getSkillDetails } from "@/helpers/get-skill-detail";
 
 const ProjectCard = (props: Project) => {
   return (
@@ -32,19 +33,19 @@ const ProjectCard = (props: Project) => {
               alt={props.title}
               width={300}
               height={200}
-              className="w-full h-auto object-cover object-left-top"
+              className="w-full h-auto object-cover object-left-top sm:h-[200px]"
             />
           </div>
           <CardHeader className="pt-2">
             <div className="flex justify-between">
               <div className="flex flex-wrap gap-2.5">
-                {props.category.map((c, i) => (
+                {props.techs.map((tech, i) => (
                   <Badge
                     variant={"outline"}
                     key={i}
                     className="font-normal w-fit rounded-lg capitalize text-xs"
                   >
-                    {c}
+                    {tech}
                   </Badge>
                 ))}
               </div>
@@ -69,9 +70,33 @@ const ProjectCard = (props: Project) => {
               alt=""
               width={300}
               height={200}
+              quality={100}
               className="w-full h-auto object-contain object-center bg-muted max-h-[300px] shadow-md rounded-md"
             />
-            <div className="mt-5">{props.description}</div>
+            <div className="flex flex-wrap gap-4 my-5">
+              {props.techs.map((tech, i) => {
+                const skill = getSkillDetails(tech);
+                return (
+                  <Link target="_blank" href={skill?.href}>
+                    <Badge
+                      variant={"outline"}
+                      key={i}
+                      className="font-normal w-fit rounded-lg capitalize text-sm"
+                    >
+                      <Image
+                        src={skill?.image}
+                        alt={tech}
+                        width={20}
+                        height={20}
+                        className="size-4"
+                      />
+                      <span className="ml-2.5">{tech}</span>
+                    </Badge>
+                  </Link>
+                );
+              })}
+            </div>
+            <div className="">{props.description}</div>
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="flex !flex-row items-center justify-end">
