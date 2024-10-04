@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import ProjectCard from "./project-card";
-import { Project, PROJECTS } from "@/data/projects";
+import { PROJECTS } from "@/data/projects";
 import { Button } from "../ui/button";
 
 const WorksAndProjects = () => {
