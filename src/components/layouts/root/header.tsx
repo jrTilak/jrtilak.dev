@@ -88,13 +88,14 @@ const Header = () => {
           <ThemeToggle className="size-9" />
           {/* mobile nav */}
           <Sheet open={isSheetOpen} onOpenChange={setIsSheetOpen}>
-            <SheetTrigger>
-              <Button
-                className="size-9 h-fit w-fit p-1.5 aspect-square bg-transparent lg:hidden"
-                variant="ghost"
-              >
-                <MenuIcon className="size-[18px]" />
-              </Button>
+            <SheetTrigger
+              className={buttonVariants({
+                variant: "ghost",
+                className:
+                  "size-9 h-fit w-fit p-1.5 aspect-square bg-transparent lg:hidden",
+              })}
+            >
+              <MenuIcon className="size-[18px]" />
             </SheetTrigger>
             <SheetContent className="lg:hidden flex items-center flex-col justify-between h-dvh w-[200px]">
               <SheetHeader>

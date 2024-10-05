@@ -18,7 +18,7 @@ import {
 import { TESTIMONIALS } from "@/data/testimonials";
 import Image from "next/image";
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
+import { Button, buttonVariants } from "@/components/ui/button";
 
 import {
   Dialog,
@@ -71,14 +71,14 @@ const Testimonials = () => {
                       {testimony.inShort.substring(0, 200)} ...
                       &nbsp;&nbsp;&nbsp;&nbsp;
                       <Dialog>
-                        <DialogTrigger>
-                          <Button
-                            variant={"outline"}
-                            size={"sm"}
-                            className="h-fit py-1"
-                          >
-                            See More
-                          </Button>
+                        <DialogTrigger
+                          className={buttonVariants({
+                            variant: "outline",
+                            size: "sm",
+                            className: "h-fit py-1",
+                          })}
+                        >
+                          See More
                         </DialogTrigger>
                         <DialogContent>
                           <DialogHeader>

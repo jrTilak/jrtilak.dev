@@ -23,10 +23,7 @@ const ProjectCard = (props: Project) => {
   return (
     <Dialog>
       <DialogTrigger>
-        <Card
-          role="button"
-          className="group cursor-pointer hover:shadow-md transition-colors hover:bg-muted"
-        >
+        <Card className="group cursor-pointer hover:shadow-md transition-colors hover:bg-muted">
           <div className="w-full h-fit">
             <Image
               src={props.image}
