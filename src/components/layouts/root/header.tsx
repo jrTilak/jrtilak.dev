@@ -23,6 +23,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { PERSONAL_DETAILS } from "@/data/personal-details";
 
 const HEADER_LINKS = [
   {
@@ -64,7 +65,7 @@ const Header = () => {
     <header className="fixed inset-0 h-fit w-full bg-background/20 backdrop-blur-sm z-50">
       <div className="container mx-auto flex justify-between items-center py-4 border-b">
         <Link href={"/"} className="text-2xl font-bold">
-          jrTilak.
+          {PERSONAL_DETAILS.nickname}.
         </Link>
         <nav className="lg:flex gap-2.5 hidden">
           {HEADER_LINKS.map((link) => (
