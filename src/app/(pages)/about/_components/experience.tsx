@@ -31,7 +31,7 @@ const Experience = () => {
             <AccordionItem
               value={index.toString()}
               key={index}
-              className="w-full"
+              className="w-full border-none"
             >
               <div className="grid grid-cols-[40px_1fr] gap-6 font-medium">
                 <Link
@@ -48,7 +48,10 @@ const Experience = () => {
                   />
                 </Link>
                 <div className="flex flex-col gap-2.5">
-                  <AccordionTrigger className="flex items-start sm:items-center justify-between text-left py-0 group flex-col sm:flex-row">
+                  <AccordionTrigger
+                    className="flex items-start sm:items-center justify-between text-left py-0 group flex-col sm:flex-row hover:no-underline"
+                    hideChevron
+                  >
                     <div className="flex flex-col">
                       <h4 className="text-lg flex items-center gap-4">
                         <span>{experience.position}</span>
