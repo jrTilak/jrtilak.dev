@@ -8,6 +8,7 @@ import { MoonIcon, SunIcon } from "lucide-react";
 const ThemeToggle = ({ className }: { className?: string }) => {
   const { toggleTheme } = useAppTheme();
 
+  // return null; // Remove this line to enable the theme toggle// todo dark mode us not working as the css variables are not being updated
   return (
     <Button
       className={cn(

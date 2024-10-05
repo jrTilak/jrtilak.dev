@@ -15,7 +15,7 @@ const BlogCard = (props: Props) => {
   return (
     <div
       className={cn(
-        "w-full flex h-full flex-col sm:flex-row sm:items-center gap-6 bg-white shadow-md rounded-xl px-3.5 py-3 sm:px-5 sm:py-5",
+        "w-full flex h-full flex-col sm:flex-row sm:items-center gap-6 bg-card shadow-md rounded-xl px-3.5 py-3 sm:px-5 sm:py-5",
         props.className
       )}
       style={props.style}

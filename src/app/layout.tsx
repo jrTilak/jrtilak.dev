@@ -13,7 +13,7 @@ export default function Layout({
   return (
     <html lang="en">
       <body>
-        <ThemeProvider>
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <RootLayout>{children}</RootLayout>
           <TopLoader />
           <Toaster

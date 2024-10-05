@@ -46,7 +46,7 @@ const Page = async () => {
       {blogs.length > 3 && (
         <div className="flex gap-5 md:gap-7 flex-col lg:flex-row xl:gap-24">
           {/* sidebar */}
-          <div className="flex flex-col gap-3 px-6 py-7 bg-white shadow-md h-fit rounded-md w-full lg:w-72 animate-in-from-left delay-200">
+          <div className="flex flex-col gap-3 px-6 py-7 bg-card shadow-md h-fit rounded-md w-full lg:w-72 animate-in-from-left delay-200">
             <AllTags
               data={tags.map((t) => ({
                 label: t,

@@ -26,7 +26,7 @@ const BlogByTag = async ({ params: { tag } }: Props) => {
       <div className="mt-7 sm:mt-12">
         <div className="flex gap-5 md:gap-7 flex-col lg:flex-row xl:gap-24">
           {/* sidebar */}
-          <div className="flex flex-col gap-3 px-6 py-7 bg-white shadow-md h-fit rounded-md w-full lg:w-72">
+          <div className="flex flex-col gap-3 px-6 py-7 bg-card shadow-md h-fit rounded-md w-full lg:w-72">
             <AllTags
               data={tags.map((t) => ({
                 label: t,

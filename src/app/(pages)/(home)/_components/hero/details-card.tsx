@@ -47,7 +47,7 @@ const DetailsCard = () => {
             >
               <Image
                 src={contact.image}
-                className="size-4 group-hover:scale-[1.10] transition-all"
+                className="size-4 group-hover:scale-[1.10] transition-all dark:invert"
                 alt=""
                 width={20}
                 height={20}

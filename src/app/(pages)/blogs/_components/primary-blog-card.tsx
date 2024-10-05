@@ -12,7 +12,7 @@ const PrimaryBlogCard = (props: Props) => {
   return (
     <div
       className={cn(
-        "w-full flex flex-col lg:flex-row lg:items-center gap-7.5 lg:gap-11 bg-white shadow-lg rounded-xl p-4 lg:p-2.5 lg:py-4",
+        "w-full flex flex-col lg:flex-row lg:items-center gap-7.5 lg:gap-11 bg-card shadow-lg rounded-xl p-4 lg:p-2.5 lg:py-4",
         props.className
       )}
       style={props.style}

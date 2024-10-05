@@ -47,7 +47,7 @@ const ContactLinks = () => {
                   alt={contact.type}
                   width={28}
                   height={28}
-                  className="size-6 sm:size-7 object-contain object-center"
+                  className="size-6 sm:size-7 object-contain object-center dark:invert"
                 />
               </div>
               <div className="flex flex-col">

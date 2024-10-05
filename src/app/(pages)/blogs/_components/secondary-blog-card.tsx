@@ -11,7 +11,7 @@ const SecondaryBlogCard = (props: Props) => {
   return (
     <div
       className={cn(
-        "w-full flex flex-col sm:flex-row sm:items-center gap-6 bg-white shadow-md rounded-xl p-2.5",
+        "w-full flex flex-col sm:flex-row sm:items-center gap-6 bg-card shadow-md rounded-xl p-2.5",
         props.className
       )}
     >
