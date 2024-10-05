@@ -9,29 +9,19 @@ import {
 } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MailPlusIcon } from "lucide-react";
+import { PERSONAL_DETAILS } from "@/data/personal-details";
 
 const MoreInfo = () => {
   return (
     <Card className="flex-grow">
       <CardHeader>
         <CardTitle className="text-xl sm:text-4xl">
-          I&apos;m Bentos Walker, a product designer.
+          {PERSONAL_DETAILS.aboutMe.header}
         </CardTitle>
         <CardDescription className="text-xs sm:text-lg flex flex-col gap-5">
-          <p>
-            I am a San francisco-based product designer with a focus on web
-            design, illustration, a visual development. I have a diverse range
-            of experience having worked across various fields and industries.
-          </p>
-          <p>
-            Contrary to popular belief, Lorem Ipsum is not simply random text.
-            It has roots in a piece of classical Latin literature from 45 BC,
-            making it over 2000 years old. Richard McClintock, a Latin professor
-            at Hampden-Sydney College in Virginia, looked up one of the more
-            obscure Latin words, consectetur, from a Lorem Ipsum passage, and
-            going through the cites of the word in classical literature,
-            discovered the undoubtable source.
-          </p>
+          {PERSONAL_DETAILS.aboutMe.more.map((c, i) => (
+            <p key={i}>{c}</p>
+          ))}
         </CardDescription>
       </CardHeader>
       <CardFooter className="mt-auto">

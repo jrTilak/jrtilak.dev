@@ -13,6 +13,7 @@ import { SERVICES } from "@/data/services";
 import { getSkillDetails } from "@/helpers/get-skill-detail";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
+import { cn } from "@/helpers/cn";
 
 const Page = () => {
   return (
@@ -28,11 +29,25 @@ const Page = () => {
             </CardTitle>
           </CardHeader>
           <CardContent className="flex flex-col items-center justify-center gap-5">
-            {SERVICES.map((service, index) => (
+            {SERVICES.map(({ available = true, ...service }, index) => (
               <Card
-                className="border-muted border hover:border-primary"
+                className={cn(
+                  "border-accent-foreground/50 border relative",
+                  !available
+                    ? "opacity-80 pointer-events-none"
+                    : "hover:border-primary"
+                )}
                 key={index}
               >
+                {!available && (
+                  <Badge
+                    title="This service is not available for now!"
+                    variant={"destructive"}
+                    className="absolute top-3 right-3"
+                  >
+                    Not Available 🙅
+                  </Badge>
+                )}
                 <CardHeader>
                   <CardTitle className="flex flex-col gap-2">
                     <Image

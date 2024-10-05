@@ -6,6 +6,7 @@ export type Service = {
   description: string;
   features: React.ReactNode[];
   skills: SkillNames[];
+  available?: boolean;
 };
 
 export const SERVICES: Service[] = [
@@ -21,5 +22,6 @@ export const SERVICES: Service[] = [
       "Modern Technologies",
     ],
     skills: ["HTML"],
+    available: false,
   },
 ];

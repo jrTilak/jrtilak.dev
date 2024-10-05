@@ -26,6 +26,7 @@ import {
   DialogHeader,
   DialogTrigger,
 } from "@/components/ui/dialog";
+import { IMAGES } from "@/data/images";
 
 const Testimonials = () => {
   return (
@@ -46,7 +47,7 @@ const Testimonials = () => {
                   <div className="flex flex-col gap-9 p-4 bg-muted group-hover:shadow-lg border hover:border-primary border-muted rounded-md select-none">
                     <div className="flex items-center gap-2.5">
                       <Image
-                        src={testimony.image ?? "/images/placeholder.png"}
+                        src={testimony.image ?? IMAGES.placeholders.avatar}
                         alt={testimony.name}
                         className="rounded-full size-12 sm:size-16 object-cover object-center"
                         height={80}
@@ -84,7 +85,7 @@ const Testimonials = () => {
                             <div className="flex items-center gap-2.5">
                               <Image
                                 src={
-                                  testimony.image ?? "/images/placeholder.png"
+                                  testimony.image ?? IMAGES.placeholders.avatar
                                 }
                                 alt={testimony.name}
                                 className="rounded-full size-12 sm:size-16 object-cover object-center"

@@ -1,17 +1,19 @@
+import { IMAGES } from "./images";
+
 export const TRUSTED_BY = [
   {
     label: "ACES",
     href: "https://www.aceserc.org/",
-    image: "/images/aces.png",
+    image: IMAGES.aces,
   },
   {
     label: "Neonshark",
     href: "https://neonshark.co.in/",
-    image: "/images/neon-shark.png",
+    image: IMAGES["neon-shark"],
   },
   {
     label: "Prodigy InfoTech",
     href: "https://prodigyinfotech.dev/",
-    image: "/images/prodigy-infotech.svg",
+    image: IMAGES["prodigy-infotech"],
   },
 ];

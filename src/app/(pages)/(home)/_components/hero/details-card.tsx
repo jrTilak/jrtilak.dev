@@ -10,6 +10,8 @@ import Image from "next/image";
 import { buttonVariants } from "@/components/ui/button";
 import { CONTACTS } from "@/data/contact";
 import Link from "next/link";
+import { IMAGES } from "@/data/images";
+import { PERSONAL_DETAILS } from "@/data/personal-details";
 
 const DetailsCard = () => {
   return (
@@ -18,16 +20,16 @@ const DetailsCard = () => {
         <CardHeader>
           <div className="p-6 hidden lg:block">
             <Image
-              src={"/images/avatar.png"}
+              src={IMAGES.avatar}
               alt=""
               height={600}
               width={600}
               className="w-full h-fit object-cover object-center rounded-full"
             />
           </div>
-          <CardTitle className="text-4xl">Tilak Thapa 👋</CardTitle>
+          <CardTitle className="text-4xl">{PERSONAL_DETAILS.name} 👋</CardTitle>
           <CardDescription className="text-base">
-            Full Stack Web/App Developer 💻 with more than 2 year of experience.
+            {PERSONAL_DETAILS.tagline}
           </CardDescription>
         </CardHeader>
         <CardFooter className="flex items-center justify-center gap-4">

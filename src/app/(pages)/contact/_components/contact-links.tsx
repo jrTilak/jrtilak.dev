@@ -14,6 +14,8 @@ import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
 import toast from "react-hot-toast";
 import { CopyIcon } from "lucide-react";
+import { PERSONAL_DETAILS } from "@/data/personal-details";
+import { IMAGES } from "@/data/images";
 
 const ContactLinks = () => {
   return (
@@ -21,13 +23,13 @@ const ContactLinks = () => {
       <CardHeader className="absolute -top-[89px] left-1/2 -translate-x-1/2 w-full">
         <CardTitle className="flex flex-col items-center justify-center gap-2.5">
           <Image
-            src={"/images/avatar.png"}
+            src={IMAGES.avatar}
             alt="Avatar"
             width={200}
             height={200}
             className="rounded-lg size-28 sm:size-36 shadow-lg border border-muted select-none"
           />
-          <span>Tilak Thapa</span>
+          <span>{PERSONAL_DETAILS.name}</span>
         </CardTitle>
       </CardHeader>
       <CardContent className="bg-muted flex flex-col m-6 mt-28 sm:mt-[140px] rounded-lg gap-1.5 p-0">
