@@ -1,0 +1,88 @@
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import AreYouReady from "@/components/globals/are-you-ready";
+import Image from "next/image";
+import { SERVICES } from "@/data/services";
+import { getSkillDetails } from "@/helpers/get-skill-detail";
+import Link from "next/link";
+import { Badge } from "@/components/ui/badge";
+
+const Page = () => {
+  return (
+    <div className="flex flex-col gap-9 sm:gap-12">
+      <section id="services" className="container mx-auto">
+        <Card>
+          <CardHeader>
+            <CardDescription className="text-center text-base">
+              Card Description
+            </CardDescription>
+            <CardTitle className="text-center text-2xl sm:text-4xl">
+              Quality Services
+            </CardTitle>
+          </CardHeader>
+          <CardContent className="flex flex-col items-center justify-center gap-5">
+            {SERVICES.map((service, index) => (
+              <Card
+                className="border-muted border hover:border-primary"
+                key={index}
+              >
+                <CardHeader>
+                  <CardTitle className="flex flex-col gap-2">
+                    <Image
+                      className="size-12"
+                      src={service.icon}
+                      height={48}
+                      width={48}
+                      alt=""
+                    />
+                    <span>{service.title}</span>
+                  </CardTitle>
+                  <CardDescription>{service.description}</CardDescription>
+                </CardHeader>
+                <CardContent>
+                  <ul className="ml-4 list-disc list-inside">
+                    {service.features.map((feature, index) => (
+                      <li key={index}>{feature}</li>
+                    ))}
+                  </ul>
+                </CardContent>
+                <CardFooter className="flex flex-wrap gap-2.5">
+                  {service.skills.map((s, index) => {
+                    const skill = getSkillDetails(s);
+                    return (
+                      <Link key={index} target="_blank" href={skill?.href}>
+                        <Badge
+                          variant={"outline"}
+                          className="font-normal w-fit rounded-lg capitalize text-sm hover:shadow-md transition-colors"
+                        >
+                          <Image
+                            src={skill?.image}
+                            alt={""}
+                            width={20}
+                            height={20}
+                            className="size-4"
+                          />
+                          <span className="ml-2.5">{skill?.name}</span>
+                        </Badge>
+                      </Link>
+                    );
+                  })}
+                </CardFooter>
+              </Card>
+            ))}
+          </CardContent>
+        </Card>
+      </section>
+      <AreYouReady />
+    </div>
+  );
+};
+
+export default Page;
