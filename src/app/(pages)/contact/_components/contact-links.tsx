@@ -18,19 +18,19 @@ import { CopyIcon } from "lucide-react";
 const ContactLinks = () => {
   return (
     <Card className="relative mt-[89px] h-fit">
-      <CardHeader className="absolute -top-[89px] left-1/2 -translate-x-1/2">
+      <CardHeader className="absolute -top-[89px] left-1/2 -translate-x-1/2 w-full">
         <CardTitle className="flex flex-col items-center justify-center gap-2.5">
           <Image
             src={"/images/avatar.png"}
             alt="Avatar"
             width={200}
             height={200}
-            className="rounded-lg size-36 shadow-lg border border-muted select-none"
+            className="rounded-lg size-28 sm:size-36 shadow-lg border border-muted select-none"
           />
           <span>Tilak Thapa</span>
         </CardTitle>
       </CardHeader>
-      <CardContent className="bg-muted flex flex-col m-6 mt-[140px] rounded-lg gap-1.5 p-0">
+      <CardContent className="bg-muted flex flex-col m-6 mt-28 sm:mt-[140px] rounded-lg gap-1.5 p-0">
         {CONTACTS.map((contact, index) => (
           <Fragment key={index}>
             {index > 0 && <Separator />}
@@ -45,7 +45,7 @@ const ContactLinks = () => {
                   alt={contact.type}
                   width={28}
                   height={28}
-                  className="size-7 object-contain object-center"
+                  className="size-6 sm:size-7 object-contain object-center"
                 />
               </div>
               <div className="flex flex-col">

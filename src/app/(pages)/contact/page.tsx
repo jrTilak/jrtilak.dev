@@ -7,7 +7,7 @@ import FAQs from "./_components/faq";
 
 const Page = () => {
   return (
-    <section className="mx-auto container grid grid-cols-[400px_1fr] gap-9 sm:gap-12">
+    <section className="mx-auto container grid grid-cols-1 lg:grid-cols-[400px_1fr] gap-9 sm:gap-12">
       <ContactLinks />
       <div className="flex flex-col gap-9 sm:gap-12">
         <ContactForm />

@@ -37,7 +37,7 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mt-[50px]">
+    <form onSubmit={handleSubmit(onSubmit)} className="lg:mt-[50px]">
       <Card>
         <CardHeader>
           <CardTitle>Let's 👋 Work Together</CardTitle>
@@ -49,7 +49,7 @@ const ContactForm = () => {
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
               <Label htmlFor="name">Name</Label>
               <Input
                 type="text"
@@ -67,7 +67,7 @@ const ContactForm = () => {
                 <span className="text-destructive text-sm">{errors.name}</span>
               )}
             </div>
-            <div className="flex flex-col gap-1.5">
+            <div className="flex flex-col gap-1.5 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
               <Label htmlFor="email">Email</Label>
               <Input
                 type="email"
@@ -132,7 +132,7 @@ const ContactForm = () => {
           <Button type="reset" variant={"outline"} onClick={reset}>
             Cancel
           </Button>
-          <Button type="submit" className="min-w-48">
+          <Button type="submit" className="sm:min-w-48">
             Send Message <SendIcon className="size-5 ml-3" />
           </Button>
         </CardFooter>
