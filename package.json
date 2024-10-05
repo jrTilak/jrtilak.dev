@@ -6,7 +6,8 @@
     "dev": "next dev --port 3009",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "create-blog": "node scripts/create-blog.mjs"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.1",
@@ -20,16 +21,19 @@
     "framer-motion": "^11.5.4",
     "lucide-react": "^0.439.0",
     "next": "14.2.9",
+    "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.3.0",
     "nextjs-toploader": "^3.6.15",
     "react": "^18",
     "react-dom": "^18",
     "react-fast-marquee": "^1.6.5",
     "react-hot-toast": "^2.4.1",
+    "reading-time": "^1.5.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },
   "devDependencies": {
+    "@tailwindcss/typography": "^0.5.15",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

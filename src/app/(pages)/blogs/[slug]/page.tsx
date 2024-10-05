@@ -1,0 +1,89 @@
+import Error404 from "@/app/blocks/404";
+import RenderMdx from "@/components/mdx/render-mdx";
+import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
+import { cn } from "@/helpers/cn";
+import { getBlogBySlug } from "@/services/blogs";
+import Image from "next/image";
+import Link from "next/link";
+import React from "react";
+import readingTime from "reading-time";
+
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+const Page = async ({ params: { slug } }: Props) => {
+  const blog = await getBlogBySlug(decodeURI(slug));
+
+  const stringifiedContent = JSON.stringify(blog);
+
+  const rTime = readingTime(stringifiedContent);
+  if (!blog) return <Error404 />;
+
+  return (
+    <div className="mt-12">
+      <section className="flex flex-col container mx-auto items-center justify-center max-w-5xl">
+        <div className="flex gap-3 flex-col items-center justify-center text-center">
+          <div className="flex gap-3 items-center">
+            {blog.tags &&
+              blog.tags.map((tag) => (
+                <Link key={tag} href={`/blogs/tags/${tag}`} className="w-fit">
+                  <Badge variant={"outline"}>{tag}</Badge>
+                </Link>
+              ))}
+          </div>
+          <h1 className="text-xl sm:text-2xl md:text-3xl xl:text-4xl font-bold mt-1">
+            {blog.title}
+          </h1>
+          {blog.summary && (
+            <p className="text-sm md:text-base max-w-3xl">{blog.summary}</p>
+          )}
+          <div className="flex items-center justify-center gap-4 mt-4">
+            <div className="flex w-10 h-10 rounded-full overflow-hidden">
+              <Image
+                src={"/images/avatar.png"}
+                alt="user"
+                className="w-full h-full rounded-full object-center object-cover"
+                height={80}
+                width={80}
+              />
+            </div>
+            <div className="text-left">
+              <div className="font-medium text-base mb-1">Tilak Thapa</div>
+              <div className="flex items-center gap-1.5 text-gray-600">
+                <p>
+                  {new Date(blog.publishedAt).toLocaleDateString("en-US", {
+                    month: "short",
+                    day: "numeric",
+                    year: "numeric",
+                    weekday: "short",
+                  })}
+                </p>
+                <span className="flex w-[3px] h-[3px] rounded-full bg-gray-300" />
+                <p>{rTime.text}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <Image
+          src={blog.image}
+          alt="thumbnail"
+          className={cn(
+            "w-full border border-gray-300 h-auto object-center rounded-xl mt-6 max-h-[500px] shadow-md object-cover"
+          )}
+          height={800}
+          width={800}
+        />
+        <Separator className="mt-6" />
+        <div className="mt-12 w-full overflow-x-auto max-w-3xl m-auto">
+          <RenderMdx>{blog.content}</RenderMdx>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Page;

@@ -73,7 +73,7 @@ const Header = () => {
               href={link.href}
               className={cn(
                 buttonVariants({ variant: "ghost" }),
-                "h-fit items-center gap-1.5 hover:bg-accent/80 backdrop-blur-sm",
+                "h-fit items-center gap-1.5 hover:bg-accent/80 backdrop-blur-sm bg-transparent",
                 (pathname === "/"
                   ? pathname === link.href
                   : link.href.startsWith(pathname)) && "!text-primary"
