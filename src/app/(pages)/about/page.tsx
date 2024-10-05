@@ -6,6 +6,7 @@ import AreYouReady from "@/components/globals/are-you-ready";
 import Experience from "./_components/experience";
 import Education from "./_components/education";
 import Certifications from "./_components/certifications";
+import Skills from "./_components/skills";
 
 const Page = () => {
   return (
@@ -21,6 +22,7 @@ const Page = () => {
         <Experience />
         <Education />
       </section>
+      <Skills />
       <Certifications />
       <Testimonials />
       <AreYouReady />
