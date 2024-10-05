@@ -1,4 +1,4 @@
-import Error404 from "@/app/blocks/404";
+import Error404 from "@/components/blocks/404";
 import RenderMdx from "@/components/mdx/render-mdx";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";

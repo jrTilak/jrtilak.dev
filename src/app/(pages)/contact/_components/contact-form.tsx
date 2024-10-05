@@ -40,11 +40,11 @@ const ContactForm = () => {
     <form onSubmit={handleSubmit(onSubmit)} className="lg:mt-[50px]">
       <Card>
         <CardHeader>
-          <CardTitle>Let's 👋 Work Together</CardTitle>
+          <CardTitle>Let&apos;s 👋 Work Together</CardTitle>
           <CardDescription>
-            I'm here to help if you're searching for a product designer to bring
-            your idea to life or a design partner to help take your business to
-            the next level.
+            I&apos;m here to help if you&apos;re searching for a product
+            designer to bring your idea to life or a design partner to help take
+            your business to the next level.
           </CardDescription>
         </CardHeader>
         <CardContent>

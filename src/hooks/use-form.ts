@@ -9,7 +9,7 @@ type ValidationRules = {
 };
 
 // Define the custom useForm hook.
-export function useForm<T extends FormValues = {}>({
+export function useForm<T extends FormValues>({
   defaultValues,
 }: {
   defaultValues: T;

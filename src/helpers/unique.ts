@@ -1,5 +1,5 @@
 const unique = <T>(arr: T[]): T[] => {
-  //@ts-ignore
+  //@ts-expect-error: idk
   return [...new Set(arr)];
 };
 
