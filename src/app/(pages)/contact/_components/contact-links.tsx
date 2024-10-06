@@ -1,5 +1,5 @@
 "use client";
-import React, { Fragment } from "react";
+import React, { Fragment, useState } from "react";
 import {
   Card,
   CardContent,
@@ -12,12 +12,14 @@ import { Button } from "@/components/ui/button";
 import { CONTACTS } from "@/data/contact";
 import Link from "next/link";
 import { Separator } from "@/components/ui/separator";
-import toast from "react-hot-toast";
-import { CopyIcon } from "lucide-react";
+import toast, { CheckmarkIcon } from "react-hot-toast";
+import { CopyIcon, X } from "lucide-react";
 import { PERSONAL_DETAILS } from "@/data/personal-details";
 import { IMAGES } from "@/data/images";
 
 const ContactLinks = () => {
+  const [icon, setIcon] = useState(<CopyIcon className="size-5 ml-3" />);
+  const [isBtnDisabled, setIsBtnDisabled] = useState(false);
   return (
     <Card className="relative mt-[89px] h-fit">
       <CardHeader className="absolute -top-[89px] left-1/2 -translate-x-1/2 w-full">
@@ -62,19 +64,28 @@ const ContactLinks = () => {
       </CardContent>
       <CardFooter className="w-full">
         <Button
-          onClick={() => {
+          onClick={(e) => {
+            setIsBtnDisabled(true);
             const email = CONTACTS.find((c) => c.type === "mail")?.label;
             try {
               navigator.clipboard.writeText(email ?? "");
               toast.success(`Email copied to clipboard: ${email}`);
+              setIcon(<CheckmarkIcon className="size-5 ml-3" />);
             } catch (error) {
               toast.error("Failed to copy email to clipboard");
+              setIcon(<X className="size-5 ml-3" />);
+            } finally {
+              setTimeout(() => {
+                setIcon(<CopyIcon className="size-5 ml-3" />);
+                setIsBtnDisabled(false);
+              }, 3000);
             }
           }}
+          disabled={isBtnDisabled}
           variant={"outline"}
           className="w-full"
         >
-          Copy Email <CopyIcon className="size-5 ml-3" />
+          Copy Email {icon}
         </Button>
       </CardFooter>
     </Card>
