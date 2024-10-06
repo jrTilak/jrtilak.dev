@@ -12,13 +12,18 @@ import { CONTACTS } from "@/data/contact";
 import Link from "next/link";
 import { IMAGES } from "@/data/images";
 import { PERSONAL_DETAILS } from "@/data/personal-details";
+import { Copy } from "lucide-react";
+import OrbitingCirclesSm from "./orbiting-circles-sm";
+import OrbitingCirclesLg from "./orbiting-circles-lg";
 
 const DetailsCard = () => {
   return (
     <div className="text-center">
-      <Card className="h-[60vh] md:h-[40vh] flex items-center justify-center flex-col lg:h-auto">
+      <Card className="h-[60vh] md:h-[40vh] flex items-center justify-center flex-col lg:h-auto relative overflow-hidden">
+        <OrbitingCirclesSm />
         <CardHeader>
-          <div className="p-6 hidden lg:block">
+          <div className="p-6 hidden rounded-full relative h-[350px] lg:flex items-center justify-center">
+            <OrbitingCirclesLg />
             <Image
               src={IMAGES.avatar}
               alt=""
