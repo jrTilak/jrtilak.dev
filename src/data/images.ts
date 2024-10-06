@@ -2,10 +2,31 @@ export const IMAGES = {
   aces: "/images/aces.png",
   avatar: "/images/avatar.png",
   "neon-shark": "/images/neon-shark.png",
-  "prodigy-infotech": "/images/prodigy-infotech.png",
-  "prodigy-infotech2": "/images/prodigy-infotech2.png",
+  "prodigy-infotech": "/images/prodigy-infotech.svg",
+  "prodigy-infotech2": "/images/prodigy-infotech2.svg",
+  ioepc: "/images/ioepc.png",
+  "uncle-sams-tech": "/images/uncle-sams-tech.png",
 
   placeholders: {
     avatar: "/images/placeholders/avatar.png",
+    college: "/images/placeholders/college.svg",
+  },
+
+  icons: {
+    zod: "/icons/zod.svg",
+    "react-query": "/icons/react-query.svg",
+    "twitter-x": "/icons/twitter-x.svg",
+    vitest: "/icons/vitest.svg",
+    "react-hook-form": "/icons/react-hook-form.svg",
+  },
+
+  certifications: {
+    "fsu-webdev-competition":
+      "/images/certifications/fsu-webdev-competition.png",
+    "lor-prodigy": "/images/certifications/lor-prodigy.png",
+    "web-dev-bootcamp": "/images/certifications/web-dev-bootcamp.png",
+    "prodigy-internship": "/images/certifications/prodigy-internship.png",
+    "html-css-tutor-at-aces":
+      "/images/certifications/html-css-tutor-at-aces.png",
   },
 };

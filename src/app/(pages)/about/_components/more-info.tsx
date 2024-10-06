@@ -19,9 +19,7 @@ const MoreInfo = () => {
           {PERSONAL_DETAILS.aboutMe.header}
         </CardTitle>
         <CardDescription className="text-xs sm:text-lg flex flex-col gap-5">
-          {PERSONAL_DETAILS.aboutMe.more.map((c, i) => (
-            <p key={i}>{c}</p>
-          ))}
+          {PERSONAL_DETAILS.aboutMe.more}
         </CardDescription>
       </CardHeader>
       <CardFooter className="mt-auto">

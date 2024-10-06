@@ -1,6 +1,9 @@
+import { CERTIFICATION } from "./certification";
+import { EXPERIENCE_IN_YEARS } from "./personal-details";
+
 export const STATS = [
   {
-    value: 10,
+    value: 51,
     label: "Projects",
   },
   {
@@ -8,11 +11,11 @@ export const STATS = [
     label: "Happy Clients",
   },
   {
-    value: 5,
-    label: "years of Experience",
+    value: CERTIFICATION.length,
+    label: "Certifications",
   },
   {
-    value: 10,
-    label: "Certifications",
+    value: Number(EXPERIENCE_IN_YEARS),
+    label: "years of Experience",
   },
 ];

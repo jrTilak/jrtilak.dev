@@ -14,22 +14,22 @@ import { Button } from "@/components/ui/button";
 import { ChevronsUpIcon } from "lucide-react";
 import { cn } from "@/helpers/cn";
 
-const MAX_SKILLS = 12;
-
 const Skills = () => {
   const [showMore, setShowMore] = useState(false);
   return (
     <section className="container mx-auto" id="skills">
       <Card>
         <CardHeader>
-          <CardTitle>Skills</CardTitle>
+          <CardTitle>Area of Expertise 💼</CardTitle>
           <CardDescription className="max-w-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsum
-            similique ratione reprehenderit
+            Examine my expertise in modern frameworks and technologies that
+            drive the development of powerful web applications.
           </CardDescription>
         </CardHeader>
         <CardContent className="gap-4 grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8">
-          {SKILLS.filter((_, i) => i < MAX_SKILLS).map((a, i) => (
+          {SKILLS.filter((skill) =>
+            showMore ? true : skill.showAsExpertise
+          ).map((a, i) => (
             <Link
               href={a.href}
               key={i}
@@ -49,23 +49,21 @@ const Skills = () => {
               </span>
             </Link>
           ))}
-          {SKILLS.length > MAX_SKILLS && (
-            <Button
-              onClick={() => {
-                setShowMore((prev) => !prev);
-              }}
-              className="h-20 flex-col min-w-32"
-              variant={"outline"}
-            >
-              {showMore ? "Show less..." : "Show more..."}
-              <ChevronsUpIcon
-                className={cn(
-                  "size-5 mt-2.5 transition-all",
-                  !showMore && "rotate-180"
-                )}
-              />
-            </Button>
-          )}
+          <Button
+            onClick={() => {
+              setShowMore((prev) => !prev);
+            }}
+            className="h-full flex-col min-w-32"
+            variant={"outline"}
+          >
+            {showMore ? "Show less..." : "Show more..."}
+            <ChevronsUpIcon
+              className={cn(
+                "size-5 mt-2.5 transition-all",
+                !showMore && "rotate-180"
+              )}
+            />
+          </Button>
         </CardContent>
       </Card>
     </section>

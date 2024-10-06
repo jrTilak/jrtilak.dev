@@ -2,6 +2,7 @@ import React, { Fragment } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { STATS } from "@/data/stats";
 import { Separator } from "@/components/ui/separator";
+import { NumberTicker } from "@/components/ui/number-ticker";
 
 const Stats = () => {
   return (
@@ -23,7 +24,7 @@ const Stats = () => {
             )}
             <div className="flex flex-col items-center justify-center">
               <h3 className="text-2xl md:text-3xl lg:text-2xl xl:text-3xl font-medium">
-                {stats.value}+
+                <NumberTicker>{stats.value}</NumberTicker>+
               </h3>
               <p className="text-sm md:text-base text-muted-foreground">
                 {stats.label}

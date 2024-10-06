@@ -8,9 +8,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { DownloadIcon } from "lucide-react";
 import { PERSONAL_DETAILS } from "@/data/personal-details";
+import Link from "next/link";
 
 const MoreInfo = () => {
   return (
@@ -33,10 +34,17 @@ const MoreInfo = () => {
         </ul>
       </CardContent>
       <CardFooter className="mt-auto">
-        <Button className="ml-auto">
+        <Link
+          href={"/pdf/jrtilak-cv.pdf"}
+          download
+          target="_blank"
+          className={buttonVariants({
+            className: "ml-auto",
+          })}
+        >
           Download CV
           <DownloadIcon className="size-5 ml-3" />
-        </Button>
+        </Link>
       </CardFooter>
     </Card>
   );

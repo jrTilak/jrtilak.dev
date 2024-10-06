@@ -28,7 +28,7 @@ const Page = () => {
               Quality Services
             </CardTitle>
           </CardHeader>
-          <CardContent className="flex flex-col items-center justify-center gap-5">
+          <CardContent className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
             {SERVICES.map(({ available = true, ...service }, index) => (
               <Card
                 className={cn(
@@ -75,14 +75,14 @@ const Page = () => {
                       <Link key={index} target="_blank" href={skill?.href}>
                         <Badge
                           variant={"outline"}
-                          className="font-normal w-fit rounded-lg capitalize text-sm hover:shadow-md transition-colors"
+                          className="font-normal w-fit rounded-lg capitalize  hover:shadow-md transition-colors text-xs"
                         >
                           <Image
                             src={skill?.image}
                             alt={""}
                             width={20}
                             height={20}
-                            className="size-4"
+                            className="size-3"
                           />
                           <span className="ml-2.5">{skill?.name}</span>
                         </Badge>

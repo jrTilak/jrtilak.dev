@@ -1,3 +1,5 @@
+import { IMAGES } from "./images";
+
 export const SKILLS = [
   {
     name: "Next.js",
@@ -12,10 +14,22 @@ export const SKILLS = [
     showAsExpertise: true,
   },
   {
+    name: "Redux.js",
+    href: "https://react-redux.js.org/",
+    image: "https://www.svgrepo.com/show/452093/redux.svg",
+    showAsExpertise: true,
+  },
+  {
     name: "MongoDb",
     href: "https://expressjs.com/",
     image: "https://www.svgrepo.com/show/373845/mongo.svg",
     showAsExpertise: true,
+  },
+  {
+    name: "Firebase",
+    href: "https://firebase.google.com/",
+    image: "https://www.svgrepo.com/show/373595/firebase.svg",
+    showAsExpertise: false,
   },
   {
     name: "Express.js",
@@ -36,16 +50,76 @@ export const SKILLS = [
     showAsExpertise: true,
   },
   {
+    image: "https://www.svgrepo.com/show/333088/framer.svg",
+    name: "Framer Motion",
+    showAsExpertise: false,
+    href: "https://www.framer.com/motion/",
+  },
+  {
     name: "Typescript",
     href: "https://www.typescriptlang.org/",
     image: "https://www.svgrepo.com/show/354478/typescript-icon.svg",
     showAsExpertise: true,
   },
   {
+    image: "https://docs.pmnd.rs/zustand.ico",
+    name: "Zustand",
+    showAsExpertise: true,
+    href: "https://docs.pmnd.rs/zustand/getting-started/introduction",
+  },
+  {
+    image: IMAGES.icons["react-query"],
+    name: "React Query",
+    showAsExpertise: true,
+    href: "https://tanstack.com/query/v3/",
+  },
+  {
+    image: IMAGES.icons["react-hook-form"],
+    name: "React Hook Form",
+    showAsExpertise: true,
+    href: "https://react-hook-form.com/",
+  },
+  {
+    image: IMAGES.icons.zod,
+    name: "Zod",
+    showAsExpertise: true,
+    href: "https://zod.dev/",
+  },
+  {
+    image: IMAGES.icons.vitest,
+    name: "Vitest",
+    showAsExpertise: true,
+    href: "https://vitest.dev/",
+  },
+  {
+    name: "Node.js",
+    href: "https://nodejs.org/en",
+    image: "https://www.svgrepo.com/show/354119/nodejs-icon.svg",
+    showAsExpertise: false,
+  },
+  {
     name: "Javascript",
     href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
     image: "https://www.svgrepo.com/show/353925/javascript.svg",
-    showAsExpertise: true,
+    showAsExpertise: false,
+  },
+  {
+    name: "Git",
+    image: "https://www.svgrepo.com/show/452210/git.svg",
+    showAsExpertise: false,
+    href: "https://git-scm.com/",
+  },
+  {
+    image: "https://www.svgrepo.com/show/512317/github-142.svg",
+    name: "Github",
+    showAsExpertise: false,
+    href: "https://github.com/",
+  },
+  {
+    name: "VS Code",
+    image: "https://www.svgrepo.com/show/452129/vs-code.svg",
+    showAsExpertise: false,
+    href: "https://code.visualstudio.com/",
   },
   {
     name: "TailwindCSS",
@@ -54,15 +128,39 @@ export const SKILLS = [
     showAsExpertise: true,
   },
   {
-    name: "C Language",
-    image: "https://www.svgrepo.com/show/373482/c.svg",
-    href: "https://en.wikipedia.org/wiki/C_(programming_language)",
+    name: "SASS/SCSS",
+    href: "https://sass-lang.com/",
+    image: "https://www.svgrepo.com/show/374067/scss2.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "CSS",
+    href: "https://www.svgrepo.com/show/452185/css-3.svg",
+    image: "https://www.svgrepo.com/show/452185/css-3.svg",
     showAsExpertise: false,
   },
   {
     name: "HTML",
-    image: "https://www.svgrepo.com/show/452228/html-5.svg",
     href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    image: "https://www.svgrepo.com/show/452228/html-5.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "C Language",
+    image: "https://www.svgrepo.com/show/373482/c.svg",
+    href: "https://www.svgrepo.com/show/452228/html-5.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "Bash Scripting",
+    image: "https://www.svgrepo.com/show/353478/bash-icon.svg",
+    href: "https://devdocs.io/bash/",
+    showAsExpertise: false,
+  },
+  {
+    name: "Python",
+    image: "https://www.svgrepo.com/show/452091/python.svg",
+    href: "https://www.python.org/",
     showAsExpertise: false,
   },
 ] as const;

@@ -16,7 +16,7 @@ const TrustedBy = () => {
             href={trustedBy.href}
             key={i}
             title={trustedBy.label}
-            className="h-10 w-auto rounded-md bg-muted flex items-center justify-center px-4 py-2 grayscale hover:shadow-md transition-all"
+            className="h-10 w-auto rounded-md bg-muted flex items-center justify-center px-4 py-2 grayscale hover:grayscale-0 hover:shadow-md transition-all"
           >
             <Image
               src={trustedBy.image}

@@ -17,11 +17,13 @@ const WorksAndProjects = () => {
     <section id="work-and-projects" className="container mx-auto">
       <Card>
         <CardHeader className="text-center">
-          <CardTitle>Works & Projects</CardTitle>
+          <CardTitle className="text-2xl sm:text-4xl">
+            Works & Projects 💻
+          </CardTitle>
           <CardDescription className="max-w-xl m-auto sm:text-base">
-            Check out some of my design projects, meticulously crafted with love
-            and dedication, each one reflecting the passion and soul I poured
-            into every detail.
+            Discover a selection of projects I&apos;ve crafted with precision
+            and passion, showcasing creativity and technical prowess in every
+            detail.
           </CardDescription>
         </CardHeader>
         <div className="flex gap-2 flex-wrap px-6 py-2">

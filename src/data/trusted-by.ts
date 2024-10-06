@@ -12,6 +12,11 @@ export const TRUSTED_BY = [
     image: IMAGES["neon-shark"],
   },
   {
+    label: "Uncle Sams Tech",
+    href: "https://www.unclesamstech.com/",
+    image: IMAGES["uncle-sams-tech"],
+  },
+  {
     label: "Prodigy InfoTech",
     href: "https://prodigyinfotech.dev/",
     image: IMAGES["prodigy-infotech"],

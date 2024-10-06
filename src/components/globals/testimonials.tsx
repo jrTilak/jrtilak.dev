@@ -18,7 +18,7 @@ import {
 import { TESTIMONIALS } from "@/data/testimonials";
 import Image from "next/image";
 import Link from "next/link";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 
 import {
   Dialog,
@@ -34,10 +34,10 @@ const Testimonials = () => {
       <Carousel>
         <Card>
           <CardHeader>
-            <CardTitle>Testimonials</CardTitle>
+            <CardTitle>Words of Appreciation 💬</CardTitle>
             <CardDescription>
-              Peace in this life is based upon faith and testimony, See what
-              people say about me.
+              Discover the experiences and feedback from those who&apos;ve
+              collaborated with me.
             </CardDescription>
           </CardHeader>
           <CardContent>

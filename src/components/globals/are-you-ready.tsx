@@ -7,7 +7,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { HandshakeIcon } from "lucide-react";
 import { buttonVariants } from "../ui/button";
 
 const AreYouReady = () => {
@@ -16,12 +15,13 @@ const AreYouReady = () => {
       <Card>
         <CardHeader>
           <CardTitle className="text-2xl sm:text-4xl max-w-[800px] mx-auto">
-            Are You Ready for magic?
+            Ready for Some Web Magic? 🪄
           </CardTitle>
           <CardDescription className="text-base max-w-4xl mx-auto pt-2">
-            Reach out and let&apos;s make it happen ✨. I&apos;m also available
-            for full-time or Part-time opportunities to push the boundaries of
-            design and deliver exceptional work.
+            Whether it&apos;s crafting innovative web solutions or pushing the
+            limits of what&apos;s possible, I&apos;m here to make it happen.
+            Open to freelance work, collaborations, or even full-time
+            roles—let&apos;s create something extraordinary together!
           </CardDescription>
         </CardHeader>
         <CardFooter className="flex items-center justify-center w-full">
@@ -29,7 +29,7 @@ const AreYouReady = () => {
             href="/contact"
             className={buttonVariants({ className: "min-w-48" })}
           >
-            Let&apos;s Talk <HandshakeIcon className="ml-2.5 size-5" />
+            Let&apos;s Make Magic 💫
           </Link>
         </CardFooter>
       </Card>

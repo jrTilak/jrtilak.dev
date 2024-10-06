@@ -4,32 +4,39 @@ import { useEffect, useRef } from "react";
 import { useInView, useMotionValue, useSpring } from "framer-motion";
 
 export function NumberTicker({
-  value,
+  children,
   direction = "up",
   delay = 0,
   className,
   decimalPlaces = 0,
 }: {
-  value: number;
+  children: number;
   direction?: "up" | "down";
   className?: string;
   delay?: number; // delay in s
   decimalPlaces?: number;
 }) {
   const ref = useRef<HTMLSpanElement>(null);
-  const motionValue = useMotionValue(direction === "down" ? value : 0);
+  const motionValue = useMotionValue(direction === "down" ? children : 0);
   const springValue = useSpring(motionValue, {
     damping: 60,
     stiffness: 100,
   });
-  const isInView = useInView(ref, { once: true, margin: "0px" });
+  const isInView = useInView(ref, {
+    margin: "0px",
+    amount: 0.5,
+    once: false,
+  });
 
   useEffect(() => {
-    isInView &&
+    if (isInView) {
       setTimeout(() => {
-        motionValue.set(direction === "down" ? 0 : value);
+        motionValue.set(direction === "down" ? 0 : children);
       }, delay * 1000);
-  }, [motionValue, isInView, delay, value, direction]);
+    } else {
+      motionValue.set(direction === "down" ? children : 0);
+    }
+  }, [motionValue, isInView, delay, children, direction]);
 
   useEffect(
     () =>
@@ -44,5 +51,9 @@ export function NumberTicker({
     [springValue, decimalPlaces]
   );
 
-  return <span className={className} ref={ref} />;
+  return (
+    <span className={className} ref={ref}>
+      {direction === "down" ? 0 : children}
+    </span>
+  );
 }

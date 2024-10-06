@@ -10,7 +10,7 @@ const AreaOfExpertise = () => {
       <CardHeader>
         <CardTitle>Area of Expertise</CardTitle>
       </CardHeader>
-      <CardContent className="flex items-center gap-4 flex-wrap">
+      <CardContent className="gap-4 grid grid-cols-2 xs:grid-cols-3 sm:grid-cols-4 md:grid-cols-5 lg:grid-cols-6 xl:grid-cols-8">
         {SKILLS.filter((skill) => skill.showAsExpertise).map((a, i) => (
           <Link
             href={a.href}
@@ -24,7 +24,6 @@ const AreaOfExpertise = () => {
               height={50}
               width={50}
               className="object-contain object-center w-full h-6 sm:h-8 rounded-md"
-              quality={100}
             />
             <span className="text-sm text-muted-foreground text-center">
               {a.name}
