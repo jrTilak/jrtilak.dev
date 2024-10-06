@@ -5,6 +5,7 @@ import SecondaryBlogCard from "./_components/secondary-blog-card";
 import AllTags from "./_components/all-tags";
 import BlogCard from "./_components/blog-card";
 import unique from "@/helpers/unique";
+import Error404 from "@/components/blocks/404";
 
 const Page = async () => {
   const blogs = await getAllBlogs();
@@ -18,9 +19,10 @@ const Page = async () => {
   return (
     <section className="flex flex-col gap-6 md:gap-12 xl:gap-24 container m-auto max-w-7xl">
       {blogs.length === 0 && (
-        <div className="flex items-center justify-center flex-col gap-3">
-          <h1 className="text-lg md:text-2xl mt-20">No blogs available</h1>
-        </div>
+        <Error404
+          title="No blogs found"
+          subtitle="Please check back later, or try a different page."
+        />
       )}
       <div className="flex flex-col gap-y-4 md:gap-y-7 xl:gap-y-9">
         {/* first blog */}

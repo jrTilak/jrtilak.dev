@@ -7,7 +7,7 @@ type Props = {
 
 const Error404 = ({ subtitle, title }: Props) => {
   return (
-    <div className="container relative m-auto flex h-[calc(100vh-100px)] flex-col items-center justify-center">
+    <div className="container relative m-auto flex h-[calc(100vh-350px)] flex-col items-center justify-center">
       <svg
         width={314}
         height={171}

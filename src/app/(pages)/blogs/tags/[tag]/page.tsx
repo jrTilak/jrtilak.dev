@@ -2,6 +2,7 @@ import { getAllBlogs } from "@/services/blogs";
 import AllTags from "../../_components/all-tags";
 import unique from "@/helpers/unique";
 import BlogCard from "../../_components/blog-card";
+import Error404 from "@/components/blocks/404";
 
 type Props = {
   params: {
@@ -38,10 +39,10 @@ const BlogByTag = async ({ params: { tag } }: Props) => {
           {/* all remaining blogs */}
           <div className="flex flex-col gap-6 w-full">
             {blogs.length === 0 ? (
-              <div className="text-center text-lg md:text-xl mt-12">
-                No blogs found with tag:{" "}
-                <span className="text-primary">{tag}</span>
-              </div>
+              <Error404
+                title="No blogs found for this tag"
+                subtitle="Please check back later, or try a different page."
+              />
             ) : (
               blogs.map((blog) => {
                 return <BlogCard key={blog.slug} {...blog} />;

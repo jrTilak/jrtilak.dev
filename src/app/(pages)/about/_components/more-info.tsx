@@ -7,9 +7,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { MailPlusIcon } from "lucide-react";
 import { PERSONAL_DETAILS } from "@/data/personal-details";
+import Link from "next/link";
 
 const MoreInfo = () => {
   return (
@@ -22,11 +23,16 @@ const MoreInfo = () => {
           {PERSONAL_DETAILS.aboutMe.more}
         </CardDescription>
       </CardHeader>
-      <CardFooter className="mt-auto">
-        <Button className="ml-auto">
+      <CardFooter>
+        <Link
+          href={"/contact"}
+          className={buttonVariants({
+            className: "ml-auto",
+          })}
+        >
           Get in Touch
           <MailPlusIcon className="size-5 ml-3" />
-        </Button>
+        </Link>
       </CardFooter>
     </Card>
   );
