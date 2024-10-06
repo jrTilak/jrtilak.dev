@@ -1,6 +1,6 @@
 "use client";
 import ThemeToggle from "@/components/themes/theme-toggle";
-import { Button, buttonVariants } from "@/components/ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/helpers/cn";
 import {
   FolderGit2Icon,
