@@ -116,6 +116,18 @@ export const SKILLS = [
     href: "https://github.com/",
   },
   {
+    image: "https://www.svgrepo.com/show/373827/markdown.svg",
+    name: "Markdown",
+    showAsExpertise: false,
+    href: "https://www.markdownguide.org/",
+  },
+  {
+    image: "https://www.svgrepo.com/show/373768/light-mdx.svg",
+    name: "Mdx",
+    showAsExpertise: false,
+    href: "https://mdxjs.com/",
+  },
+  {
     name: "VS Code",
     image: "https://www.svgrepo.com/show/452129/vs-code.svg",
     showAsExpertise: false,
@@ -143,6 +155,12 @@ export const SKILLS = [
     name: "HTML",
     href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
     image: "https://www.svgrepo.com/show/452228/html-5.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "C++",
+    image: "https://www.svgrepo.com/show/452183/cpp.svg",
+    href: "https://cplusplus.com/",
     showAsExpertise: false,
   },
   {

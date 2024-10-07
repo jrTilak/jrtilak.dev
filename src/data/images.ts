@@ -29,4 +29,16 @@ export const IMAGES = {
     "html-css-tutor-at-aces":
       "/images/certifications/html-css-tutor-at-aces.png",
   },
+
+  projects: {
+    fsu: "/images/projects/fsu.png",
+    stringify: "/images/projects/stringify.png",
+    "c-games": "/images/projects/c-games.png",
+    travellian: "/images/projects/travellian.png",
+    bumblebee: "/images/projects/bumblebee.png",
+    "java-sports": "/images/projects/java-sports.png",
+    lazykit: "/images/projects/lazykit.png",
+    "aces-website": "/images/projects/aces.png",
+    gemquiz: "/images/projects/gemquiz.png",
+  },
 };

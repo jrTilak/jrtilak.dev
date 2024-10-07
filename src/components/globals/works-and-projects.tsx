@@ -10,6 +10,7 @@ import {
 import ProjectCard from "./project-card";
 import { PROJECTS } from "@/data/projects";
 import { Button } from "../ui/button";
+import unique from "@/helpers/unique";
 
 const WorksAndProjects = () => {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -27,28 +28,25 @@ const WorksAndProjects = () => {
           </CardDescription>
         </CardHeader>
         <div className="flex gap-2 flex-wrap px-6 py-2">
-          {[
-            "All",
-            ...Array.from(new Set(PROJECTS.map((p) => p.category)))
-              .flat()
-              .sort(),
-          ].map((c, i) => (
-            <Button
-              variant={
-                activeCategory === c?.toLowerCase() ? "default" : "outline"
-              }
-              size={"sm"}
-              key={i}
-              onClick={() => {
-                setActiveCategory(c?.toLowerCase());
-              }}
-              className="text-sm capitalize min-w-12"
-            >
-              {c}
-            </Button>
-          ))}
+          {unique(["All", ...PROJECTS.map((p) => p.category)].flat())
+            .sort()
+            .map((c, i) => (
+              <Button
+                variant={
+                  activeCategory === c?.toLowerCase() ? "default" : "outline"
+                }
+                size={"sm"}
+                key={i}
+                onClick={() => {
+                  setActiveCategory(c?.toLowerCase());
+                }}
+                className="text-xs capitalize min-w-16 h-fit py-1"
+              >
+                {c}
+              </Button>
+            ))}
         </div>
-        <CardContent className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <CardContent className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {PROJECTS.filter((project) =>
             activeCategory === "all"
               ? true

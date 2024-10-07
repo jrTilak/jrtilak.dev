@@ -31,23 +31,27 @@ const ProjectCard = (props: Project) => {
               width={300}
               height={200}
               className="w-full h-auto object-cover object-top sm:h-[200px]"
+              quality={100}
             />
           </div>
           <CardHeader className="pt-2">
             <div className="flex justify-between">
-              <div className="flex flex-wrap gap-2.5">
-                {props.techs.map((tech, i) => (
-                  <Badge
-                    variant={"outline"}
-                    key={i}
-                    className="font-normal w-fit rounded-lg capitalize text-xs"
-                  >
-                    {tech}
-                  </Badge>
-                ))}
+              <div className="flex gap-2.5 overflow-hidden">
+                {props.techs.map((tech, i) => {
+                  if (i > 3) return null;
+                  return (
+                    <Badge
+                      variant={"outline"}
+                      key={i}
+                      className="font-normal w-fit rounded-lg capitalize text-xs"
+                    >
+                      {tech}
+                    </Badge>
+                  );
+                })}
               </div>
             </div>
-            <CardTitle className="truncate text-lg text-left">
+            <CardTitle className="truncate text-left text-lg">
               {props.title}
             </CardTitle>
           </CardHeader>
@@ -65,14 +69,15 @@ const ProjectCard = (props: Project) => {
             <Image
               src={props.image}
               alt=""
-              width={300}
-              height={200}
+              width={1200}
+              height={800}
               quality={100}
               className="w-full h-auto object-contain object-center bg-muted max-h-[300px] shadow-md rounded-md"
             />
-            <div className="flex flex-wrap gap-4 my-5">
+            <div className="flex flex-wrap gap-x-4 gap-y-2 my-5">
               {props.techs.map((tech, i) => {
                 const skill = getSkillDetails(tech);
+
                 return (
                   <Link key={i} target="_blank" href={skill?.href}>
                     <Badge
@@ -93,7 +98,22 @@ const ProjectCard = (props: Project) => {
                 );
               })}
             </div>
-            <div className="">{props.description}</div>
+            <div className="flex flex-col gap-1">{props.description}</div>
+            {props.collaborators && props.collaborators.length > 0 && (
+              <div className="flex flex-col gap-1 mt-3">
+                <span>Collaborators</span>
+                {props.collaborators?.map((collaborator, i) => (
+                  <Link
+                    key={i}
+                    target="_blank"
+                    href={collaborator.contactUrl}
+                    className="hover:underline ml-1 text-sm"
+                  >
+                    {i + 1}. @{collaborator.name}
+                  </Link>
+                ))}
+              </div>
+            )}
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="flex !flex-row items-center justify-end">

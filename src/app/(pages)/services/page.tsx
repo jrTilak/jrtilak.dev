@@ -21,9 +21,6 @@ const Page = () => {
       <section id="services" className="container mx-auto">
         <Card>
           <CardHeader>
-            <CardDescription className="text-center text-base">
-              Card Description
-            </CardDescription>
             <CardTitle className="text-center text-2xl sm:text-4xl">
               Quality Services
             </CardTitle>
