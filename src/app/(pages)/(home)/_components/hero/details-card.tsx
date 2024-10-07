@@ -12,7 +12,6 @@ import { CONTACTS } from "@/data/contact";
 import Link from "next/link";
 import { IMAGES } from "@/data/images";
 import { PERSONAL_DETAILS } from "@/data/personal-details";
-import { Copy } from "lucide-react";
 import OrbitingCirclesSm from "./orbiting-circles-sm";
 import OrbitingCirclesLg from "./orbiting-circles-lg";
 

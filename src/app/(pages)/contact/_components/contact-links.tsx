@@ -64,7 +64,7 @@ const ContactLinks = () => {
       </CardContent>
       <CardFooter className="w-full">
         <Button
-          onClick={(e) => {
+          onClick={() => {
             setIsBtnDisabled(true);
             const email = CONTACTS.find((c) => c.type === "mail")?.label;
             try {

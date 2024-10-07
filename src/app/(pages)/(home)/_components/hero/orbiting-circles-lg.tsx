@@ -6,7 +6,7 @@ import Image from "next/image";
 import { getUniqueRandomNumbers } from "@/helpers/get-random-numbers";
 
 const OrbitingCirclesLg = () => {
-  const indexes = getUniqueRandomNumbers(0, SKILLS.length - 4, 2);
+  const indexes = getUniqueRandomNumbers(0, SKILLS.length - 4, 4);
 
   const skills = indexes.map((index) => SKILLS[index]);
 
@@ -20,7 +20,7 @@ const OrbitingCirclesLg = () => {
       >
         <Image
           src={skills[0]?.image}
-          className="size-5"
+          className="size-4"
           alt=""
           height={40}
           width={40}
@@ -35,7 +35,38 @@ const OrbitingCirclesLg = () => {
       >
         <Image
           src={skills[1]?.image}
-          className="size-5"
+          className="size-4"
+          alt=""
+          height={40}
+          width={40}
+        />
+      </OrbitingCircles>
+      <OrbitingCircles
+        className="size-[50px] border-none bg-transparent max-lg:hidden"
+        radius={160}
+        duration={20}
+        svgClassName="max-lg:hidden"
+        reverse
+      >
+        <Image
+          src={skills[2]?.image}
+          className="size-4"
+          alt=""
+          height={40}
+          width={40}
+        />
+      </OrbitingCircles>
+      <OrbitingCircles
+        className="size-[50px] border-none bg-transparent max-lg:hidden"
+        radius={160}
+        duration={20}
+        svgClassName="max-lg:hidden"
+        delay={20}
+        reverse
+      >
+        <Image
+          src={skills[3]?.image}
+          className="size-4"
           alt=""
           height={40}
           width={40}
