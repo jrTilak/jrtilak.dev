@@ -66,4 +66,8 @@
   body {
     @apply bg-background text-foreground font-bricolage-grotesque;
   }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
 }
