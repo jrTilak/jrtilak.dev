@@ -115,6 +115,7 @@ const Header = () => {
                   <Link
                     key={link.href}
                     href={link.href}
+                    onClick={closeSheet}
                     className={cn(
                       buttonVariants({ variant: "ghost" }),
                       "h-fit items-center gap-1.5 w-full justify-normal",
@@ -131,6 +132,7 @@ const Header = () => {
               <SheetFooter className="w-full">
                 <Link
                   href={"/contact"}
+                  onClick={closeSheet}
                   className={cn(
                     buttonVariants({ variant: "default" }),
                     "h-fit w-full"

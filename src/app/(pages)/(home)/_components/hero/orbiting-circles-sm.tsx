@@ -20,7 +20,7 @@ const OrbitingCirclesSm = () => {
       >
         <Image
           src={skills[0]?.image}
-          className="size-6"
+          className="size-5"
           alt=""
           height={40}
           width={40}
@@ -35,7 +35,7 @@ const OrbitingCirclesSm = () => {
       >
         <Image
           src={skills[1]?.image}
-          className="size-6"
+          className="size-5"
           alt=""
           height={40}
           width={40}
@@ -43,14 +43,14 @@ const OrbitingCirclesSm = () => {
       </OrbitingCircles>
       <OrbitingCircles
         className="size-[50px] border-none bg-transparent opacity-80 lg:hidden"
-        radius={130}
+        radius={140}
         duration={20}
         svgClassName="lg:hidden"
         reverse
       >
         <Image
           src={skills[2]?.image}
-          className="size-6"
+          className="size-5"
           alt=""
           height={40}
           width={40}
@@ -58,7 +58,7 @@ const OrbitingCirclesSm = () => {
       </OrbitingCircles>
       <OrbitingCircles
         className="size-[50px] border-none bg-transparent opacity-80 lg:hidden"
-        radius={130}
+        radius={140}
         duration={20}
         svgClassName="lg:hidden"
         delay={20}
@@ -66,7 +66,7 @@ const OrbitingCirclesSm = () => {
       >
         <Image
           src={skills[3]?.image}
-          className="size-6"
+          className="size-5"
           alt=""
           height={40}
           width={40}
