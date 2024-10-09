@@ -5,7 +5,8 @@ import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/helpers/cn";
 import { extractHeadings } from "@/helpers/extract-headings";
-import { getBlogBySlug } from "@/services/blogs";
+import { getAllBlogs, getBlogBySlug } from "@/services/blogs";
+import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -99,3 +100,36 @@ const Page = async ({ params: { slug } }: Props) => {
 };
 
 export default Page;
+
+export const generateMetadata = async ({
+  params: { slug },
+}: Props): Promise<Metadata> => {
+  const blog = await getBlogBySlug(decodeURI(slug));
+  return {
+    title: blog?.title,
+    description: blog?.summary,
+    authors: {
+      name: "Tilak Thapa",
+      url: "https://jrtilak.dev",
+    },
+    openGraph: {
+      title: blog?.title,
+      description: blog?.summary,
+      url: `https://jrtilak.dev/blogs/${slug}`,
+      type: "article",
+      images: [
+        {
+          url: blog?.image ?? "",
+        },
+      ],
+    },
+  };
+};
+
+export async function generateStaticParams() {
+  const posts = await getAllBlogs();
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+}

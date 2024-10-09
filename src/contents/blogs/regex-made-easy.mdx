@@ -1,9 +1,9 @@
 ---
-title: "Regex Made Easy (Well, Sort of!)—Learn It Without Losing Your Sanity"
+title: "Regex Made Easy (Well, Sort of!)"
 publishedAt: Mon Oct 07 2024 20:52:57 GMT+0545 (Nepal Time)
 image: "/images/blogs/regex-made-easy/thumbnail.png"
 tags: ["regex", "javascript"]
-summary: "A fun and simple guide to mastering regex without getting frustrated. Learn step-by-step with easy examples and keep your sanity intact!"
+summary: "Discover the quirky world of Regular Expressions! This fun reference reveals the secrets of text manipulation, packed with humor and practical tips to make regex your new best friend!"
 ---
 
 ## What's a Regex, Anyway?
@@ -296,61 +296,6 @@ You can combine character classes with quantifiers like `*`, `+`, and `{min,max}
    - **Meaning**: Matches one or more consecutive non-alphabetic characters.
    - **Example**: `/[^a-zA-Z]+/` matches "123", "!" or "#" in "hello123!".
 
-## Negative Lookaround in Regex
-
-**Negative lookaround** is a type of lookaround assertion in regular expressions that allows you to specify a pattern that must **not** be present in a certain position relative to your current match. It's a powerful feature that helps in creating complex patterns without including unwanted substrings.
-
-### What is Lookaround?
-
-Lookaround assertions do not consume characters in the input string. Instead, they merely assert whether a certain condition is true or false. There are two types of lookaround assertions:
-
-1. **Lookahead**: Checks if a certain pattern follows the current position.
-2. **Lookbehind**: Checks if a certain pattern precedes the current position.
-
-**Negative lookaround** can be used in both lookahead and lookbehind assertions:
-
-- **Negative Lookahead**: Asserts that a specific pattern does **not** follow the current position.
-- **Negative Lookbehind**: Asserts that a specific pattern does **not** precede the current position.
-
-### Syntax
-- **Negative Lookahead**: `X(?!Y)`
-  - **Meaning**: Match `X` only if `Y` does not follow `X`.
-- **Negative Lookbehind**: `(?<!Y)X`
-  - **Meaning**: Match `X` only if `Y` does not precede `X`.
-
-### Examples
-
-1. **Negative Lookahead**:
-
-   **Pattern**: 
-   ```regex
-   /\b\w+(?!ing)\b/
-   ```
-   - **Meaning**: Match any word that does not end with "ing".
-   - **Input**: `running jumping playing eat`
-   - **Matches**: `eat` (it won't match `running`, `jumping`, or `playing`).
-
-2. **Negative Lookbehind**:
-
-   **Pattern**: 
-   ```regex
-   /(?<!not )\b\w+\b/
-   ```
-   - **Meaning**: Match any word that does not have "not" immediately before it.
-   - **Input**: `This is not a test. Test passed!`
-   - **Matches**: `This`, `is`, `a`, `test.`, `Test`, `passed!` (it won't match "not").
-
-3. **Combining Lookarounds**:
-
-   **Pattern**: 
-   ```regex
-   /(?<!\d)\b\d{3}\b(?!\d)/
-   ```
-   - **Meaning**: Match a three-digit number that is not preceded or followed by another digit.
-   - **Input**: `123 4567 89 012`
-   - **Matches**: `123` and `012` (it won't match `4567`).
-
-
 ## Commonly Used Regex Flags
 
 Regex flags (or modifiers) alter the behavior of regular expressions, allowing for more flexibility in pattern matching. Here are some of the most commonly used flags with brief descriptions and examples.
@@ -421,4 +366,47 @@ Regex flags (or modifiers) alter the behavior of regular expressions, allowing f
   ```
   - **Input**: `こんにちは` (Japanese for "hello")
   - **Matches**: Yes, matches Unicode letters.
+
+## Common Use Cases of Regex
+
+1. **Data Validation**: Ensuring that input data conforms to a specific format, like validating email addresses, phone numbers, or credit card numbers.
+
+2. **Search and Replace**: Efficiently searching for specific patterns within text and replacing them with other strings, such as formatting phone numbers or fixing typos.
+
+3. **Text Parsing**: Extracting meaningful information from unstructured data, such as pulling URLs from a block of text or finding specific keywords in documents.
+
+4. **Log Analysis**: Analyzing log files for patterns, such as error messages, timestamps, or IP addresses, to monitor system performance or diagnose issues.
+
+5. **Web Scraping**: Extracting data from web pages by matching HTML elements, attributes, or specific content.
+
+## Commonly Used Regex Patterns
+
+1. **Email Validation**:  
+   ```regex
+   ^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$
+   ```
+
+2. **Phone Number Validation**:  
+   ```regex
+   ^\+?[0-9]{1,3}?[-. ]?([0-9]{3})[-. ]?([0-9]{3})[-. ]?([0-9]{4})$
+   ```
+
+3. **URL Matching**:  
+   ```regex
+   ^https?://[^\s/$.?#].[^\s]*$
+   ```
+
+4. **Date Format (YYYY-MM-DD)**:  
+   ```regex
+   ^\d{4}-\d{2}-\d{2}$
+   ```
+
+5. **Hexadecimal Color Code**:  
+   ```regex
+   ^#?([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$
+   ```
+
+## Conclusion
+
+Regular Expressions are like the Swiss Army knife of text processing: versatile, powerful, and a little confusing at first glance! Whether you're validating data, searching through logs, or scraping the web, regex can save you time and effort. With a sprinkle of humor and a solid understanding of its anatomy and applications, you'll soon find yourself weaving regex into your coding toolkit. So, embrace the quirks of regex, and let it transform your text manipulation game!
 
