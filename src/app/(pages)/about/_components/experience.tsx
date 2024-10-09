@@ -101,7 +101,7 @@ const Experience = () => {
                             key={i}
                             href={certificationData.image}
                             target="_blank"
-                            className="hover:scale-110 transition-all max-h-20 aspect-square"
+                            className="hover:scale-110 transition-all max-h-20 aspect-square bg-muted border border-muted rounded-md"
                             title={certificationData.title}
                           >
                             <Image
