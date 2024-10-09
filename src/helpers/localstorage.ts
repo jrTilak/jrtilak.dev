@@ -9,7 +9,7 @@ export const getLocalStorage = <T>(
   if (typeof window === "undefined" || !("localStorage" in window)) {
     return defaultValue;
   } else {
-    let val = localStorage.getItem(key);
+    const val = localStorage.getItem(key);
 
     if (config?.parse) {
       try {
