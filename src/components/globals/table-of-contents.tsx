@@ -48,12 +48,12 @@ const TableOfContents = ({ contents, watchId, className }: Props) => {
       (scrollTop / (contentHeight - visibleHeight)) * 100;
 
     // If the user has scrolled to the bottom or beyond, set percentageScrolled to 100%
-    if (scrollTop + visibleHeight >= contentHeight) {
+    if (scrollTop + visibleHeight >= contentHeight || percentageScrolled > 98) {
       percentageScrolled = 100;
     }
 
     // Update the indicator's width based on the percentage scrolled
-    setInnerIndicatorHeight(percentageScrolled);
+    setInnerIndicatorHeight(Math.ceil(percentageScrolled));
   };
 
   useEffect(() => {
