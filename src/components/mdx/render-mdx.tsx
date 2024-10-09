@@ -1,13 +1,16 @@
+"use client";
+import { cn } from "@/helpers/cn";
 import React from "react";
-
 type Props = {
   children: React.ReactNode;
+  className?: string;
+  id: string;
 };
 
-const RenderMdx = ({ children }: Props) => {
+const RenderMdx = ({ children, className, id }: Props) => {
   return (
-    <div className="prose prose-p:mb-0 prose-p:mt-0 prose-p:w-full w-full prose-thead:text-left prose-hr:mt-3 prose-hr:mb-3 prose-a:text-blue-600">
-      <div className="w-full">{children}</div>
+    <div id={id} className={cn("w-full", className)}>
+      {children}
     </div>
   );
 };

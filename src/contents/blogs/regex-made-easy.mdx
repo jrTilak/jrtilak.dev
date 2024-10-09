@@ -1,0 +1,424 @@
+---
+title: "Regex Made Easy (Well, Sort of!)—Learn It Without Losing Your Sanity"
+publishedAt: Mon Oct 07 2024 20:52:57 GMT+0545 (Nepal Time)
+image: "/images/blogs/regex-made-easy/thumbnail.png"
+tags: ["regex", "javascript"]
+summary: "A fun and simple guide to mastering regex without getting frustrated. Learn step-by-step with easy examples and keep your sanity intact!"
+---
+
+## What's a Regex, Anyway?
+In simplest terms, a regular expression (regex) is a sequence of characters that define a search pattern. You can think of it as a mini-language for searching, replacing, and extracting text in a very flexible and efficient manner.
+
+For example:
+```js
+// Find all occurrences of "hello" in a text
+const regex = /hello/g;
+```
+
+## Anatomy of a Basic Regex
+A regex pattern usually consists of three main parts:
+
+1. **Delimiters**: `/` (forward slashes) that enclose the pattern.
+2. **Pattern**: The sequence of characters defining what you're looking for.
+3. **Flags** (optional): Modify the behavior of the search.
+
+**Example:**
+```regex
+/hello/gi;
+```
+- `/`: Opening delimiter.
+- `hello`: The pattern, which matches the exact string "hello".
+- `gi`: Two flags—`g` (global) for finding all matches and `i` (case-insensitive) for ignoring letter case.
+
+## Meta-Characters in Regex
+
+1. **`.` (Dot)**: Matches any single character except a newline (`\n`).
+   
+   - Example: `/c.t/` matches "cat", "cot", "cut", etc.
+
+2. **`^` (Caret)**: Asserts the position at the start of a line or string.
+   
+   - Example: `/^cat/` matches "cat" only if it's at the beginning.
+
+3. **`$` (Dollar Sign)**: Asserts the position at the end of a line or string.
+   
+   - Example: `/cat$/` matches "cat" only if it's at the end.
+
+4. **`*` (Asterisk)**: Matches the preceding element zero or more times.
+   
+   - Example: `/ca*t/` matches "ct", "cat", "caat", etc.
+
+5. **`+` (Plus)**: Matches the preceding element one or more times.
+   
+   - Example: `/ca+t/` matches "cat", "caat", but not "ct".
+
+6. **`?` (Question Mark)**: Matches the preceding element zero or one time, making it optional.
+   
+   - Example: `/colou?r/` matches both "color" and "colour".
+
+7. **`{}` (Curly Braces)**: Specifies the exact number of times the preceding element should appear.
+   
+   - Example: `/a{3}/` matches "aaa" but not "aa".
+   - You can also specify `{min, max}`  as `/a{3,6}/` but you can make any one of them as optional.
+
+8. **`[]` (Square Brackets)**: Defines a character set or character class.
+   
+   - Example: `[aeiou]` matches any vowel.
+
+9. **`|` (Pipe)**: Acts as an OR operator, matching either the pattern before or after it.
+   
+   - Example: `/cat|dog/` matches either "cat" or "dog".
+
+10. **`()` (Parentheses)**: Groups patterns and captures matched content.
+    
+    - Example: `/(cat|dog)/` matches either "cat" or "dog" and captures it.
+
+11. **`\` (Backslash)**: Escapes special characters or indicates a special sequence.
+
+    - Example: `\.` matches a literal dot.
+
+
+## Some Regex Shorthand Character Classes
+
+1. **`\d`**:  
+   - **Meaning**: Matches any digit (0-9).  
+   - **Equivalent**: `[0-9]`.  
+   - **Example**: `/\d+/` matches "123", "456", "7890", etc.
+
+2. **`\D`**:  
+   - **Meaning**: Matches any non-digit character.  
+   - **Equivalent**: `[^0-9]`.  
+   - **Example**: `/\D+/` matches "abc", "!", "@#", etc.
+
+3. **`\w`**:  
+   - **Meaning**: Matches any word character (alphanumeric + underscore).  
+   - **Equivalent**: `[a-zA-Z0-9_]`.  
+   - **Example**: `/\w+/` matches "hello", "world_123", "my_variable", etc.
+
+4. **`\W`**:  
+   - **Meaning**: Matches any non-word character.  
+   - **Equivalent**: `[^a-zA-Z0-9_]`.  
+   - **Example**: `/\W+/` matches "!", "@#", " ", etc.
+
+5. **`\s`**:  
+   - **Meaning**: Matches any whitespace character (space, tab, newline).  
+   - **Equivalent**: `[ \t\r\n\f]`.  
+   - **Example**: `/\s+/` matches " " (space), "\t" (tab), "\n" (new line), etc.
+
+6. **`\S`**:  
+   - **Meaning**: Matches any non-whitespace character.  
+   - **Equivalent**: `[^ \t\r\n\f]`.  
+   - **Example**: `/\S+/` matches "hello", "world", etc.
+
+7. **`\b`**:  
+   - **Meaning**: Matches a word boundary (position between a word and non-word character).  
+   - **Example**: `/\bcat\b/` matches "cat" as a whole word, but not "caterpillar".
+
+8. **`\B`**:  
+   - **Meaning**: Matches a non-word boundary.  
+   - **Example**: `/\Bcat/` matches "caterpillar" but not " cat".
+
+9. **`\A`**:  
+   - **Meaning**: Matches the beginning of the string.  
+   - **Example**: `/\Ahello/` matches "hello" only if it appears at the very start of the string.
+
+10. **`\Z`**:  
+   - **Meaning**: Matches the end of the string.  
+   - **Example**: `/world\Z/` matches "world" only if it appears at the very end of the string.
+
+## Capture Groups in Regex
+
+Capture groups are an essential feature in regular expressions that allow you to extract and manipulate specific parts of a matched string. They are defined using parentheses `()` and can be used for grouping patterns, extracting data, or applying repetition operators.
+
+### How to Use Capture Groups
+
+- **Creating a Capture Group:**  
+  To create a capture group, enclose the part of your pattern you want to capture inside parentheses. For example:
+
+  ```regex
+  /(cat)/ 
+  ```
+
+  Here, `(cat)` is a capture group that matches the string "cat". If used in a match operation, it would extract "cat" as a captured group.
+
+- **Using Multiple Capture Groups:**  
+  You can have multiple capture groups in a single regex pattern, and each will be numbered sequentially based on their order of appearance.
+
+  ```regex
+  /(cat) (dog)/
+  ```
+
+  This pattern contains two capture groups: `(cat)` and `(dog)`. If used to match the string "cat dog", it would extract "cat" as Group 1 and "dog" as Group 2.
+
+### Non-Capturing Groups
+
+Sometimes, you might want to group parts of a pattern but don’t need to capture the matched text. In such cases, you can use non-capturing groups. Non-capturing groups start with `(?:...)` instead of just `(...)`. This allows you to group patterns without storing them in memory or affecting the capture group numbering.
+
+**Example of a Non-Capturing Group:**
+
+```regex
+/(?:cat|dog) house/
+```
+
+- This pattern matches either "cat house" or "dog house" without capturing "cat" or "dog". So, even though the pattern has a group, it won’t store "cat" or "dog" as a captured group.
+
+### Converting Capture Group to Non-Capturing Group
+
+You can easily convert a capture group into a non-capturing group by adding `?:` right after the opening parenthesis.
+
+**Example:**
+
+- **Capture Group**:  
+  ```regex
+  /(cat|dog)/
+  ```
+  This pattern captures "cat" or "dog".
+
+- **Non-Capturing Group**:  
+  ```regex
+  /(?:cat|dog)/
+  ```
+  This pattern matches "cat" or "dog" without capturing it.
+
+### Naming Capture Groups
+
+Named capture groups allow you to assign a specific name to a group, making it easier to reference in your code. Named groups use the syntax `(?<name>...)` where `name` is the identifier you want to give to the group.
+
+**Example of Named Capture Groups:**
+
+```regex
+/(?<animal>cat|dog)/
+```
+
+- In this pattern, the group `(cat|dog)` is named `animal`.
+- If used in a match operation, the captured value can be accessed using the group name `animal` instead of a numeric index.
+
+**Practical Example:**
+
+```javascript
+const pattern = /(?<day>\d{2})-(?<month>\d{2})-(?<year>\d{4})/;
+const match = pattern.exec("23-09-2024");
+
+console.log(match.groups.day);    // Outputs: "23"
+console.log(match.groups.month);  // Outputs: "09"
+console.log(match.groups.year);   // Outputs: "2024"
+```
+
+## Character Classes and Negation in Regex
+
+Character classes are a powerful feature in regular expressions that allow you to specify a set of characters to match. They are defined using square brackets `[]` and help match one character from the set provided. You can also negate a character class to specify a set of characters that should **not** be matched.
+
+### Character Classes
+
+A character class matches **any** one character inside the square brackets. Here are a few examples:
+
+1. **Basic Character Class**:  
+   ```regex
+   [abc]
+   ```
+   - **Meaning**: Matches any one of the characters 'a', 'b', or 'c'.
+   - **Example**: `/[abc]/` matches "a", "b", or "c" in "cat", "bat", or "apple".
+
+2. **Character Ranges**:  
+   ```regex
+   [a-z]
+   ```
+   - **Meaning**: Matches any lowercase letter from 'a' to 'z'.
+   - **Example**: `/[a-z]/` matches any lowercase letter in "hello", "world", etc.
+
+3. **Multiple Ranges**:  
+   ```regex
+   [a-zA-Z0-9]
+   ```
+   - **Meaning**: Matches any lowercase letter, uppercase letter, or digit (0-9).
+   - **Example**: `/[a-zA-Z0-9]/` matches any letter or digit in "Hello123".
+
+4. **Combining Characters and Ranges**:  
+   ```regex
+   [aeiou0-9]
+   ```
+   - **Meaning**: Matches any vowel (a, e, i, o, u) or digit (0-9).
+   - **Example**: `/[aeiou0-9]/` matches "e", "o", or "5" in "hello", "world", or "123".
+
+### Negated Character Classes
+
+Negation allows you to specify a set of characters that **should not** be matched. To create a negated character class, use a caret `^` right after the opening square bracket.
+
+**Example of a Negated Character Class:**
+
+```regex
+[^a-z]
+```
+
+- **Meaning**: Matches any character that is not a lowercase letter from 'a' to 'z'.
+- **Example**: `/[^a-z]/` matches any non-lowercase letter character such as "1", "A", "#", etc.
+
+### Common Use Cases for Negation
+
+1. **Matching Non-Digit Characters**:  
+   ```regex
+   [^0-9]
+   ```
+   - **Meaning**: Matches any character that is not a digit (0-9).
+   - **Example**: `/[^0-9]/` matches "a", "#", "!", etc.
+
+2. **Matching Non-Whitespace Characters**:  
+   ```regex
+   [^\s]
+   ```
+   - **Meaning**: Matches any character that is not a whitespace.
+   - **Example**: `/[^\s]/` matches "a", "b", "c", "1", etc. but not " " (space).
+
+3. **Matching Non-Alphanumeric Characters**:  
+   ```regex
+   [^a-zA-Z0-9]
+   ```
+   - **Meaning**: Matches any character that is not a letter or digit.
+   - **Example**: `/[^a-zA-Z0-9]/` matches special characters like "@", "#", "!", etc.
+
+### Using Character Classes with Quantifiers
+
+You can combine character classes with quantifiers like `*`, `+`, and `{min,max}` to match more complex patterns.
+
+**Examples:**
+
+1. **Match Any Non-Digit Sequence**:  
+   ```regex
+   /[^0-9]+/
+   ```
+   - **Meaning**: Matches one or more consecutive non-digit characters.
+   - **Example**: `/[^0-9]+/` matches "abc" or "XYZ" in "abc123XYZ".
+
+2. **Match Any Non-Alphabetic Sequence**:  
+   ```regex
+   /[^a-zA-Z]+/
+   ```
+   - **Meaning**: Matches one or more consecutive non-alphabetic characters.
+   - **Example**: `/[^a-zA-Z]+/` matches "123", "!" or "#" in "hello123!".
+
+## Negative Lookaround in Regex
+
+**Negative lookaround** is a type of lookaround assertion in regular expressions that allows you to specify a pattern that must **not** be present in a certain position relative to your current match. It's a powerful feature that helps in creating complex patterns without including unwanted substrings.
+
+### What is Lookaround?
+
+Lookaround assertions do not consume characters in the input string. Instead, they merely assert whether a certain condition is true or false. There are two types of lookaround assertions:
+
+1. **Lookahead**: Checks if a certain pattern follows the current position.
+2. **Lookbehind**: Checks if a certain pattern precedes the current position.
+
+**Negative lookaround** can be used in both lookahead and lookbehind assertions:
+
+- **Negative Lookahead**: Asserts that a specific pattern does **not** follow the current position.
+- **Negative Lookbehind**: Asserts that a specific pattern does **not** precede the current position.
+
+### Syntax
+- **Negative Lookahead**: `X(?!Y)`
+  - **Meaning**: Match `X` only if `Y` does not follow `X`.
+- **Negative Lookbehind**: `(?<!Y)X`
+  - **Meaning**: Match `X` only if `Y` does not precede `X`.
+
+### Examples
+
+1. **Negative Lookahead**:
+
+   **Pattern**: 
+   ```regex
+   /\b\w+(?!ing)\b/
+   ```
+   - **Meaning**: Match any word that does not end with "ing".
+   - **Input**: `running jumping playing eat`
+   - **Matches**: `eat` (it won't match `running`, `jumping`, or `playing`).
+
+2. **Negative Lookbehind**:
+
+   **Pattern**: 
+   ```regex
+   /(?<!not )\b\w+\b/
+   ```
+   - **Meaning**: Match any word that does not have "not" immediately before it.
+   - **Input**: `This is not a test. Test passed!`
+   - **Matches**: `This`, `is`, `a`, `test.`, `Test`, `passed!` (it won't match "not").
+
+3. **Combining Lookarounds**:
+
+   **Pattern**: 
+   ```regex
+   /(?<!\d)\b\d{3}\b(?!\d)/
+   ```
+   - **Meaning**: Match a three-digit number that is not preceded or followed by another digit.
+   - **Input**: `123 4567 89 012`
+   - **Matches**: `123` and `012` (it won't match `4567`).
+
+
+## Commonly Used Regex Flags
+
+Regex flags (or modifiers) alter the behavior of regular expressions, allowing for more flexibility in pattern matching. Here are some of the most commonly used flags with brief descriptions and examples.
+
+### 1. **`i` (Ignore Case)**
+
+- **Description**: Makes the pattern matching case-insensitive.
+- **Example**:
+  ```regex
+  /hello/i
+  ```
+  - **Input**: `Hello`, `HELLO`, `hello`
+  - **Matches**: All variations of "hello".
+
+### 2. **`g` (Global)**
+
+- **Description**: Finds all matches in the input string, not just the first one.
+- **Example**:
+  ```regex
+  /cat/g
+  ```
+  - **Input**: `cat and catalog and catnip`
+  - **Matches**: `cat`, `cat` (matches twice).
+
+### 3. **`m` (Multiline)**
+
+- **Description**: Changes the behavior of `^` and `$` to match the start and end of each line, not just the whole string.
+- **Example**:
+  ```regex
+  /^test/m
+  ```
+  - **Input**: 
+    ```
+    test line 1
+    another line
+    test line 2
+    ```
+  - **Matches**: Both occurrences of "test".
+
+### 4. **`s` (Dot All)**
+
+- **Description**: Allows the dot `.` to match newline characters.
+- **Example**:
+  ```regex
+  /hello.world/s
+  ```
+  - **Input**: `hello\nworld`
+  - **Matches**: Yes, it matches across the newline.
+
+### 5. **`x` (Extended)**
+
+- **Description**: Allows for whitespace and comments in the regex pattern for better readability.
+- **Example**:
+  ```regex
+  /hello   # Match hello
+  \s       # Match whitespace
+  world/x
+  ```
+  - **Input**: `hello world`
+  - **Matches**: Yes, ignores whitespace and comments.
+
+### 6. **`u` (Unicode)**
+
+- **Description**: Treats the pattern and the input as Unicode strings, enabling support for characters outside the ASCII range.
+- **Example**:
+  ```regex
+  /\p{L}/u
+  ```
+  - **Input**: `こんにちは` (Japanese for "hello")
+  - **Matches**: Yes, matches Unicode letters.
+

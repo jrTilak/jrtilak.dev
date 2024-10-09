@@ -14,7 +14,7 @@ export default function Layout({
 }>) {
   return (
     <html lang="en">
-      <body>
+      <body className="scrollbar">
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
           <RootLayout>{children}</RootLayout>
           <TopLoader />

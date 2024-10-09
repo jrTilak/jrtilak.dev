@@ -3,6 +3,7 @@ import path from "path";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { Blog, BlogMetaData } from "@/types/blog.types";
 import { MDXComponents } from "@/components/mdx/mdx-components";
+import { insertHeadingIndexes } from "@/helpers/insert-heading-indexes";
 
 const PATH_T0_BLOGS = "src/contents/blogs";
 
@@ -51,7 +52,14 @@ export const getAllBlogs = async (): Promise<
   }
 };
 
-export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
+export const getBlogBySlug = async (
+  slug: string
+): Promise<
+  | (Blog & {
+      rawContent: string;
+    })
+  | null
+> => {
   try {
     const fullPath = path.join(process.cwd(), PATH_T0_BLOGS, `${slug}.mdx`);
 
@@ -65,8 +73,10 @@ export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
     if (!file) {
       return null;
     }
-
-    const source = fs.readFileSync(fullPath, "utf-8");
+    const source = insertHeadingIndexes(
+      fs.readFileSync(fullPath, "utf-8"),
+      [1, 2, 3]
+    );
 
     const { frontmatter, content } = await compileMDX<BlogMetaData>({
       source,
@@ -84,6 +94,7 @@ export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
       tags: frontmatter.tags,
       title: frontmatter.title,
       content,
+      rawContent: source,
     };
   } catch (error) {
     console.log(error);

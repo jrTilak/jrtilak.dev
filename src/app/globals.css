@@ -61,13 +61,38 @@
   }
 
   * {
-    @apply border-border;
+    @apply border-border scroll-smooth;
   }
   body {
-    @apply bg-background text-foreground font-bricolage-grotesque;
+    @apply bg-background text-foreground font-bricolage-grotesque overflow-y-auto;
   }
 
-  ::-webkit-scrollbar {
-    width: 10px;
+  /* scrollbar */
+
+  *::-webkit-scrollbar {
+    @apply w-0;
+  }
+  * {
+    scrollbar-width: 0;
+  }
+
+  .scrollbar::-webkit-scrollbar {
+    @apply w-1 lg:w-[7px];
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-muted-foreground/60 transition-all;
+  }
+
+  .scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-muted-foreground;
+  }
+  .scrollbar::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+
+  /* for firefox */
+  .scrollbar {
+    scrollbar-width: 3vw;
   }
 }

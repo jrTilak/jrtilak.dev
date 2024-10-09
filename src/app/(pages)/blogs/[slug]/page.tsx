@@ -1,8 +1,10 @@
 import Error404 from "@/components/blocks/404";
+import TableOfContents from "@/components/globals/table-of-contents";
 import RenderMdx from "@/components/mdx/render-mdx";
 import { Badge } from "@/components/ui/badge";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/helpers/cn";
+import { extractHeadings } from "@/helpers/extract-headings";
 import { getBlogBySlug } from "@/services/blogs";
 import Image from "next/image";
 import Link from "next/link";
@@ -18,15 +20,13 @@ type Props = {
 const Page = async ({ params: { slug } }: Props) => {
   const blog = await getBlogBySlug(decodeURI(slug));
 
-  const stringifiedContent = JSON.stringify(blog);
-
-  const rTime = readingTime(stringifiedContent);
+  const rTime = readingTime(blog?.rawContent ?? "");
   if (!blog) return <Error404 />;
 
   return (
     <div className="mt-12">
-      <section className="flex flex-col container mx-auto items-center justify-center max-w-5xl">
-        <div className="flex gap-3 flex-col items-center justify-center text-center">
+      <section className="flex flex-col container mx-auto items-center justify-center max-w-7xl">
+        <div className="flex gap-3 flex-col items-center justify-center text-center max-w-5xl">
           <div className="flex gap-3 items-center">
             {blog.tags &&
               blog.tags.map((tag) => (
@@ -52,7 +52,7 @@ const Page = async ({ params: { slug } }: Props) => {
               />
             </div>
             <div className="text-left">
-              <div className="font-medium text-base mb-1">Tilak Thapa</div>
+              <div className="font-medium text-base">Tilak Thapa</div>
               <div className="flex items-center gap-1.5 text-gray-600">
                 <p>
                   {new Date(blog.publishedAt).toLocaleDateString("en-US", {
@@ -72,14 +72,26 @@ const Page = async ({ params: { slug } }: Props) => {
           src={blog.image}
           alt="thumbnail"
           className={cn(
-            "w-full border border-gray-300 h-auto object-center rounded-xl mt-6 max-h-[500px] shadow-md object-cover"
+            "w-full border border-gray-300 h-auto object-center rounded-xl mt-6 max-h-[500px] shadow-md object-cover max-w-5xl"
           )}
           height={800}
           width={800}
         />
-        <Separator className="mt-6" />
-        <div className="mt-12 w-full overflow-x-auto max-w-3xl m-auto">
-          <RenderMdx>{blog.content}</RenderMdx>
+        <Separator className="mt-6 max-w-5xl" />
+        <TableOfContents
+          contents={extractHeadings(blog?.rawContent, [1, 2, 3])}
+          watchId="blog-content"
+          className="w-full lg:hidden max-w-5xl static"
+        />
+        <div className="mt-12 w-full gap-16 mx-auto flex">
+          <TableOfContents
+            contents={extractHeadings(blog?.rawContent, [1, 2, 3])}
+            watchId="blog-content"
+            className="w-[250px] max-lg:hidden"
+          />
+          <RenderMdx id="blog-content" className="max-w-3xl mx-auto">
+            {blog.content}
+          </RenderMdx>
         </div>
       </section>
     </div>

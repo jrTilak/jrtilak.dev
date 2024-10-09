@@ -33,7 +33,7 @@ if (fs.existsSync(fullPath)) {
 const fileContent = `---
 title: ${slug.replace("-", " ")}
 publishedAt: ${new Date().toString()}
-image: "/images/blogs/${slug}.png"
+image: "/images/blogs/${slug}/thumbnail.png"
 tags: [],
 summary: ""
 ---
