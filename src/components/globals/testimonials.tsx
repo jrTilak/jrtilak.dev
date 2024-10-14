@@ -44,7 +44,19 @@ const Testimonials = () => {
             <CarouselContent className="">
               {TESTIMONIALS.map((testimony, i) => (
                 <CarouselItem key={i} className="md:basis-1/2 group">
-                  <div className="flex flex-col gap-9 p-4 bg-muted group-hover:shadow-lg border hover:border-primary border-muted rounded-md select-none">
+                  <div className="flex flex-col gap-9 p-4 bg-muted group-hover:shadow-lg border hover:border-primary border-muted rounded-md select-none relative">
+                    {testimony.platform === "linkedin" && (
+                      <Image
+                        src={
+                          "https://www.svgrepo.com/show/475661/linkedin-color.svg"
+                        }
+                        title="This recommendation was given on linkedin."
+                        height={40}
+                        width={40}
+                        alt=""
+                        className="absolute top-4 right-4 size-4 md:size-5"
+                      />
+                    )}
                     <div className="flex items-center gap-2.5">
                       <Image
                         src={testimony.image ?? IMAGES.placeholders.avatar}

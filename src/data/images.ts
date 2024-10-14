@@ -41,4 +41,11 @@ export const IMAGES = {
     "aces-website": "/images/projects/aces.png",
     gemquiz: "/images/projects/gemquiz.png",
   },
+
+  testimonials: {
+    "hemanta-bhandari": "/images/testimonials/hemanta-bhandari.png",
+    "rahul-sutradhar": "/images/testimonials/rahul-sutradhar.png",
+    "sandesh-poudel": "/images/testimonials/sandesh-poudel.png",
+    "sandip-sapkota": "/images/testimonials/sandip-sapkota.png",
+  },
 };

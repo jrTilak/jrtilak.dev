@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { IMAGES } from "./images";
 
 export type Testimonial = {
   name: string;
@@ -11,6 +12,66 @@ export type Testimonial = {
 };
 
 export const TESTIMONIALS: Testimonial[] = [
+  {
+    name: "Sandip Sapkota",
+    content: (
+      <>
+        Tilak Thapa is a skilled full-stack developer who I had the pleasure of
+        working with on the ACES web project. His expertise in both frontend
+        technologies (Next.js, Tailwind CSS) and backend development (API
+        design, database interactions) was invaluable in building a robust and
+        scalable platform. Tilak&apos;s ability to see the big picture and
+        contribute effectively to all aspects of the project made him a valuable
+        asset to the team. I highly recommend him for any full-stack development
+        role.
+      </>
+    ),
+    image: IMAGES.testimonials["sandip-sapkota"],
+    platform: "linkedin",
+    position: "Co-Developer / Work Associate",
+    contactUrl: "https://www.linkedin.com/in/sandip-sapkota",
+    inShort:
+      "Tilak Thapa is a skilled full-stack developer who I had the pleasure of working with on the ACES web project. His expertise in both frontend technologies (Next.js, Tailwind CSS) and backend development (API design, database interactions) was invaluable in building a robust and scalable platform. Tilak's ability to see the big picture and contribute effectively to all aspects of the project made him a valuable asset to the team. I highly recommend him for any full-stack development role.",
+  },
+  {
+    name: "Sandesh Poudel",
+    content: (
+      <>
+        Tilak is an outstanding web developer with expertise in both front-end
+        and back-end development, particularly with the MERN stack (MongoDB,
+        Express.js, React.js, and Node.js). He consistently delivers clean,
+        scalable code and has a keen eye for creating user-friendly interfaces.
+        His curiosity drives him to explore new technologies, and his
+        adaptability allows him to quickly adjust to evolving project needs.
+        Tilak&apos;s collaborative approach, problem-solving skills, and
+        attention to detail make him a valuable asset to any team. I highly
+        recommend him for any web development role.
+      </>
+    ),
+    image: IMAGES.testimonials["sandesh-poudel"],
+    platform: "linkedin",
+    position: "Cybersecurity Associate",
+    contactUrl: "https://www.linkedin.com/in/sandeshpoudel007",
+    inShort:
+      "Tilak is an outstanding web developer with expertise in both front-end and back-end development, particularly with the MERN stack (MongoDB, Express.js, React.js, and Node.js). He consistently delivers clean, scalable code and has a keen eye for creating user-friendly interfaces. His curiosity drives him to explore new technologies, and his adaptability allows him to quickly adjust to evolving project needs. Tilak's collaborative approach, problem-solving skills, and attention to detail make him a valuable asset to any team. I highly recommend him for any web development role.!",
+  },
+  {
+    name: "Rahul Sutradhar",
+    content: (
+      <>
+        Tilak is a highly skilled React developer who has been an incredible
+        colleague to work with on NeonShark. His deep knowledge, collaborative
+        spirit, and consistent support have been invaluable to me, always
+        helping solve complex challenges with ease. Best of luck Tilak!!
+      </>
+    ),
+    image: IMAGES.testimonials["rahul-sutradhar"],
+    platform: "linkedin",
+    position: "Work Associate",
+    contactUrl: "https://www.linkedin.com/in/rahul-sutradhar-a99749202",
+    inShort:
+      "Tilak is a highly skilled React developer who has been an incredible colleague to work with on NeonShark. His deep knowledge, collaborative spirit, and consistent support have been invaluable to me, always helping solve complex challenges with ease. Best of luck Tilak!!",
+  },
   {
     name: "Hemanta Bhandari",
     content: (
@@ -34,12 +95,12 @@ export const TESTIMONIALS: Testimonial[] = [
         a touch of artistry, Tilak is your go-to person.
       </>
     ),
-    image: "/images/testimonials/hemanta-bhandari.png",
+    image: IMAGES.testimonials["hemanta-bhandari"],
     platform: "linkedin",
     position: "Freelance Associate",
     contactUrl: "https://www.linkedin.com/in/hems-bhandari/",
     inShort:
-      "I&apos;ve had the pleasure of working with Tilak on a private project, and I can&apos;t say enough good things about him. His ability to take Figma designs and turn  something special. It&apos;s like watching an artist at work.",
+      "I've had the pleasure of working with Tilak on a private project, and I can't say enough good things about him. His ability to take Figma designs and turn  something special. It's like watching an artist at work.",
   },
   {
     name: "Mustafa Can Güzlük",
