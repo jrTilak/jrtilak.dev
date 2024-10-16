@@ -134,7 +134,7 @@ const Header = () => {
                       className="overflow-hidden rounded-full"
                     />
                     <AvatarFallback>
-                      {extractInitials(user?.name ?? "Guest")}
+                      {extractInitials(user?.displayName ?? "Guest")}
                     </AvatarFallback>
                   </Avatar>
                 </Button>
