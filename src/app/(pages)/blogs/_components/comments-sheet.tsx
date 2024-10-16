@@ -46,7 +46,7 @@ const CommentsSheet = ({ slug, isOpen, seIsOpen }: Props) => {
   return (
     <Sheet open={isOpen} onOpenChange={seIsOpen}>
       <SheetContent className="w-[350px] flex flex-col gap-4 p-0">
-        <div className="flex flex-col gap-3 flex-grow overflow-y-auto scrollbar p-6 pb-0">
+        <div className="flex flex-col gap-3 flex-grow overflow-y-auto scrollbar p-4 pb-0">
           <SheetHeader className="mb-4">
             <SheetTitle>Share Your Thoughts</SheetTitle>
             <SheetDescription className="text-xs">
@@ -72,7 +72,7 @@ const CommentsSheet = ({ slug, isOpen, seIsOpen }: Props) => {
             ))
           )}
         </div>
-        <SheetFooter className="flex !flex-col w-full gap-2 p-6 pt-0">
+        <SheetFooter className="flex !flex-col w-full gap-2 p-4 pt-0">
           <Textarea
             placeholder="Leave your thoughts here..."
             className="w-full resize-none"

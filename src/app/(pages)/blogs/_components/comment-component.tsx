@@ -3,13 +3,19 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 // import { Button } from "@/components/ui/button";
 import { Comment } from "@/firebase/comments";
 import { calculateTimeAgo } from "@/helpers/calculate-time-ago";
+import { cn } from "@/helpers/cn";
 
 type Props = {
   comment: Comment;
 };
 const CommentComponent = ({ comment: { user, createdAt, text } }: Props) => {
   return (
-    <div className="text-sm flex items-start gap-4">
+    <div
+      className={cn(
+        "text-sm flex items-start gap-4 p-2",
+        user?.id === process.env.NEXT_PUBLIC_ADMIN_ACCOUNT_ID && "bg-muted"
+      )}
+    >
       <Avatar className="w-8 h-8 border">
         <AvatarImage
           src={
@@ -26,8 +32,16 @@ const CommentComponent = ({ comment: { user, createdAt, text } }: Props) => {
       </Avatar>
       <div className="grid gap-1">
         <div className="flex items-center gap-2">
-          <div className="font-semibold truncate">
+          <div
+            className="font-semibold truncate"
+            title={
+              user?.id === process.env.NEXT_PUBLIC_ADMIN_ACCOUNT_ID
+                ? "Say my name!"
+                : ""
+            }
+          >
             {user?.name ?? `Guest ${user?.id ?? ""}`}
+            {user.id === process.env.NEXT_PUBLIC_ADMIN_ACCOUNT_ID && " 👑"}
             <span></span>
           </div>
           <div className="text-gray-500 text-xs dark:text-gray-400">
