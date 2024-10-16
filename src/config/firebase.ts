@@ -1,7 +1,7 @@
 "use client";
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+import { getAnalytics, isSupported } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getAuth } from "firebase/auth";
 
@@ -17,6 +17,11 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);
 
-export const analytics = getAnalytics(app);
+export const analytics = async () => {
+  if (await isSupported()) {
+    const analytics = getAnalytics(app);
+    return analytics;
+  }
+};
 export const fireStore = getFirestore(app);
 export const auth = getAuth(app);
