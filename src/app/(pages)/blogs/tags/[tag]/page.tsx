@@ -56,3 +56,18 @@ const BlogByTag = async ({ params: { tag } }: Props) => {
 };
 
 export default BlogByTag;
+
+export async function generateStaticParams() {
+  const allBlogs = await getAllBlogs();
+  const tags = unique(
+    allBlogs
+      ?.map((blog) => {
+        return blog.tags;
+      })
+      ?.flat()
+  );
+
+  return tags.map((tag) => ({
+    tag,
+  }));
+}
