@@ -20,7 +20,7 @@ const CommentComponent = ({ comment: { user, createdAt, text } }: Props) => {
       <Avatar className="w-8 h-8 border">
         <AvatarImage
           src={
-            user?.image ?? "https://www.svgrepo.com/show/393899/avatar-19.svg"
+            user?.image || "https://www.svgrepo.com/show/393899/avatar-19.svg"
           }
           alt={user?.image}
         />
