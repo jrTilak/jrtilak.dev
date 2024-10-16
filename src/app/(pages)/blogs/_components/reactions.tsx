@@ -78,7 +78,7 @@ const Reactions = ({ slug }: Props) => {
         seIsOpen={setIsCommentSectionOpen}
         slug={slug}
       />
-      <aside className="w-[50px] h-fit flex flex-col gap-0 items-center border border-muted rounded-md sticky top-28 z-10">
+      <aside className="w-full md:w-[50px] bg-background/60 backdrop-blur-[2px] min-w-[50px] h-fit flex md:flex-col gap-0 items-center border border-muted rounded-md fixed md:sticky max-md:bottom-0 max-md:left-0 max-md:right-0 md:top-28 z-10">
         <Button
           className="h-fit w-full flex flex-col gap-0 items-center group py-2"
           variant={"ghost"}
@@ -103,7 +103,8 @@ const Reactions = ({ slug }: Props) => {
             </span>
           )}
         </Button>
-        <Separator />
+        <Separator className="max-md:hidden" />
+        <Separator className="md:hidden h-8" orientation="vertical" />
         <Button
           className="h-fit w-full flex flex-col gap-0 items-center group py-2"
           variant={"ghost"}
@@ -120,7 +121,8 @@ const Reactions = ({ slug }: Props) => {
             </span>
           )}
         </Button>
-        <Separator />
+        <Separator className="md:hidden h-8" orientation="vertical" />
+        <Separator className="max-md:hidden" />
         <Button
           className="h-fit w-full flex flex-col gap-0 items-center group py-2"
           variant={"ghost"}
@@ -137,7 +139,8 @@ const Reactions = ({ slug }: Props) => {
             </span>
           )}
         </Button>
-        <Separator />
+        <Separator className="md:hidden h-8" orientation="vertical" />
+        <Separator className="max-md:hidden" />
         <Button
           disabled={isLoading}
           className="h-fit w-full flex flex-col gap-0 items-center group py-2 pointer-events-none"
@@ -153,7 +156,6 @@ const Reactions = ({ slug }: Props) => {
             </span>
           )}
         </Button>
-        <Separator />
       </aside>
     </>
   );

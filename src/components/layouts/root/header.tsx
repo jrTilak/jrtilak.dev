@@ -144,7 +144,10 @@ const Header = () => {
               <DropdownMenuContent align="end" className="min-w-40">
                 <DropdownMenuLabel>My Account</DropdownMenuLabel>
                 <DropdownMenuSeparator />
-                <DropdownMenuItem className="w-full flex items-center justify-between">
+                <DropdownMenuItem
+                  onClick={() => toast.error("Not available yet!")}
+                  className="w-full flex items-center justify-between"
+                >
                   Settings
                   <SettingsIcon className="ml-auto size-3.5" />
                 </DropdownMenuItem>
