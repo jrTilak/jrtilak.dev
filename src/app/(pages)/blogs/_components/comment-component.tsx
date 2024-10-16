@@ -38,7 +38,7 @@ const CommentComponent = ({ comment: { user, createdAt, text } }: Props) => {
                 : ""
             }
           >
-            {user?.name ?? `Guest ${user?.id ?? ""}`}
+            {user?.name || `Guest ${user?.id.substring(0, 6) ?? ""}...`}
             {user.id === process.env.NEXT_PUBLIC_ADMIN_ACCOUNT_ID && " 👑"}
             <span></span>
           </div>
