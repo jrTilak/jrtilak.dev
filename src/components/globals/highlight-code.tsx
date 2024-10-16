@@ -23,6 +23,7 @@ const HighlightCode = (props: Props) => {
     getLocalStorage("code-wrap", false)
   );
   const onCopy = () => {
+    if (typeof window === "undefined" || !("localStorage" in window)) return;
     setIsBtnDisabled(true);
     try {
       window.navigator.clipboard.writeText(props.code);
