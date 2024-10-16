@@ -11,6 +11,8 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import readingTime from "reading-time";
+import Reactions from "../_components/reactions";
+import ReactionStats from "../_components/reaction-stats";
 
 type Props = {
   params: {
@@ -40,8 +42,11 @@ const Page = async ({ params: { slug } }: Props) => {
             {blog.title}
           </h1>
           {blog.summary && (
-            <p className="text-sm md:text-base max-w-3xl">{blog.summary}</p>
+            <p className="text-sm md:text-base max-w-3xl" id="summary">
+              {blog.summary}
+            </p>
           )}
+          <ReactionStats slug={slug} />
           <div className="flex items-center justify-center gap-4 mt-4">
             <div className="flex w-10 h-10 rounded-full overflow-hidden">
               <Image
@@ -93,6 +98,7 @@ const Page = async ({ params: { slug } }: Props) => {
           <RenderMdx id="blog-content" className="max-w-3xl mx-auto">
             {blog.content}
           </RenderMdx>
+          <Reactions slug={slug} />
         </div>
       </section>
     </div>
