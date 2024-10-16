@@ -46,6 +46,7 @@ import { useAppTheme } from "@/hooks/use-app-theme";
 import toast from "react-hot-toast";
 import { signOut } from "firebase/auth";
 import { auth } from "@/config/firebase";
+import { extractInitials } from "@/helpers/extract-initials";
 
 const HEADER_LINKS = [
   {
@@ -133,10 +134,7 @@ const Header = () => {
                       className="overflow-hidden rounded-full"
                     />
                     <AvatarFallback>
-                      {user?.displayName
-                        ?.split(" ")
-                        ?.map((str) => str[0].toUpperCase())
-                        .filter((_, i) => i < 2)}
+                      {extractInitials(user?.name ?? "Guest")}
                     </AvatarFallback>
                   </Avatar>
                 </Button>

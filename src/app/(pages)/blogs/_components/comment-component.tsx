@@ -4,6 +4,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Comment } from "@/firebase/comments";
 import { calculateTimeAgo } from "@/helpers/calculate-time-ago";
 import { cn } from "@/helpers/cn";
+import { extractInitials } from "@/helpers/extract-initials";
 
 type Props = {
   comment: Comment;
@@ -24,10 +25,7 @@ const CommentComponent = ({ comment: { user, createdAt, text } }: Props) => {
           alt={user?.image}
         />
         <AvatarFallback>
-          {user?.name
-            ?.split(" ")
-            ?.map((str) => str[0].toUpperCase())
-            .filter((_, i) => i < 2)}
+          {extractInitials(user?.name ?? "Guest")}
         </AvatarFallback>
       </Avatar>
       <div className="grid gap-1">
