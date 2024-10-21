@@ -58,7 +58,8 @@ export const EXPERIENCES: Array<Experience> = [
       "Ensured high code quality through reviews and best practices.",
       "Contributed ideas during brainstorming sessions for new solutions.",
     ],
-    position: "Frontend Developer Intern",
+    position: "Web Developer Intern",
+    certifications: ["neonshark"]
   },
   {
     company: {

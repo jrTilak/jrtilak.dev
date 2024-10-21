@@ -28,6 +28,7 @@ export const IMAGES = {
     "prodigy-internship": "/images/certifications/prodigy-internship.png",
     "html-css-tutor-at-aces":
       "/images/certifications/html-css-tutor-at-aces.png",
+    neonshark: "/images/certifications/neonshark.png",
   },
 
   projects: {

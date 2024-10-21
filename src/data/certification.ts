@@ -2,6 +2,13 @@ import { IMAGES } from "./images";
 
 export const CERTIFICATION = [
   {
+    id: "neonshark",
+    image: IMAGES.certifications["neonshark"],
+    issuedAt: "Oct 1 2024",
+    link: "neonshark.co.in",
+    title: "Web Developer Internship",
+  },
+  {
     id: "html-css-tutor-at-aces",
     image: IMAGES.certifications["html-css-tutor-at-aces"],
     issuedAt: "June 23 2024",
