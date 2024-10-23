@@ -116,6 +116,7 @@ const config: Config = {
       },
       fontFamily: {
         "bricolage-grotesque": ["Bricolage Grotesque", "sans-serif"],
+        "fira-code": ["Fira Code", "monospace"],
       },
       screens: {
         xs: "400px",

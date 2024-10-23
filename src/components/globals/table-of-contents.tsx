@@ -151,7 +151,6 @@ const TOCLink = ({
   content: Heading;
   indexLevel: number;
 }) => {
-  const label = content.label.replace(/[^\w\s.]+/g, "");
   if (!content.children || content.children.length === 0) {
     return (
       <Link
@@ -162,7 +161,7 @@ const TOCLink = ({
         href={`#${generateHeadingId(content.label)}`}
         className="hover:text-primary hover:underline transition-all truncate"
       >
-        {label}
+        {content.label}
       </Link>
     );
   } else {
@@ -176,7 +175,7 @@ const TOCLink = ({
           href={`#${generateHeadingId(content.label)}`}
           className="hover:text-primary hover:underline transition-all truncate"
         >
-          {label}
+          {content.label}
         </Link>
         {content.children.map((childContent, i) => (
           <TOCLink key={i} content={childContent} indexLevel={indexLevel + 1} />

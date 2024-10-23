@@ -31,10 +31,10 @@ if (fs.existsSync(fullPath)) {
 }
 
 const fileContent = `---
-title: ${slug.replace("-", " ")}
+title: ${slug.replaceAll("-", " ")}
 publishedAt: ${new Date().toString()}
 image: "/images/blogs/${slug}/thumbnail.png"
-tags: [],
+tags: []
 summary: ""
 ---
 

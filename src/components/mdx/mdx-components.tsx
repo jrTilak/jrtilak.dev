@@ -5,7 +5,13 @@ import HighlightCode from "../globals/highlight-code";
 import { ReactElement } from "react";
 import { generateHeadingId } from "@/helpers/generate-headingId";
 import { extractTextFromElement } from "@/helpers/extract-text-from-element";
+import JSExecutor from "../globals/js-executor";
+import * as  Alert from "../ui/alert";
+import * as Icons from "lucide-react";
 export const MDXComponents = {
+  JSExecutor,
+  ...Alert,
+  ...Icons,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       id={generateHeadingId(extractTextFromElement(props.children))}
@@ -144,7 +150,7 @@ export const MDXComponents = {
   code: ({ className, ...props }: React.HTMLAttributes<HTMLElement>) => (
     <code
       className={cn(
-        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] text-sm font-bricolage-grotesque",
+        "relative rounded bg-muted px-[0.3rem] py-[0.2rem] text-base tracking-wide font-bricolage-grotesque",
         className
       )}
       {...props}
@@ -162,6 +168,13 @@ export const MDXComponents = {
     const code = (
       (children as ReactElement)?.props?.children as string
     )?.trim();
+
+    const regexToCheckExecutor = /^\/\/\s*execute\s*=\s*true\s*;/ // syntax = // execute = true;
+    if (regexToCheckExecutor.test(code)) {
+      const codeToExecute = code.replace(regexToCheckExecutor, "").trim();
+      return <JSExecutor code={codeToExecute} />;
+    }
+
     return <HighlightCode language={lang} code={code} {...props} />;
   },
 };

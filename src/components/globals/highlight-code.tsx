@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { Highlight, HighlightProps, themes } from "prism-react-renderer";
 import { Button } from "../ui/button";
 import {
@@ -10,18 +10,19 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { cn } from "@/helpers/cn";
-import { getLocalStorage, setLocalStorage } from "@/helpers/localstorage";
 
 type Props = Omit<HighlightProps, "theme" | "children" | "prism"> & {
   wrapButton?: boolean;
+  hideLineNumbers?: boolean;
 };
 
-const HighlightCode = (props: Props) => {
+const HighlightCode = ({ hideLineNumbers = false, ...props }: Props) => {
   const [icon, setIcon] = useState(<ClipboardCopyIcon className="size-3.5" />);
   const [isBtnDisabled, setIsBtnDisabled] = useState(false);
-  const [lineWrap, setLineWrap] = useState(() =>
-    getLocalStorage("code-wrap", false)
-  );
+  const [lineWrap, setLineWrap] = useState(false);
+  const [isOverflow, setIsOverflow] = useState(false); // Track overflow based on width
+  const codeRef = useRef<HTMLPreElement | null>(null); // Reference to <pre> element
+
   const onCopy = () => {
     if (typeof window === "undefined" || !("localStorage" in window)) return;
     setIsBtnDisabled(true);
@@ -40,6 +41,23 @@ const HighlightCode = (props: Props) => {
     }
   };
 
+  // Check for overflow after component mounts and whenever code changes
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (codeRef.current) {
+        const { clientWidth, scrollWidth } = codeRef.current;
+        setIsOverflow(scrollWidth > clientWidth); // Check for horizontal overflow
+      }
+    };
+
+    checkOverflow(); // Initial check
+    window.addEventListener("resize", checkOverflow); // Check on resize
+
+    return () => {
+      window.removeEventListener("resize", checkOverflow); // Cleanup
+    };
+  }, [props.code]);
+
   return (
     <div className="relative">
       <Button
@@ -51,28 +69,26 @@ const HighlightCode = (props: Props) => {
       >
         {icon}
       </Button>
-      {props.wrapButton && (
+      {/* Show wrap button only if there is a horizontal overflow */}
+      {props.wrapButton && isOverflow && (
         <Button
           size={"sm"}
           variant={"secondary"}
           onClick={() => {
-            setLineWrap((prev) => {
-              const val = !prev;
-              setLocalStorage("code-wrap", val);
-              return val;
-            });
+            setLineWrap((prev) => !prev);
           }}
           className="absolute top-9 right-2 h-fit w-fit aspect-square p-1 bg-muted max-h-full"
         >
           <WrapTextIcon className="size-3.5" />
         </Button>
       )}
-      <Highlight theme={themes.shadesOfPurple} {...props}>
+      <Highlight theme={themes.palenight} {...props}>
         {({ style, tokens, getLineProps, getTokenProps }) => (
           <pre
+            ref={codeRef} // Attach ref to <pre>
             style={style}
             className={cn(
-              "font-bricolage-grotesque p-2 rounded-lg text-left tracking-normal overflow-x-auto my-4 pr-10",
+              "font-fira-code p-2 rounded-lg text-left tracking-normal overflow-x-auto my-4 pr-10",
               lineWrap ? "text-wrap" : "text-nowrap"
             )}
           >
@@ -80,7 +96,7 @@ const HighlightCode = (props: Props) => {
               const { className, ...props } = getLineProps({ line });
               return (
                 <div key={i} className={cn("table-row", className)} {...props}>
-                  {tokens.length > 1 && (
+                  {!hideLineNumbers && tokens.length > 1 && (
                     <span className="text-sm opacity-60 table-cell pr-3 text-right select-none">
                       {i + 1}.
                     </span>
