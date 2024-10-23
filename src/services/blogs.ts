@@ -80,6 +80,7 @@ export const getBlogBySlug = async (
 
     const { frontmatter, content } = await compileMDX<BlogMetaData>({
       source,
+      // @ts-expect-error error
       components: MDXComponents,
       options: {
         parseFrontmatter: true,
