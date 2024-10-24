@@ -48,5 +48,6 @@ export const IMAGES = {
     "rahul-sutradhar": "/images/testimonials/rahul-sutradhar.png",
     "sandesh-poudel": "/images/testimonials/sandesh-poudel.png",
     "sandip-sapkota": "/images/testimonials/sandip-sapkota.png",
+    premanand: "/images/testimonials/premanand.png",
   },
 };

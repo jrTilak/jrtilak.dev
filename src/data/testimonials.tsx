@@ -13,6 +13,26 @@ export type Testimonial = {
 
 export const TESTIMONIALS: Testimonial[] = [
   {
+    name: "Premanand Chowdhury ",
+    content: (
+      <>
+        Tilak has been an invaluable asset to our team. He consistently demonstrated proficiency in developing web applications from scratch to production. His ability to lead the team independently, assist fellow members, and meet tight deadlines has been impressive. When Tilak is part of the team, we can always rely on him to accelerate the development process.
+        <br />
+        In addition to his technical expertise, Tilak proactively offers suggestions to improve tasks and takes ownership of completing them as much as possible. He consistently revisits his work to optimize and refactor it, ensuring it aligns with best practices and enhances overall code quality.
+        <br />
+        Tilak, I wish you continued success in all your future endeavors. Strive for the top 1% in everything you do.
+        <br />
+        All the best👍
+      </>
+    ),
+    image: IMAGES.testimonials["premanand"],
+    platform: "linkedin",
+    position: "Senior Developer",
+    contactUrl: "https://www.linkedin.com/in/premanand-chowdhury",
+    inShort:
+      "Tilak has been an invaluable asset to our team. He consistently demonstrated proficiency in developing web applications from scratch to production. His ability to lead the team independently, assist fellow members, and meet tight deadlines has been impressive. When Tilak is part of the team, we can always rely on him to accelerate the development process.",
+  },
+  {
     name: "Sandip Sapkota",
     content: (
       <>
