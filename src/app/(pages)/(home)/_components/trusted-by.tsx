@@ -10,7 +10,7 @@ const TrustedBy = () => {
       <CardHeader>
         <CardTitle>Trusted By</CardTitle>
       </CardHeader>
-      <CardContent className="flex items-center gap-4">
+      <CardContent className="flex items-center gap-4 flex-wrap">
         {TRUSTED_BY.map((trustedBy, i) => (
           <Link
             href={trustedBy.href}

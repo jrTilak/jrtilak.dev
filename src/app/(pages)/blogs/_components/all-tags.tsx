@@ -1,6 +1,7 @@
 "use client";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
+import { useParams } from "next/navigation";
 import React, { useState } from "react";
 type Props = {
   data: {
@@ -11,16 +12,17 @@ type Props = {
 
 const AllTags = ({ data }: Props) => {
   const [showAll, setShowAll] = useState(false);
+  const { tag: tagFromParam } = useParams() as { tag: string };
   return (
     <>
       <h3 className="text-xl font-bold">Tags</h3>
       <div className="hidden lg:flex gap-2 max-h-72 overflow-y-auto flex-wrap">
         {data.map((tag) => (
           <Link key={tag.href} href={tag.href} className="w-fit">
-            <Badge variant={"outline"}>{tag.label}</Badge>
+            <Badge variant={tagFromParam === tag.label ? "destructive" : "outline"}>{tag.label}</Badge>
           </Link>
         ))}
-      </div>
+      </div >
       <div className="lg:hidden flex gap-2 max-h-72 overflow-y-auto flex-wrap">
         {data.map((tag, i) => {
           if (!showAll && i > 3) return null;

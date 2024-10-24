@@ -7,6 +7,8 @@ import Experience from "./_components/experience";
 import Education from "./_components/education";
 import Certifications from "./_components/certifications";
 import Skills from "./_components/skills";
+import { Metadata } from "next";
+import { PERSONAL_DETAILS } from "@/data/personal-details";
 
 const Page = () => {
   return (
@@ -31,3 +33,25 @@ const Page = () => {
 };
 
 export default Page;
+
+export const metadata: Metadata = {
+  title: `About | ${PERSONAL_DETAILS.name}`,
+  description: PERSONAL_DETAILS.aboutMe.inShort,
+  authors: [
+    {
+      name: "Tilak Thapa",
+    },
+  ],
+  category: "Personal Website",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: `About | ${PERSONAL_DETAILS.name}`,
+    description: PERSONAL_DETAILS.aboutMe.inShort,
+    images: [
+      {
+        url: "/about.png",
+      },
+    ],
+  },
+};

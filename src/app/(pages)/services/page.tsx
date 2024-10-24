@@ -14,6 +14,8 @@ import { getSkillDetails } from "@/helpers/get-skill-detail";
 import Link from "next/link";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/helpers/cn";
+import { Metadata } from "next";
+import { PERSONAL_DETAILS } from "@/data/personal-details";
 
 const Page = () => {
   return (
@@ -98,3 +100,21 @@ const Page = () => {
 };
 
 export default Page;
+
+
+export const metadata: Metadata = {
+  title: `Services | ${PERSONAL_DETAILS.name}`,
+  description: "Transform your online presence with expert web development services. Specializing in Next.js, MERN stack, and cutting-edge technologies to build fast, secure, and scalable solutions. Let's create something great together!",
+  authors: [
+    {
+      name: "Tilak Thapa",
+    },
+  ],
+  category: "Personal Website",
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    title: `Services | ${PERSONAL_DETAILS.name}`,
+    description: "Transform your online presence with expert web development services. Specializing in Next.js, MERN stack, and cutting-edge technologies to build fast, secure, and scalable solutions. Let's create something great together!",
+  },
+};

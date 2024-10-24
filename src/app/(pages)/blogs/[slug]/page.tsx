@@ -116,12 +116,13 @@ export const generateMetadata = async ({
     description: blog?.summary,
     authors: {
       name: "Tilak Thapa",
-      url: "https://jrtilak.dev",
+      url: process.env.NEXT_PUBLIC_WEB_URL,
     },
+    keywords: [...(blog?.tags || []), "blog", "tilak thapa", "web development", ...(blog?.metaTags || [])],
     openGraph: {
       title: blog?.title,
       description: blog?.summary,
-      url: `https://jrtilak.dev/blogs/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_WEB_URL}/blogs/${slug}`,
       type: "article",
       images: [
         {

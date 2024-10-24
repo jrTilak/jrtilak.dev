@@ -6,6 +6,7 @@ export type BlogMetaData = {
   summary: string;
   tags: string[];
   image: string;
+  metaTags?: string[];
 };
 
 export interface Blog extends BlogMetaData {
