@@ -100,6 +100,10 @@ const Page = async ({ params: { slug } }: Props) => {
           </RenderMdx>
           <Reactions slug={slug} />
         </div>
+        <div className="sr-only">
+          {blog.tags.map((tag) => (`${tag} , `))}
+          {blog.metaTags?.map((tag) => (`${tag}, `))}
+        </div>
       </section>
     </div>
   );
@@ -122,7 +126,7 @@ export const generateMetadata = async ({
     openGraph: {
       title: blog?.title,
       description: blog?.summary,
-      url: `${process.env.NEXT_PUBLIC_WEB_URL}/blogs/${slug}`,
+      url: `${process.env.NEXT_PUBLIC_WEB_URL} / blogs / ${slug}`,
       type: "article",
       images: [
         {

@@ -35,6 +35,7 @@ title: ${slug.replaceAll("-", " ")}
 publishedAt: ${new Date().toString()}
 image: "/images/blogs/${slug}/thumbnail.png"
 tags: []
+metaTags: []
 summary: ""
 ---
 
@@ -51,4 +52,4 @@ try {
 }
 
 console.log("Blog Create Successfully!");
-console.log(`Don't forget to add image here "/images/blogs/${slug}.png"`);
+console.log(`Don't forget to add image here "/images/blogs/${slug}/thumbnail.png"`);

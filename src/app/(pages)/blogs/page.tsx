@@ -9,6 +9,7 @@ import Error404 from "@/components/blocks/404";
 
 const Page = async () => {
   const blogs = await getAllBlogs();
+  console.log(blogs);
   const tags = unique(
     blogs
       ?.map((blog) => {

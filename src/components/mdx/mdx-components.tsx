@@ -8,10 +8,12 @@ import { extractTextFromElement } from "@/helpers/extract-text-from-element";
 import JSExecutor from "../globals/js-executor";
 import * as  Alert from "../ui/alert";
 import * as Icons from "lucide-react";
+import * as Table from "../ui/table";
 export const MDXComponents = {
   JSExecutor,
   ...Alert,
   ...Icons,
+  ...Table,
   h1: ({ className, ...props }: React.HTMLAttributes<HTMLHeadingElement>) => (
     <h1
       id={generateHeadingId(extractTextFromElement(props.children))}

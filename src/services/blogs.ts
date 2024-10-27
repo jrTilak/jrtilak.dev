@@ -24,7 +24,7 @@ export const getAllBlogs = async (): Promise<
       return [];
     }
 
-    return Promise.all(
+    const blogs = await Promise.all(
       files.map(async (file) => {
         const slug = file.replace(".mdx", "");
         const content = fs.readFileSync(path.join(fullPath, file), "utf-8");
@@ -46,6 +46,12 @@ export const getAllBlogs = async (): Promise<
         };
       })
     );
+
+    return blogs.sort((a, b) => {
+      return (
+        new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime()
+      );
+    });
   } catch (error) {
     console.log(error);
     return [];

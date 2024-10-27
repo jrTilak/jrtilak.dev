@@ -21,11 +21,34 @@ const JSExecutor = ({ code }: Props) => {
   const outputRef = useRef<HTMLDivElement>(null)
 
 
-  const stringify = (arg: unknown): string => {
-    if (typeof arg === "object" || Array.isArray(arg)) {
-      return JSON.stringify(arg, null, 2)
+  const formatArgs = (arg: unknown) => {
+    if (arg instanceof Boolean) {
+      return `[Boolean: ${arg.valueOf()}]`;          // Boolean wrappers
+    } else if (arg instanceof Number) {
+      return `[Number: ${arg.valueOf()}]`;           // Number wrappers
+    } else if (arg instanceof String) {
+      return `[String: "${arg.valueOf()}"]`;         // String wrappers
+    } else if (typeof arg === "symbol") {
+      return arg.toString();                         // Symbol
+    } else if (typeof arg === "bigint") {
+      return arg.toString() + "n";                   // BigInt
+    } else if (typeof arg === "function") {
+      return `[Function${arg.name ? `: ${arg.name}` : ""}]`; // Functions, with names if available
+    } else if (arg === undefined) {
+      return "undefined";                            // undefined
+    } else if (arg === null) {
+      return "null";                                 // null
+    } else if (arg instanceof Error) {
+      return `${arg.name}: ${arg.message}`;          // Error objects with name and message
+    } else if (arg instanceof Date) {
+      return arg.toISOString();                      // Date objects in ISO format
+    } else if (Array.isArray(arg)) {
+      return JSON.stringify(arg, null, 2);           // Arrays in pretty JSON
+    } else if (typeof arg === "object") {
+      return JSON.stringify(arg, null, 2);           // Objects in pretty JSON
+    } else {
+      return String(arg);                            // Fallback for all other primitives
     }
-    return String(arg)
   }
 
   const executeCode = useCallback((code: string) => {
@@ -48,7 +71,7 @@ const JSExecutor = ({ code }: Props) => {
       previousConsoleLog(args)
       setOutput(prev => [
         ...prev,
-        ...args.map<Output>(arg => ({ type: "log", result: stringify(arg) }))
+        ...args.map<Output>(arg => ({ type: "log", result: formatArgs(arg) }))
       ]);
     };
 
@@ -56,7 +79,7 @@ const JSExecutor = ({ code }: Props) => {
     console.error = (...args) => {
       setOutput(prev => [
         ...prev,
-        ...args.map<Output>(arg => ({ type: "error", result: stringify(arg) }))
+        ...args.map<Output>(arg => ({ type: "error", result: formatArgs(arg) }))
       ]);
     };
 
@@ -111,7 +134,7 @@ const JSExecutor = ({ code }: Props) => {
         {output.map((log, index) => (
           <div
             key={index}
-            className={`rounded-lg ${log.type === "log" ? "text-foreground" : "text-destructive"}`}
+            className={`rounded-lg min-h-6 ${log.type === "log" ? "text-foreground" : "text-destructive"}`}
           >
             {log.result}
           </div>
