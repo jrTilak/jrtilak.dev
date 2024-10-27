@@ -1,4 +1,3 @@
-"use client";
 import React from "react";
 
 import ContactLinks from "./_components/contact-links";
