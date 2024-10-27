@@ -20,6 +20,14 @@ const JSExecutor = ({ code }: Props) => {
   const [isBtnDisabled, setIsBtnDisabled] = useState(false);
   const outputRef = useRef<HTMLDivElement>(null)
 
+  function stringify(obj: unknown) {
+    return JSON.stringify(
+      obj,
+      (key, value) => (value === undefined ? "__undefined__" : value),
+      2 // For pretty printing, can be removed or adjusted
+    ).replace(/"__undefined__"/g, "undefined");
+  }
+
 
   const formatArgs = (arg: unknown) => {
     if (arg instanceof Boolean) {
@@ -43,9 +51,9 @@ const JSExecutor = ({ code }: Props) => {
     } else if (arg instanceof Date) {
       return arg.toISOString();                      // Date objects in ISO format
     } else if (Array.isArray(arg)) {
-      return JSON.stringify(arg, null, 2);           // Arrays in pretty JSON
+      return stringify(arg);           // Arrays in pretty JSON
     } else if (typeof arg === "object") {
-      return JSON.stringify(arg, null, 2);           // Objects in pretty JSON
+      return stringify(arg);           // Objects in pretty JSON
     } else {
       return String(arg);                            // Fallback for all other primitives
     }
@@ -68,6 +76,7 @@ const JSExecutor = ({ code }: Props) => {
 
     // Override console.log to push each argument as a separate log entry
     console.log = (...args) => {
+      previousConsoleLog(...args);
       setOutput(prev => [
         ...prev,
         ...args.map<Output>(arg => ({ type: "log", result: formatArgs(arg) }))
