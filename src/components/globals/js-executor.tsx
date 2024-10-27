@@ -68,7 +68,6 @@ const JSExecutor = ({ code }: Props) => {
 
     // Override console.log to push each argument as a separate log entry
     console.log = (...args) => {
-      previousConsoleLog(args)
       setOutput(prev => [
         ...prev,
         ...args.map<Output>(arg => ({ type: "log", result: formatArgs(arg) }))

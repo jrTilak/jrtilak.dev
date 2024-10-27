@@ -49,7 +49,6 @@ const Reactions = ({ slug }: Props) => {
 
   const retrieveStats = useCallback(async () => {
     const stats = await getStats(slug);
-    console.log(stats);
     if (stats) setStatsData(stats);
     setIsLoading(false);
   }, [slug]);
