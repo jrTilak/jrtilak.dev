@@ -42,6 +42,14 @@ summary: ""
 ## Hello World
 `;
 
+
+// Create the images directory if it doesn't exist
+const imageDir = path.join(process.cwd(), 'public', 'images', 'blogs', slug);
+try {
+  fs.mkdirSync(imageDir, { recursive: true });
+} catch (err) {
+  console.warn('Failed to create images directory:', err);
+}
 // write the content to file
 try {
   fs.writeFileSync(fullPath, fileContent);
