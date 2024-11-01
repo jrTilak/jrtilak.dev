@@ -1,5 +1,5 @@
 import * as fs from "fs";
-
+import path from 'path';
 const PATH_TO_BLOGS_FROM_ROOT = "/src/contents/blogs";
 
 console.log("Creating a new blog post...");
