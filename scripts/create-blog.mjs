@@ -1,5 +1,5 @@
 import * as fs from "fs";
-
+import path from 'path';
 const PATH_TO_BLOGS_FROM_ROOT = "/src/contents/blogs";
 
 console.log("Creating a new blog post...");
@@ -42,6 +42,14 @@ summary: ""
 ## Hello World
 `;
 
+
+// Create the images directory if it doesn't exist
+const imageDir = path.join(process.cwd(), 'public', 'images', 'blogs', slug);
+try {
+  fs.mkdirSync(imageDir, { recursive: true });
+} catch (err) {
+  console.warn('Failed to create images directory:', err);
+}
 // write the content to file
 try {
   fs.writeFileSync(fullPath, fileContent);
