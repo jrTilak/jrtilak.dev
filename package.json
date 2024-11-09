@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "create-blog": "node scripts/create-blog.mjs"
+    "create:blog": "node scripts/create-blog.mjs"
   },
   "dependencies": {
     "@emailjs/browser": "^4.4.1",
