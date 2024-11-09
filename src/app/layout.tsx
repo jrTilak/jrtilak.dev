@@ -6,6 +6,7 @@ import { Metadata } from "next";
 
 import "./globals.css";
 import { PERSONAL_DETAILS } from "@/data/personal-details";
+import GA from "@/components/analytics/ga";
 
 export default function Layout({
   children,
@@ -24,6 +25,7 @@ export default function Layout({
             }}
           />
         </ThemeProvider>
+        <GA />
       </body>
     </html>
   );
