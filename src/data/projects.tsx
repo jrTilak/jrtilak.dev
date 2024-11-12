@@ -29,6 +29,17 @@ export type Project = {
 
 export const PROJECTS: Project[] = [
   {
+    title: "Techfest Web - ACES",
+    category: ["web"],
+    createdAt: "Nov 5, 2024",
+    description:
+      "Get ready for v7.0 - where tech enthusiasts compete, create, and connect in events like Hackathons, UI/UX Showdowns, and more. Experience the future of innovation!",
+    image: IMAGES.projects["techfest"],
+    techs: ["Next.js", "Three.js", "TailwindCSS"],
+    type: "professional",
+    liveUrl: "https://techfest.aceserc.org/",
+  },
+  {
     title: "ACES Web - IOE",
     category: ["web"],
     createdAt: "May 5, 2024",

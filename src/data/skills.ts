@@ -56,6 +56,12 @@ export const SKILLS = [
     href: "https://www.framer.com/motion/",
   },
   {
+    image: IMAGES.icons["threejs"],
+    name: "Three.js",
+    showAsExpertise: false,
+    href: "https://threejs.org/",
+  },
+  {
     name: "Typescript",
     href: "https://www.typescriptlang.org/",
     image: "https://www.svgrepo.com/show/354478/typescript-icon.svg",

@@ -3,7 +3,7 @@ import { EXPERIENCE_IN_YEARS } from "./personal-details";
 
 export const STATS = [
   {
-    value: 51,
+    value: 52,
     label: "Projects",
   },
   {
