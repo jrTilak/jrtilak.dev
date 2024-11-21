@@ -13,6 +13,9 @@ import Link from "next/link";
 import { getCertificationDetails } from "@/helpers/get-certification.details";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/helpers/cn";
+import ImageViewer from "@/components/globals/image-viewer";
+
+
 
 const Experience = () => {
   return (
@@ -71,7 +74,7 @@ const Experience = () => {
                       <span
                         className={cn(
                           experience.date.duration.toLowerCase() ===
-                            "ongoing" && "text-primary"
+                          "ongoing" && "text-primary"
                         )}
                       >
                         {experience.date.duration})
@@ -80,14 +83,13 @@ const Experience = () => {
                   </AccordionTrigger>
 
                   <AccordionContent className="font-normal flex flex-col gap-4">
-                    <ul>
+                    <ul className="list-disc">
                       {experience.description.map((desc, i) => (
                         <li
                           key={i}
-                          className="grid grid-cols-[10px_1fr] gap-1 items-center"
+                          className="list-inside"
                         >
-                          <div className="bg-foreground size-1.5 rounded-full" />
-                          <span>{desc}</span>
+                          {desc}
                         </li>
                       ))}
                     </ul>
@@ -97,12 +99,13 @@ const Experience = () => {
                         const certificationData =
                           getCertificationDetails(certification);
                         return (
-                          <Link
+                          <ImageViewer
                             key={i}
-                            href={certificationData.image}
-                            target="_blank"
-                            className="hover:scale-110 transition-all max-h-20 aspect-square bg-muted border border-muted rounded-md"
+                            src={certificationData.image}
                             title={certificationData.title}
+                            trigger={{
+                              className: "hover:scale-110 transition-all max-h-20 aspect-square bg-muted border border-muted rounded-md"
+                            }}
                           >
                             <Image
                               src={certificationData.image}
@@ -112,7 +115,8 @@ const Experience = () => {
                               key={i}
                               className="rounded-md object-cover object-center h-full"
                             />
-                          </Link>
+                          </ImageViewer>
+
                         );
                       })}
                     </div>
