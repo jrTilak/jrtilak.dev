@@ -10,6 +10,7 @@ import {
 } from "lucide-react";
 import toast from "react-hot-toast";
 import { cn } from "@/helpers/cn";
+import { Separator } from "../ui/separator";
 
 type Props = Omit<HighlightProps, "theme" | "children" | "prism"> & {
   wrapButton?: boolean;
@@ -92,6 +93,14 @@ const HighlightCode = ({ hideLineNumbers = false, ...props }: Props) => {
               lineWrap ? "text-wrap" : "text-nowrap"
             )}
           >
+            <div className="opacity-30 mb-2.5">
+              <span className="text-sm">
+                {props.language}
+              </span>
+              <Separator className="opacity-30" />
+            </div>
+
+
             {tokens.map((line, i) => {
               const { className, ...props } = getLineProps({ line });
               return (

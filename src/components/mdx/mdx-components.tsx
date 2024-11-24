@@ -164,9 +164,12 @@ export const MDXComponents = {
   }: React.HTMLAttributes<HTMLElement> & {
     wrapButton?: boolean;
   }) => {
-    const regex = /language\s*=\s*"([^"]+)"/;
-    const match = props.className?.match(regex);
-    const lang = match ? match[1] : "js";
+    //@ts-expect-error: error
+    const className = props.className ?? children?.props?.className ?? ""
+    const regex = /language-([a-zA-Z]+)/;
+    const match = className?.match(regex);
+    const lang = match ? match[1] : "text";
+
     const code = (
       (children as ReactElement)?.props?.children as string
     )?.trim();
@@ -176,7 +179,6 @@ export const MDXComponents = {
       const codeToExecute = code.replace(regexToCheckExecutor, "").trim();
       return <JSExecutor code={codeToExecute} />;
     }
-
     return <HighlightCode language={lang} code={code} {...props} />;
   },
 };
