@@ -8,7 +8,7 @@ export const extractHeadings = (
   headingLevels: number[]
 ): Heading[] => {
   // Regex pattern to match headings (e.g., "# Heading", "## Subheading")
-  const headingRegex = /^(\s*)(#{1,6})(\s*)(.+)$/gm;
+  const headingRegex = /^(\s*)(#{1,6})(\s+)(.+)$/gm;
 
   const contents: Heading[] = [];
   const stack: { level: number; content: Heading }[] = [];
