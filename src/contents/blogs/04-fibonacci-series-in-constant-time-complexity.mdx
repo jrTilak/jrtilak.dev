@@ -1,0 +1,187 @@
+---
+title: Fibonacci Series in Constant Time Complexity O(1) [4]
+publishedAt: Thu Nov 28 2024 10:48:30 GMT+0545 (Nepal Time)
+image: "/images/blogs/04-fibonacci-series-in-constant-time-complexity/thumbnail.png"
+tags: ["dsa-series"]
+metaTags: [
+  "fibonacci series",
+  "fibonacci series in constant time complexity",
+  "fibonacci series in O(1)",
+  "fibonacci series in O(1) time complexity",
+  "fibonacci series in constant time complexity",
+]
+summary: "The Fibonacci sequence is a well-known mathematical series where each number is the sum of the two preceding ones, starting from 0 and 1. While recursive and iterative approaches are commonly used, they can be inefficient for large values of n."
+---
+
+The Fibonacci sequence is a well-known mathematical series where each number is the sum of the two preceding ones, starting from 0 and 1.
+
+```text
+0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, .....
+```
+
+So the simple method to find the `nth` fibonacci number will be:
+
+```text
+F(n) = F(n-1) + F(n-2)
+```
+where
+  - `F()` is the Fibonacci function
+  - `n` is the number of the sequence to find
+
+Now if someone asks to write the code to find the nth fibonacci number what will you do?
+
+Well the most common approach is to use `recursion` or `iteration` to find the `nth` fibonacci number. But these approaches are not efficient for large values of `n`. There are also some other approaches like `matrix exponentiation` which are efficient but they are not constant time complexity. For constant time complexity, we can a mathematical formula to find the `nth` fibonacci number.
+
+## Using Recursive Approach
+
+The recursive method is the most intuitive approach to compute Fibonacci numbers. It works by breaking down the problem into smaller sub-problems, with the base cases being `F(0) = 0` and `F(1) = 1`.
+
+### Code Implementation:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+long long fibonacciRecursive(int n) {
+    if (n <= 1)
+        return n; // Base case
+    return fibonacciRecursive(n - 1) + fibonacciRecursive(n - 2);
+}
+
+int main() {
+    int n = 10; // Example input
+    cout << "Fibonacci(" << n << ") using recursion: " << fibonacciRecursive(n) << endl;
+    return 0;
+}
+```
+
+### How It Works:
+- Each function call calculates `F(n - 1)` and `F(n - 2)` until it reaches the base cases.
+- For `n = 10`, the function calls follow a tree-like structure, with overlapping sub-problems.
+
+### Complexity:
+- **Time Complexity**: `O(2^n)`, because each call generates two additional recursive calls.
+- **Space Complexity**: `O(n)`, due to the stack space used in recursive calls.
+
+### Limitations:
+- Exponential time complexity makes it impractical for large `n`.
+- Redundant calculations lead to inefficiency.
+
+
+![Time Complexity Comparison](/images/blogs/04-fibonacci-series-in-constant-time-complexity/time-complexity.png)
+
+In the graph above, the recursive method's time complexity grows exponentially with `n`, making it unsuitable for large values. Let's explore more efficient methods to compute Fibonacci numbers.
+
+---
+
+## Iterative Method (Using a Loop)
+
+To overcome the inefficiency of recursion, an iterative method can be used. This approach calculates Fibonacci numbers in a linear manner, storing only the previous two values at each step.
+
+### Code Implementation:
+
+```cpp
+#include <iostream>
+using namespace std;
+
+long long fibonacciIterative(int n) {
+    if (n <= 1)
+        return n; // Base case
+
+    long long a = 0, b = 1, c;
+    for (int i = 2; i <= n; i++) {
+        c = a + b; // Calculate the next Fibonacci number
+        a = b;     // Update previous numbers
+        b = c;
+    }
+    return b;
+}
+
+int main() {
+    int n = 10; // Example input
+    cout << "Fibonacci(" << n << ") using iteration: " << fibonacciIterative(n) << endl;
+    return 0;
+}
+```
+
+### How It Works:
+- Start with `F(0) = 0` and `F(1) = 1`.
+- Use a loop to calculate `F(2)` through `F(n)`, updating the previous values at each step.
+
+### Complexity:
+- **Time Complexity**: `O(n)`, as it computes each Fibonacci number up to `n`.
+- **Space Complexity**: `O(1)`, as only a constant amount of memory is used.
+
+### Advantages:
+- Efficient for moderate values of `n`.
+- Avoids the overhead of recursive calls.
+
+Since, the iterative method has a linear time complexity, it is more efficient than the recursive method for large values of `n`. However, for very large values of `n`, the iterative method may still be slow as given in above graph.
+
+---
+
+## Mathematical Formula (Constant Time `O(1)`)
+
+The most efficient way to compute Fibonacci numbers is by using **Binet's Formula**, which leverages the golden ratio `Φ`. This method allows direct calculation without iteration or recursion.
+
+### Binet's Formula:
+
+![Binet's Formula](/images/blogs/04-fibonacci-series-in-constant-time-complexity/binet's-formula.png)
+
+### Code Implementation:
+
+```cpp
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+unsigned long long fibonacciFormula(int n)
+{
+  double phi = (1 + sqrt(5)) / 2;      // Golden ratio
+  return round(pow(phi, n) / sqrt(5)); // Use rounding to handle precision
+}
+
+int main()
+{
+  int n = 80; // Example input
+  cout << "Fibonacci(" << n << ") using formula: " << fibonacciFormula(n) << endl;
+  return 0;
+}
+```
+
+### How It Works:
+- The formula directly calculates the `n`-th Fibonacci number using powers of the golden ratio.
+- The `round()` function is used to handle precision errors due to floating-point arithmetic.
+
+### Complexity:
+- **Time Complexity**: `O(1)`, as it involves a fixed number of mathematical operations regardless of `n`.
+- **Space Complexity**: `O(1)`, requiring only a constant amount of memory.
+
+### Advantages:
+- The fastest method for computing Fibonacci numbers.
+- Ideal for applications where speed is critical, such as competitive programming.
+
+### Limitations:
+- **May lose precision for very large `n` due to floating-point calculations.**
+- Suitable for `n` within the range of standard data types.
+
+---
+
+### Comparison of Methods
+
+![Comparison of Methods](/images/blogs/04-fibonacci-series-in-constant-time-complexity/comparison.png)
+
+
+---
+
+### **Conclusion**
+
+- **Recursive Approach**: Simple but inefficient due to redundant calculations.
+- **Iterative Approach**: More efficient, with linear complexity, but still limited for very large `n`.
+- **Mathematical Formula**: The ultimate solution for constant time complexity, best for large `n` where speed is critical.
+
+> When calculating Fibonacci numbers for very large `n`, be cautious of **integer overflow** in C++. Standard data types like `int` and `long` may overflow for large Fibonacci values. Even `long long` has limitations. To handle large numbers, you can use types like `unsigned long long` or libraries like **GMP** for arbitrary precision arithmetic. Additionally, when using Binet's formula, floating-point precision may lead to rounding errors for very large `n`. Always choose appropriate data types or libraries to avoid overflow and ensure accuracy.
+
+For small to medium `n`, iteration is often sufficient. For large `n`, the mathematical formula is the go-to solution. 
+
+*Happy coding!* 🚀

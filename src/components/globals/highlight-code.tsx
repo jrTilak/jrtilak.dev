@@ -93,12 +93,12 @@ const HighlightCode = ({ hideLineNumbers = false, ...props }: Props) => {
               lineWrap ? "text-wrap" : "text-nowrap"
             )}
           >
-            <div className="opacity-30 mb-2.5">
+            {tokens.length > 1 && <div className="opacity-30 mb-2.5">
               <span className="text-sm">
                 {props.language}
               </span>
               <Separator className="opacity-30" />
-            </div>
+            </div>}
 
 
             {tokens.map((line, i) => {

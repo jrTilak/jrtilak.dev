@@ -3,7 +3,7 @@ export const insertHeadingIndexes = (
   headingLevels: number[] = [1, 2, 3, 4, 5, 6]
 ) => {
   // Regex pattern to match headings (e.g., "# Heading", "## Subheading")
-  const headingRegex = /^(\s*)(#{1,6})(\s*)(?!\d+\.\s)(.+)$/gm;
+  const headingRegex = /^(\s*)(#{1,6})(\s+)(?!\d+\.\s)(.+)$/gm;
 
   // Create a map to keep track of counters for each heading level
   const headingCounters: Record<number, number> = {};
@@ -42,8 +42,9 @@ export const insertHeadingIndexes = (
         ? ""
         : `${headingCounters[headingLevel]}.`;
 
+
       // Construct the new heading with the index number included, e.g., "1. Heading Text"
-      const indexedHeading = `${spaces}${hashes}${spaceAfterHashes}${headingIndex} ${headingText}`;
+      const indexedHeading = `${spaces}${hashes}${spaceAfterHashes}${headingIndex ? headingIndex + " " : ""}${headingText}`;
 
       return indexedHeading;
     }
