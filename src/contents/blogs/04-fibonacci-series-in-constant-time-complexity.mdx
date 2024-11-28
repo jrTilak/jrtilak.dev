@@ -30,7 +30,7 @@ where
 
 Now if someone asks to write the code to find the nth fibonacci number what will you do?
 
-Well the most common approach is to use `recursion` or `iteration` to find the `nth` fibonacci number. But these approaches are not efficient for large values of `n`. There are also some other approaches like `matrix exponentiation` which are efficient but they are not constant time complexity. For constant time complexity, we can a mathematical formula to find the `nth` fibonacci number.
+Well the most common approach is to use `recursion` or `iteration` to find the `nth` fibonacci number. But these approaches are not efficient for large values of `n`. There are also some other approaches like `matrix exponentiation` which are efficient but they are not constant time complexity. For constant time complexity, we can use a mathematical formula to find the `nth` fibonacci number.
 
 ## Using Recursive Approach
 
@@ -60,8 +60,8 @@ int main() {
 - For `n = 10`, the function calls follow a tree-like structure, with overlapping sub-problems.
 
 ### Complexity:
-- **Time Complexity**: `O(2^n)`, because each call generates two additional recursive calls.
-- **Space Complexity**: `O(n)`, due to the stack space used in recursive calls.
+- Time Complexity: `O(2^n)`, because each call generates two additional recursive calls.
+- Space Complexity: `O(n)`, due to the stack space used in recursive calls.
 
 ### Limitations:
 - Exponential time complexity makes it impractical for large `n`.
@@ -109,8 +109,8 @@ int main() {
 - Use a loop to calculate `F(2)` through `F(n)`, updating the previous values at each step.
 
 ### Complexity:
-- **Time Complexity**: `O(n)`, as it computes each Fibonacci number up to `n`.
-- **Space Complexity**: `O(1)`, as only a constant amount of memory is used.
+- Time Complexity: `O(n)`, as it computes each Fibonacci number up to `n`.
+- Space Complexity: `O(1)`, as only a constant amount of memory is used.
 
 ### Advantages:
 - Efficient for moderate values of `n`.
@@ -154,8 +154,8 @@ int main()
 - The `round()` function is used to handle precision errors due to floating-point arithmetic.
 
 ### Complexity:
-- **Time Complexity**: `O(1)`, as it involves a fixed number of mathematical operations regardless of `n`.
-- **Space Complexity**: `O(1)`, requiring only a constant amount of memory.
+- Time Complexity: `O(1)`, as it involves a fixed number of mathematical operations regardless of `n`.
+- Space Complexity: `O(1)`, requiring only a constant amount of memory.
 
 ### Advantages:
 - The fastest method for computing Fibonacci numbers.
