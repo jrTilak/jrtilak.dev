@@ -23,4 +23,10 @@ export const CONTACTS = [
     label: "contact@jrtilak.dev",
     image: "https://www.svgrepo.com/show/488920/email.svg",
   },
+  {
+    type: "freelancer",
+    href: "https://www.freelancer.com/u/jrtilak?frm=jrtilak&sb=t",
+    label: "jrtilak (Freelancer)",
+    image: "https://www.svgrepo.com/show/473616/freelancer.svg",
+  },
 ];

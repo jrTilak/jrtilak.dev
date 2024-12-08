@@ -20,7 +20,7 @@ export type Experience = {
 export const EXPERIENCES: Array<Experience> = [
   {
     company: {
-      name: "ACES",
+      name: "Association of Computer Engineering Students (ACES)",
       image: IMAGES["aces"],
       url: "https://www.aceserc.org/",
     },
@@ -30,13 +30,12 @@ export const EXPERIENCES: Array<Experience> = [
       duration: "Ongoing",
     },
     description: [
-      'Developed and maintained the organization"s portfolio website, enhancing online presence and user experience.',
-      'Designed and launched additional websites for a tech fest and Aces Lab, driving engagement and event participation.',
-      'Coordinated and led workshops as an instructor, empowering members with valuable skills and fostering professional development.',
-      'Organized and hosted key events such as brainstorming quizzes, Internfest, and hackathons, driving innovation and collaboration.',
-      "Cultivated a collaborative environment, enhancing learning and engagement within the team."
+      "Engineered and optimized the organization's portfolio website, boosting online presence and engagement by 107.6 %.",
+      "Built and launched custom websites for major initiatives like Tech Fest and ACES Lab, enhancing event participation and attracting sponsorships from prominent brands.",
+      "Led hands-on workshops as an instructor, empowering members with practical skills and contributing to their professional development.",
+      'Coordinated and executed flagship events such as InternFest, hackathons, and quizzes, driving innovation and collaboration.'
     ],
-    position: "Developer",
+    position: "Developer / Technical Team",
     certifications: ["html-css-tutor-at-aces"],
   },
   {
@@ -51,11 +50,9 @@ export const EXPERIENCES: Array<Experience> = [
       duration: "8 months",
     },
     description: [
-      'Led and managed a team on 5+ projects, driving successful outcomes through strategic planning and effective execution.',
-      'Delivered 10+ projects on time, collaborating seamlessly with cross-functional teams to meet client requirements and exceed expectations.',
-      'Cultivated strong client relationships by actively engaging with them to understand their needs and provide tailored solutions.',
-      'Streamlined workflows by collaborating with team members and senior leadership.',
-      'Contributed innovative ideas during brainstorming sessions, driving the development of new solutions and enhancing project outcomes.'
+      'Led and directed a team across 5+ projects, ensuring precise planning and impactful execution, enhancing team synergy, and driving high-quality outcomes.',
+      "Delivered 10+ projects within deadlines, collaborating effectively with cross-functional teams to fulfill client objectives. Notable projects included an e-commerce platform for cricket gear, a course-selling platform, and a job listing platform similar to Internshala, all of which earned client trust and fostered long-term engagement.", "Built strong client rapport by actively listening to their needs and offering bespoke solutions that added significant value.",
+      'Optimized workflows through collaboration with senior leadership and team members, improving efficiency and streamlining processes.'
     ],
     position: "Web Developer Intern",
     certifications: ["neonshark"]

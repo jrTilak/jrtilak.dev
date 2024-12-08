@@ -14,7 +14,7 @@ export const PERSONAL_DETAILS = {
   postTitle: "Full Stack Developer",
   aboutMe: {
     inShort: `Curiosity-driven developer with ${EXPERIENCE_IN_YEARS}+ years of expertise building robust web apps using the MERN stack and Next.js, paired with hands-on experience in Docker and cloud deployment on AWS.`,
-    header: `I'm ${NAME}, a web/app developer.`,
+    header: `I'm ${NAME}, a full-stack web developer.`,
     more: (
       <>
         <p>
