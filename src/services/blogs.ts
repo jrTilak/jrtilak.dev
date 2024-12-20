@@ -4,6 +4,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { Blog, BlogMetaData } from "@/types/blog.types";
 import { MDXComponents } from "@/components/mdx/mdx-components";
 import { insertHeadingIndexes } from "@/helpers/insert-heading-indexes";
+import remarkGfm from "remark-gfm";
 
 const PATH_T0_BLOGS = "src/contents/blogs";
 
@@ -90,6 +91,9 @@ export const getBlogBySlug = async (
       components: MDXComponents,
       options: {
         parseFrontmatter: true,
+        mdxOptions: {
+          remarkPlugins: [remarkGfm],
+        },
       },
     });
 
