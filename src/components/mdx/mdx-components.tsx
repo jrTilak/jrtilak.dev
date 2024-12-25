@@ -9,6 +9,7 @@ import JSExecutor from "../globals/js-executor";
 import * as  Alert from "../ui/alert";
 import * as Icons from "lucide-react";
 import * as Table from "../ui/table";
+import CodeExecutor from "../globals/code-executor";
 export const MDXComponents = {
   JSExecutor,
   ...Alert,
@@ -177,7 +178,7 @@ export const MDXComponents = {
     const regexToCheckExecutor = /^\/\/\s*execute\s*=\s*true\s*;/ // syntax = // execute = true;
     if (regexToCheckExecutor.test(code)) {
       const codeToExecute = code.replace(regexToCheckExecutor, "").trim();
-      return <JSExecutor code={codeToExecute} />;
+      return <CodeExecutor code={codeToExecute} lang={lang} />;
     }
     return <HighlightCode language={lang} code={code} {...props} />;
   },
