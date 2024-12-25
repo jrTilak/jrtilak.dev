@@ -18,7 +18,7 @@ export const IMAGES = {
     "twitter-x": "/icons/twitter-x.svg",
     vitest: "/icons/vitest.svg",
     "react-hook-form": "/icons/react-hook-form.svg",
-    "threejs": "/icons/threejs.svg",
+    threejs: "/icons/threejs.svg",
   },
 
   certifications: {
@@ -30,19 +30,6 @@ export const IMAGES = {
     "html-css-tutor-at-aces":
       "/images/certifications/html-css-tutor-at-aces.png",
     neonshark: "/images/certifications/neonshark.png",
-  },
-
-  projects: {
-    fsu: "/images/projects/fsu.png",
-    techfest: "/images/projects/techfest.png",
-    stringify: "/images/projects/stringify.png",
-    "c-games": "/images/projects/c-games.png",
-    travellian: "/images/projects/travellian.png",
-    bumblebee: "/images/projects/bumblebee.png",
-    "java-sports": "/images/projects/java-sports.png",
-    lazykit: "/images/projects/lazykit.png",
-    "aces-website": "/images/projects/aces.png",
-    gemquiz: "/images/projects/gemquiz.png",
   },
 
   testimonials: {

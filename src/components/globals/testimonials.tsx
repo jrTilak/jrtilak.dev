@@ -45,18 +45,16 @@ const Testimonials = () => {
               {TESTIMONIALS.map((testimony, i) => (
                 <CarouselItem key={i} className="md:basis-1/2 group">
                   <div className="flex flex-col gap-9 p-4 bg-muted group-hover:shadow-lg border hover:border-primary border-muted rounded-md select-none relative">
-                    {testimony.platform === "linkedin" && (
-                      <Image
-                        src={
-                          "https://www.svgrepo.com/show/475661/linkedin-color.svg"
-                        }
-                        title="This recommendation was given on linkedin."
-                        height={40}
-                        width={40}
-                        alt=""
-                        className="absolute top-4 right-4 size-4 md:size-5"
-                      />
-                    )}
+                    <Image
+                      src={
+                        testimony.platform === "linkedin" ? "https://www.svgrepo.com/show/475661/linkedin-color.svg" : "https://www.svgrepo.com/show/473616/freelancer.svg"
+                      }
+                      title={`This recommendation was given on ${testimony.platform}.`}
+                      height={40}
+                      width={40}
+                      alt=""
+                      className="absolute top-4 right-4 size-4 md:size-5"
+                    />
                     <div className="flex items-center gap-2.5">
                       <Image
                         src={testimony.image ?? IMAGES.placeholders.avatar}
@@ -68,7 +66,7 @@ const Testimonials = () => {
                       <div className="flex flex-col justify-center">
                         <span className="text-xs">⭐⭐⭐⭐⭐</span>
                         <Link
-                          href={testimony.contactUrl}
+                          href={testimony.href}
                           target="_blank"
                           className="font-medium text-base sm:text-lg underline hover:text-primary"
                         >
@@ -107,7 +105,7 @@ const Testimonials = () => {
                               <div className="flex flex-col justify-center">
                                 <span className="text-xs">⭐⭐⭐⭐⭐</span>
                                 <Link
-                                  href={testimony.contactUrl}
+                                  href={testimony.href}
                                   target="_blank"
                                   className="font-medium text-base sm:text-lg underline hover:text-primary"
                                 >

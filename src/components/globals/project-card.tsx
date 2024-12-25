@@ -1,10 +1,9 @@
 "use client";
-import { type Project } from "@/data/projects";
 import React from "react";
 import { Card, CardHeader, CardTitle } from "@/components/ui/card";
 import Image from "next/image";
 import { Badge } from "../ui/badge";
-import { Button, buttonVariants } from "../ui/button";
+import { buttonVariants } from "../ui/button";
 import {
   Dialog,
   DialogContent,
@@ -15,11 +14,13 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import Link from "next/link";
-import { GithubIcon, TrendingUpIcon } from "lucide-react";
-import toast from "react-hot-toast";
+import { ArrowRightIcon, GithubIcon, TrendingUpIcon } from "lucide-react";
 import { getSkillDetails } from "@/helpers/get-skill-detail";
+import { ProjectMetaData } from "@/types/project.types";
 
-const ProjectCard = (props: Project) => {
+const ProjectCard = (props: ProjectMetaData & {
+  slug: string;
+}) => {
   return (
     <Dialog>
       <DialogTrigger>
@@ -77,7 +78,7 @@ const ProjectCard = (props: Project) => {
             <div className="flex flex-wrap gap-x-4 gap-y-2 my-5">
               {props.techs.map((tech, i) => {
                 const skill = getSkillDetails(tech);
-
+                if (!skill) return null;
                 return (
                   <Link key={i} target="_blank" href={skill?.href}>
                     <Badge
@@ -98,71 +99,43 @@ const ProjectCard = (props: Project) => {
                 );
               })}
             </div>
-            <div className="flex flex-col gap-1">{props.description}</div>
-            {props.collaborators && props.collaborators.length > 0 && (
-              <div className="flex flex-col gap-1 mt-3">
-                <span>Collaborators</span>
-                {props.collaborators?.map((collaborator, i) => (
-                  <Link
-                    key={i}
-                    target="_blank"
-                    href={collaborator.contactUrl}
-                    className="hover:underline ml-1 text-sm"
-                  >
-                    {i + 1}. @{collaborator.name}
-                  </Link>
-                ))}
-              </div>
-            )}
+            <div className="flex flex-col gap-1">{props.summary}</div>
           </DialogDescription>
         </DialogHeader>
-        <DialogFooter className="flex !flex-row items-center justify-end">
-          {props.sourceCode ? (
+        <DialogFooter className="flex !flex-row items-center justify-end gap-2">
+          {props.sourceUrl && (
             <Link
-              href={props.sourceCode}
+              href={props.sourceUrl}
               target="_blank"
               title="Source Code"
               className={buttonVariants({ variant: "outline", size: "sm" })}
             >
               <GithubIcon />
             </Link>
-          ) : (
-            <Button
-              onClick={() => {
-                toast.error("Sorry, This project is not open source yet!");
-              }}
-              variant={"secondary"}
-              size={"sm"}
-              title="Source Code"
-            >
-              <GithubIcon />
-            </Button>
           )}
-          {props.liveUrl ? (
+          {props.liveUrl && (
             <Link
               href={props.liveUrl}
               target="_blank"
               className={buttonVariants({
-                variant: "default",
+                variant: "outline",
                 size: "sm",
-                className: "flex-grow min-w-32",
+                className: "flex-grow",
               })}
             >
-              View Live <TrendingUpIcon className="size-5 ml-2.5" />
+              <span className="max-sm:hidden">View Live</span> <TrendingUpIcon className="size-5 sm:ml-2.5" />
             </Link>
-          ) : (
-            <Button
-              onClick={() => {
-                toast.error(
-                  "Sorry, The live link for this project is not available yet!"
-                );
-              }}
-              size={"sm"}
-              className="flex-grow min-w-32"
-            >
-              View Live <TrendingUpIcon className="size-5 ml-2.5" />
-            </Button>
           )}
+          <Link
+            href={`/projects/${props.slug}`}
+            className={buttonVariants({
+              variant: "default",
+              size: "sm",
+              className: "min-w-32 flex-grow",
+            })}
+          >
+            Know More <ArrowRightIcon className="size-5 ml-2.5" />
+          </Link>
         </DialogFooter>
       </DialogContent>
     </Dialog>

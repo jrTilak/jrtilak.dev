@@ -70,6 +70,7 @@ const Page = () => {
                 <CardFooter className="flex flex-wrap gap-2.5">
                   {service.skills.map((s, index) => {
                     const skill = getSkillDetails(s);
+                    if (!skill) return null;
                     return (
                       <Link key={index} target="_blank" href={skill?.href}>
                         <Badge

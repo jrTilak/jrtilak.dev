@@ -18,9 +18,10 @@ type Props = {
   contents: Heading[];
   watchId: string;
   className?: string;
+  congratulationText?: string;
 };
 
-const TableOfContents = ({ contents, watchId, className }: Props) => {
+const TableOfContents = ({ contents, watchId, className, congratulationText = "You've thoroughly explored this topic!" }: Props) => {
   const [isHeightFull, setIsHeightFull] = useState(false);
   const contentRef = useRef<HTMLDivElement>(null);
   const [contentHeight, setContentHeight] = useState("0px");
@@ -133,7 +134,7 @@ const TableOfContents = ({ contents, watchId, className }: Props) => {
           <div className="flex flex-col">
             <h4 className="font-semibold text-sm">Congratulations!</h4>
             <p className="text-xs text-muted-foreground">
-              You&apos;ve thoroughly explored this topic!
+              {congratulationText}
             </p>
           </div>
         </div>
