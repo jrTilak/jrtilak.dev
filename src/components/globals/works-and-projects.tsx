@@ -24,7 +24,7 @@ const WorksAndProjects = async ({ projects, activeCategory, limit = Infinity }: 
 
   const categories = unique(["all", ...projects.map((p) => p.categories).flat().map(c => c.toLowerCase()).sort()])
 
-  const filteredProjects = activeCategory === "all" ? projects : projects.filter(p => p.categories.includes(activeCategory))
+  const filteredProjects = activeCategory === "all" ? projects : projects.filter(p => p.categories.includes(decodeURIComponent(activeCategory)))
 
   if (filteredProjects.length === 0) {
     return <Error404 />
@@ -47,7 +47,7 @@ const WorksAndProjects = async ({ projects, activeCategory, limit = Infinity }: 
           {categories
             .map((c, i) => (
               <Link
-                href={`/projects/categories/${c}`}
+                href={`/projects/categories/${encodeURIComponent(c)}`}
                 key={i}
                 className={
                   buttonVariants({
