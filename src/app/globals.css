@@ -77,7 +77,7 @@
   }
 
   .scrollbar::-webkit-scrollbar {
-    @apply w-1 lg:w-[7px];
+    @apply w-1 lg:w-[7px] h-1.5;
   }
 
   .scrollbar::-webkit-scrollbar-thumb {
