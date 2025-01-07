@@ -85,13 +85,13 @@ const Page = async ({ params: { slug } }: Props) => {
         />
         <Separator className="mt-6 max-w-5xl" />
         <TableOfContents
-          contents={extractHeadings(blog?.rawContent, [1, 2, 3])}
+          contents={extractHeadings(blog?.rawContent, blog.headingLevels!)}
           watchId="blog-content"
           className="w-full lg:hidden max-w-5xl static"
         />
         <div className="mt-12 w-full gap-16 mx-auto flex">
           <TableOfContents
-            contents={extractHeadings(blog?.rawContent, [1, 2, 3])}
+            contents={extractHeadings(blog?.rawContent, blog.headingLevels!)}
             watchId="blog-content"
             className="w-[250px] max-lg:hidden"
           />

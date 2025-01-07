@@ -107,6 +107,7 @@ export const getBlogBySlug = async (
       content,
       rawContent: source,
       metaTags: frontmatter.metaTags ?? [],
+      headingLevels: frontmatter.headingLevels ?? [1, 2, 3],
     };
   } catch (error) {
     console.log(error);
