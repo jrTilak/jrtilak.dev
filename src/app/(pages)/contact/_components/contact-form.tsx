@@ -14,8 +14,8 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { useForm } from "@/hooks/use-form";
 import { SendIcon } from "lucide-react";
-import emailjs from "@emailjs/browser";
 import toast from "react-hot-toast";
+import { NEW_MESSAGE_HTML } from "@/html-templates/new-message.html";
 
 type FormValues = {
   name: string;
@@ -38,18 +38,32 @@ const ContactForm = () => {
   const onSubmit = (data: FormValues) => {
     setIsFormSubmitting(true);
     const contact: Promise<any> = new Promise(async (resolve, reject) => {
-      const res = await emailjs.send(
-        process.env.NEXT_PUBLIC_EMAILJS_API_KEY || "",
-        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_KEY || "",
-        { ...data, date: new Date().toLocaleString() },
-        process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY || ""
-      );
+      const refinedMessage = NEW_MESSAGE_HTML.replaceAll("{{NAME}}", data.name)
+        .replaceAll("{{EMAIL}}", data.email)
+        .replaceAll("{{SUBJECT}}", data.subject)
+        .replaceAll("{{MESSAGE}}", data.message)
+        .replaceAll("{{DATE}}", new Date().toDateString());
+
+
+      const res = await fetch(process.env.NEXT_PUBLIC_SEND_NO_REPLY_EMAIL_URL as string, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          body: refinedMessage,
+          to: process.env.NEXT_PUBLIC_SEND_NO_REPLY_EMAIL_TO,
+          subject: `New Message from ${data.name}`
+        }),
+      })
+
       if (res.status === 200) {
         resolve(res);
       } else {
         reject(res);
       }
     });
+
     toast.promise(contact, {
       error: () => {
         setIsFormSubmitting(false);
