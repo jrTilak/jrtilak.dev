@@ -37,10 +37,14 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default: "bg-primary text-primary-foreground hover:bg-primary/90",
-        destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-        outline: "border border-input hover:bg-accent hover:text-accent-foreground",
-        "destructive-outline": "border border-destructive hover:bg-destructive/10 text-destructive",
-        secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
+        destructive:
+          "bg-destructive text-destructive-foreground hover:bg-destructive/90",
+        outline:
+          "border border-input hover:bg-accent hover:text-accent-foreground",
+        "destructive-outline":
+          "border border-destructive hover:bg-destructive/10 text-destructive",
+        secondary:
+          "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 underline hover:text-muted-foreground",
       },
@@ -61,10 +65,13 @@ const buttonVariants = cva(
       size: "default",
       radius: "default",
     },
-  }
+  },
 );
 
-type ButtonBaseProps = Omit<HTMLMotionProps<"button">, keyof VariantProps<typeof buttonVariants>>;
+type ButtonBaseProps = Omit<
+  HTMLMotionProps<"button">,
+  keyof VariantProps<typeof buttonVariants>
+>;
 
 /** Props for the Button component */
 type ButtonProps = ButtonBaseProps &
@@ -118,15 +125,21 @@ function Button({
   }, [lastButtonWidth, loading]);
 
   const rippleEnabled = ripple !== false && variant !== "link" && !isDisabled;
-  const scaleEnabled = scaleOnActive !== false && variant !== "link" && !isDisabled;
+  const scaleEnabled =
+    scaleOnActive !== false && variant !== "link" && !isDisabled;
   const rippleOptions: ButtonRippleOptions =
-    typeof ripple === "object" ? { ...DEFAULT_RIPPLE, ...ripple } : DEFAULT_RIPPLE;
-  const scaleAmount = typeof scaleOnActive === "number" ? scaleOnActive : DEFAULT_SCALE_ON_ACTIVE;
+    typeof ripple === "object"
+      ? { ...DEFAULT_RIPPLE, ...ripple }
+      : DEFAULT_RIPPLE;
+  const scaleAmount =
+    typeof scaleOnActive === "number" ? scaleOnActive : DEFAULT_SCALE_ON_ACTIVE;
   const durationMs = (rippleOptions.duration || DEFAULT_RIPPLE.duration) * 1000;
 
   /** Creates and adds a new ripple effect */
   const addRipple = (
-    event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
+    event:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.TouchEvent<HTMLButtonElement>,
   ) => {
     if (!rippleEnabled || !buttonRef.current) return;
 
@@ -149,12 +162,16 @@ function Button({
     setRipples((prevRipples) => [...prevRipples, newRipple]);
 
     setTimeout(() => {
-      setRipples((currentRipples) => currentRipples.filter((ripple) => ripple.id !== newRipple.id));
+      setRipples((currentRipples) =>
+        currentRipples.filter((ripple) => ripple.id !== newRipple.id),
+      );
     }, durationMs + 100);
   };
 
   const handlePress = (
-    event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
+    event:
+      | React.MouseEvent<HTMLButtonElement>
+      | React.TouchEvent<HTMLButtonElement>,
   ) => {
     if (rippleEnabled) addRipple(event);
     if (scaleEnabled) setIsPressed(true);
@@ -168,7 +185,7 @@ function Button({
     <motion.button
       className={cn(
         "relative overflow-hidden",
-        buttonVariants({ variant, size, className, radius })
+        buttonVariants({ variant, size, className, radius }),
       )}
       animate={{ scale: isPressed ? scaleAmount : 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
@@ -228,7 +245,13 @@ function Button({
           key={loading ? "loading" : "content"}
           className={cn("relative z-10 inline-flex gap-2", wrapperClassName)}
         >
-          {!loading ? children : typeof loading === "boolean" ? <Spinner /> : loading}
+          {!loading ? (
+            children
+          ) : typeof loading === "boolean" ? (
+            <Spinner />
+          ) : (
+            loading
+          )}
         </motion.span>
       </AnimatePresence>
     </motion.button>

@@ -34,10 +34,17 @@ export interface SpinnerProps
   spinner?: SpinnerType;
 }
 
-const Spinner = ({ spinner = "default", size, speed, ...props }: SpinnerProps) => {
+const Spinner = ({
+  spinner = "default",
+  size,
+  speed,
+  ...props
+}: SpinnerProps) => {
   return (
     <Slot className={spinnerVariants({ size, speed })} {...props}>
-      {typeof spinner === "string" ? React.createElement(SPINNERS[spinner]) : spinner}
+      {typeof spinner === "string"
+        ? React.createElement(SPINNERS[spinner])
+        : spinner}
     </Slot>
   );
 };

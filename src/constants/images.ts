@@ -22,11 +22,13 @@ export const IMAGES = {
   },
 
   certifications: {
-    "fsu-webdev-competition": "/images/certifications/fsu-webdev-competition.png",
+    "fsu-webdev-competition":
+      "/images/certifications/fsu-webdev-competition.png",
     "lor-prodigy": "/images/certifications/lor-prodigy.png",
     "web-dev-bootcamp": "/images/certifications/web-dev-bootcamp.png",
     "prodigy-internship": "/images/certifications/prodigy-internship.png",
-    "html-css-tutor-at-aces": "/images/certifications/html-css-tutor-at-aces.png",
+    "html-css-tutor-at-aces":
+      "/images/certifications/html-css-tutor-at-aces.png",
     neonshark: "/images/certifications/neonshark.png",
   },
 
@@ -36,5 +38,18 @@ export const IMAGES = {
     "sandesh-poudel": "/images/testimonials/sandesh-poudel.png",
     "sandip-sapkota": "/images/testimonials/sandip-sapkota.png",
     premanand: "/images/testimonials/premanand.png",
+  },
+
+  projects: {
+    fsu: "/images/projects/fsu.png",
+    techfest: "/images/projects/techfest.png",
+    stringify: "/images/projects/stringify.png",
+    "c-games": "/images/projects/c-games.png",
+    travellian: "/images/projects/travellian.png",
+    bumblebee: "/images/projects/bumblebee.png",
+    "java-sports": "/images/projects/java-sports.png",
+    lazykit: "/images/projects/lazykit.png",
+    "aces-website": "/images/projects/aces.png",
+    gemquiz: "/images/projects/gemquiz.png",
   },
 };

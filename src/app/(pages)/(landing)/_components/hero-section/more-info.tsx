@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/base/card";
-import { Button, buttonVariants } from "@/components/base/button";
+import { Button } from "@/components/base/button";
 import { DownloadIcon } from "lucide-react";
 import Link from "next/link";
 
@@ -20,15 +20,19 @@ const MoreInfo = () => {
           🙋‍♂️ Greetings! I&apos;m Tilak Thapa (jrTilak)
         </CardDescription>
         <CardTitle className="text-xl sm:text-4xl">
-          Curiosity-driven developer with 2.4+ years of expertise building robust web apps using the
-          MERN stack and Next.js, paired with hands-on experience in Docker and cloud deployment on
-          AWS.
+          Curiosity-driven full-stack web/app developer, constantly pushing the
+          boundaries of what's possible to create innovative and seamless
+          digital solutions.
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <h4 className="font-medium">Available For:</h4>
         <ul className="ml-9 flex list-disc flex-col gap-1">
-          {["Freelancing 💼", "Job Offer 📨", "Collaborations 🤝"].map((item, index) => (
+          {[
+            "Freelancing Projects 💼",
+            "Job Offers 📨",
+            "Collaborations 🤝",
+          ].map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>

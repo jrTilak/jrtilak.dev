@@ -19,10 +19,14 @@ const DesktopNav = () => {
     <>
       <nav className="hidden gap-2.5 lg:flex">
         {HEADER_LINKS.map((link) => (
-          <NavLink key={link.href} link={link} isActive={isLinkActive(link.href)} />
+          <NavLink
+            key={link.href}
+            link={link}
+            isActive={isLinkActive(link.href)}
+          />
         ))}
       </nav>
-      <div className="ml-auto flex items-center gap-2.5">
+      <div className="flex items-center gap-2.5 w-fit">
         <ContactButton className="hidden lg:flex" />
         <ThemeToggle className="hidden lg:flex" />
       </div>

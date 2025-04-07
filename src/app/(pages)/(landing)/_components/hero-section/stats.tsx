@@ -17,13 +17,18 @@ const Stats = () => {
               />
             )}
             {i === 2 && (
-              <Separator orientation="horizontal" className="col-span-3 h-px w-full sm:hidden" />
+              <Separator
+                orientation="horizontal"
+                className="col-span-3 h-px w-full sm:hidden"
+              />
             )}
             <div className="flex flex-col items-center justify-center">
               <h3 className="text-2xl font-medium md:text-3xl lg:text-2xl xl:text-3xl">
                 <NumberTicker>{stats.value}</NumberTicker>+
               </h3>
-              <p className="text-muted-foreground text-sm md:text-base">{stats.label}</p>
+              <p className="text-muted-foreground text-sm md:text-base">
+                {stats.label}
+              </p>
             </div>
           </Fragment>
         ))}

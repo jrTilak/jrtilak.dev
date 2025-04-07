@@ -1,19 +1,25 @@
 import React from "react";
-import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/base/card";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/base/card";
 import Image from "next/image";
-import { Button, buttonVariants } from "@/components/base/button";
+import { Button } from "@/components/base/button";
 import Link from "next/link";
 import { CONTACTS_LINKS } from "@/constants/contact-links";
 import { IMAGES } from "@/constants/images";
-import OrbitingCirclesLg from "./orbiting-circles-lg";
+import OrbitingCircles from "./orbiting-circles";
 
 const DetailsCard = () => {
   return (
     <div className="text-center">
-      <Card className="relative flex h-[60vh] flex-col items-center justify-center overflow-hidden md:h-[40vh] lg:h-auto">
+      <Card className="relative flex h-[60vh] flex-col items-center justify-center overflow-hidden md:h-[40vh] lg:h-full">
         <CardHeader>
           <div className="relative hidden h-[350px] items-center justify-center rounded-full p-6 lg:flex">
-            <OrbitingCirclesLg />
+            <OrbitingCircles />
             <Image
               src={IMAGES.avatar}
               alt=""
@@ -22,9 +28,9 @@ const DetailsCard = () => {
               className="h-fit w-full rounded-full object-cover object-center"
             />
           </div>
-          <CardTitle className="text-4xl">Tilak Thapa 👋</CardTitle>
+          <CardTitle className="text-4xl">Tilak Thapa</CardTitle>
           <CardDescription className="text-base">
-            Crafting Web Solutions with 2.4+ Years of Expertise 🔥
+            Driven by Challenges. Defined by Results. 🔥
           </CardDescription>
         </CardHeader>
         <CardFooter className="flex items-center justify-center gap-4">
@@ -34,9 +40,9 @@ const DetailsCard = () => {
               target={contact.type !== "mail" ? "_blank" : undefined}
               className={"flex items-center justify-center"}
               title={contact.label}
+              key={contact.href}
             >
               <Button
-                key={contact.href}
                 variant={"outline"}
                 size={"icon"}
                 className="group aspect-square"

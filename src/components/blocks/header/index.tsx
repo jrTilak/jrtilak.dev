@@ -11,7 +11,7 @@ const Header: React.FC = () => {
       <div className="container mx-auto flex items-center justify-between border-b py-4">
         <Logo />
         <DesktopNav />
-        <div className="flex items-center gap-2.5">
+        <div className="flex items-center gap-2.5 lg:hidden">
           <ThemeToggle className="size-9 lg:hidden" />
           <MobileNav />
         </div>

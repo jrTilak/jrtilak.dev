@@ -1,4 +1,10 @@
-import { FolderGit2Icon, HouseIcon, Layers3Icon, PencilLineIcon, UserIcon } from "lucide-react";
+import {
+  FolderGit2Icon,
+  HouseIcon,
+  Layers3Icon,
+  PencilLineIcon,
+  UserIcon,
+} from "lucide-react";
 
 // Navigation links configuration
 export const HEADER_LINKS = [

@@ -1,0 +1,41 @@
+import React from "react";
+import {
+  Card,
+  CardContent,
+  CardHeader,
+  CardTitle,
+} from "@/components/base/card";
+import Link from "next/link";
+import Image from "next/image";
+import { TRUSTED_BY } from "@/constants/trusted-by";
+
+const TrustedBy = () => {
+  return (
+    <Card>
+      <CardHeader>
+        <CardTitle>Trusted By</CardTitle>
+      </CardHeader>
+      <CardContent className="flex items-center gap-4 flex-wrap">
+        {TRUSTED_BY.map((trustedBy, i) => (
+          <Link
+            href={trustedBy.href}
+            key={i}
+            title={trustedBy.label}
+            className="h-10 w-auto rounded-md bg-muted flex items-center justify-center px-4 py-2 grayscale hover:grayscale-0 hover:shadow-md transition-all"
+          >
+            <Image
+              src={trustedBy.image}
+              alt={trustedBy.label}
+              height={50}
+              width={50}
+              className="object-contain object-center w-full h-full"
+              quality={100}
+            />
+          </Link>
+        ))}
+      </CardContent>
+    </Card>
+  );
+};
+
+export default TrustedBy;
