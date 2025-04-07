@@ -20,7 +20,7 @@ type RippleInstance = {
 /** Default configuration for ripple effect */
 const DEFAULT_RIPPLE = {
   duration: 0.65, // in seconds for framer-motion
-  opacity: 0.25
+  opacity: 0.25,
 } as const;
 
 type ButtonRippleOptions = typeof DEFAULT_RIPPLE &
@@ -42,32 +42,29 @@ const buttonVariants = cva(
         "destructive-outline": "border border-destructive hover:bg-destructive/10 text-destructive",
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
-        link: "text-primary underline-offset-4 underline hover:text-muted-foreground"
+        link: "text-primary underline-offset-4 underline hover:text-muted-foreground",
       },
       size: {
         default: "h-10 px-4 py-2",
         sm: "h-9 px-3",
         lg: "h-11 px-8",
-        icon: "h-10 w-10"
+        icon: "h-10 w-10",
       },
       radius: {
         none: "rounded-none",
         default: "rounded-md",
-        full: "rounded-full"
-      }
+        full: "rounded-full",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "default",
-      radius: "default"
-    }
+      radius: "default",
+    },
   }
 );
 
-type ButtonBaseProps = Omit<
-  HTMLMotionProps<"button">,
-  keyof VariantProps<typeof buttonVariants>
->;
+type ButtonBaseProps = Omit<HTMLMotionProps<"button">, keyof VariantProps<typeof buttonVariants>>;
 
 /** Props for the Button component */
 type ButtonProps = ButtonBaseProps &
@@ -122,12 +119,15 @@ function Button({
 
   const rippleEnabled = ripple !== false && variant !== "link" && !isDisabled;
   const scaleEnabled = scaleOnActive !== false && variant !== "link" && !isDisabled;
-  const rippleOptions: ButtonRippleOptions = typeof ripple === "object" ? { ...DEFAULT_RIPPLE, ...ripple } : DEFAULT_RIPPLE;
+  const rippleOptions: ButtonRippleOptions =
+    typeof ripple === "object" ? { ...DEFAULT_RIPPLE, ...ripple } : DEFAULT_RIPPLE;
   const scaleAmount = typeof scaleOnActive === "number" ? scaleOnActive : DEFAULT_SCALE_ON_ACTIVE;
   const durationMs = (rippleOptions.duration || DEFAULT_RIPPLE.duration) * 1000;
 
   /** Creates and adds a new ripple effect */
-  const addRipple = (event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
+  const addRipple = (
+    event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
+  ) => {
     if (!rippleEnabled || !buttonRef.current) return;
 
     const { clientX, clientY } = "touches" in event ? event.touches[0] : event;
@@ -143,17 +143,19 @@ function Button({
       size,
       id: nextId.current++,
       color: textColor,
-      opacity: rippleOptions.opacity || DEFAULT_RIPPLE.opacity
+      opacity: rippleOptions.opacity || DEFAULT_RIPPLE.opacity,
     };
 
-    setRipples(prevRipples => [...prevRipples, newRipple]);
+    setRipples((prevRipples) => [...prevRipples, newRipple]);
 
     setTimeout(() => {
-      setRipples(currentRipples => currentRipples.filter(ripple => ripple.id !== newRipple.id));
+      setRipples((currentRipples) => currentRipples.filter((ripple) => ripple.id !== newRipple.id));
     }, durationMs + 100);
   };
 
-  const handlePress = (event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>) => {
+  const handlePress = (
+    event: React.MouseEvent<HTMLButtonElement> | React.TouchEvent<HTMLButtonElement>
+  ) => {
     if (rippleEnabled) addRipple(event);
     if (scaleEnabled) setIsPressed(true);
   };
@@ -164,7 +166,10 @@ function Button({
 
   return (
     <motion.button
-      className={cn("relative overflow-hidden", buttonVariants({ variant, size, className, radius }))}
+      className={cn(
+        "relative overflow-hidden",
+        buttonVariants({ variant, size, className, radius })
+      )}
       animate={{ scale: isPressed ? scaleAmount : 1 }}
       transition={{ type: "spring", stiffness: 500, damping: 30, mass: 0.8 }}
       onClick={props.onClick}
@@ -202,7 +207,7 @@ function Button({
             exit={{ opacity: 0 }}
             transition={{
               duration: rippleOptions.duration || DEFAULT_RIPPLE.duration,
-              ease: [0.4, 0, 0.2, 1]
+              ease: [0.4, 0, 0.2, 1],
             }}
             style={{
               position: "absolute",
@@ -213,7 +218,7 @@ function Button({
               borderRadius: "50%",
               backgroundColor: ripple.color,
               pointerEvents: "none",
-              zIndex: 0
+              zIndex: 0,
             }}
           />
         ))}

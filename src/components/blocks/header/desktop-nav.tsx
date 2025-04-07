@@ -16,13 +16,9 @@ const DesktopNav = () => {
 
   return (
     <>
-      <nav className="lg:flex gap-2.5 hidden">
+      <nav className="hidden gap-2.5 lg:flex">
         {HEADER_LINKS.map((link) => (
-          <NavLink
-            key={link.href}
-            link={link}
-            isActive={isLinkActive(link.href)}
-          />
+          <NavLink key={link.href} link={link} isActive={isLinkActive(link.href)} />
         ))}
       </nav>
       <ContactButton className="hidden lg:flex" />

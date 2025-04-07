@@ -1,12 +1,12 @@
-import * as React from "react"
-import * as SheetPrimitive from "@radix-ui/react-dialog"
-import { cva, type VariantProps } from "class-variance-authority"
-import { X } from "lucide-react"
-import { cn } from "@/lib/cn"
+import * as React from "react";
+import * as SheetPrimitive from "@radix-ui/react-dialog";
+import { cva, type VariantProps } from "class-variance-authority";
+import { X } from "lucide-react";
+import { cn } from "@/lib/cn";
 
-const Sheet = SheetPrimitive.Root
-const SheetTrigger = SheetPrimitive.Trigger
-const SheetPortal = SheetPrimitive.Portal
+const Sheet = SheetPrimitive.Root;
+const SheetTrigger = SheetPrimitive.Trigger;
+const SheetPortal = SheetPrimitive.Portal;
 
 /**
  * Overlay component that covers the screen when sheet is open
@@ -18,14 +18,14 @@ function SheetOverlay({
   return (
     <SheetPrimitive.Overlay
       className={cn(
-        "fixed inset-0 z-50 bg-black/80  data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0",
+        "data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 fixed inset-0 z-50 bg-black/80",
         className
       )}
       {...props}
     />
-  )
+  );
 }
-SheetOverlay.displayName = SheetPrimitive.Overlay.displayName
+SheetOverlay.displayName = SheetPrimitive.Overlay.displayName;
 
 // Style variants for the sheet positioning
 const sheetVariants = cva(
@@ -45,88 +45,62 @@ const sheetVariants = cva(
       side: "right",
     },
   }
-)
+);
 
 interface SheetContentProps
   extends React.ComponentProps<typeof SheetPrimitive.Content>,
-  VariantProps<typeof sheetVariants> { }
+    VariantProps<typeof sheetVariants> {}
 
 /**
  * Main content container for the sheet
  */
-function SheetContent({
-  side = "right",
-  className,
-  children,
-  ...props
-}: SheetContentProps) {
+function SheetContent({ side = "right", className, children, ...props }: SheetContentProps) {
   return (
     <SheetPortal>
       <SheetOverlay />
-      <SheetPrimitive.Content
-        className={cn(sheetVariants({ side }), className)}
-        {...props}
-      >
+      <SheetPrimitive.Content className={cn(sheetVariants({ side }), className)} {...props}>
         {children}
       </SheetPrimitive.Content>
     </SheetPortal>
-  )
+  );
 }
-SheetContent.displayName = SheetPrimitive.Content.displayName
+SheetContent.displayName = SheetPrimitive.Content.displayName;
 
 /**
  * Header section of the sheet
  */
-function SheetHeader({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function SheetHeader({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
-    <div
-      className={cn(
-        "flex flex-col space-y-2 text-center sm:text-left",
-        className
-      )}
-      {...props}
-    />
-  )
+    <div className={cn("flex flex-col space-y-2 text-center sm:text-left", className)} {...props} />
+  );
 }
-SheetHeader.displayName = "SheetHeader"
+SheetHeader.displayName = "SheetHeader";
 
 /**
  * Footer section of the sheet
  */
-function SheetFooter({
-  className,
-  ...props
-}: React.HTMLAttributes<HTMLDivElement>) {
+function SheetFooter({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn(
-        "flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2",
-        className
-      )}
+      className={cn("flex flex-col-reverse sm:flex-row sm:justify-end sm:space-x-2", className)}
       {...props}
     />
-  )
+  );
 }
-SheetFooter.displayName = "SheetFooter"
+SheetFooter.displayName = "SheetFooter";
 
 /**
  * Title component for the sheet
  */
-function SheetTitle({
-  className,
-  ...props
-}: React.ComponentProps<typeof SheetPrimitive.Title>) {
+function SheetTitle({ className, ...props }: React.ComponentProps<typeof SheetPrimitive.Title>) {
   return (
     <SheetPrimitive.Title
-      className={cn("text-lg font-semibold text-foreground", className)}
+      className={cn("text-foreground text-lg font-semibold", className)}
       {...props}
     />
-  )
+  );
 }
-SheetTitle.displayName = SheetPrimitive.Title.displayName
+SheetTitle.displayName = SheetPrimitive.Title.displayName;
 
 /**
  * Description component for the sheet
@@ -137,25 +111,32 @@ function SheetDescription({
 }: React.ComponentProps<typeof SheetPrimitive.Description>) {
   return (
     <SheetPrimitive.Description
-      className={cn("text-sm text-muted-foreground", className)}
+      className={cn("text-muted-foreground text-sm", className)}
       {...props}
     />
-  )
+  );
 }
-SheetDescription.displayName = SheetPrimitive.Description.displayName
+SheetDescription.displayName = SheetPrimitive.Description.displayName;
 
-function SheetClose({ className, ...props }: Omit<React.ComponentProps<typeof SheetPrimitive.Close>, "children" | "asChild">) {
+function SheetClose({
+  className,
+  ...props
+}: Omit<React.ComponentProps<typeof SheetPrimitive.Close>, "children" | "asChild">) {
   return (
-    <SheetPrimitive.Close className={cn("absolute right-4 top-4 rounded-sm opacity-70 ring-offset-background transition-opacity hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-ring focus:ring-offset-2 disabled:pointer-events-none data-[state=open]:bg-secondary", className)}
+    <SheetPrimitive.Close
+      className={cn(
+        "ring-offset-background focus:ring-ring data-[state=open]:bg-secondary absolute top-4 right-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:ring-2 focus:ring-offset-2 focus:outline-none disabled:pointer-events-none",
+        className
+      )}
       {...props}
     >
       <X className="h-4 w-4" />
       <span className="sr-only">Close</span>
     </SheetPrimitive.Close>
-  )
+  );
 }
 
-SheetClose.displayName = SheetPrimitive.Close.displayName
+SheetClose.displayName = SheetPrimitive.Close.displayName;
 
 export {
   Sheet,
@@ -168,4 +149,4 @@ export {
   SheetFooter,
   SheetTitle,
   SheetDescription,
-}
+};

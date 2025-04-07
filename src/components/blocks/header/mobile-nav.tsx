@@ -17,7 +17,6 @@ import { usePathname } from "next/navigation";
 
 // Mobile navigation component
 const MobileNav = () => {
-
   const pathname = usePathname();
   const [isOpen, setIsOpen] = useState(false);
   const closeSheet = () => setIsOpen(false);
@@ -33,18 +32,18 @@ const MobileNav = () => {
       <SheetTrigger asChild>
         <Button
           variant="ghost"
-          className="size-9 h-fit w-fit p-1.5 aspect-square bg-transparent lg:hidden"
+          className="aspect-square size-9 h-fit w-fit bg-transparent p-1.5 lg:hidden"
         >
           <MenuIcon className="size-[18px]" />
         </Button>
       </SheetTrigger>
-      <SheetContent className="lg:hidden flex items-center flex-col justify-between h-dvh w-[200px]">
+      <SheetContent className="flex h-dvh w-[200px] flex-col items-center justify-between lg:hidden">
         <SheetHeader>
           <SheetTitle>
             <Logo onClick={closeSheet} />
           </SheetTitle>
         </SheetHeader>
-        <nav className="flex gap-2.5 flex-col items-start w-full">
+        <nav className="flex w-full flex-col items-start gap-2.5">
           {HEADER_LINKS.map((link) => (
             <NavLink
               key={link.href}

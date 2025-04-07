@@ -13,25 +13,22 @@ const avatarVariants = cva("", {
       sm: "h-8 w-8",
       default: "h-10 w-10",
       lg: "h-12 w-12",
-      xl: "h-14 w-14"
+      xl: "h-14 w-14",
     },
     radius: {
       none: "rounded-none",
       md: "rounded-md",
-      default: "rounded-full"
-    }
+      default: "rounded-full",
+    },
   },
   defaultVariants: {
     size: "default",
-    radius: "default"
-  }
+    radius: "default",
+  },
 });
 
 /** Base container for avatar components */
-function AvatarRoot({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
+function AvatarRoot({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Root>) {
   return (
     <AvatarPrimitive.Root
       className={cn("relative flex shrink-0 overflow-hidden", className)}
@@ -41,15 +38,9 @@ function AvatarRoot({
 }
 
 /** Image component for the avatar */
-function AvatarImage({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+function AvatarImage({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
   return (
-    <AvatarPrimitive.Image
-      className={cn("aspect-square h-full w-full", className)}
-      {...props}
-    />
+    <AvatarPrimitive.Image className={cn("aspect-square h-full w-full", className)} {...props} />
   );
 }
 
@@ -61,7 +52,7 @@ function AvatarFallback({
   return (
     <AvatarPrimitive.Fallback
       className={cn(
-        "flex h-full w-full items-center justify-center rounded-full bg-muted",
+        "bg-muted flex h-full w-full items-center justify-center rounded-full",
         className
       )}
       {...props}
@@ -96,11 +87,7 @@ function Avatar({
 
   return (
     <AvatarRoot
-      className={cn(
-        avatarVariants({ size, radius }),
-        "relative border",
-        className
-      )}
+      className={cn(avatarVariants({ size, radius }), "relative border", className)}
       {...props}
     >
       <AvatarImage
@@ -117,7 +104,7 @@ function Avatar({
         {!isImageLoaded ? (
           <span
             style={{ opacity: isImageLoaded ? 0 : 1 }}
-            className="absolute inset-0 z-10 animate-pulse rounded-md bg-primary/10 transition-opacity ease-in-out"
+            className="bg-primary/10 absolute inset-0 z-10 animate-pulse rounded-md transition-opacity ease-in-out"
           />
         ) : fallbackSrc ? (
           <img

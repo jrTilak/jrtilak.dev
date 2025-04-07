@@ -5,7 +5,7 @@ import { cn } from "@/lib/cn";
 import { HEADER_LINKS } from "./constants";
 
 type NavLinkProps = {
-  link: typeof HEADER_LINKS[number];
+  link: (typeof HEADER_LINKS)[number];
   isActive: boolean;
   onClick?: () => void;
   className?: string;
@@ -18,7 +18,7 @@ const NavLink: React.FC<NavLinkProps> = ({ link, isActive, onClick, className })
     variant="ghost"
     onClick={onClick}
     className={cn(
-      "h-fit items-center gap-1.5 hover:bg-accent/80 backdrop-blur-sm bg-transparent",
+      "hover:bg-accent/80 h-fit items-center gap-1.5 bg-transparent backdrop-blur-sm",
       isActive && "!text-primary",
       className
     )}

@@ -10,16 +10,13 @@ const ThemeToggle = ({ className }: { className?: string }) => {
 
   return (
     <Button
-      className={cn(
-        "h-fit w-fit p-1.5 aspect-square bg-transparent",
-        className
-      )}
+      className={cn("aspect-square h-fit w-fit bg-transparent p-1.5", className)}
       variant="ghost"
       size="icon"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
-      <SunIcon className="h-4 w-4 rotate-90 scale-0 transition-transform duration-500 ease-in-out dark:rotate-0 dark:scale-100" />
-      <MoonIcon className="scale-100 absolute h-4 w-4 rotate-0 transition-transform duration-500 ease-in-out dark:-rotate-90 dark:scale-0" />
+      <SunIcon className="h-4 w-4 scale-0 rotate-90 transition-transform duration-500 ease-in-out dark:scale-100 dark:rotate-0" />
+      <MoonIcon className="absolute h-4 w-4 scale-100 rotate-0 transition-transform duration-500 ease-in-out dark:scale-0 dark:-rotate-90" />
       <span className="sr-only">Switch Theme</span>
     </Button>
   );
