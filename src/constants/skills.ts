@@ -1,0 +1,192 @@
+import { IMAGES } from "./images";
+
+export const SKILLS = [
+  {
+    name: "Next.js",
+    href: "https://nextjs.org/",
+    image: "https://www.svgrepo.com/show/368858/nextjs.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "React.js",
+    href: "https://react.dev/",
+    image: "https://www.svgrepo.com/show/374032/reactjs.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "Redux.js",
+    href: "https://react-redux.js.org/",
+    image: "https://www.svgrepo.com/show/452093/redux.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "MongoDb",
+    href: "https://expressjs.com/",
+    image: "https://www.svgrepo.com/show/373845/mongo.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "Firebase",
+    href: "https://firebase.google.com/",
+    image: "https://www.svgrepo.com/show/373595/firebase.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "Express.js",
+    href: "https://www.mongodb.com/",
+    image: "https://www.svgrepo.com/show/330398/express.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "Docker",
+    href: "https://www.docker.com/",
+    image: "https://www.svgrepo.com/show/373557/docker2.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "AWS",
+    href: "https://aws.amazon.com/",
+    image: "https://www.svgrepo.com/show/448299/aws.svg",
+    showAsExpertise: true,
+  },
+  {
+    image: "https://www.svgrepo.com/show/333088/framer.svg",
+    name: "Framer Motion",
+    showAsExpertise: false,
+    href: "https://www.framer.com/motion/",
+  },
+  {
+    image: IMAGES.icons["threejs"],
+    name: "Three.js",
+    showAsExpertise: false,
+    href: "https://threejs.org/",
+  },
+  {
+    name: "Typescript",
+    href: "https://www.typescriptlang.org/",
+    image: "https://www.svgrepo.com/show/354478/typescript-icon.svg",
+    showAsExpertise: true,
+  },
+  {
+    image: "https://docs.pmnd.rs/zustand.ico",
+    name: "Zustand",
+    showAsExpertise: true,
+    href: "https://docs.pmnd.rs/zustand/getting-started/introduction",
+  },
+  {
+    image: IMAGES.icons["react-query"],
+    name: "React Query",
+    showAsExpertise: true,
+    href: "https://tanstack.com/query/v3/",
+  },
+  {
+    image: IMAGES.icons["react-hook-form"],
+    name: "React Hook Form",
+    showAsExpertise: true,
+    href: "https://react-hook-form.com/",
+  },
+  {
+    image: IMAGES.icons.zod,
+    name: "Zod",
+    showAsExpertise: true,
+    href: "https://zod.dev/",
+  },
+  {
+    image: IMAGES.icons.vitest,
+    name: "Vitest",
+    showAsExpertise: true,
+    href: "https://vitest.dev/",
+  },
+  {
+    name: "Node.js",
+    href: "https://nodejs.org/en",
+    image: "https://www.svgrepo.com/show/354119/nodejs-icon.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "Javascript",
+    href: "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+    image: "https://www.svgrepo.com/show/353925/javascript.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "Git",
+    image: "https://www.svgrepo.com/show/452210/git.svg",
+    showAsExpertise: false,
+    href: "https://git-scm.com/",
+  },
+  {
+    image: "https://www.svgrepo.com/show/512317/github-142.svg",
+    name: "Github",
+    showAsExpertise: false,
+    href: "https://github.com/",
+  },
+  {
+    image: "https://www.svgrepo.com/show/373827/markdown.svg",
+    name: "Markdown",
+    showAsExpertise: false,
+    href: "https://www.markdownguide.org/",
+  },
+  {
+    image: "https://www.svgrepo.com/show/373768/light-mdx.svg",
+    name: "Mdx",
+    showAsExpertise: false,
+    href: "https://mdxjs.com/",
+  },
+  {
+    name: "VS Code",
+    image: "https://www.svgrepo.com/show/452129/vs-code.svg",
+    showAsExpertise: false,
+    href: "https://code.visualstudio.com/",
+  },
+  {
+    name: "TailwindCSS",
+    href: "https://tailwindcss.com/",
+    image: "https://www.svgrepo.com/show/374118/tailwind.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "SASS/SCSS",
+    href: "https://sass-lang.com/",
+    image: "https://www.svgrepo.com/show/374067/scss2.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "CSS",
+    href: "https://www.svgrepo.com/show/452185/css-3.svg",
+    image: "https://www.svgrepo.com/show/452185/css-3.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "HTML",
+    href: "https://developer.mozilla.org/en-US/docs/Web/HTML",
+    image: "https://www.svgrepo.com/show/452228/html-5.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "C++",
+    image: "https://www.svgrepo.com/show/452183/cpp.svg",
+    href: "https://cplusplus.com/",
+    showAsExpertise: false,
+  },
+  {
+    name: "C Language",
+    image: "https://www.svgrepo.com/show/373482/c.svg",
+    href: "https://en.wikipedia.org/wiki/C_(programming_language)",
+    showAsExpertise: false,
+  },
+  {
+    name: "Bash Scripting",
+    image: "https://www.svgrepo.com/show/353478/bash-icon.svg",
+    href: "https://devdocs.io/bash/",
+    showAsExpertise: false,
+  },
+  {
+    name: "Python",
+    image: "https://www.svgrepo.com/show/452091/python.svg",
+    href: "https://www.python.org/",
+    showAsExpertise: false,
+  },
+] as const;
+
+export type SkillNames = (typeof SKILLS)[number]["name"];

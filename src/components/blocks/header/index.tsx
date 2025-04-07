@@ -12,7 +12,7 @@ const Header: React.FC = () => {
         <Logo />
         <DesktopNav />
         <div className="flex items-center gap-2.5">
-          <ThemeToggle className="size-9" />
+          <ThemeToggle className="size-9 lg:hidden" />
           <MobileNav />
         </div>
       </div>

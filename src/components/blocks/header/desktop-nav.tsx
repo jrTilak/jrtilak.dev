@@ -3,6 +3,7 @@ import NavLink from "./nav-link";
 import ContactButton from "./contact-button";
 import { HEADER_LINKS } from "./constants";
 import { usePathname } from "next/navigation";
+import ThemeToggle from "@/components/composite/theme-toggle";
 
 // Desktop navigation component
 const DesktopNav = () => {
@@ -21,7 +22,10 @@ const DesktopNav = () => {
           <NavLink key={link.href} link={link} isActive={isLinkActive(link.href)} />
         ))}
       </nav>
-      <ContactButton className="hidden lg:flex" />
+      <div className="ml-auto flex items-center gap-2.5">
+        <ContactButton className="hidden lg:flex" />
+        <ThemeToggle className="hidden lg:flex" />
+      </div>
     </>
   );
 };
