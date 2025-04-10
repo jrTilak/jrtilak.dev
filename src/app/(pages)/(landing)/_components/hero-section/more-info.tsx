@@ -26,8 +26,8 @@ const MoreInfo = () => {
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <h4 className="font-medium">Available For:</h4>
-        <ul className="ml-9 flex list-disc flex-col gap-1">
-          {["Freelancing Projects 💼", "Job Offers 📨", "Collaborations 🤝"].map((item, index) => (
+        <ul className="ml-9 flex flex-wrap list-disc gap-x-12 gap-y-2">
+          {["Freelancing Projects 💼", "Job Offers 📨", "Collaborations 🤝", "and more..."].map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>

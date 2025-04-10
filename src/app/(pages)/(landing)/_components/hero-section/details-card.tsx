@@ -9,8 +9,11 @@ import OrbitingCircles from "./orbiting-circles";
 
 const DetailsCard = () => {
   return (
-    <div className="text-center">
+    <div className="text-center w-full">
       <Card className="relative flex h-[60vh] flex-col items-center justify-center overflow-hidden md:h-[40vh] lg:h-full">
+        <div className="lg:hidden">
+          <OrbitingCircles />
+        </div>
         <CardHeader>
           <div className="relative hidden h-[350px] items-center justify-center rounded-full p-6 lg:flex">
             <OrbitingCircles />

@@ -13,10 +13,8 @@ const Hero = () => {
       <DetailsCard />
       <div className="flex flex-col gap-6">
         <MoreInfo />
-        <GithubStats />
-      </div>
-      <div className="col-span-2">
         <Stats />
+        <GithubStats />
       </div>
     </section>
   );
