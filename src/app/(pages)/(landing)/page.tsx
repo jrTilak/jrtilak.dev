@@ -4,7 +4,7 @@ import TrustedBy from "./_components/trusted-by";
 import Skills from "@/components/blocks/skills";
 import Testimonials from "@/components/blocks/testimonials";
 import AreYouReady from "@/components/blocks/are-you-ready";
-import WorksAndProjects from "@/components/blocks/worrk-and-projects";
+import WorksAndProjects from "@/components/blocks/work-and-projects";
 import { PROJECTS } from "@/constants/projects";
 
 const Page = async () => {

@@ -20,12 +20,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { Button, buttonVariants } from "@/components/base/button";
 
-import {
-  Dialog,
-  DialogContent,
-  DialogHeader,
-  DialogTrigger,
-} from "@/components/base/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/base/dialog";
 import { IMAGES } from "@/constants/images";
 
 const Testimonials = () => {
@@ -36,15 +31,14 @@ const Testimonials = () => {
           <CardHeader>
             <CardTitle>Words of Appreciation 💬</CardTitle>
             <CardDescription>
-              Discover the experiences and feedback from those who&apos;ve
-              collaborated with me.
+              Discover the experiences and feedback from those who&apos;ve collaborated with me.
             </CardDescription>
           </CardHeader>
           <CardContent>
             <CarouselContent className="">
               {TESTIMONIALS.map((testimony, i) => (
-                <CarouselItem key={i} className="md:basis-1/2 group">
-                  <div className="flex flex-col gap-9 p-4 bg-muted group-hover:shadow-lg border hover:border-primary border-muted rounded-md select-none relative">
+                <CarouselItem key={i} className="group md:basis-1/2">
+                  <div className="bg-muted hover:border-primary border-muted relative flex flex-col gap-9 rounded-md border p-4 select-none group-hover:shadow-lg">
                     <Image
                       src={
                         testimony.platform === "linkedin"
@@ -61,7 +55,7 @@ const Testimonials = () => {
                       <Image
                         src={testimony.image ?? IMAGES.placeholders.avatar}
                         alt={testimony.name}
-                        className="rounded-full size-12 sm:size-16 object-cover object-center"
+                        className="size-12 rounded-full object-cover object-center sm:size-16"
                         height={80}
                         width={80}
                       />
@@ -70,7 +64,7 @@ const Testimonials = () => {
                         <Link
                           href={testimony.href}
                           target="_blank"
-                          className="font-medium text-base sm:text-lg underline hover:text-primary"
+                          className="hover:text-primary text-base font-medium underline sm:text-lg"
                         >
                           {testimony.name}
                         </Link>
@@ -80,15 +74,10 @@ const Testimonials = () => {
                       </div>
                     </div>
                     <p>
-                      {testimony.inShort.substring(0, 200)} ...
-                      &nbsp;&nbsp;&nbsp;&nbsp;
+                      {testimony.inShort.substring(0, 200)} ... &nbsp;&nbsp;&nbsp;&nbsp;
                       <Dialog>
                         <DialogTrigger asChild>
-                          <Button
-                            className="h-fit py-1"
-                            variant={"outline"}
-                            size={"sm"}
-                          >
+                          <Button className="h-fit py-1" variant={"outline"} size={"sm"}>
                             See More
                           </Button>
                         </DialogTrigger>
@@ -96,11 +85,9 @@ const Testimonials = () => {
                           <DialogHeader>
                             <div className="flex items-center gap-2.5">
                               <Image
-                                src={
-                                  testimony.image ?? IMAGES.placeholders.avatar
-                                }
+                                src={testimony.image ?? IMAGES.placeholders.avatar}
                                 alt={testimony.name}
-                                className="rounded-full size-12 sm:size-16 object-cover object-center"
+                                className="size-12 rounded-full object-cover object-center sm:size-16"
                                 height={80}
                                 width={80}
                               />
@@ -109,7 +96,7 @@ const Testimonials = () => {
                                 <Link
                                   href={testimony.href}
                                   target="_blank"
-                                  className="font-medium text-base sm:text-lg underline hover:text-primary"
+                                  className="hover:text-primary text-base font-medium underline sm:text-lg"
                                 >
                                   {testimony.name}
                                 </Link>
@@ -129,8 +116,8 @@ const Testimonials = () => {
             </CarouselContent>
           </CardContent>
           <CardFooter className="flex items-center justify-center gap-4">
-            <CarouselPrevious className="static rounded-md w-12" />
-            <CarouselNext className="static rounded-md w-12" />
+            <CarouselPrevious className="static w-12 rounded-md" />
+            <CarouselNext className="static w-12 rounded-md" />
           </CardFooter>
         </Card>
       </Carousel>

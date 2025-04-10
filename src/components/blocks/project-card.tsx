@@ -21,14 +21,14 @@ const ProjectCard = (props: ProjectMetaData) => {
   return (
     <Dialog>
       <DialogTrigger>
-        <Card className="group cursor-pointer hover:shadow-md transition-colors hover:bg-muted">
-          <div className="w-full h-fit">
+        <Card className="group hover:bg-muted cursor-pointer transition-colors hover:shadow-md">
+          <div className="h-fit w-full">
             <Image
               src={props.image}
               alt={props.title}
               width={300}
               height={200}
-              className="w-full h-auto object-cover object-top sm:h-[200px]"
+              className="h-auto w-full object-cover object-top sm:h-[200px]"
               quality={100}
             />
           </div>
@@ -41,7 +41,7 @@ const ProjectCard = (props: ProjectMetaData) => {
                     <Badge
                       variant={"outline"}
                       key={i}
-                      className="font-normal w-fit rounded-lg capitalize text-xs"
+                      className="w-fit rounded-lg text-xs font-normal capitalize"
                     >
                       {tech}
                     </Badge>
@@ -49,9 +49,7 @@ const ProjectCard = (props: ProjectMetaData) => {
                 })}
               </div>
             </div>
-            <CardTitle className="truncate text-left text-lg">
-              {props.title}
-            </CardTitle>
+            <CardTitle className="truncate text-left text-lg">{props.title}</CardTitle>
           </CardHeader>
         </Card>
       </DialogTrigger>
@@ -59,25 +57,22 @@ const ProjectCard = (props: ProjectMetaData) => {
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <span> {props.title}</span> -{" "}
-            <Badge className="capitalize font-normal" variant={"outline"}>
+            <Badge className="font-normal capitalize" variant={"outline"}>
               {props.type}
             </Badge>
           </DialogTitle>
           <DialogDescription>
-            <Link
-              href={props.urls?.liveUrl ?? props.urls?.sourceUrl ?? "#"}
-              target="_blank"
-            >
+            <Link href={props.urls?.liveUrl ?? props.urls?.sourceUrl ?? "#"} target="_blank">
               <Image
                 src={props.image}
                 alt=""
                 width={1200}
                 height={800}
                 quality={100}
-                className="w-full h-auto object-contain object-center bg-muted max-h-[300px] shadow-md rounded-md"
+                className="bg-muted h-auto max-h-[300px] w-full rounded-md object-contain object-center shadow-md"
               />
             </Link>
-            <div className="flex flex-wrap gap-x-4 gap-y-2 my-5">
+            <div className="my-5 flex flex-wrap gap-x-4 gap-y-2">
               {props.techs.map((tech, i) => {
                 const skill = getSkillDetails(tech);
                 if (!skill) return null;
@@ -86,7 +81,7 @@ const ProjectCard = (props: ProjectMetaData) => {
                     <Badge
                       variant={"outline"}
                       key={i}
-                      className="font-normal w-fit rounded-lg capitalize text-sm"
+                      className="w-fit rounded-lg text-sm font-normal capitalize"
                     >
                       <Image
                         src={skill?.image}
@@ -122,22 +117,14 @@ const ProjectCard = (props: ProjectMetaData) => {
             </Link>
           ))}
           {props.urls?.sourceUrl && (
-            <Link
-              href={props.urls?.sourceUrl}
-              target="_blank"
-              title="Source Code"
-            >
+            <Link href={props.urls?.sourceUrl} target="_blank" title="Source Code">
               <Button variant={"outline"} size={"sm"} className="w-full">
                 <GithubIcon />
               </Button>
             </Link>
           )}
           {props.urls?.liveUrl && (
-            <Link
-              href={props.urls?.liveUrl}
-              target="_blank"
-              className="flex-grow"
-            >
+            <Link href={props.urls?.liveUrl} target="_blank" className="flex-grow">
               <Button variant={"outline"} size={"sm"} className="w-full">
                 <span className="max-sm:hidden">View Live</span>{" "}
                 <TrendingUpIcon className="size-5 sm:ml-2.5" />

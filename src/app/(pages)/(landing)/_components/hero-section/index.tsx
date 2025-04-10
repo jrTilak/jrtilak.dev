@@ -2,6 +2,7 @@ import React from "react";
 import DetailsCard from "./details-card";
 import MoreInfo from "./more-info";
 import Stats from "./stats";
+import GithubStats from "./github-stats";
 
 const Hero = () => {
   return (
@@ -12,6 +13,9 @@ const Hero = () => {
       <DetailsCard />
       <div className="flex flex-col gap-6">
         <MoreInfo />
+        <GithubStats />
+      </div>
+      <div className="col-span-2">
         <Stats />
       </div>
     </section>

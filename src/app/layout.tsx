@@ -34,7 +34,10 @@ export default function Layout({
 }
 
 export const metadata: Metadata = {
-  title: `Tilak Thapa | Full Stack Developer`,
+  title: {
+    default: "Tilak Thapa | Full Stack Developer",
+    template: "%s | Tilak Thapa",
+  },
   description: `Curiosity-driven developer with 2.4+ years of expertise building robust web apps using the MERN stack and Next.js, paired with hands-on experience in Docker and cloud deployment on AWS.`,
   authors: [
     {

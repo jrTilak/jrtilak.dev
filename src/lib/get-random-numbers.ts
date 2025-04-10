@@ -1,12 +1,6 @@
-export const getUniqueRandomNumbers = (
-  min: number,
-  max: number,
-  quantity: number,
-): number[] => {
+export const getUniqueRandomNumbers = (min: number, max: number, quantity: number): number[] => {
   if (max - min + 1 < quantity) {
-    throw new Error(
-      "Range is too small to generate the required quantity of unique numbers.",
-    );
+    throw new Error("Range is too small to generate the required quantity of unique numbers.");
   }
 
   const uniqueNumbers = new Set<number>();

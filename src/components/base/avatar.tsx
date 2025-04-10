@@ -28,10 +28,7 @@ const avatarVariants = cva("", {
 });
 
 /** Base container for avatar components */
-function AvatarRoot({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Root>) {
+function AvatarRoot({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Root>) {
   return (
     <AvatarPrimitive.Root
       className={cn("relative flex shrink-0 overflow-hidden", className)}
@@ -41,15 +38,9 @@ function AvatarRoot({
 }
 
 /** Image component for the avatar */
-function AvatarImage({
-  className,
-  ...props
-}: React.ComponentProps<typeof AvatarPrimitive.Image>) {
+function AvatarImage({ className, ...props }: React.ComponentProps<typeof AvatarPrimitive.Image>) {
   return (
-    <AvatarPrimitive.Image
-      className={cn("aspect-square h-full w-full", className)}
-      {...props}
-    />
+    <AvatarPrimitive.Image className={cn("aspect-square h-full w-full", className)} {...props} />
   );
 }
 
@@ -62,17 +53,14 @@ function AvatarFallback({
     <AvatarPrimitive.Fallback
       className={cn(
         "bg-muted flex h-full w-full items-center justify-center rounded-full",
-        className,
+        className
       )}
       {...props}
     />
   );
 }
 
-type AvatarProps = Omit<
-  React.ComponentProps<typeof AvatarPrimitive.Root>,
-  "children"
-> &
+type AvatarProps = Omit<React.ComponentProps<typeof AvatarPrimitive.Root>, "children"> &
   VariantProps<typeof avatarVariants> & {
     /** Source URL for the avatar image */
     src: string;
@@ -99,11 +87,7 @@ function Avatar({
 
   return (
     <AvatarRoot
-      className={cn(
-        avatarVariants({ size, radius }),
-        "relative border",
-        className,
-      )}
+      className={cn(avatarVariants({ size, radius }), "relative border", className)}
       {...props}
     >
       <AvatarImage

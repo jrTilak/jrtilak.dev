@@ -22,13 +22,11 @@ export const IMAGES = {
   },
 
   certifications: {
-    "fsu-webdev-competition":
-      "/images/certifications/fsu-webdev-competition.png",
+    "fsu-webdev-competition": "/images/certifications/fsu-webdev-competition.png",
     "lor-prodigy": "/images/certifications/lor-prodigy.png",
     "web-dev-bootcamp": "/images/certifications/web-dev-bootcamp.png",
     "prodigy-internship": "/images/certifications/prodigy-internship.png",
-    "html-css-tutor-at-aces":
-      "/images/certifications/html-css-tutor-at-aces.png",
+    "html-css-tutor-at-aces": "/images/certifications/html-css-tutor-at-aces.png",
     neonshark: "/images/certifications/neonshark.png",
   },
 

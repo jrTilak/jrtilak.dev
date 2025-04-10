@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardHeader,
-  CardTitle,
-} from "@/components/base/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/base/card";
 import Link from "next/link";
 import Image from "next/image";
 import { TRUSTED_BY } from "@/constants/trusted-by";
@@ -15,20 +10,20 @@ const TrustedBy = () => {
       <CardHeader>
         <CardTitle>Trusted By</CardTitle>
       </CardHeader>
-      <CardContent className="flex items-center gap-4 flex-wrap">
+      <CardContent className="flex flex-wrap items-center gap-4">
         {TRUSTED_BY.map((trustedBy, i) => (
           <Link
             href={trustedBy.href}
             key={i}
             title={trustedBy.label}
-            className="h-10 w-auto rounded-md bg-muted flex items-center justify-center px-4 py-2 grayscale hover:grayscale-0 hover:shadow-md transition-all"
+            className="bg-muted flex h-10 w-auto items-center justify-center rounded-md px-4 py-2 grayscale transition-all hover:shadow-md hover:grayscale-0"
           >
             <Image
               src={trustedBy.image}
               alt={trustedBy.label}
               height={50}
               width={50}
-              className="object-contain object-center w-full h-full"
+              className="h-full w-full object-contain object-center"
               quality={100}
             />
           </Link>

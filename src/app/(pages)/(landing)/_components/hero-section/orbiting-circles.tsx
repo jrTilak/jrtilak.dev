@@ -14,14 +14,7 @@ const OrbitingCircles = () => {
     <>
       <OC iconSize={40} radius={170}>
         {skills.slice(0, 2).map((skill, index) => (
-          <Image
-            key={index}
-            src={skill.image}
-            className="size-4"
-            alt=""
-            height={40}
-            width={40}
-          />
+          <Image key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
         ))}
       </OC>
       <OC iconSize={40} reverse radius={160}>
@@ -30,14 +23,7 @@ const OrbitingCircles = () => {
           .reverse()
           .filter((skill) => skill.image)
           .map((skill, index) => (
-            <Image
-              key={index}
-              src={skill.image}
-              className="size-4"
-              alt=""
-              height={40}
-              width={40}
-            />
+            <Image key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
           ))}
       </OC>
     </>

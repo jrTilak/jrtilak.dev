@@ -20,19 +20,14 @@ const MoreInfo = () => {
           🙋‍♂️ Greetings! I&apos;m Tilak Thapa (jrTilak)
         </CardDescription>
         <CardTitle className="text-xl sm:text-4xl">
-          Curiosity-driven full-stack web/app developer, constantly pushing the
-          boundaries of what's possible to create innovative and seamless
-          digital solutions.
+          Curiosity-driven full-stack web/app developer, constantly pushing the boundaries of what's
+          possible to create innovative and seamless digital solutions.
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <h4 className="font-medium">Available For:</h4>
         <ul className="ml-9 flex list-disc flex-col gap-1">
-          {[
-            "Freelancing Projects 💼",
-            "Job Offers 📨",
-            "Collaborations 🤝",
-          ].map((item, index) => (
+          {["Freelancing Projects 💼", "Job Offers 📨", "Collaborations 🤝"].map((item, index) => (
             <li key={index}>{item}</li>
           ))}
         </ul>

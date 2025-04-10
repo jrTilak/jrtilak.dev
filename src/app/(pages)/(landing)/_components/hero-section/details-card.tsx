@@ -1,11 +1,5 @@
 import React from "react";
-import {
-  Card,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/base/card";
+import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/base/card";
 import Image from "next/image";
 import { Button } from "@/components/base/button";
 import Link from "next/link";
@@ -42,11 +36,7 @@ const DetailsCard = () => {
               title={contact.label}
               key={contact.href}
             >
-              <Button
-                variant={"outline"}
-                size={"icon"}
-                className="group aspect-square"
-              >
+              <Button variant={"outline"} size={"icon"} className="group aspect-square">
                 <Image
                   src={contact.image}
                   className="size-4 transition-all group-hover:scale-[1.10] dark:invert"

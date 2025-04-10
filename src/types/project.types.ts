@@ -1,11 +1,4 @@
-export type Category =
-  | "web"
-  | "mobile"
-  | "game"
-  | "other"
-  | "package/lib"
-  | "extension"
-  | "ai";
+export type Category = "web" | "mobile" | "game" | "other" | "package/lib" | "extension" | "ai";
 
 export type ProjectMetaData = {
   title: string;

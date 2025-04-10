@@ -12,8 +12,7 @@ const badgeVariants = cva(
       variant: {
         default: "border-transparent bg-primary text-primary-foreground shadow",
         secondary: "border-transparent bg-secondary text-secondary-foreground",
-        destructive:
-          "border-transparent bg-destructive text-destructive-foreground shadow",
+        destructive: "border-transparent bg-destructive text-destructive-foreground shadow",
         "destructive-outline": "border-destructive text-destructive",
         outline: "text-foreground",
       },
@@ -33,20 +32,14 @@ const badgeVariants = cva(
       size: "md",
       radius: "md",
     },
-  },
+  }
 );
 
-type BadgeProps = React.HTMLAttributes<HTMLDivElement> &
-  VariantProps<typeof badgeVariants>;
+type BadgeProps = React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof badgeVariants>;
 
 /** Badge component for displaying short status text or counts */
 function Badge({ className, variant, radius, size, ...props }: BadgeProps) {
-  return (
-    <div
-      className={cn(badgeVariants({ variant, radius, size }), className)}
-      {...props}
-    />
-  );
+  return <div className={cn(badgeVariants({ variant, radius, size }), className)} {...props} />;
 }
 
 export { Badge, badgeVariants };
