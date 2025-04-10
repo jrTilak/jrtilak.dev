@@ -113,7 +113,7 @@ const ContactForm = () => {
                 {...register("email", {
                   required: true,
                   validate(value) {
-                    const emailRegex = /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2, 4}/gim;
+                    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.[A-Z]{2,4}$/gim;
                     if (!emailRegex.test(value)) {
                       return "Please enter a valid email address";
                     }
