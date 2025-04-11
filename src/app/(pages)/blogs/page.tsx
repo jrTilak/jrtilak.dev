@@ -4,8 +4,8 @@ import PrimaryBlogCard from "./_components/primary-blog-card";
 import SecondaryBlogCard from "./_components/secondary-blog-card";
 import AllTags from "./_components/all-tags";
 import BlogCard from "./_components/blog-card";
-import unique from "@/helpers/unique";
-import Error404 from "@/components/blocks/404";
+import unique from "@/lib/unique";
+import Error404 from "@/components/screens/404";
 
 const Page = async () => {
   const blogs = await getAllBlogs();
@@ -17,7 +17,7 @@ const Page = async () => {
       ?.flat()
   );
   return (
-    <section className="flex flex-col gap-6 md:gap-12 xl:gap-24 container m-auto max-w-7xl">
+    <section className="container m-auto flex max-w-7xl flex-col gap-6 md:gap-12 xl:gap-24">
       {blogs.length === 0 && (
         <Error404
           title="No blogs found"
@@ -26,29 +26,21 @@ const Page = async () => {
       )}
       <div className="flex flex-col gap-y-4 md:gap-y-7 xl:gap-y-9">
         {/* first blog */}
-        {blogs.length > 0 && (
-          <PrimaryBlogCard {...blogs[0]} className="animate-in-from-bottom" />
-        )}
+        {blogs.length > 0 && <PrimaryBlogCard {...blogs[0]} className="animate-in-from-bottom" />}
         {/* second and third blogs */}
-        <div className="grid gap-x-7 gap-y-9 grid-cols-1 lg:grid-cols-2">
+        <div className="grid grid-cols-1 gap-x-7 gap-y-9 lg:grid-cols-2">
           {blogs.length > 1 && (
-            <SecondaryBlogCard
-              {...blogs[1]}
-              className="animate-in-from-bottom delay-75"
-            />
+            <SecondaryBlogCard {...blogs[1]} className="animate-in-from-bottom delay-75" />
           )}
           {blogs.length > 2 && (
-            <SecondaryBlogCard
-              {...blogs[2]}
-              className="animate-in-from-bottom delay-150"
-            />
+            <SecondaryBlogCard {...blogs[2]} className="animate-in-from-bottom delay-150" />
           )}
         </div>
       </div>
       {blogs.length > 3 && (
-        <div className="flex gap-5 md:gap-7 flex-col lg:flex-row xl:gap-24">
+        <div className="flex flex-col gap-5 md:gap-7 lg:flex-row xl:gap-24">
           {/* sidebar */}
-          <div className="flex flex-col gap-3 px-6 py-7 bg-card shadow-md h-fit rounded-md w-full lg:w-72 animate-in-from-left delay-200">
+          <div className="bg-card animate-in-from-left flex h-fit w-full flex-col gap-3 rounded-md px-6 py-7 shadow-md delay-200 lg:w-72">
             <AllTags
               data={tags.map((t) => ({
                 label: t,
@@ -58,7 +50,7 @@ const Page = async () => {
           </div>
 
           {/* all remaining blogs */}
-          <div className="flex flex-col gap-6 w-full">
+          <div className="flex w-full flex-col gap-6">
             {blogs.map((blog, i) => {
               if (i < 3) return null;
               return (

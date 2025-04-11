@@ -1,6 +1,6 @@
-import unique from "@/helpers/unique";
-import { getAllProjects } from "@/services/projects";
-import WorksAndProjects from "@/components/globals/works-and-projects";
+import unique from "@/lib/unique";
+import { PROJECTS } from "@/constants/projects";
+import WorksAndProjects from "@/components/blocks/work-and-projects";
 
 type Props = {
   params: {
@@ -9,26 +9,19 @@ type Props = {
 };
 
 const ProjectByTag = async ({ params: { category } }: Props) => {
-  const projects = await getAllProjects();
-
-  return (
-    <WorksAndProjects
-      activeCategory={category}
-      projects={projects}
-    />
-  );
+  return <WorksAndProjects activeCategory={category} projects={PROJECTS} />;
 };
 
 export default ProjectByTag;
 
 export async function generateStaticParams() {
-  const allProjects = await getAllProjects();
   const tags = unique(
-    ["all", allProjects
-      ?.map((project) => {
+    [
+      "all",
+      PROJECTS?.map((project) => {
         return project.categories;
-      })]
-      ?.flat()
+      }),
+    ]?.flat()
   );
 
   return tags.map((tag) => ({

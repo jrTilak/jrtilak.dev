@@ -3,7 +3,7 @@
  * See more about this method: https://lazykit.jrtilak.dev/docs/react-hooks/web-api/useRequestFullScreen
  */
 
-import { useState, useCallback, useEffect, RefObject } from 'react';
+import { useState, useCallback, useEffect, RefObject } from "react";
 
 /**
  * Custom hook to handle entering and exiting fullscreen mode.
@@ -75,25 +75,16 @@ const useRequestFullScreen = <T extends HTMLElement>(ref?: RefObject<T>) => {
   }, []);
 
   useEffect(() => {
-    document.addEventListener('fullscreenchange', handleFullScreenChange);
-    document.addEventListener('webkitfullscreenchange', handleFullScreenChange); // Safari
-    document.addEventListener('mozfullscreenchange', handleFullScreenChange); // Firefox
-    document.addEventListener('MSFullscreenChange', handleFullScreenChange); // IE/Edge
+    document.addEventListener("fullscreenchange", handleFullScreenChange);
+    document.addEventListener("webkitfullscreenchange", handleFullScreenChange); // Safari
+    document.addEventListener("mozfullscreenchange", handleFullScreenChange); // Firefox
+    document.addEventListener("MSFullscreenChange", handleFullScreenChange); // IE/Edge
 
     return () => {
-      document.removeEventListener('fullscreenchange', handleFullScreenChange);
-      document.removeEventListener(
-        'webkitfullscreenchange',
-        handleFullScreenChange,
-      );
-      document.removeEventListener(
-        'mozfullscreenchange',
-        handleFullScreenChange,
-      );
-      document.removeEventListener(
-        'MSFullscreenChange',
-        handleFullScreenChange,
-      );
+      document.removeEventListener("fullscreenchange", handleFullScreenChange);
+      document.removeEventListener("webkitfullscreenchange", handleFullScreenChange);
+      document.removeEventListener("mozfullscreenchange", handleFullScreenChange);
+      document.removeEventListener("MSFullscreenChange", handleFullScreenChange);
     };
   }, [handleFullScreenChange]);
 

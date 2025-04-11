@@ -1,21 +1,22 @@
-import { JSXElementConstructor, ReactElement } from "react";
+import { SkillNames } from "@/constants/skills";
+
+export type Category = "web" | "mobile" | "game" | "other" | "package/lib" | "extension" | "ai";
 
 export type ProjectMetaData = {
   title: string;
   publishedAt: string;
-  summary: string;
-  tags?: string[];
+  summary: React.ReactNode;
   image: string;
-  metaTags?: string[];
-  techs: string[];
-  categories: string[];
-  liveUrl?: string;
-  sourceUrl?: string;
-  index: number;
+  techs: SkillNames[];
+  categories: Category[];
+  urls?: {
+    liveUrl?: string;
+    sourceUrl?: string;
+    otherUrls?: {
+      label?: string;
+      url: string;
+      image?: string;
+    }[];
+  };
   type: string;
 };
-
-export interface Project extends ProjectMetaData {
-  content: ReactElement<any, string | JSXElementConstructor<any>>;
-  slug: string;
-}

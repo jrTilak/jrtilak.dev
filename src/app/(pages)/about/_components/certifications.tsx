@@ -1,17 +1,11 @@
 import React from "react";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { CERTIFICATION } from "@/data/certification";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/base/card";
+import { CERTIFICATION } from "@/constants/certification";
 import Image from "next/image";
-import { Badge } from "@/components/ui/badge";
+import { Badge } from "@/components/base/badge";
 import Link from "next/link";
 
-import ImageViewer from "@/components/globals/image-viewer";
+import ImageViewer from "@/components/blocks/image-viewer";
 
 const Certifications = () => {
   return (
@@ -20,21 +14,18 @@ const Certifications = () => {
         <CardHeader>
           <CardTitle>Badges of Honor 🎖️</CardTitle>
           <CardDescription>
-            These credentials symbolize my dedication to quality and excellence
-            in building robust web applications.
+            These credentials symbolize my dedication to quality and excellence in building robust
+            web applications.
           </CardDescription>
         </CardHeader>
-        <CardContent className="grid gap-5 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
+        <CardContent className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {CERTIFICATION.map((certification, i) => (
-            <Card
-              key={i}
-              className="group cursor-pointer hover:shadow-md transition-colors"
-            >
+            <Card key={i} className="group cursor-pointer transition-colors hover:shadow-md">
               <ImageViewer
                 src={certification.image}
                 title={certification.title}
                 trigger={{
-                  className: "w-full h-fit"
+                  className: "w-full h-fit cursor-pointer",
                 }}
               >
                 <Image
@@ -43,7 +34,7 @@ const Certifications = () => {
                   width={600}
                   quality={100}
                   height={400}
-                  className="w-full h-auto object-cover object-top sm:h-[200px]"
+                  className="h-auto w-full object-cover object-top sm:h-[200px]"
                 />
               </ImageViewer>
 
@@ -53,18 +44,14 @@ const Certifications = () => {
                     <Badge
                       variant={"outline"}
                       key={i}
-                      className="font-normal w-fit rounded-lg capitalize text-xs"
+                      className="w-fit rounded-lg text-xs font-normal capitalize"
                     >
                       {certification.issuedAt}
                     </Badge>
                   </div>
                 </div>
-                <Link
-                  href={certification.link}
-                  target="_blank"
-                  className="hover:underline"
-                >
-                  <CardTitle className="truncate text-base text-left">
+                <Link href={certification.link} target="_blank" className="hover:underline">
+                  <CardTitle className="truncate text-left text-base">
                     {certification.title}
                   </CardTitle>
                 </Link>

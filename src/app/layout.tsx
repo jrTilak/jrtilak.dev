@@ -1,12 +1,12 @@
-import ThemeProvider from "@/components/themes/theme-provider";
-import TopLoader from "@/components/loaders/top-loader";
 import { Toaster } from "react-hot-toast";
-import RootLayout from "@/components/layouts/root";
 import { Metadata } from "next";
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
-import { PERSONAL_DETAILS } from "@/data/personal-details";
-import GA from "@/components/analytics/ga";
+import TopLoader from "@/components/base/top-loader";
+import { ThemeProvider } from "@/providers/theme-providers";
+import Header from "@/components/blocks/header";
+import Footer from "@/components/blocks/footer";
 
 export default function Layout({
   children,
@@ -16,8 +16,12 @@ export default function Layout({
   return (
     <html lang="en">
       <body className="scrollbar">
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem>
-          <RootLayout>{children}</RootLayout>
+        <ThemeProvider>
+          <div>
+            <Header />
+            <main className="mt-28">{children}</main>
+            <Footer />
+          </div>
           <TopLoader />
           <Toaster
             toastOptions={{
@@ -25,15 +29,18 @@ export default function Layout({
             }}
           />
         </ThemeProvider>
-        <GA />
+        <GoogleAnalytics gaId="G-8J0X78E034" />
       </body>
     </html>
   );
 }
 
 export const metadata: Metadata = {
-  title: `${PERSONAL_DETAILS.name} | ${PERSONAL_DETAILS.postTitle}`,
-  description: `${PERSONAL_DETAILS.aboutMe.inShort}`,
+  title: {
+    default: "Tilak Thapa | Full Stack Developer",
+    template: "%s | Tilak Thapa",
+  },
+  description: `Curiosity-driven developer with 2.4+ years of expertise building robust web apps using the MERN stack and Next.js, paired with hands-on experience in Docker and cloud deployment on AWS.`,
   authors: [
     {
       name: "Tilak Thapa",
@@ -89,8 +96,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: `${PERSONAL_DETAILS.name} | ${PERSONAL_DETAILS.postTitle}`,
-    description: `${PERSONAL_DETAILS.aboutMe.inShort}`,
+    title: `Tilak Thapa | Full Stack Developer`,
+    description: `Curiosity-driven developer with 2.4+ years of expertise building robust web apps using the MERN stack and Next.js, paired with hands-on experience in Docker and cloud deployment on AWS.`,
     images: [
       {
         url: "/preview.png",

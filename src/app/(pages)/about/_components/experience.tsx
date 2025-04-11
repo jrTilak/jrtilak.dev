@@ -1,47 +1,47 @@
-import React from "react";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+"use client";
+import React, { useState } from "react";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/base/card";
 import {
   Accordion,
   AccordionContent,
   AccordionItem,
   AccordionTrigger,
-} from "@/components/ui/accordion";
-import { EXPERIENCES } from "@/data/experiences";
+} from "@/components/base/accordion";
+import { EXPERIENCES } from "@/constants/experience";
 import Image from "next/image";
-import { ChevronDown } from "lucide-react";
 import Link from "next/link";
-import { getCertificationDetails } from "@/helpers/get-certification.details";
-import { Separator } from "@/components/ui/separator";
-import { cn } from "@/helpers/cn";
-import ImageViewer from "@/components/globals/image-viewer";
-
-
+import { getCertificationDetails } from "@/lib/get-certification";
+import { Separator } from "@/components/base/separator";
+import { cn } from "@/lib/cn";
+import ImageViewer from "@/components/blocks/image-viewer";
 
 const Experience = () => {
+  const [open, setOpen] = useState("");
   return (
     <Card>
       <CardHeader>
         <CardTitle>Work Experience 💥</CardTitle>
       </CardHeader>
-      <Accordion type="single" collapsible>
+      <Accordion value={open} onValueChange={setOpen} triggerIcon={false} type="single" collapsible>
         <CardContent className="flex flex-col gap-4">
           {EXPERIENCES.map((experience, index) => (
             <AccordionItem
               value={index.toString()}
               key={index}
-              className="w-full border-none relative z-10"
+              className="relative z-10 w-full border-none"
+              onMouseOver={() => setOpen(index.toString())}
             >
               {index !== EXPERIENCES.length - 1 && (
                 <Separator
                   orientation="vertical"
-                  className="min-h-14 h-full w-0.5 absolute bg-muted-foreground rounded-full z-0 top-0 left-5 opacity-60"
+                  className="bg-muted-foreground absolute top-0 left-5 z-0 h-full min-h-14 w-0.5 rounded-full opacity-60"
                 />
               )}
-              <div className="grid grid-cols-[40px_1fr] gap-6 font-medium relative z-10">
+              <div className="relative z-10 grid grid-cols-[40px_1fr] gap-6 font-medium">
                 <Link
                   href={experience.company.url}
                   target="_blank"
-                  className="bg-muted rounded-full p-2 shadow-md size-10 "
+                  className="bg-muted size-10 rounded-full p-2 shadow-md"
                 >
                   <Image
                     src={experience.company.image}
@@ -52,19 +52,15 @@ const Experience = () => {
                   />
                 </Link>
                 <div className="flex flex-col gap-2.5">
-                  <AccordionTrigger
-                    className="flex items-start sm:items-center justify-between text-left py-0 group flex-col sm:flex-row hover:no-underline"
-                    hideChevron
-                  >
+                  <AccordionTrigger className="group flex flex-col items-start justify-between py-0 text-left hover:no-underline sm:flex-row sm:items-center">
                     <div className="flex flex-col">
-                      <h4 className="text-lg flex items-center gap-4">
+                      <h4 className="flex items-center gap-4 text-lg">
                         <span>{experience.position}</span>
-                        <ChevronDown className="size-5 opacity-0 group-hover:opacity-100 font-normal transition-all" />
                       </h4>
                       <Link
                         href={experience.company.url}
                         target="_blank"
-                        className="text-sm text-muted-foreground hover:underline"
+                        className="text-muted-foreground text-sm hover:underline"
                       >
                         {experience.company.name}
                       </Link>
@@ -73,8 +69,7 @@ const Experience = () => {
                       {experience.date.from} - {experience.date.to} <br />(
                       <span
                         className={cn(
-                          experience.date.duration.toLowerCase() ===
-                          "ongoing" && "text-primary"
+                          experience.date.duration.toLowerCase() === "ongoing" && "text-primary"
                         )}
                       >
                         {experience.date.duration})
@@ -82,13 +77,10 @@ const Experience = () => {
                     </span>
                   </AccordionTrigger>
 
-                  <AccordionContent className="font-normal flex flex-col gap-4">
+                  <AccordionContent className="flex flex-col gap-4 font-normal">
                     <ul className="list-disc">
                       {experience.description.map((desc, i) => (
-                        <li
-                          key={i}
-                          className="list-inside"
-                        >
+                        <li key={i} className="list-inside">
                           {desc}
                         </li>
                       ))}
@@ -96,15 +88,15 @@ const Experience = () => {
 
                     <div className="flex flex-wrap gap-2.5">
                       {experience.certifications?.map((certification, i) => {
-                        const certificationData =
-                          getCertificationDetails(certification);
+                        const certificationData = getCertificationDetails(certification);
                         return (
                           <ImageViewer
                             key={i}
                             src={certificationData.image}
                             title={certificationData.title}
                             trigger={{
-                              className: "hover:scale-110 transition-all max-h-20 aspect-square bg-muted border border-muted rounded-md"
+                              className:
+                                "hover:scale-110 transition-all max-h-20 aspect-square bg-muted border border-muted rounded-md cursor-pointer",
                             }}
                           >
                             <Image
@@ -113,10 +105,9 @@ const Experience = () => {
                               height={200}
                               width={200}
                               key={i}
-                              className="rounded-md object-cover object-center h-full"
+                              className="h-full rounded-md object-cover object-center"
                             />
                           </ImageViewer>
-
                         );
                       })}
                     </div>

@@ -11,6 +11,7 @@ export type BlogMetaData = {
 };
 
 export interface Blog extends BlogMetaData {
-  content: ReactElement<any, string | JSXElementConstructor<any>>;
+  content: ReactElement<unknown, string | JSXElementConstructor<unknown>>;
   slug: string;
+  readingTime: string;
 }

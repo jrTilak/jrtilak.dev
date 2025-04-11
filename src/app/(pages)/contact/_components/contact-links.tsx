@@ -1,61 +1,52 @@
 "use client";
 import React, { Fragment, useState } from "react";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/base/card";
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { CONTACTS } from "@/data/contact";
+import { Button } from "@/components/base/button";
 import Link from "next/link";
-import { Separator } from "@/components/ui/separator";
+import { Separator } from "@/components/base/separator";
 import toast, { CheckmarkIcon } from "react-hot-toast";
 import { CopyIcon, X } from "lucide-react";
-import { PERSONAL_DETAILS } from "@/data/personal-details";
-import { IMAGES } from "@/data/images";
+import { IMAGES } from "@/constants/images";
+import { CONTACTS_LINKS } from "@/constants/contact-links";
 
 const ContactLinks = () => {
-  const [icon, setIcon] = useState(<CopyIcon className="size-5 ml-3" />);
+  const [icon, setIcon] = useState(<CopyIcon className="ml-3 size-5" />);
   const [isBtnDisabled, setIsBtnDisabled] = useState(false);
   return (
     <Card className="relative mt-[89px] h-fit">
-      <CardHeader className="absolute -top-[89px] left-1/2 -translate-x-1/2 w-full">
+      <CardHeader className="absolute -top-[89px] left-1/2 w-full -translate-x-1/2">
         <CardTitle className="flex flex-col items-center justify-center gap-2.5">
           <Image
             src={IMAGES.avatar}
             alt="Avatar"
             width={200}
             height={200}
-            className="rounded-lg size-28 sm:size-36 shadow-lg border border-muted select-none"
+            className="border-muted size-28 rounded-lg border shadow-lg select-none sm:size-36"
           />
-          <span>{PERSONAL_DETAILS.name}</span>
+          <span>Tilak Thapa</span>
         </CardTitle>
       </CardHeader>
-      <CardContent className="bg-muted flex flex-col m-6 mt-28 sm:mt-[140px] rounded-lg gap-1.5 p-0">
-        {CONTACTS.map((contact, index) => (
+      <CardContent className="bg-muted m-6 mt-28 flex flex-col gap-1.5 rounded-lg p-0 sm:mt-[140px]">
+        {CONTACTS_LINKS.map((contact, index) => (
           <Fragment key={index}>
             {index > 0 && <Separator />}
             <Link
               href={contact.href}
               target={contact.type === "mail" ? "_self" : "_blank"}
-              className="flex items-center gap-2.5 group p-4 border hover:border-primary border-muted rounded-lg transition-all duration-500"
+              className="group hover:border-primary border-muted flex items-center gap-2.5 rounded-lg border p-4 transition-all duration-500"
             >
-              <div className="p-1.5 border bg-background shadow-md border-muted rounded-lg">
+              <div className="bg-background border-muted rounded-lg border p-1.5 shadow-md">
                 <Image
                   src={contact.image}
                   alt={contact.type}
                   width={28}
                   height={28}
-                  className="size-6 sm:size-7 object-contain object-center dark:invert"
+                  className="size-6 object-contain object-center sm:size-7 dark:invert"
                 />
               </div>
               <div className="flex flex-col">
-                <span className="capitalize text-sm text-muted-foreground">
-                  {contact.type}
-                </span>
+                <span className="text-muted-foreground text-sm capitalize">{contact.type}</span>
                 <span className="text-base font-medium">{contact.label}</span>
               </div>
             </Link>
@@ -66,17 +57,17 @@ const ContactLinks = () => {
         <Button
           onClick={() => {
             setIsBtnDisabled(true);
-            const email = CONTACTS.find((c) => c.type === "mail")?.label;
+            const email = CONTACTS_LINKS.find((c) => c.type === "mail")?.label;
             try {
               navigator.clipboard.writeText(email ?? "");
               toast.success(`Email copied to clipboard: ${email}`);
-              setIcon(<CheckmarkIcon className="size-5 ml-3" />);
-            } catch (error) {
+              setIcon(<CheckmarkIcon className="ml-3 size-5" />);
+            } catch {
               toast.error("Failed to copy email to clipboard");
-              setIcon(<X className="size-5 ml-3" />);
+              setIcon(<X className="ml-3 size-5" />);
             } finally {
               setTimeout(() => {
-                setIcon(<CopyIcon className="size-5 ml-3" />);
+                setIcon(<CopyIcon className="ml-3 size-5" />);
                 setIsBtnDisabled(false);
               }, 3000);
             }

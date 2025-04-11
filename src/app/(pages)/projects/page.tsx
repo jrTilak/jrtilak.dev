@@ -1,16 +1,9 @@
+import WorksAndProjects from "@/components/blocks/work-and-projects";
+import { PROJECTS } from "@/constants/projects";
 import React from "react";
-import { getAllProjects } from "@/services/projects";
-import WorksAndProjects from "@/components/globals/works-and-projects";
 
 const Page = async () => {
-  const projects = await getAllProjects();
-
-  return (
-    <WorksAndProjects
-      activeCategory="all"
-      projects={projects}
-    />
-  );
+  return <WorksAndProjects activeCategory="all" projects={PROJECTS} />;
 };
 
 export default Page;

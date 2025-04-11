@@ -1,19 +1,15 @@
 import { useState, useCallback, useRef } from "react";
 
 // Define types for the form state, errors, and validation rules.
-type FormValues = { [key: string]: any };
+type FormValues = { [key: string]: unknown };
 type Errors = { [key: string]: string | undefined };
 type ValidationRules = {
   required?: boolean;
-  validate?: (value: any) => string | undefined;
+  validate?: (value: unknown) => string | undefined;
 };
 
 // Define the custom useForm hook.
-export function useForm<T extends FormValues>({
-  defaultValues,
-}: {
-  defaultValues: T;
-}) {
+export function useForm<T extends FormValues>({ defaultValues }: { defaultValues: T }) {
   const [formValues, setFormValues] = useState<T>(defaultValues);
   const [errors, setErrors] = useState<Errors>({});
   const validationRules = useRef<{ [key in keyof T]?: ValidationRules }>({});
@@ -28,9 +24,7 @@ export function useForm<T extends FormValues>({
       name,
       id: name,
       value: formValues[name] || "",
-      onChange: (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-      ) => {
+      onChange: (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const value = e.target.value;
         setFormValues((prev) => ({
           ...prev,
@@ -48,7 +42,7 @@ export function useForm<T extends FormValues>({
   };
 
   // Function to validate a field based on rules.
-  const validateField = (name: keyof T, value: any, rules: ValidationRules) => {
+  const validateField = (name: keyof T, value: unknown, rules: ValidationRules) => {
     let errorMessage: string | undefined = undefined;
     if (rules.required && !value) {
       errorMessage = `${String(name)} is required`;
@@ -64,45 +58,44 @@ export function useForm<T extends FormValues>({
   };
 
   // Function to handle form submission.
-  const handleSubmit =
-    (callback: (data: T) => void) => (e: React.FormEvent) => {
-      e.preventDefault();
+  const handleSubmit = (callback: (data: T) => void) => (e: React.FormEvent) => {
+    e.preventDefault();
 
-      let valid = true;
+    let valid = true;
 
-      Object.keys(formValues).forEach((key) => {
-        const value = formValues[key as keyof T];
-        const rules = validationRules.current[key as keyof T];
-        let errorMessage: string | undefined = undefined;
+    Object.keys(formValues).forEach((key) => {
+      const value = formValues[key as keyof T];
+      const rules = validationRules.current[key as keyof T];
+      let errorMessage: string | undefined = undefined;
 
-        if (rules) {
-          // Validate using the rules defined for the field.
-          if (rules.required && !value) {
-            errorMessage = `${key} is required`;
-          } else if (rules.validate) {
-            const customError = rules.validate(value);
-            if (customError) errorMessage = customError;
-          }
+      if (rules) {
+        // Validate using the rules defined for the field.
+        if (rules.required && !value) {
+          errorMessage = `${key} is required`;
+        } else if (rules.validate) {
+          const customError = rules.validate(value);
+          if (customError) errorMessage = customError;
         }
-
-        if (errorMessage) {
-          setErrors((prev) => ({
-            ...prev,
-            [key]: errorMessage,
-          }));
-          valid = false;
-        } else {
-          setErrors((prev) => ({
-            ...prev,
-            [key]: undefined,
-          }));
-        }
-      });
-
-      if (valid) {
-        callback(formValues);
       }
-    };
+
+      if (errorMessage) {
+        setErrors((prev) => ({
+          ...prev,
+          [key]: errorMessage,
+        }));
+        valid = false;
+      } else {
+        setErrors((prev) => ({
+          ...prev,
+          [key]: undefined,
+        }));
+      }
+    });
+
+    if (valid) {
+      callback(formValues);
+    }
+  };
 
   // Function to reset form values and errors.
   const reset: () => void = useCallback(() => {

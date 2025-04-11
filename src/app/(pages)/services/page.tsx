@@ -6,16 +6,15 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import AreYouReady from "@/components/globals/are-you-ready";
+} from "@/components/base/card";
+import AreYouReady from "@/components/blocks/are-you-ready";
 import Image from "next/image";
-import { SERVICES } from "@/data/services";
-import { getSkillDetails } from "@/helpers/get-skill-detail";
+import { SERVICES } from "@/constants/services";
+import { getSkillDetails } from "@/lib/get-skill";
 import Link from "next/link";
-import { Badge } from "@/components/ui/badge";
-import { cn } from "@/helpers/cn";
+import { Badge } from "@/components/base/badge";
+import { cn } from "@/lib/cn";
 import { Metadata } from "next";
-import { PERSONAL_DETAILS } from "@/data/personal-details";
 
 const Page = () => {
   return (
@@ -23,18 +22,14 @@ const Page = () => {
       <section id="services" className="container mx-auto">
         <Card>
           <CardHeader>
-            <CardTitle className="text-center text-2xl sm:text-4xl">
-              Quality Services
-            </CardTitle>
+            <CardTitle className="text-center text-2xl sm:text-4xl">Quality Services</CardTitle>
           </CardHeader>
-          <CardContent className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
+          <CardContent className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
             {SERVICES.map(({ available = true, ...service }, index) => (
               <Card
                 className={cn(
-                  "border-accent-foreground/50 border relative",
-                  !available
-                    ? "opacity-80 pointer-events-none"
-                    : "hover:border-primary"
+                  "border-accent-foreground/50 relative border",
+                  !available ? "pointer-events-none opacity-80" : "hover:border-primary"
                 )}
                 key={index}
               >
@@ -49,19 +44,13 @@ const Page = () => {
                 )}
                 <CardHeader>
                   <CardTitle className="flex flex-col gap-2">
-                    <Image
-                      className="size-12"
-                      src={service.icon}
-                      height={48}
-                      width={48}
-                      alt=""
-                    />
+                    <Image className="size-12" src={service.icon} height={48} width={48} alt="" />
                     <span>{service.title}</span>
                   </CardTitle>
                   <CardDescription>{service.description}</CardDescription>
                 </CardHeader>
                 <CardContent>
-                  <ul className="ml-4 list-disc list-inside">
+                  <ul className="ml-4 list-inside list-disc">
                     {service.features.map((feature, index) => (
                       <li key={index}>{feature}</li>
                     ))}
@@ -75,7 +64,7 @@ const Page = () => {
                       <Link key={index} target="_blank" href={skill?.href}>
                         <Badge
                           variant={"outline"}
-                          className="font-normal w-fit rounded-lg capitalize  hover:shadow-md transition-colors text-xs"
+                          className="w-fit rounded-lg text-xs font-normal capitalize transition-colors hover:shadow-md"
                         >
                           <Image
                             src={skill?.image}
@@ -102,10 +91,10 @@ const Page = () => {
 
 export default Page;
 
-
 export const metadata: Metadata = {
-  title: `Services | ${PERSONAL_DETAILS.name}`,
-  description: "Transform your online presence with expert web development services. Specializing in Next.js, MERN stack, and cutting-edge technologies to build fast, secure, and scalable solutions. Let's create something great together!",
+  title: `Services`,
+  description:
+    "Transform your online presence with expert web development services. Specializing in Next.js, MERN stack, and cutting-edge technologies to build fast, secure, and scalable solutions. Let's create something great together!",
   authors: [
     {
       name: "Tilak Thapa",
@@ -115,7 +104,8 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: `Services | ${PERSONAL_DETAILS.name}`,
-    description: "Transform your online presence with expert web development services. Specializing in Next.js, MERN stack, and cutting-edge technologies to build fast, secure, and scalable solutions. Let's create something great together!",
+    title: `Services | Tilak Thapa`,
+    description:
+      "Transform your online presence with expert web development services. Specializing in Next.js, MERN stack, and cutting-edge technologies to build fast, secure, and scalable solutions. Let's create something great together!",
   },
 };

@@ -7,11 +7,11 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card";
-import { Label } from "@/components/ui/label";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Button } from "@/components/ui/button";
+} from "@/components/base/card";
+import { Label } from "@/components/base/label";
+import { Input } from "@/components/base/input";
+import { Textarea } from "@/components/base/text-area";
+import { Button } from "@/components/base/button";
 import { useForm } from "@/hooks/use-form";
 import { SendIcon } from "lucide-react";
 import toast from "react-hot-toast";
@@ -37,13 +37,12 @@ const ContactForm = () => {
 
   const onSubmit = (data: FormValues) => {
     setIsFormSubmitting(true);
-    const contact: Promise<any> = new Promise(async (resolve, reject) => {
+    const contact: Promise<unknown> = new Promise(async (resolve, reject) => {
       const refinedMessage = NEW_MESSAGE_HTML.replaceAll("{{NAME}}", data.name)
         .replaceAll("{{EMAIL}}", data.email)
         .replaceAll("{{SUBJECT}}", data.subject)
         .replaceAll("{{MESSAGE}}", data.message)
         .replaceAll("{{DATE}}", new Date().toDateString());
-
 
       const res = await fetch(process.env.NEXT_PUBLIC_SEND_NO_REPLY_EMAIL_URL as string, {
         method: "POST",
@@ -53,9 +52,9 @@ const ContactForm = () => {
         body: JSON.stringify({
           body: refinedMessage,
           to: process.env.NEXT_PUBLIC_SEND_NO_REPLY_EMAIL_TO,
-          subject: `New Message from ${data.name}`
+          subject: `New Message from ${data.name}`,
         }),
-      })
+      });
 
       if (res.status === 200) {
         resolve(res);
@@ -84,32 +83,29 @@ const ContactForm = () => {
         <CardHeader>
           <CardTitle>Let&apos;s 👋 Work Together</CardTitle>
           <CardDescription>
-            I&apos;d love to hear from you! Whether you have a question, want to
-            discuss a project, or just want to connect, feel free to reach out
-            through any of the following channels:
+            I&apos;d love to hear from you! Whether you have a question, want to discuss a project,
+            or just want to connect, feel free to reach out through any of the following channels:
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 gap-x-6 gap-y-4">
-            <div className="flex flex-col gap-1.5 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
+            <div className="col-span-2 flex flex-col gap-1.5 sm:col-span-1 lg:col-span-2 xl:col-span-1">
               <Label htmlFor="name">Name</Label>
               <Input
                 type="text"
                 {...register("name", {
                   required: true,
                   validate(value) {
-                    if (value?.length < 3) {
+                    if ((value as string)?.length < 3) {
                       return "Name must be at least 3 characters";
                     }
                   },
                 })}
                 placeholder="Eg: John Doe"
               />
-              {errors.name && (
-                <span className="text-destructive text-sm">{errors.name}</span>
-              )}
+              {errors.name && <span className="text-destructive text-sm">{errors.name}</span>}
             </div>
-            <div className="flex flex-col gap-1.5 col-span-2 sm:col-span-1 lg:col-span-2 xl:col-span-1">
+            <div className="col-span-2 flex flex-col gap-1.5 sm:col-span-1 lg:col-span-2 xl:col-span-1">
               <Label htmlFor="email">Email</Label>
               <Input
                 type="email"
@@ -117,19 +113,16 @@ const ContactForm = () => {
                 {...register("email", {
                   required: true,
                   validate(value) {
-                    const emailRegex =
-                      /[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}/gim;
-                    if (!emailRegex.test(value)) {
+                    const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.[A-Z]{2,4}$/gim;
+                    if (!emailRegex.test(value as string)) {
                       return "Please enter a valid email address";
                     }
                   },
                 })}
               />
-              {errors.email && (
-                <span className="text-destructive text-sm">{errors.email}</span>
-              )}
+              {errors.email && <span className="text-destructive text-sm">{errors.email}</span>}
             </div>
-            <div className="flex flex-col gap-1.5 col-span-2">
+            <div className="col-span-2 flex flex-col gap-1.5">
               <Label htmlFor="subject">Subject</Label>
               <Input
                 type="text"
@@ -137,49 +130,36 @@ const ContactForm = () => {
                 {...register("subject", {
                   required: true,
                   validate(value) {
-                    if (value?.length < 3) {
+                    if ((value as string)?.length < 3) {
                       return "Subject must be at least 3 characters";
                     }
                   },
                 })}
               />
-              {errors.subject && (
-                <span className="text-destructive text-sm">
-                  {errors.subject}
-                </span>
-              )}
+              {errors.subject && <span className="text-destructive text-sm">{errors.subject}</span>}
             </div>
-            <div className="flex flex-col gap-1.5 col-span-2">
+            <div className="col-span-2 flex flex-col gap-1.5">
               <Label htmlFor="message">Message</Label>
               <Textarea
                 placeholder="I am glad to..."
                 {...register("message", {
-                  required: true,
                   validate(value) {
-                    if (value?.length < 10) {
+                    if ((value as string)?.length < 10) {
                       return "Message must be at least 10 characters";
                     }
                   },
                 })}
               />
-              {errors.message && (
-                <span className="text-destructive text-sm">
-                  {errors.message}
-                </span>
-              )}
+              {errors.message && <span className="text-destructive text-sm">{errors.message}</span>}
             </div>
           </div>
         </CardContent>
-        <CardFooter className="w-full flex justify-end items-end gap-4">
+        <CardFooter className="flex w-full items-end justify-end gap-4">
           <Button type="reset" variant={"outline"} onClick={reset}>
             Cancel
           </Button>
-          <Button
-            isLoading={isFormSubmitting}
-            type="submit"
-            className="sm:min-w-48 min-w-32"
-          >
-            Send Message <SendIcon className="size-5 ml-3" />
+          <Button loading={isFormSubmitting} type="submit" className="min-w-32 sm:min-w-48">
+            Send Message <SendIcon className="ml-3 size-5" />
           </Button>
         </CardFooter>
       </Card>
