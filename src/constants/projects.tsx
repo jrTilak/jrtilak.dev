@@ -46,55 +46,6 @@ export const PROJECTS: ProjectMetaData[] = [
     },
   },
   {
-    title: "Now Digital Easy (NDE)",
-    categories: ["web"],
-    publishedAt: "May, 2024",
-    summary:
-      "A one-stop platform helping 12,000+ global businesses go digital with tools like CRM, marketing automation, real-time tracking, and business emails. As a frontend developer, I built responsive UI components and integrated REST APIs across core modules to ensure seamless user experience and data flow.",
-    image: IMAGES.projects["nde"],
-    techs: ["Next.js"],
-    type: "professional",
-    urls: {
-      liveUrl: "https://www.nowdigitaleasy.com/",
-    },
-  },
-  {
-    title: "Receipt Vault - Smart Expense Management Platform",
-    categories: ["web"],
-    publishedAt: "July, 2024",
-    summary:
-      "Receipt Vault streamlines receipt management for small businesses by allowing users to upload, categorize, and track their expenses effortlessly. Leveraging AI-driven categorization and Optical Character Recognition (OCR) technology, the platform automatically scans and sorts receipts, ensuring accuracy and efficiency. As a full-stack developer, I was responsible for both the frontend and backend, integrating seamless upload functionality, AI-powered categorization, and real-time data processing to enhance the user experience and optimize expense tracking.",
-    image: IMAGES.projects["rv"],
-    techs: ["Next.js", "MongoDb"],
-    type: "professional",
-    urls: {
-      liveUrl: "https://www.receiptvault.co/",
-    },
-  },
-  {
-    title: "Grocery Store Admin Panel",
-    categories: ["web"],
-    publishedAt: "April, 2024",
-    summary:
-      "A comprehensive admin panel for managing all aspects of a grocery store app. It includes features like product CRUD, order and delivery tracking, user management, discount and coupon management, and more. The panel provides a seamless interface for admin tasks, allowing efficient monitoring and control over inventory, sales, and customer interactions. As a developer, I worked on building and integrating these core functionalities to ensure a smooth and intuitive experience for the admin while enhancing operational efficiency.",
-    image: IMAGES.projects["grocery-admin-panel"],
-    techs: ["React.js"],
-    type: "professional",
-  },
-  {
-    title: "Viral Video App - Create Viral Videos Instantly",
-    categories: ["web"],
-    publishedAt: "March, 2025",
-    summary:
-      "Turn your ideas into engaging, high-impact videos in minutes. Powered by AI, our platform generates scroll-stopping content that boosts engagement and helps grow your audience quickly.",
-    image: IMAGES.projects["viral-video-app"],
-    techs: ["Next.js"],
-    type: "professional",
-    urls: {
-      liveUrl: "https://viral-video-app.vercel.app/",
-    },
-  },
-  {
     title: "Techfest Web - ACES",
     categories: ["web"],
     publishedAt: "Nov, 2024",
@@ -181,6 +132,55 @@ export const PROJECTS: ProjectMetaData[] = [
     urls: {
       liveUrl: "https://bumblebee.thapatilak.com.np/",
       sourceUrl: "https://github.com/jrTilak/bumbleBee",
+    },
+  },
+  {
+    title: "Now Digital Easy (NDE)",
+    categories: ["web"],
+    publishedAt: "May, 2024",
+    summary:
+      "A one-stop platform helping 12,000+ global businesses go digital with tools like CRM, marketing automation, real-time tracking, and business emails. As a frontend developer, I built responsive UI components and integrated REST APIs across core modules to ensure seamless user experience and data flow.",
+    image: IMAGES.projects["nde"],
+    techs: ["Next.js"],
+    type: "professional",
+    urls: {
+      liveUrl: "https://www.nowdigitaleasy.com/",
+    },
+  },
+  {
+    title: "Receipt Vault - Smart Expense Management Platform",
+    categories: ["web"],
+    publishedAt: "July, 2024",
+    summary:
+      "Receipt Vault streamlines receipt management for small businesses by allowing users to upload, categorize, and track their expenses effortlessly. Leveraging AI-driven categorization and Optical Character Recognition (OCR) technology, the platform automatically scans and sorts receipts, ensuring accuracy and efficiency. As a full-stack developer, I was responsible for both the frontend and backend, integrating seamless upload functionality, AI-powered categorization, and real-time data processing to enhance the user experience and optimize expense tracking.",
+    image: IMAGES.projects["rv"],
+    techs: ["Next.js", "MongoDb"],
+    type: "professional",
+    urls: {
+      liveUrl: "https://www.receiptvault.co/",
+    },
+  },
+  {
+    title: "Grocery Store Admin Panel",
+    categories: ["web"],
+    publishedAt: "April, 2024",
+    summary:
+      "A comprehensive admin panel for managing all aspects of a grocery store app. It includes features like product CRUD, order and delivery tracking, user management, discount and coupon management, and more. The panel provides a seamless interface for admin tasks, allowing efficient monitoring and control over inventory, sales, and customer interactions. As a developer, I worked on building and integrating these core functionalities to ensure a smooth and intuitive experience for the admin while enhancing operational efficiency.",
+    image: IMAGES.projects["grocery-admin-panel"],
+    techs: ["React.js"],
+    type: "professional",
+  },
+  {
+    title: "Viral Video App - Create Viral Videos Instantly",
+    categories: ["web"],
+    publishedAt: "March, 2025",
+    summary:
+      "Turn your ideas into engaging, high-impact videos in minutes. Powered by AI, our platform generates scroll-stopping content that boosts engagement and helps grow your audience quickly.",
+    image: IMAGES.projects["viral-video-app"],
+    techs: ["Next.js"],
+    type: "professional",
+    urls: {
+      liveUrl: "https://viral-video-app.vercel.app/",
     },
   },
 ];
