@@ -57,3 +57,4 @@ export function NumberTicker({
     </span>
   );
 }
+

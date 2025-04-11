@@ -8,11 +8,13 @@ const TrustedBy = () => {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Trusted By</CardTitle>
+        <CardTitle>Trusted By 🪄</CardTitle>
       </CardHeader>
       <CardContent className="flex flex-wrap items-center gap-4">
         {TRUSTED_BY.map((trustedBy, i) => (
           <Link
+            target="_blank"
+            rel="noopener noreferrer"
             href={trustedBy.href}
             key={i}
             title={trustedBy.label}

@@ -16,20 +16,6 @@ export const CERTIFICATION = [
     title: "HTML/CSS Tutor at ACES",
   },
   {
-    id: "prodigy-internship",
-    image: IMAGES.certifications["prodigy-internship"],
-    issuedAt: "February 14 2024",
-    link: "https://prodigyinfotech.dev/",
-    title: "Web Development Internship at Prodigy InfoTech",
-  },
-  {
-    id: "lor-prodigy",
-    image: IMAGES.certifications["lor-prodigy"],
-    issuedAt: "February 14 2024",
-    link: "https://prodigyinfotech.dev/",
-    title: "Letter of Recommendation - Prodigy InfoTech",
-  },
-  {
     id: "web-dev-bootcamp",
     image: IMAGES.certifications["web-dev-bootcamp"],
     issuedAt: "July 7 20203",

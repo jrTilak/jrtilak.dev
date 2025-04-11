@@ -25,8 +25,8 @@ const WorksAndProjects = async ({ projects, activeCategory, limit = Infinity }: 
     activeCategory === "all"
       ? projects
       : projects.filter((p) =>
-          p.categories.includes(decodeURIComponent(activeCategory) as Category)
-        );
+        p.categories.includes(decodeURIComponent(activeCategory) as Category)
+      );
 
   if (filteredProjects.length === 0) {
     return null;
@@ -38,8 +38,7 @@ const WorksAndProjects = async ({ projects, activeCategory, limit = Infinity }: 
         <CardHeader className="text-center">
           <CardTitle className="text-2xl sm:text-4xl">Works & Projects 💻</CardTitle>
           <CardDescription className="m-auto max-w-xl sm:text-base">
-            Discover a selection of projects I&apos;ve crafted with precision and passion,
-            showcasing creativity and technical prowess in every detail.
+            Discover a selection of projects I&apos;ve crafted with precision and passion.
           </CardDescription>
         </CardHeader>
         <div className="flex flex-wrap gap-2 px-6 py-2">

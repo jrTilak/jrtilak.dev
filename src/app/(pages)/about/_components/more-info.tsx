@@ -4,26 +4,26 @@ import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/comp
 import { Button } from "@/components/base/button";
 import { MailPlusIcon } from "lucide-react";
 import Link from "next/link";
+import { EXPERIENCE_IN_YEARS } from "@/constants/stats";
 
 const MoreInfo = () => {
   return (
     <Card className="flex-grow">
       <CardHeader>
         <CardTitle className="text-xl sm:text-4xl">
-          I&apos;m Tilak Thapa, a full-stack web developer.
+          I&apos;m Tilak Thapa, a full-stack web/app developer.
         </CardTitle>
         <CardDescription className="flex flex-col gap-5 text-xs sm:text-lg">
-          I'm a curiosity-driven developer with over 2 years of expertise in building robust web
-          applications using the MERN stack and Next.js. 💻 My hands-on experience extends to Docker
-          and cloud deployment on AWS, allowing me to deliver high-quality solutions that meet
-          diverse needs. As a firm believer in the power of continuous improvement, I resonate with
-          the quote: "The only way to do great work is to love what you do." — Steve Jobs. This
-          passion drives me to participate in hackathons, share insights through blogging, and
-          create meaningful user experiences that extend beyond just writing code. 📚 "Code is like
-          humor. When you have to explain it, it's bad." — Cory House.
+          <p>
+            Driven by curiosity and a relentless pursuit of growth, I specialize in building powerful, scalable web applications—going beyond the MERN stack and Next.js to craft seamless digital experiences. 💻
+          </p>
+          <p>With over {EXPERIENCE_IN_YEARS} years of hands-on experience, I’ve built and shipped impactful digital solutions that blend clean code with thoughtful user experience. My work reflects a belief in constant iteration, continuous learning, and purposeful creation.</p>
+          <p>
+            “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” — Martin Fowler
+          </p>
         </CardDescription>
       </CardHeader>
-      <CardFooter>
+      <CardFooter className="self-end">
         <Link href={"/contact"} className="ml-auto">
           <Button>
             Get in Touch

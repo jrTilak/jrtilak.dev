@@ -58,23 +58,4 @@ export const EXPERIENCES: Array<Experience> = [
     position: "Web Developer Intern",
     certifications: ["neonshark"],
   },
-  {
-    company: {
-      name: "Prodigy InfoTech",
-      image: IMAGES["prodigy-infotech2"],
-      url: "https://prodigyinfotech.dev/",
-    },
-    date: {
-      from: "Jan 2024",
-      to: "Feb 2024",
-      duration: "1 month",
-    },
-    description: [
-      "Delivered 4 web development projects within a one-month period, showcasing strong technical proficiency and adaptability.",
-      "Earned a Certificate of Achievement and a Letter of Recommendation for exceptional performance and consistent quality.",
-      "Demonstrated problem-solving abilities, delivering results-oriented solutions in a fast-paced, deadline-driven environment.",
-    ],
-    position: "Web Development Internship",
-    certifications: ["lor-prodigy", "prodigy-internship"],
-  },
 ];

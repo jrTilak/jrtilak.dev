@@ -15,7 +15,7 @@ import Link from "next/link";
 const MoreInfo = () => {
   return (
     <Card className="flex-grow">
-      <CardHeader>
+      <CardHeader className="pb-3">
         <CardDescription className="text-xs sm:text-lg">
           🙋‍♂️ Greetings! I&apos;m Tilak Thapa (jrTilak)
         </CardDescription>
@@ -25,12 +25,9 @@ const MoreInfo = () => {
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
-        <h4 className="font-medium">Available For:</h4>
-        <ul className="ml-9 flex flex-wrap list-disc gap-x-12 gap-y-2">
-          {["Freelancing Projects 💼", "Job Offers 📨", "Collaborations 🤝", "and more..."].map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
+        <p>
+          I'm currently open to freelance projects, full-time opportunities, and meaningful collaborations. If you&apos;ve got an idea worth building or a challenge worth solving, let&apos;s connect and make it happen. 💼📝🤝
+        </p>
       </CardContent>
       <CardFooter className="mt-auto">
         <Link
@@ -40,8 +37,8 @@ const MoreInfo = () => {
           className="ml-auto flex items-center justify-center gap-1.5"
         >
           <Button>
-            Download CV
-            <DownloadIcon className="ml-3 size-5" />
+            Download Resume
+            <DownloadIcon />
           </Button>
         </Link>
       </CardFooter>

@@ -14,9 +14,27 @@ export const SKILLS = [
     showAsExpertise: true,
   },
   {
-    name: "Redux.js",
-    href: "https://react-redux.js.org/",
-    image: "https://www.svgrepo.com/show/452093/redux.svg",
+    name: "React Native",
+    href: "https://reactnative.dev/",
+    image: "https://www.svgrepo.com/show/374035/reactts.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "Expo",
+    href: "https://expo.dev/",
+    image: "https://www.svgrepo.com/show/341805/expo.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "Express.js",
+    href: "https://www.mongodb.com/",
+    image: "https://www.svgrepo.com/show/330398/express.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "Nest.js",
+    href: "https://nestjs.com/",
+    image: "https://www.svgrepo.com/show/373872/nestjs.svg",
     showAsExpertise: true,
   },
   {
@@ -26,34 +44,34 @@ export const SKILLS = [
     showAsExpertise: true,
   },
   {
+    name: "Prisma",
+    href: "https://www.prisma.io/",
+    image: "https://www.svgrepo.com/show/354210/prisma.svg",
+    showAsExpertise: true,
+  },
+  {
+    name: "Redis",
+    href: "https://redis.io/",
+    image: "https://www.svgrepo.com/show/354272/redis.svg",
+    showAsExpertise: false,
+  },
+  {
+    name: "Redux.js",
+    href: "https://react-redux.js.org/",
+    image: "https://www.svgrepo.com/show/452093/redux.svg",
+    showAsExpertise: true,
+  },
+  {
     name: "Firebase",
     href: "https://firebase.google.com/",
     image: "https://www.svgrepo.com/show/373595/firebase.svg",
     showAsExpertise: false,
   },
   {
-    name: "Express.js",
-    href: "https://www.mongodb.com/",
-    image: "https://www.svgrepo.com/show/330398/express.svg",
-    showAsExpertise: true,
-  },
-  {
-    name: "Docker",
-    href: "https://www.docker.com/",
-    image: "https://www.svgrepo.com/show/373557/docker2.svg",
-    showAsExpertise: true,
-  },
-  {
-    name: "AWS",
-    href: "https://aws.amazon.com/",
-    image: "https://www.svgrepo.com/show/448299/aws.svg",
-    showAsExpertise: true,
-  },
-  {
     image: "https://www.svgrepo.com/show/333088/framer.svg",
-    name: "Framer Motion",
+    name: "Framer Motion (Motion)",
     showAsExpertise: false,
-    href: "https://www.framer.com/motion/",
+    href: "https://motion.dev/",
   },
   {
     image: IMAGES.icons["threejs"],
@@ -94,7 +112,7 @@ export const SKILLS = [
   {
     image: IMAGES.icons.vitest,
     name: "Vitest",
-    showAsExpertise: true,
+    showAsExpertise: false,
     href: "https://vitest.dev/",
   },
   {
@@ -134,12 +152,6 @@ export const SKILLS = [
     href: "https://mdxjs.com/",
   },
   {
-    name: "VS Code",
-    image: "https://www.svgrepo.com/show/452129/vs-code.svg",
-    showAsExpertise: false,
-    href: "https://code.visualstudio.com/",
-  },
-  {
     name: "TailwindCSS",
     href: "https://tailwindcss.com/",
     image: "https://www.svgrepo.com/show/374118/tailwind.svg",
@@ -153,7 +165,7 @@ export const SKILLS = [
   },
   {
     name: "CSS",
-    href: "https://www.svgrepo.com/show/452185/css-3.svg",
+    href: "https://developer.mozilla.org/en-US/docs/Web/CSS",
     image: "https://www.svgrepo.com/show/452185/css-3.svg",
     showAsExpertise: false,
   },
@@ -179,12 +191,6 @@ export const SKILLS = [
     name: "Bash Scripting",
     image: "https://www.svgrepo.com/show/353478/bash-icon.svg",
     href: "https://devdocs.io/bash/",
-    showAsExpertise: false,
-  },
-  {
-    name: "Python",
-    image: "https://www.svgrepo.com/show/452091/python.svg",
-    href: "https://www.python.org/",
     showAsExpertise: false,
   },
 ] as const;
