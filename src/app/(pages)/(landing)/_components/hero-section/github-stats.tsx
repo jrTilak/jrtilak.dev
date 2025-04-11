@@ -4,7 +4,7 @@ import Link from "next/link";
 const GithubStats = () => {
   return (
     <Card>
-      <CardContent className="p-6">
+      <CardContent className="p-3 sm:p-6">
         <Link href={"https://github.com/jrTilak"} target="_blank" rel="noopener noreferrer">
           <img
             title="jrtilak"
