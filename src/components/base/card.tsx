@@ -20,11 +20,11 @@ const CardDescription = ({ className, ...props }: React.HTMLAttributes<HTMLDivEl
 );
 
 const CardContent = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("p-3 pt-0 sm:p-6", className)} {...props} />
+  <div className={cn("p-3 pt-0 sm:p-6 sm:pt-0", className)} {...props} />
 );
 
 const CardFooter = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <div className={cn("flex items-center p-3 pt-0 sm:p-6", className)} {...props} />
+  <div className={cn("flex items-center p-3 pt-0 sm:p-6 sm:pt-0", className)} {...props} />
 );
 
 Card.displayName = "Card";
