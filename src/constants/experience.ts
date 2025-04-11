@@ -36,7 +36,13 @@ export const EXPERIENCES: Array<Experience> = [
       "Coordinated and executed flagship events such as InternFest, hackathons, and quizzes, driving innovation and collaboration.",
     ],
     position: "Developer / Technical Team",
-    certifications: ["html-css-tutor-at-aces"],
+    certifications: [
+      "dev-11th-aces",
+      "ctf-vc",
+      "techfest-organizer",
+      "html-css-tutor-at-susma",
+      "html-css-tutor-at-aces",
+    ],
   },
   {
     company: {

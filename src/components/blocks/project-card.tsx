@@ -139,8 +139,7 @@ const ProjectCard = (props: ProjectMetaData) => {
           {props.urls?.liveUrl && (
             <Link href={props.urls?.liveUrl} target="_blank" className="flex-grow">
               <Button variant={"outline"} size={"sm"} className="w-full">
-                <span >View Live</span>{" "}
-                <TrendingUpIcon className="size-5 sm:ml-2.5" />
+                <span>View Live</span> <TrendingUpIcon className="size-5 sm:ml-2.5" />
               </Button>
             </Link>
           )}

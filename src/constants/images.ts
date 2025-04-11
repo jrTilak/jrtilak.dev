@@ -28,6 +28,10 @@ export const IMAGES = {
     "prodigy-internship": "/images/certifications/prodigy-internship.png",
     "html-css-tutor-at-aces": "/images/certifications/html-css-tutor-at-aces.png",
     neonshark: "/images/certifications/neonshark.png",
+    "ctf-vc": "/images/certifications/ctf-vc.jpg",
+    "aces-dev-11th": "/images/certifications/aces-dev-11th.jpg",
+    "instructor-gcis": "/images/certifications/instructor-gcis.jpg",
+    "techfest-organizer": "/images/certifications/techfest-organizer.jpg",
   },
 
   testimonials: {
