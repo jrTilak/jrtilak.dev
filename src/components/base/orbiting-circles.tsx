@@ -11,6 +11,7 @@ export interface OrbitingCirclesProps extends React.HTMLAttributes<HTMLDivElemen
   path?: boolean;
   iconSize?: number;
   speed?: number;
+  svgClassName?: string;
 }
 
 export function OrbitingCircles({
@@ -22,6 +23,7 @@ export function OrbitingCircles({
   path = true,
   iconSize = 30,
   speed = 1,
+  svgClassName,
   ...props
 }: OrbitingCirclesProps) {
   const calculatedDuration = duration / speed;
@@ -31,7 +33,7 @@ export function OrbitingCircles({
         <svg
           xmlns="http://www.w3.org/2000/svg"
           version="1.1"
-          className="pointer-events-none absolute inset-0 size-full"
+          className={cn("pointer-events-none absolute inset-0 size-full", svgClassName)}
         >
           <circle
             className="stroke-black/10 stroke-1 dark:stroke-white/10"

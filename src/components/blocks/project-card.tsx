@@ -5,6 +5,7 @@ import { Badge } from "../base/badge";
 import { Button } from "../base/button";
 import {
   Dialog,
+  DialogClose,
   DialogContent,
   DialogDescription,
   DialogFooter,
@@ -54,6 +55,7 @@ const ProjectCard = (props: ProjectMetaData) => {
         </Card>
       </DialogTrigger>
       <DialogContent>
+        <DialogClose />
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <span> {props.title}</span> -{" "}
@@ -137,7 +139,7 @@ const ProjectCard = (props: ProjectMetaData) => {
           {props.urls?.liveUrl && (
             <Link href={props.urls?.liveUrl} target="_blank" className="flex-grow">
               <Button variant={"outline"} size={"sm"} className="w-full">
-                <span className="max-sm:hidden">View Live</span>{" "}
+                <span >View Live</span>{" "}
                 <TrendingUpIcon className="size-5 sm:ml-2.5" />
               </Button>
             </Link>

@@ -11,9 +11,7 @@ const DetailsCard = () => {
   return (
     <div className="w-full text-center">
       <Card className="relative flex h-[60vh] flex-col items-center justify-center overflow-hidden md:h-[40vh] lg:h-full">
-        <div className="lg:hidden">
-          <OrbitingCircles />
-        </div>
+        <OrbitingCircles className="lg:hidden" svgClassName="lg:hidden" radius={[140, 150]} />
         <CardHeader>
           <div className="relative hidden h-[350px] items-center justify-center rounded-full p-6 lg:flex">
             <OrbitingCircles />
