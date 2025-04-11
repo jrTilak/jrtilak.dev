@@ -26,11 +26,19 @@ const badgeVariants = cva(
         md: "rounded-md",
         full: "rounded-full",
       },
+      position: {
+        default: "static",
+        "top-right": "absolute top-2 right-2",
+        "top-left": "absolute top-2 left-2",
+        "bottom-right": "absolute bottom-2 right-2",
+        "bottom-left": "absolute bottom-2 left-2",
+      },
     },
     defaultVariants: {
       variant: "default",
       size: "md",
       radius: "md",
+      position: "default",
     },
   }
 );
@@ -38,8 +46,10 @@ const badgeVariants = cva(
 type BadgeProps = React.HTMLAttributes<HTMLDivElement> & VariantProps<typeof badgeVariants>;
 
 /** Badge component for displaying short status text or counts */
-function Badge({ className, variant, radius, size, ...props }: BadgeProps) {
-  return <div className={cn(badgeVariants({ variant, radius, size }), className)} {...props} />;
+function Badge({ className, variant, radius, size, position, ...props }: BadgeProps) {
+  return (
+    <div className={cn(badgeVariants({ variant, radius, size, position }), className)} {...props} />
+  );
 }
 
 export { Badge, badgeVariants };

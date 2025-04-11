@@ -25,9 +25,9 @@ const BlogByTag = async ({ params: { tag } }: Props) => {
   return (
     <section className="container mx-auto">
       <div className="mt-7 sm:mt-12">
-        <div className="flex gap-5 md:gap-7 flex-col lg:flex-row xl:gap-24">
+        <div className="flex flex-col gap-5 md:gap-7 lg:flex-row xl:gap-24">
           {/* sidebar */}
-          <div className="flex flex-col gap-3 px-6 py-7 bg-card shadow-md h-fit rounded-md w-full lg:w-72">
+          <div className="bg-card flex h-fit w-full flex-col gap-3 rounded-md px-6 py-7 shadow-md lg:w-72">
             <AllTags
               data={tags.map((t) => ({
                 label: t,
@@ -37,7 +37,7 @@ const BlogByTag = async ({ params: { tag } }: Props) => {
           </div>
 
           {/* all remaining blogs */}
-          <div className="flex flex-col gap-6 w-full">
+          <div className="flex w-full flex-col gap-6">
             {blogs.length === 0 ? (
               <Error404
                 title="No blogs found for this tag"

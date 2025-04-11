@@ -25,8 +25,8 @@ const WorksAndProjects = async ({ projects, activeCategory, limit = Infinity }: 
     activeCategory === "all"
       ? projects
       : projects.filter((p) =>
-        p.categories.includes(decodeURIComponent(activeCategory) as Category)
-      );
+          p.categories.includes(decodeURIComponent(activeCategory) as Category)
+        );
 
   if (filteredProjects.length === 0) {
     return null;

@@ -51,7 +51,7 @@ const Skills = ({ expertiseOnly, id }: Props) => {
               onClick={() => {
                 setShowMore((prev) => !prev);
               }}
-              className="h-full min-w-32 flex-col min-h-[80px]"
+              className="h-full min-h-[80px] min-w-32 flex-col"
               variant={"outline"}
               wrapperClassName="flex flex-col items-center justify-center"
             >

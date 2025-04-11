@@ -20,13 +20,15 @@ const MoreInfo = () => {
           🙋‍♂️ Greetings! I&apos;m Tilak Thapa (jrTilak)
         </CardDescription>
         <CardTitle className="text-xl sm:text-4xl">
-          Curiosity-driven full-stack web/app developer, constantly pushing the boundaries of what's
-          possible to create innovative and seamless digital solutions.
+          Curiosity-driven full-stack web/app developer, constantly pushing the boundaries of
+          what&apos;s possible to create innovative and seamless digital solutions.
         </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <p>
-          I'm currently open to freelance projects, full-time opportunities, and meaningful collaborations. If you&apos;ve got an idea worth building or a challenge worth solving, let&apos;s connect and make it happen. 💼📝🤝
+          I&apos;m currently open to freelance projects, full-time opportunities, and meaningful
+          collaborations. If you&apos;ve got an idea worth building or a challenge worth solving,
+          let&apos;s connect and make it happen. 💼📝🤝
         </p>
       </CardContent>
       <CardFooter className="mt-auto">

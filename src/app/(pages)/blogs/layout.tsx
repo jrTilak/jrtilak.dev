@@ -6,14 +6,15 @@ type Props = {
 };
 
 const Layout = ({ children }: Props) => {
-  return children
+  return children;
 };
 
 export default Layout;
 
 export const metadata: Metadata = {
   title: `Blogs`,
-  description: "Explore my blog where I share valuable tips, tutorials, and personal experiences in web development and programming. Let's grow together in this ever-evolving tech landscape!",
+  description:
+    "Explore my blog where I share valuable tips, tutorials, and personal experiences in web development and programming. Let's grow together in this ever-evolving tech landscape!",
   authors: [
     {
       name: "Tilak Thapa",
@@ -24,7 +25,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     title: `Blogs | Tilak Thapa`,
-    description: "Explore my blog where I share valuable tips, tutorials, and personal experiences in web development and programming. Let's grow together in this ever-evolving tech landscape!",
+    description:
+      "Explore my blog where I share valuable tips, tutorials, and personal experiences in web development and programming. Let's grow together in this ever-evolving tech landscape!",
     images: [
       {
         url: "/blogs.png",

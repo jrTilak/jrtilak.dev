@@ -1,6 +1,6 @@
 import { Toaster } from "react-hot-toast";
 import { Metadata } from "next";
-import { GoogleAnalytics } from '@next/third-parties/google'
+import { GoogleAnalytics } from "@next/third-parties/google";
 
 import "./globals.css";
 import TopLoader from "@/components/base/top-loader";

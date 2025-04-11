@@ -18,7 +18,7 @@ export const calculateTimeAgo = (inputDate: Date | string, returnDate?: boolean)
   const months = Math.floor(days / 30);
   const years = Math.floor(days / 365);
 
-  if (months > 0) {
+  if (months > 0 && returnDate) {
     return new Date(inputDate).toLocaleDateString("en-US", {
       month: "short",
       day: "numeric",

@@ -62,7 +62,11 @@ const ProjectCard = (props: ProjectMetaData) => {
             </Badge>
           </DialogTitle>
           <DialogDescription>
-            <Link href={props.urls?.liveUrl ?? props.urls?.sourceUrl ?? "#"} target="_blank">
+            <Link
+              href={props.urls?.liveUrl ?? props.urls?.sourceUrl ?? "#"}
+              target="_blank"
+              className="relative"
+            >
               <Image
                 src={props.image}
                 alt=""
@@ -71,6 +75,13 @@ const ProjectCard = (props: ProjectMetaData) => {
                 quality={100}
                 className="bg-muted h-auto max-h-[300px] w-full rounded-md object-contain object-center shadow-md"
               />
+              <Badge
+                position={"top-right"}
+                variant={"secondary"}
+                className="w-fit rounded-lg text-sm font-normal capitalize"
+              >
+                Around {props.publishedAt}
+              </Badge>
             </Link>
             <div className="my-5 flex flex-wrap gap-x-4 gap-y-2">
               {props.techs.map((tech, i) => {
@@ -109,7 +120,7 @@ const ProjectCard = (props: ProjectMetaData) => {
                     alt={url.label ?? ""}
                     width={20}
                     height={20}
-                    className="size-4"
+                    className="size-6 rounded-md"
                   />
                 )}
                 {url.label && <span>{url.label}</span>}

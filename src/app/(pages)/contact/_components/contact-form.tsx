@@ -37,7 +37,7 @@ const ContactForm = () => {
 
   const onSubmit = (data: FormValues) => {
     setIsFormSubmitting(true);
-    const contact: Promise<any> = new Promise(async (resolve, reject) => {
+    const contact: Promise<unknown> = new Promise(async (resolve, reject) => {
       const refinedMessage = NEW_MESSAGE_HTML.replaceAll("{{NAME}}", data.name)
         .replaceAll("{{EMAIL}}", data.email)
         .replaceAll("{{SUBJECT}}", data.subject)
@@ -96,7 +96,7 @@ const ContactForm = () => {
                 {...register("name", {
                   required: true,
                   validate(value) {
-                    if (value?.length < 3) {
+                    if ((value as string)?.length < 3) {
                       return "Name must be at least 3 characters";
                     }
                   },
@@ -114,7 +114,7 @@ const ContactForm = () => {
                   required: true,
                   validate(value) {
                     const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.[A-Z]{2,4}$/gim;
-                    if (!emailRegex.test(value)) {
+                    if (!emailRegex.test(value as string)) {
                       return "Please enter a valid email address";
                     }
                   },
@@ -130,7 +130,7 @@ const ContactForm = () => {
                 {...register("subject", {
                   required: true,
                   validate(value) {
-                    if (value?.length < 3) {
+                    if ((value as string)?.length < 3) {
                       return "Subject must be at least 3 characters";
                     }
                   },
@@ -144,7 +144,7 @@ const ContactForm = () => {
                 placeholder="I am glad to..."
                 {...register("message", {
                   validate(value) {
-                    if (value?.length < 10) {
+                    if ((value as string)?.length < 10) {
                       return "Message must be at least 10 characters";
                     }
                   },

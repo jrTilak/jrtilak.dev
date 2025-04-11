@@ -49,5 +49,12 @@ export const IMAGES = {
     lazykit: "/images/projects/lazykit.png",
     "aces-website": "/images/projects/aces.png",
     gemquiz: "/images/projects/gemquiz.png",
+    juju: "/images/projects/juju.png",
+    "vivid-tab": "/images/projects/vivid-tab.png",
+    nde: "/images/projects/nde.png",
+    "grocery-admin-panel": "/images/projects/grocery-admin-panel.png",
+    rv: "/images/projects/rv.png",
+    "viral-video-app": "/images/projects/viral-video-app.png",
+    "apex-ui": "/images/projects/apex-ui.png",
   },
 };

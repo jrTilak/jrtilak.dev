@@ -15,11 +15,19 @@ const MoreInfo = () => {
         </CardTitle>
         <CardDescription className="flex flex-col gap-5 text-xs sm:text-lg">
           <p>
-            Driven by curiosity and a relentless pursuit of growth, I specialize in building powerful, scalable web applications—going beyond the MERN stack and Next.js to craft seamless digital experiences. 💻
+            Driven by curiosity and a relentless pursuit of growth, I specialize in building
+            powerful, scalable web applications—going beyond the MERN stack and Next.js to craft
+            seamless digital experiences. 💻
           </p>
-          <p>With over {EXPERIENCE_IN_YEARS} years of hands-on experience, I’ve built and shipped impactful digital solutions that blend clean code with thoughtful user experience. My work reflects a belief in constant iteration, continuous learning, and purposeful creation.</p>
           <p>
-            “Any fool can write code that a computer can understand. Good programmers write code that humans can understand.” — Martin Fowler
+            With over {EXPERIENCE_IN_YEARS} years of hands-on experience, I’ve built and shipped
+            impactful digital solutions that blend clean code with thoughtful user experience. My
+            work reflects a belief in constant iteration, continuous learning, and purposeful
+            creation.
+          </p>
+          <p>
+            “Any fool can write code that a computer can understand. Good programmers write code
+            that humans can understand.” — Martin Fowler
           </p>
         </CardDescription>
       </CardHeader>

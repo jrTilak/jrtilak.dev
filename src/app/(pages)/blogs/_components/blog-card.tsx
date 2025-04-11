@@ -15,15 +15,15 @@ const BlogCard = (props: Props) => {
   return (
     <div
       className={cn(
-        "w-full flex h-full flex-col sm:flex-row sm:items-center gap-6 bg-card shadow-md rounded-xl px-3.5 py-3 sm:px-5 sm:py-5",
+        "bg-card flex h-full w-full flex-col gap-6 rounded-xl px-3.5 py-3 shadow-md sm:flex-row sm:items-center sm:px-5 sm:py-5",
         props.className
       )}
       style={props.style}
     >
-      <div className="lg:max-w-[238px] lg:max-h-[160px] w-full overflow-hidden flex items-center justify-center">
-        <Link href={`/blogs/${props.slug}`} className="w-full h-full">
+      <div className="flex w-full items-center justify-center overflow-hidden lg:max-h-[160px] lg:max-w-[238px]">
+        <Link href={`/blogs/${props.slug}`} className="h-full w-full">
           <Image
-            className="w-full rounded-md object-cover object-center h-full max-h-40"
+            className="h-full max-h-40 w-full rounded-md object-cover object-center"
             src={props.image}
             alt="hero"
             height={600}
@@ -37,24 +37,24 @@ const BlogCard = (props: Props) => {
             <Link
               key={tag}
               href={`/blogs/tags/${tag}`}
-              className="inline-flex text-purple-500 bg-purple-400/[0.08] font-medium text-xs py-1 px-3 rounded-full mb-4 opacity-70"
+              className="mb-4 inline-flex rounded-full bg-purple-400/[0.08] px-3 py-1 text-xs font-medium text-purple-500 opacity-70"
             >
               {tag}
             </Link>
           ))}
         </div>
         <Link href={`/blogs/${props.slug}`} className="hover:underline">
-          <h2 className="font-semibold text-base mb-3">{props.title}</h2>
+          <h2 className="mb-3 text-base font-semibold">{props.title}</h2>
         </Link>
         <p className="text-sm text-gray-600">
           {props.summary?.substring(0, descriptionLength)}
           {props.summary?.length > descriptionLength ? "..." : ""}
         </p>
-        <div className="flex items-center gap-2.5 mt-2">
+        <div className="mt-2 flex items-center gap-2.5">
           <p className="text-sm">
             <div>By Tilak Thapa</div>
           </p>
-          <span className="flex w-[3px] h-[3px] rounded-full bg-gray-300" />
+          <span className="flex h-[3px] w-[3px] rounded-full bg-gray-300" />
           <p className="text-sm">
             {new Date(props.publishedAt).toLocaleDateString("en-US", {
               month: "short",

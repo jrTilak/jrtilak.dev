@@ -21,7 +21,11 @@ const Stats = () => {
             )}
             <div className="flex flex-col items-center justify-center">
               <h3 className="text-2xl font-medium md:text-3xl lg:text-2xl xl:text-3xl">
-                <NumberTicker decimalPlaces={Number.parseInt(stats.value.toString()) === stats.value ? 0 : 1}>{stats.value}</NumberTicker>
+                <NumberTicker
+                  decimalPlaces={Number.parseInt(stats.value.toString()) === stats.value ? 0 : 1}
+                >
+                  {stats.value}
+                </NumberTicker>
                 {stats.plus && "+"}
               </h3>
               <p className="text-muted-foreground text-sm md:text-base">{stats.label}</p>

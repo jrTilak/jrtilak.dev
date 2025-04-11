@@ -425,10 +425,7 @@ array.reduce(callbackFn, initialValue);
 ```javascript
 // execute = true;
 const arr = [1, 2, 3, 4];
-const sum = arr.reduce(
-  (accumulator, currentValue) => accumulator + currentValue,
-  0
-);
+const sum = arr.reduce((accumulator, currentValue) => accumulator + currentValue, 0);
 console.log(sum); // Output: 10
 ```
 
@@ -446,10 +443,7 @@ array.reduceRight(callbackFn, initialValue);
 ```javascript
 // execute = true;
 const arr = [1, 2, 3, 4];
-const reverseSum = arr.reduceRight(
-  (accumulator, currentValue) => accumulator + currentValue,
-  0
-);
+const reverseSum = arr.reduceRight((accumulator, currentValue) => accumulator + currentValue, 0);
 console.log(reverseSum); // Output: 10 (same result, but processed from right to left)
 ```
 

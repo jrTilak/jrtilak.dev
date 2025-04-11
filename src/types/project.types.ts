@@ -1,11 +1,13 @@
+import { SkillNames } from "@/constants/skills";
+
 export type Category = "web" | "mobile" | "game" | "other" | "package/lib" | "extension" | "ai";
 
 export type ProjectMetaData = {
   title: string;
   publishedAt: string;
-  summary: string;
+  summary: React.ReactNode;
   image: string;
-  techs: string[];
+  techs: SkillNames[];
   categories: Category[];
   urls?: {
     liveUrl?: string;

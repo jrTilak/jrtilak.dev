@@ -12,6 +12,10 @@ const nextConfig: NextConfig = {
         hostname: "docs.pmnd.rs",
         protocol: "https",
       },
+      {
+        hostname: "avatars.githubusercontent.com",
+        protocol: "https",
+      },
     ],
   },
 };

@@ -11,7 +11,7 @@ export async function getMdxContent<T extends Record<string, unknown>>(path: str
 
   const mdxSource = await compileMDX<T>({
     source: source,
-    //@ts-expect-error
+    //@ts-expect-error: using own components gives error
     components: MDXComponents,
     options: {
       parseFrontmatter: true,

@@ -9,10 +9,7 @@ type Props = {
 
 const MDX = ({ children, className, id }: Props) => {
   return (
-    <div
-      id={id}
-      className={cn("prose prose-table:overflow-hidden", className)}
-    >
+    <div id={id} className={cn("prose prose-table:overflow-hidden", className)}>
       <div
         className={cn(
           "prose-p:font-body prose-ol:font-body prose-ul:font-body prose-li:font-body",

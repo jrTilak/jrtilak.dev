@@ -62,7 +62,7 @@ const ContactLinks = () => {
               navigator.clipboard.writeText(email ?? "");
               toast.success(`Email copied to clipboard: ${email}`);
               setIcon(<CheckmarkIcon className="ml-3 size-5" />);
-            } catch (error) {
+            } catch {
               toast.error("Failed to copy email to clipboard");
               setIcon(<X className="ml-3 size-5" />);
             } finally {

@@ -12,7 +12,7 @@ const CardHeader = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement
 );
 
 const CardTitle = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
-  <h3 className={cn("leading-none font-semibold tracking-tight text-2xl", className)} {...props} />
+  <h3 className={cn("text-2xl leading-none font-semibold tracking-tight", className)} {...props} />
 );
 
 const CardDescription = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (

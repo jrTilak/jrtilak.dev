@@ -80,6 +80,12 @@ export const SKILLS = [
     href: "https://threejs.org/",
   },
   {
+    image: "https://avatars.githubusercontent.com/u/96090470?s=200&v=4",
+    name: "Plasmo",
+    showAsExpertise: false,
+    href: "https://www.plasmo.com/",
+  },
+  {
     name: "Typescript",
     href: "https://www.typescriptlang.org/",
     image: "https://www.svgrepo.com/show/354478/typescript-icon.svg",

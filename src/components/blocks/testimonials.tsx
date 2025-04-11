@@ -18,7 +18,7 @@ import {
 import { TESTIMONIALS } from "@/constants/testimonials";
 import Image from "next/image";
 import Link from "next/link";
-import { Button, buttonVariants } from "@/components/base/button";
+import { Button } from "@/components/base/button";
 
 import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/base/dialog";
 import { IMAGES } from "@/constants/images";

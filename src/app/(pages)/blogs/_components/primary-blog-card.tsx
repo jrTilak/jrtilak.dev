@@ -13,15 +13,15 @@ const PrimaryBlogCard = (props: Props) => {
   return (
     <div
       className={cn(
-        "w-full flex flex-col lg:flex-row lg:items-center gap-7.5 lg:gap-11 bg-card shadow-lg rounded-xl p-4 lg:p-2.5 lg:py-4",
+        "bg-card flex w-full flex-col gap-7.5 rounded-xl p-4 shadow-lg lg:flex-row lg:items-center lg:gap-11 lg:p-2.5 lg:py-4",
         props.className
       )}
       style={props.style}
     >
-      <div className="lg:max-w-[536px] w-full lg:max-h-[320px] flex items-center justify-center overflow-hidden rounded-md">
-        <Link href={`/blogs/${props.slug}`} className="w-full h-full">
+      <div className="flex w-full items-center justify-center overflow-hidden rounded-md lg:max-h-[320px] lg:max-w-[536px]">
+        <Link href={`/blogs/${props.slug}`} className="h-full w-full">
           <Image
-            className="w-full rounded-md object-cover object-center h-full max-h-72"
+            className="h-full max-h-72 w-full rounded-md object-cover object-center"
             src={props.image}
             alt="hero"
             height={600}
@@ -29,20 +29,20 @@ const PrimaryBlogCard = (props: Props) => {
           />
         </Link>
       </div>
-      <div className="lg:max-w-[540px] w-full">
-        <div className="flex gap-2 flex-wrap mt-3">
+      <div className="w-full lg:max-w-[540px]">
+        <div className="mt-3 flex flex-wrap gap-2">
           {props.tags?.map((tag) => (
             <Link
               key={tag}
               href={`/blogs/tags/${tag}`}
-              className="inline-flex text-purple-500 bg-purple-400/[0.08] font-medium text-sm py-1 px-3 rounded-full opacity-70"
+              className="inline-flex rounded-full bg-purple-400/[0.08] px-3 py-1 text-sm font-medium text-purple-500 opacity-70"
             >
               {tag}
             </Link>
           ))}
         </div>
         <Link href={`/blogs/${props.slug}`} className="hover:underline">
-          <h1 className="font-bold text-lg sm:text-xl md:text-2xl xl:text-3xl mb-4">
+          <h1 className="mb-4 text-lg font-bold sm:text-xl md:text-2xl xl:text-3xl">
             {props.title}
           </h1>
         </Link>
@@ -50,23 +50,21 @@ const PrimaryBlogCard = (props: Props) => {
           {props.summary.substring(0, 130)}
           {props.summary.length > 130 ? "..." : ""}
         </p>
-        <div className="flex items-center gap-2.5 mt-5">
+        <div className="mt-5 flex items-center gap-2.5">
           <div className="flex items-center gap-3">
-            <div className="flex w-6 h-6 rounded-full overflow-hidden">
+            <div className="flex h-6 w-6 overflow-hidden rounded-full">
               <Image
                 src={"/images/avatar.png"}
                 alt="user"
-                className="w-full h-full object-cover object-center"
+                className="h-full w-full object-cover object-center"
                 height={80}
                 width={80}
               />
             </div>
             <p className="text-sm">Tilak Thapa</p>
           </div>
-          <span className="flex w-[3px] h-[3px] rounded-full bg-gray-300" />
-          <p className="text-sm">
-            {calculateTimeAgo(props.publishedAt)}
-          </p>
+          <span className="flex h-[3px] w-[3px] rounded-full bg-gray-300" />
+          <p className="text-sm">{calculateTimeAgo(props.publishedAt)}</p>
         </div>
       </div>
     </div>

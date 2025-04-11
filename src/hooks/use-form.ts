@@ -1,11 +1,11 @@
 import { useState, useCallback, useRef } from "react";
 
 // Define types for the form state, errors, and validation rules.
-type FormValues = { [key: string]: any };
+type FormValues = { [key: string]: unknown };
 type Errors = { [key: string]: string | undefined };
 type ValidationRules = {
   required?: boolean;
-  validate?: (value: any) => string | undefined;
+  validate?: (value: unknown) => string | undefined;
 };
 
 // Define the custom useForm hook.
@@ -42,7 +42,7 @@ export function useForm<T extends FormValues>({ defaultValues }: { defaultValues
   };
 
   // Function to validate a field based on rules.
-  const validateField = (name: keyof T, value: any, rules: ValidationRules) => {
+  const validateField = (name: keyof T, value: unknown, rules: ValidationRules) => {
     let errorMessage: string | undefined = undefined;
     if (rules.required && !value) {
       errorMessage = `${String(name)} is required`;
