@@ -2,7 +2,7 @@ import Error404 from "@/components/screens/404";
 import { Badge } from "@/components/base/badge";
 import { Separator } from "@/components/base/separator";
 import { cn } from "@/lib/cn";
-import { getAllBlogs, getBlogBySlug } from "@/services/blogs";
+import { getBlogBySlug } from "@/services/blogs";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,12 +10,13 @@ import React from "react";
 import MDX from "@/components/mdx/mdx";
 
 type Props = {
-  params: {
+  params: Promise<{
     slug: string;
-  };
+  }>;
 };
 
-const Page = async ({ params: { slug } }: Props) => {
+const Page = async ({ params }: Props) => {
+  const { slug } = await params;
   const blog = await getBlogBySlug(decodeURI(slug));
 
   if (!blog) return <Error404 />;
@@ -93,7 +94,8 @@ const Page = async ({ params: { slug } }: Props) => {
 
 export default Page;
 
-export const generateMetadata = async ({ params: { slug } }: Props): Promise<Metadata> => {
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  const { slug } = await params;
   const blog = await getBlogBySlug(decodeURI(slug));
   return {
     title: blog?.title,
@@ -123,10 +125,10 @@ export const generateMetadata = async ({ params: { slug } }: Props): Promise<Met
   };
 };
 
-export async function generateStaticParams() {
-  const posts = await getAllBlogs();
+// export async function generateStaticParams() {
+//   const posts = await getAllBlogs();
 
-  return posts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+//   return posts.map((post) => ({
+//     slug: post.slug,
+//   }));
+// }

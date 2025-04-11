@@ -5,12 +5,14 @@ import BlogCard from "../../_components/blog-card";
 import Error404 from "@/components/screens/404";
 
 type Props = {
-  params: {
+  params: Promise<{
     tag: string;
-  };
+  }>;
 };
 
-const BlogByTag = async ({ params: { tag } }: Props) => {
+const BlogByTag = async ({ params }: Props) => {
+  const { tag } = await params;
+
   const allBlogs = await getAllBlogs();
   const tags = unique(
     allBlogs
