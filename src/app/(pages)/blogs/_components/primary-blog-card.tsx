@@ -20,9 +20,9 @@ const PrimaryBlogCard = (props: Props) => {
     >
       <div className="flex w-full items-center justify-center overflow-hidden rounded-md lg:max-h-[320px] lg:max-w-[536px]">
         <Link href={`/blogs/${props.slug}`} className="h-full w-full">
-          <Image
+          <img
             className="h-full max-h-72 w-full rounded-md object-cover object-center"
-            src={props.image}
+            src={props.coverImage}
             alt="hero"
             height={600}
             width={600}
@@ -47,8 +47,8 @@ const PrimaryBlogCard = (props: Props) => {
           </h1>
         </Link>
         <p className="max-w-[524px] text-sm xl:text-base">
-          {props.summary.substring(0, 130)}
-          {props.summary.length > 130 ? "..." : ""}
+          {props.description?.substring(0, 130)}
+          {props.description?.length ?? 0 > 130 ? "..." : ""}
         </p>
         <div className="mt-5 flex items-center gap-2.5">
           <div className="flex items-center gap-3">
@@ -64,7 +64,7 @@ const PrimaryBlogCard = (props: Props) => {
             <p className="text-sm">Tilak Thapa</p>
           </div>
           <span className="flex h-[3px] w-[3px] rounded-full bg-gray-300" />
-          <p className="text-sm">{calculateTimeAgo(props.publishedAt)}</p>
+          <p className="text-sm">{calculateTimeAgo(props.publishedAt ?? "")}</p>
         </div>
       </div>
     </div>

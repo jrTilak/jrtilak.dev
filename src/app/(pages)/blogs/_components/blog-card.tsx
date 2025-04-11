@@ -1,6 +1,5 @@
 import { cn } from "@/lib/cn";
 import { Blog } from "@/types/blog.types";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -22,9 +21,9 @@ const BlogCard = (props: Props) => {
     >
       <div className="flex w-full items-center justify-center overflow-hidden lg:max-h-[160px] lg:max-w-[238px]">
         <Link href={`/blogs/${props.slug}`} className="h-full w-full">
-          <Image
+          <img
             className="h-full max-h-40 w-full rounded-md object-cover object-center"
-            src={props.image}
+            src={props.coverImage}
             alt="hero"
             height={600}
             width={600}
@@ -47,8 +46,8 @@ const BlogCard = (props: Props) => {
           <h2 className="mb-3 text-base font-semibold">{props.title}</h2>
         </Link>
         <p className="text-sm text-gray-600">
-          {props.summary?.substring(0, descriptionLength)}
-          {props.summary?.length > descriptionLength ? "..." : ""}
+          {props.description?.substring(0, descriptionLength)}
+          {props.description?.length ?? 0 > descriptionLength ? "..." : ""}
         </p>
         <div className="mt-2 flex items-center gap-2.5">
           <p className="text-sm">
@@ -56,7 +55,7 @@ const BlogCard = (props: Props) => {
           </p>
           <span className="flex h-[3px] w-[3px] rounded-full bg-gray-300" />
           <p className="text-sm">
-            {new Date(props.publishedAt).toLocaleDateString("en-US", {
+            {new Date(props.publishedAt ?? "").toLocaleDateString("en-US", {
               month: "short",
               day: "numeric",
               year: "numeric",

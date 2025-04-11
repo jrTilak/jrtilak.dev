@@ -1,14 +1,12 @@
 import { JSXElementConstructor, ReactElement } from "react";
 
-export type BlogMetaData = {
+export type BlogMetaData = Partial<{
   title: string;
   publishedAt: string;
-  summary: string;
+  description: string;
   tags: string[];
-  image: string;
-  metaTags?: string[];
-  headingLevels?: number[];
-};
+  coverImage: string;
+}>;
 
 export interface Blog extends BlogMetaData {
   content: ReactElement<unknown, string | JSXElementConstructor<unknown>>;

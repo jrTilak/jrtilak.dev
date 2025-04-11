@@ -42,10 +42,12 @@ const Page = async () => {
           {/* sidebar */}
           <div className="bg-card animate-in-from-left flex h-fit w-full flex-col gap-3 rounded-md px-6 py-7 shadow-md delay-200 lg:w-72">
             <AllTags
-              data={tags.map((t) => ({
-                label: t,
-                href: `/blogs/tags/${t}`,
-              }))}
+              data={tags
+                ?.filter((t): t is string => t !== undefined && t !== "")
+                .map((t) => ({
+                  label: t,
+                  href: `/blogs/tags/${t}`,
+                })) || []}
             />
           </div>
 

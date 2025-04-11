@@ -18,7 +18,6 @@ type Props = {
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
   const blog = await getBlogBySlug(decodeURI(slug));
-
   if (!blog) return <Error404 />;
 
   return (
@@ -36,9 +35,9 @@ const Page = async ({ params }: Props) => {
           <h1 className="mt-1 text-xl font-bold sm:text-2xl md:text-3xl xl:text-4xl">
             {blog.title}
           </h1>
-          {blog.summary && (
+          {blog.description && (
             <p className="max-w-3xl text-sm md:text-base" id="summary">
-              {blog.summary}
+              {blog.description}
             </p>
           )}
           <div className="mt-4 flex items-center justify-center gap-4">
@@ -55,7 +54,7 @@ const Page = async ({ params }: Props) => {
               <div className="text-base font-medium">Tilak Thapa</div>
               <div className="flex items-center gap-1.5 text-gray-600">
                 <p>
-                  {new Date(blog.publishedAt).toLocaleDateString("en-US", {
+                  {new Date(blog.publishedAt ?? "").toLocaleDateString("en-US", {
                     month: "short",
                     day: "numeric",
                     year: "numeric",
@@ -68,8 +67,8 @@ const Page = async ({ params }: Props) => {
             </div>
           </div>
         </div>
-        <Image
-          src={blog.image}
+        <img
+          src={blog.coverImage}
           alt="thumbnail"
           className={cn(
             "mt-6 h-auto max-h-[500px] w-full max-w-5xl rounded-xl border border-gray-300 object-cover object-center shadow-md"
@@ -84,8 +83,7 @@ const Page = async ({ params }: Props) => {
           </MDX>
         </div>
         <div className="sr-only">
-          {blog.tags.map((tag) => `${tag} , `)}
-          {blog.metaTags?.map((tag) => `${tag}, `)}
+          {blog.tags?.map((tag) => `${tag} , `)}
         </div>
       </section>
     </div>
@@ -99,7 +97,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   const blog = await getBlogBySlug(decodeURI(slug));
   return {
     title: blog?.title,
-    description: blog?.summary,
+    description: blog?.description,
     authors: {
       name: "Tilak Thapa",
       url: process.env.NEXT_PUBLIC_WEB_URL,
@@ -109,16 +107,15 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       "blog",
       "tilak thapa",
       "web development",
-      ...(blog?.metaTags || []),
     ],
     openGraph: {
       title: blog?.title,
-      description: blog?.summary,
+      description: blog?.description,
       url: `${process.env.NEXT_PUBLIC_WEB_URL} / blogs / ${slug}`,
       type: "article",
       images: [
         {
-          url: blog?.image ?? "",
+          url: blog?.coverImage ?? "",
         },
       ],
     },

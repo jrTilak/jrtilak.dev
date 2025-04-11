@@ -31,11 +31,11 @@ const BlogByTag = async ({ params }: Props) => {
           {/* sidebar */}
           <div className="bg-card flex h-fit w-full flex-col gap-3 rounded-md px-6 py-7 shadow-md lg:w-72">
             <AllTags
-              data={tags.map((t) => ({
-                label: t,
+              data={tags?.map((t) => ({
+                label: t ?? "",
                 href: `/blogs/tags/${t}`,
-              }))}
-            />
+              })) || []}
+            />  
           </div>
 
           {/* all remaining blogs */}

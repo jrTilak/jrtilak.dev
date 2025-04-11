@@ -1,7 +1,6 @@
 import { calculateTimeAgo } from "@/lib/calculate-time-ago";
 import { cn } from "@/lib/cn";
 import { Blog } from "@/types/blog.types";
-import Image from "next/image";
 import Link from "next/link";
 
 type Props = Omit<Blog, "content"> & {
@@ -18,9 +17,9 @@ const SecondaryBlogCard = (props: Props) => {
     >
       <div className="flex w-full items-center justify-center overflow-hidden rounded-md lg:max-h-[238px] lg:max-w-[238px]">
         <Link href={`/blogs/${props.slug}`} className="h-full w-full">
-          <Image
+          <img
             className="h-full max-h-40 w-full rounded-md object-cover object-center"
-            src={props.image}
+            src={props.coverImage}
             alt="hero"
             height={600}
             width={600}
@@ -47,7 +46,7 @@ const SecondaryBlogCard = (props: Props) => {
             <div>By Tilak Thapa</div>
           </p>
           <span className="flex h-[3px] w-[3px] rounded-full bg-gray-300" />
-          <p className="text-sm">{calculateTimeAgo(props.publishedAt)}</p>
+          <p className="text-sm">{calculateTimeAgo(props.publishedAt ?? "")}</p>
         </div>
       </div>
     </div>
