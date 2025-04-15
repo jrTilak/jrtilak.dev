@@ -92,8 +92,12 @@ const extractBlogProperties = (data: PageObjectResponse): BlogMetaData | null =>
 
   const slug =
     data.properties["slug"] && data.properties["slug"].type === "rich_text"
-      ? data.properties["slug"].rich_text[0]?.plain_text ?? ""
+      ? (data.properties["slug"].rich_text[0]?.plain_text ?? "")
       : "";
+  const series =
+    data.properties["series"] && data.properties["series"].type === "multi_select"
+      ? data.properties["series"].multi_select.map((tag) => tag.name)
+      : [];
 
   if (!slug) return null;
 
@@ -106,6 +110,7 @@ const extractBlogProperties = (data: PageObjectResponse): BlogMetaData | null =>
     tags,
     coverImage,
     slug,
+    series,
   };
 
   return obj;

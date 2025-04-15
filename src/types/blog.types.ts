@@ -6,6 +6,7 @@ export type BlogMetaData = Partial<{
   description: string;
   tags: string[];
   coverImage: string;
+  series: string[];
 }>;
 
 export interface Blog extends BlogMetaData {
