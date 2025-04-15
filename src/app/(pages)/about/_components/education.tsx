@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/base/card";
-import Image from "next/image";
 import { ChevronDown } from "lucide-react";
 import Link from "next/link";
 import { EDUCATION } from "@/constants/education";

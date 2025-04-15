@@ -3,7 +3,6 @@ import { Badge } from "@/components/base/badge";
 import { Separator } from "@/components/base/separator";
 import { cn } from "@/lib/cn";
 import { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import MDX from "@/components/mdx/mdx";

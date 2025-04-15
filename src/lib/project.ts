@@ -1,5 +1,4 @@
-import readingTime from "reading-time";
-import { getAllPages, getSinglePage, notionToMD } from "@/lib/notion";
+import { getAllPages, notionToMD } from "@/lib/notion";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { Project, ProjectMetaData } from "@/types/project.types";
 

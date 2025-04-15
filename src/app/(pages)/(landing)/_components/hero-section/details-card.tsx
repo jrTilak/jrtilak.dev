@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/base/card";
-import Image from "next/image";
 import { Button } from "@/components/base/button";
 import Link from "next/link";
 import { CONTACTS_LINKS } from "@/constants/contact-links";

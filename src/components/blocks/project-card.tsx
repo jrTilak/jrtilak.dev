@@ -1,6 +1,5 @@
 import React from "react";
 import { Card, CardHeader, CardTitle } from "@/components/base/card";
-import Image from "next/image";
 import { Badge } from "../base/badge";
 import { Button } from "../base/button";
 import {

@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import Image from "next/image";
 import { getUniqueRandomNumbers } from "@/lib/get-random-numbers";
 import { SKILLS } from "@/constants/skills";
 import { OrbitingCircles as OC } from "@/components/base/orbiting-circles";

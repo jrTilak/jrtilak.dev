@@ -8,7 +8,7 @@ import {
   CardTitle,
 } from "@/components/base/card";
 import AreYouReady from "@/components/blocks/are-you-ready";
-import Image from "next/image";
+
 import { SERVICES } from "@/constants/services";
 import { getSkillDetails } from "@/lib/get-skill";
 import Link from "next/link";

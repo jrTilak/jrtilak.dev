@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/base/card";
 import Link from "next/link";
-import Image from "next/image";
 import { TRUSTED_BY } from "@/constants/trusted-by";
 
 const TrustedBy = () => {

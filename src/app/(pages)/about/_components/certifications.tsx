@@ -1,7 +1,6 @@
 import React from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/base/card";
 import { CERTIFICATION } from "@/constants/certification";
-import Image from "next/image";
 import { Badge } from "@/components/base/badge";
 import Link from "next/link";
 
@@ -21,7 +20,7 @@ const Certifications = () => {
         <CardContent className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {CERTIFICATION.map((certification, i) => (
             <Card key={i} className="group cursor-pointer transition-colors hover:shadow-md">
-              <imgViewer
+              <ImageViewer
                 src={certification.image}
                 title={certification.title}
                 trigger={{

@@ -8,7 +8,6 @@ import {
   AccordionTrigger,
 } from "@/components/base/accordion";
 import { EXPERIENCES } from "@/constants/experience";
-import Image from "next/image";
 import Link from "next/link";
 import { getCertificationDetails } from "@/lib/get-certification";
 import { Separator } from "@/components/base/separator";
@@ -90,7 +89,7 @@ const Experience = () => {
                       {experience.certifications?.map((certification, i) => {
                         const certificationData = getCertificationDetails(certification);
                         return (
-                          <imgViewer
+                          <ImageViewer
                             key={i}
                             src={certificationData.image}
                             title={certificationData.title}

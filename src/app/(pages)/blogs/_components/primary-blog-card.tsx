@@ -1,7 +1,6 @@
 import { calculateTimeAgo } from "@/lib/calculate-time-ago";
 import { cn } from "@/lib/cn";
 import { Blog } from "@/types/blog.types";
-import Image from "next/image";
 import Link from "next/link";
 
 type Props = Omit<Blog, "content"> & {

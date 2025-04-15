@@ -1,7 +1,6 @@
 "use client";
 import React, { Fragment, useState } from "react";
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from "@/components/base/card";
-import Image from "next/image";
 import { Button } from "@/components/base/button";
 import Link from "next/link";
 import { Separator } from "@/components/base/separator";
