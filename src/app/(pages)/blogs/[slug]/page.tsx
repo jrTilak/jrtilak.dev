@@ -8,7 +8,7 @@ import Link from "next/link";
 import React from "react";
 import MDX from "@/components/mdx/mdx";
 import { getMdxContent } from "@/lib/get-mdx-content";
-import { getAllBlogs, getBlogBySlug } from "@/services/blogs";
+import { getAllBlogs, getBlogBySlug } from "@/lib/blogs";
 
 type Props = {
   params: Promise<{
@@ -104,7 +104,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
     description: blog?.description,
     authors: {
       name: "Tilak Thapa",
-      url: process.env.NEXT_PUBLIC_WEB_URL,
+      url: process.env.NEXT_PUBLIC_SELF_URL,
     },
     keywords: [
       ...(blog?.tags || []),
@@ -115,7 +115,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
     openGraph: {
       title: blog?.title,
       description: blog?.description,
-      url: `${process.env.NEXT_PUBLIC_WEB_URL} / blogs / ${slug}`,
+      url: `${process.env.NEXT_PUBLIC_SELF_URL} / blogs / ${slug}`,
       type: "article",
       images: [
         {

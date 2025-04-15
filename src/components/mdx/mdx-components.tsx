@@ -5,10 +5,12 @@ import { cn } from "@/lib/cn";
 
 import * as Accordion from "../base/accordion";
 import { Separator } from "../base/separator";
+import * as Alert from "../base/alert";
 
 const MDXComponents = {
   ...Icons,
   ...Accordion,
+  ...Alert,
   LinkedCard: ({ className, ...props }: React.ComponentProps<typeof Link>) => (
     <Link
       className={cn(

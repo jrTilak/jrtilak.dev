@@ -2,7 +2,7 @@ import AllTags from "../../_components/all-tags";
 import unique from "@/lib/unique";
 import BlogCard from "../../_components/blog-card";
 import Error404 from "@/components/screens/404";
-import { getAllBlogs } from "@/services/blogs";
+import { getAllBlogs } from "@/lib/blogs";
 
 type Props = {
   params: Promise<{

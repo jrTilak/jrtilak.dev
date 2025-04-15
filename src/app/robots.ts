@@ -10,3 +10,5 @@ export default function robots(): MetadataRoute.Robots {
     host: process.env.NEXT_PUBLIC_SELF_URL,
   };
 }
+
+export const dynamic = "force-static";
