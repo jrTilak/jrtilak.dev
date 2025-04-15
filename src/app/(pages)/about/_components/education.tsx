@@ -6,7 +6,6 @@ import { EDUCATION } from "@/constants/education";
 import { IMAGES } from "@/constants/images";
 import { cn } from "@/lib/cn";
 import { Separator } from "@/components/base/separator";
-import ExportedImage from "next-image-export-optimizer";;
 
 const Education = () => {
   return (

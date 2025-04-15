@@ -1,5 +1,4 @@
 import { Card, CardContent } from "@/components/base/card";
-import Image from "next/image";
 import Link from "next/link";
 
 const GithubStats = () => {
