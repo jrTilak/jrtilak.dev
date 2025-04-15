@@ -14,13 +14,15 @@ import {
 } from "@/components/base/dialog";
 import Link from "next/link";
 import { GithubIcon, TrendingUpIcon } from "lucide-react";
-import { Project, } from "@/types/project.types";
+import { Project } from "@/types/project.types";
 import { getSkillDetails } from "@/lib/get-skill";
 import { getMdxContent } from "@/lib/get-mdx-content";
 import MDX from "../mdx/mdx";
 
 const ProjectCard = async (props: Project) => {
-  const { mdxSource: { content } } = await getMdxContent(props.content);
+  const {
+    mdxSource: { content },
+  } = await getMdxContent(props.content);
   return (
     <Dialog>
       <DialogTrigger>
@@ -75,7 +77,6 @@ const ProjectCard = async (props: Project) => {
                 alt=""
                 width={1200}
                 height={800}
-
                 className="bg-muted h-auto max-h-[300px] w-full rounded-md object-contain object-center shadow-md"
               />
               <Badge
@@ -111,41 +112,43 @@ const ProjectCard = async (props: Project) => {
               })}
             </div>
             <div className="flex flex-col gap-1">
-              <MDX id="project" className="[&_p]:!leading-5">{content}</MDX>
+              <MDX id="project" className="[&_p]:!leading-5">
+                {content}
+              </MDX>
             </div>
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="flex !flex-row items-center justify-end gap-2">
-          {
-            [
-              {
-                url: props?.playstoreUrl,
-                image: "https://www.svgrepo.com/show/485039/google-play-style.svg",
-              },
-              {
-                url: props?.appstoreUrl,
-                image: "https://www.svgrepo.com/show/447868/apple-store.svg",
-              },
-              {
-                url: props?.webstoreUrl,
-                image: "https://www.svgrepo.com/show/378781/chrome.svg",
-              },
-            ].filter((url) => url.url !== "" && url.url !== undefined)
-              ?.map((url, i) => (
-                <Link href={url.url as string} target="_blank" key={i}>
-                  <Button variant={"outline"} size={url.image ? "icon" : "default"}>
-                    {url.image && (
-                      <img
-                        src={url.image}
-                        alt={""}
-                        width={20}
-                        height={20}
-                        className="size-6 rounded-md"
-                      />
-                    )}
-                  </Button>
-                </Link>
-              ))}
+          {[
+            {
+              url: props?.playstoreUrl,
+              image: "https://www.svgrepo.com/show/485039/google-play-style.svg",
+            },
+            {
+              url: props?.appstoreUrl,
+              image: "https://www.svgrepo.com/show/447868/apple-store.svg",
+            },
+            {
+              url: props?.webstoreUrl,
+              image: "https://www.svgrepo.com/show/378781/chrome.svg",
+            },
+          ]
+            .filter((url) => url.url !== "" && url.url !== undefined)
+            ?.map((url, i) => (
+              <Link href={url.url as string} target="_blank" key={i}>
+                <Button variant={"outline"} size={url.image ? "icon" : "default"}>
+                  {url.image && (
+                    <img
+                      src={url.image}
+                      alt={""}
+                      width={20}
+                      height={20}
+                      className="size-6 rounded-md"
+                    />
+                  )}
+                </Button>
+              </Link>
+            ))}
           {props.githubUrl && (
             <Link href={props?.githubUrl} target="_blank" title="Source Code">
               <Button variant={"outline"} size={"sm"} className="w-full">

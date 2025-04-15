@@ -15,6 +15,7 @@ import Link from "next/link";
 import { Badge } from "@/components/base/badge";
 import { cn } from "@/lib/cn";
 import { Metadata } from "next";
+import Image from "next/image";
 
 const Page = () => {
   return (
@@ -44,7 +45,7 @@ const Page = () => {
                 )}
                 <CardHeader>
                   <CardTitle className="flex flex-col gap-2">
-                    <img className="size-12" src={service.icon} height={48} width={48} alt="" />
+                    <Image className="size-12" src={service.icon} height={48} width={48} alt="" />
                     <span>{service.title}</span>
                   </CardTitle>
                   <CardDescription>{service.description}</CardDescription>
@@ -66,7 +67,7 @@ const Page = () => {
                           variant={"outline"}
                           className="w-fit rounded-lg text-xs font-normal capitalize transition-colors hover:shadow-md"
                         >
-                          <img
+                          <Image
                             src={skill?.image}
                             alt={""}
                             width={20}

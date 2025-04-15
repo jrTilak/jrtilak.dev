@@ -7,7 +7,7 @@ import { NumberTicker } from "@/components/base/number-ticker";
 const Stats = () => {
   return (
     <Card>
-      <CardContent className="grid grid-cols-[1fr_10px_1fr] items-center justify-center gap-x-9 gap-y-4 p-3 sm:p-6 text-center sm:flex">
+      <CardContent className="grid grid-cols-[1fr_10px_1fr] items-center justify-center gap-x-9 gap-y-4 p-3 text-center sm:flex sm:p-6">
         {STATS.map((stats, i) => (
           <Fragment key={i}>
             {i !== 0 && (

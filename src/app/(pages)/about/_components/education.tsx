@@ -6,6 +6,7 @@ import { EDUCATION } from "@/constants/education";
 import { IMAGES } from "@/constants/images";
 import { cn } from "@/lib/cn";
 import { Separator } from "@/components/base/separator";
+import Image from "next/image";
 
 const Education = () => {
   return (
@@ -30,7 +31,7 @@ const Education = () => {
                 !education.college.url && "pointer-events-none"
               )}
             >
-              <img
+              <Image
                 src={education.college.image ?? IMAGES.placeholders.college}
                 alt={education.college.name}
                 height={80}

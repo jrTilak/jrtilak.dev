@@ -8,6 +8,7 @@ import toast, { CheckmarkIcon } from "react-hot-toast";
 import { CopyIcon, X } from "lucide-react";
 import { IMAGES } from "@/constants/images";
 import { CONTACTS_LINKS } from "@/constants/contact-links";
+import Image from "next/image";
 
 const ContactLinks = () => {
   const [icon, setIcon] = useState(<CopyIcon className="ml-3 size-5" />);
@@ -16,7 +17,7 @@ const ContactLinks = () => {
     <Card className="relative mt-[89px] h-fit">
       <CardHeader className="absolute -top-[89px] left-1/2 w-full -translate-x-1/2">
         <CardTitle className="flex flex-col items-center justify-center gap-2.5">
-          <img
+          <Image
             src={IMAGES.avatar}
             alt="Avatar"
             width={200}
@@ -36,7 +37,7 @@ const ContactLinks = () => {
               className="group hover:border-primary border-muted flex items-center gap-2.5 rounded-lg border p-4 transition-all duration-500"
             >
               <div className="bg-background border-muted rounded-lg border p-1.5 shadow-md">
-                <img
+                <Image
                   src={contact.image}
                   alt={contact.type}
                   width={28}

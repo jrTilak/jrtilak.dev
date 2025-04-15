@@ -8,7 +8,7 @@ import WorksAndProjects from "@/components/blocks/work-and-projects";
 import { getAllProjects } from "@/lib/project";
 
 const Page = async () => {
-  const projects = await getAllProjects()
+  const projects = await getAllProjects();
   return (
     <div className="flex flex-col gap-9 sm:gap-12">
       <Hero />

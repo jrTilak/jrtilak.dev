@@ -5,6 +5,7 @@ import Link from "next/link";
 import { CONTACTS_LINKS } from "@/constants/contact-links";
 import { IMAGES } from "@/constants/images";
 import OrbitingCircles from "./orbiting-circles";
+import Image from "next/image";
 
 const DetailsCard = () => {
   return (
@@ -14,7 +15,7 @@ const DetailsCard = () => {
         <CardHeader>
           <div className="relative hidden h-[350px] items-center justify-center rounded-full p-6 lg:flex">
             <OrbitingCircles />
-            <img
+            <Image
               src={IMAGES.avatar}
               alt=""
               height={600}
@@ -37,7 +38,7 @@ const DetailsCard = () => {
               key={contact.href}
             >
               <Button variant={"outline"} size={"icon"} className="group aspect-square">
-                <img
+                <Image
                   src={contact.image}
                   className="size-4 transition-all group-hover:scale-[1.10] dark:invert"
                   alt=""

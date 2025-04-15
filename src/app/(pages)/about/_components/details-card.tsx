@@ -1,6 +1,7 @@
 import React from "react";
 import { Card, CardHeader, CardTitle } from "@/components/base/card";
 import { IMAGES } from "@/constants/images";
+import Image from "next/image";
 
 const DetailsCard = () => {
   return (
@@ -8,7 +9,7 @@ const DetailsCard = () => {
       <Card className="hidden flex-col items-center justify-center lg:flex">
         <CardHeader>
           <div className="hidden p-6 lg:block">
-            <img
+            <Image
               src={IMAGES.avatar}
               alt=""
               height={600}

@@ -13,6 +13,7 @@ import { getCertificationDetails } from "@/lib/get-certification";
 import { Separator } from "@/components/base/separator";
 import { cn } from "@/lib/cn";
 import ImageViewer from "@/components/blocks/image-viewer";
+import Image from "next/image";
 
 const Experience = () => {
   const [open, setOpen] = useState("");
@@ -42,7 +43,7 @@ const Experience = () => {
                   target="_blank"
                   className="bg-muted size-10 rounded-full p-2 shadow-md"
                 >
-                  <img
+                  <Image
                     src={experience.company.image}
                     alt={experience.company.name}
                     height={80}
@@ -98,12 +99,13 @@ const Experience = () => {
                                 "hover:scale-110 transition-all max-h-20 aspect-square bg-muted border border-muted rounded-md cursor-pointer",
                             }}
                           >
-                            <img
+                            <Image
                               src={certificationData.image}
                               alt={certificationData.title}
                               height={200}
                               width={200}
                               key={i}
+                              quality={100}
                               className="h-full rounded-md object-cover object-center"
                             />
                           </ImageViewer>

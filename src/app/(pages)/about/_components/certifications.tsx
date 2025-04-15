@@ -5,6 +5,7 @@ import { Badge } from "@/components/base/badge";
 import Link from "next/link";
 
 import ImageViewer from "@/components/blocks/image-viewer";
+import Image from "next/image";
 
 const Certifications = () => {
   return (
@@ -27,11 +28,11 @@ const Certifications = () => {
                   className: "w-full h-fit cursor-pointer",
                 }}
               >
-                <img
+                <Image
                   src={certification.image}
                   alt={certification.title}
                   width={600}
-
+                  quality={100}
                   height={400}
                   className="h-auto w-full object-cover object-top sm:h-[200px]"
                 />

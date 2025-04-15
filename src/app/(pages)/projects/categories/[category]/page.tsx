@@ -11,9 +11,14 @@ type Props = {
 const ProjectByTag = async ({ params }: Props) => {
   const { category } = await params;
   const projects = await getAllProjects();
-  return <WorksAndProjects activeCategory={category} projects={
-    category === "all" ? projects : projects.filter((p) => p.categories.includes(category))
-  } />;
+  return (
+    <WorksAndProjects
+      activeCategory={category}
+      projects={
+        category === "all" ? projects : projects.filter((p) => p.categories.includes(category))
+      }
+    />
+  );
 };
 
 export default ProjectByTag;
@@ -26,7 +31,9 @@ export async function generateStaticParams() {
       projects?.map((project) => {
         return project.categories;
       }),
-    ]?.flat().flat()
+    ]
+      ?.flat()
+      .flat()
   );
 
   return tags.map((tag) => ({

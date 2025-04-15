@@ -1,6 +1,7 @@
 import { calculateTimeAgo } from "@/lib/calculate-time-ago";
 import { cn } from "@/lib/cn";
 import { Blog } from "@/types/blog.types";
+import Image from "next/image";
 import Link from "next/link";
 
 type Props = Omit<Blog, "content"> & {
@@ -19,9 +20,9 @@ const PrimaryBlogCard = (props: Props) => {
     >
       <div className="flex w-full items-center justify-center overflow-hidden rounded-md lg:max-h-[320px] lg:max-w-[536px]">
         <Link href={`/blogs/${props.slug}`} className="h-full w-full">
-          <img
+          <Image
             className="h-full max-h-72 w-full rounded-md object-cover object-center"
-            src={props.coverImage}
+            src={props.coverImage ?? ""}
             alt="hero"
             height={600}
             width={600}
@@ -47,12 +48,12 @@ const PrimaryBlogCard = (props: Props) => {
         </Link>
         <p className="max-w-[524px] text-sm xl:text-base">
           {props.description?.substring(0, 130)}
-          {props.description?.length ?? 0 > 130 ? "..." : ""}
+          {(props.description?.length ?? 0 > 130) ? "..." : ""}
         </p>
         <div className="mt-5 flex items-center gap-2.5">
           <div className="flex items-center gap-3">
             <div className="flex h-6 w-6 overflow-hidden rounded-full">
-              <img
+              <Image
                 src={"/images/avatar.png"}
                 alt="user"
                 className="h-full w-full object-cover object-center"

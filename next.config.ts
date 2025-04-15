@@ -5,6 +5,8 @@ const nextConfig: NextConfig = {
   /* config options here */
   images: {
     unoptimized: true,
+    minimumCacheTTL: 60 * 99999999,
+    qualities: [100],
     remotePatterns: [
       {
         hostname: "www.svgrepo.com",

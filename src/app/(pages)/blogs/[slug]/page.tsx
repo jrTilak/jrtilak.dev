@@ -8,6 +8,7 @@ import React from "react";
 import MDX from "@/components/mdx/mdx";
 import { getMdxContent } from "@/lib/get-mdx-content";
 import { getAllBlogs, getBlogBySlug } from "@/lib/blogs";
+import Image from "next/image";
 
 type Props = {
   params: Promise<{
@@ -21,7 +22,9 @@ const Page = async ({ params }: Props) => {
 
   if (!blog) return <Error404 />;
 
-  const { mdxSource: { content } } = await getMdxContent(blog.raw);
+  const {
+    mdxSource: { content },
+  } = await getMdxContent(blog.raw);
 
   return (
     <div className="mt-12">
@@ -45,7 +48,7 @@ const Page = async ({ params }: Props) => {
           )}
           <div className="mt-4 flex items-center justify-center gap-4">
             <div className="flex h-10 w-10 overflow-hidden rounded-full">
-              <img
+              <Image
                 src={"/images/avatar.png"}
                 alt="user"
                 className="h-full w-full rounded-full object-cover object-center"
@@ -70,8 +73,8 @@ const Page = async ({ params }: Props) => {
             </div>
           </div>
         </div>
-        <img
-          src={blog.coverImage}
+        <Image
+          src={blog.coverImage ?? ""}
           alt="thumbnail"
           className={cn(
             "mt-6 h-auto max-h-[500px] w-full max-w-5xl rounded-xl border border-gray-300 object-cover object-center shadow-md"
@@ -85,9 +88,7 @@ const Page = async ({ params }: Props) => {
             {content}
           </MDX>
         </div>
-        <div className="sr-only">
-          {blog.tags?.map((tag) => `${tag} , `)}
-        </div>
+        <div className="sr-only">{blog.tags?.map((tag) => `${tag} , `)}</div>
       </section>
     </div>
   );
@@ -105,12 +106,7 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
       name: "Tilak Thapa",
       url: process.env.NEXT_PUBLIC_SELF_URL,
     },
-    keywords: [
-      ...(blog?.tags || []),
-      "blog",
-      "tilak thapa",
-      "web development",
-    ],
+    keywords: [...(blog?.tags || []), "blog", "tilak thapa", "web development"],
     openGraph: {
       title: blog?.title,
       description: blog?.description,
@@ -125,13 +121,10 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   };
 };
 
-
-
 export async function generateStaticParams() {
-  const posts = await getAllBlogs()
-
+  const posts = await getAllBlogs();
 
   return posts.map((post) => ({
     slug: post.slug,
-  }))
+  }));
 }

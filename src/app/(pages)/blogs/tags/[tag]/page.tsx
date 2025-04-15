@@ -31,10 +31,12 @@ const BlogByTag = async ({ params }: Props) => {
           {/* sidebar */}
           <div className="bg-card flex h-fit w-full flex-col gap-3 rounded-md px-6 py-7 shadow-md lg:w-72">
             <AllTags
-              data={tags?.map((t) => ({
-                label: t ?? "",
-                href: `/blogs/tags/${t}`,
-              })) || []}
+              data={
+                tags?.map((t) => ({
+                  label: t ?? "",
+                  href: `/blogs/tags/${t}`,
+                })) || []
+              }
             />
           </div>
 
@@ -59,9 +61,8 @@ const BlogByTag = async ({ params }: Props) => {
 
 export default BlogByTag;
 
-
 export async function generateStaticParams() {
-  const posts = await getAllBlogs()
+  const posts = await getAllBlogs();
   const tags = unique(
     posts
       ?.map((blog) => {
@@ -71,5 +72,5 @@ export async function generateStaticParams() {
   );
   return tags.map((tag) => ({
     tag: tag,
-  }))
+  }));
 }

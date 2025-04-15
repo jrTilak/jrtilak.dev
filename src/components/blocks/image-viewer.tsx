@@ -40,7 +40,6 @@ const ImageViewer = ({ children, src, title, trigger }: Props) => {
               src={src}
               alt={title}
               width={1500}
-
               height={1000}
               className={
                 isFullScreen

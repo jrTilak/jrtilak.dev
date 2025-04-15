@@ -1,5 +1,6 @@
 import { cn } from "@/lib/cn";
 import { Blog } from "@/types/blog.types";
+import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
@@ -21,9 +22,9 @@ const BlogCard = (props: Props) => {
     >
       <div className="flex w-full items-center justify-center overflow-hidden lg:max-h-[160px] lg:max-w-[238px]">
         <Link href={`/blogs/${props.slug}`} className="h-full w-full">
-          <img
+          <Image
             className="h-full max-h-40 w-full rounded-md object-cover object-center"
-            src={props.coverImage}
+            src={props.coverImage ?? ""}
             alt="hero"
             height={600}
             width={600}
@@ -47,7 +48,7 @@ const BlogCard = (props: Props) => {
         </Link>
         <p className="text-sm text-gray-600">
           {props.description?.substring(0, descriptionLength)}
-          {props.description?.length ?? 0 > descriptionLength ? "..." : ""}
+          {(props.description?.length ?? 0 > descriptionLength) ? "..." : ""}
         </p>
         <div className="mt-2 flex items-center gap-2.5">
           <p className="text-sm">
