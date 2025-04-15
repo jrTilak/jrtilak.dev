@@ -34,7 +34,7 @@ export const getAllProjects = async (): Promise<Array<Project>> => {
   }
 };
 
-const extractProjectProperties = (data: PageObjectResponse): ProjectMetaData | null => {
+export const extractProjectProperties = (data: PageObjectResponse): ProjectMetaData | null => {
   const title =
     data.properties["title"] && data.properties["title"].type === "title"
       ? (data.properties["title"].title[0]?.plain_text ?? "")

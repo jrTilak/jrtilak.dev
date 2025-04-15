@@ -4,10 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build": "next build && next-image-export-optimizer",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write ."
+    "format": "prettier --write .",
+    "export-img": "tsx scripts/collect-all-remote-image.ts"
   },
   "dependencies": {
     "@next/third-parties": "^15.3.0",
@@ -25,6 +26,7 @@
     "lucide-react": "^0.487.0",
     "motion": "^12.6.3",
     "next": "15.2.4",
+    "next-image-export-optimizer": "^1.18.0",
     "next-mdx-remote": "^5.0.0",
     "next-themes": "^0.4.6",
     "nextjs-toploader": "^3.8.16",
@@ -38,6 +40,7 @@
     "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.1",
     "remark-toc": "^9.0.0",
+    "sharp": "^0.34.1",
     "shiki": "^3.2.2",
     "tailwind-merge": "^3.2.0",
     "tw-animate-css": "^1.2.5"
@@ -48,11 +51,13 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "dotenv": "^16.5.0",
     "eslint": "^9",
     "eslint-config-next": "15.2.4",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.11",
     "tailwindcss": "^4",
+    "tsx": "^4.19.3",
     "typescript": "^5"
   }
 }

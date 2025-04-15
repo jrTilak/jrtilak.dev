@@ -2,7 +2,6 @@
 import React, { useState } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/base/card";
 import Link from "next/link";
-import Image from "next/image";
 import { SKILLS } from "@/constants/skills";
 import { Button } from "@/components/base/button";
 import { ChevronsUpIcon } from "lucide-react";
@@ -35,13 +34,12 @@ const Skills = ({ expertiseOnly, id }: Props) => {
               target="_blank"
               className="bg-muted flex w-auto flex-col items-center justify-center gap-1 rounded-md px-5 py-3 transition-all hover:shadow-md sm:min-w-32"
             >
-              <Image
+              <img
                 src={a.image}
                 alt={a.name}
                 height={50}
                 width={50}
                 className="h-6 w-full rounded-md object-contain object-center sm:h-8"
-                quality={100}
               />
               <span className="text-muted-foreground text-center text-sm">{a.name}</span>
             </Link>

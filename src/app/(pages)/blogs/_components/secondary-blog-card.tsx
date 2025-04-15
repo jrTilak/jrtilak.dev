@@ -1,7 +1,7 @@
 import { calculateTimeAgo } from "@/lib/calculate-time-ago";
 import { cn } from "@/lib/cn";
 import { Blog } from "@/types/blog.types";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";;
 import Link from "next/link";
 
 type Props = Omit<Blog, "content"> & {
@@ -18,7 +18,7 @@ const SecondaryBlogCard = (props: Props) => {
     >
       <div className="flex w-full items-center justify-center overflow-hidden rounded-md lg:max-h-[238px] lg:max-w-[238px]">
         <Link href={`/blogs/${props.slug}`} className="h-full w-full">
-          <Image
+          <ExportedImage
             className="h-full max-h-40 w-full rounded-md object-cover object-center"
             src={props.coverImage ?? ""}
             alt="hero"

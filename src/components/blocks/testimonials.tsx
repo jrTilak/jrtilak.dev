@@ -16,12 +16,12 @@ import {
   CardTitle,
 } from "@/components/base/card";
 import { TESTIMONIALS } from "@/constants/testimonials";
-import Image from "next/image";
-import Link from "next/link";
 import { Button } from "@/components/base/button";
 
 import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/base/dialog";
 import { IMAGES } from "@/constants/images";
+import Link from "next/link";
+import ExportedImage from "next-image-export-optimizer";
 
 const Testimonials = () => {
   return (
@@ -39,7 +39,7 @@ const Testimonials = () => {
               {TESTIMONIALS.map((testimony, i) => (
                 <CarouselItem key={i} className="group md:basis-1/2">
                   <div className="bg-muted hover:border-primary border-muted relative flex flex-col gap-9 rounded-md border p-4 select-none group-hover:shadow-lg">
-                    <Image
+                    <img
                       src={
                         testimony.platform === "linkedin"
                           ? "https://www.svgrepo.com/show/475661/linkedin-color.svg"
@@ -52,7 +52,7 @@ const Testimonials = () => {
                       className="absolute top-4 right-4 size-4 md:size-5"
                     />
                     <div className="flex items-center gap-2.5">
-                      <Image
+                      <ExportedImage
                         src={testimony.image ?? IMAGES.placeholders.avatar}
                         alt={testimony.name}
                         className="size-12 rounded-full object-cover object-center sm:size-16"
@@ -84,7 +84,7 @@ const Testimonials = () => {
                         <DialogContent>
                           <DialogHeader>
                             <div className="flex items-center gap-2.5">
-                              <Image
+                              <ExportedImage
                                 src={testimony.image ?? IMAGES.placeholders.avatar}
                                 alt={testimony.name}
                                 className="size-12 rounded-full object-cover object-center sm:size-16"

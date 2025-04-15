@@ -8,7 +8,7 @@ import React from "react";
 import MDX from "@/components/mdx/mdx";
 import { getMdxContent } from "@/lib/get-mdx-content";
 import { getAllBlogs, getBlogBySlug } from "@/lib/blogs";
-import Image from "next/image";
+import ExportedImage from "next-image-export-optimizer";;
 
 type Props = {
   params: Promise<{
@@ -48,7 +48,7 @@ const Page = async ({ params }: Props) => {
           )}
           <div className="mt-4 flex items-center justify-center gap-4">
             <div className="flex h-10 w-10 overflow-hidden rounded-full">
-              <Image
+              <ExportedImage
                 src={"/images/avatar.png"}
                 alt="user"
                 className="h-full w-full rounded-full object-cover object-center"
@@ -73,7 +73,7 @@ const Page = async ({ params }: Props) => {
             </div>
           </div>
         </div>
-        <Image
+        <ExportedImage
           src={blog.coverImage ?? ""}
           alt="thumbnail"
           className={cn(

@@ -1,4 +1,4 @@
-import { Blog, BlogMetaData } from "@/types/blog.types";
+import { Blog } from "@/types/blog.types";
 import readingTime from "reading-time";
 import { getAllPages, getSinglePage } from "@/lib/notion";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
@@ -25,12 +25,18 @@ export const getAllBlogs = async (): Promise<Array<Blog>> => {
       return [];
     }
 
-    const files = blogs.map((blog) => {
-      if (!blog) return null;
-      const properties = extractBlogProperties(blog);
-      if (!properties) return null;
-      return properties;
-    });
+    const files = await Promise.all(
+      blogs.map(async (blog) => {
+        if (!blog) return null;
+        const properties = extractBlogProperties(blog);
+        if (!properties) return null;
+
+        const b = await getBlogBySlug(properties.slug);
+        if (!b) return null;
+
+        return b;
+      })
+    );
 
     if (!files || files?.length === 0) {
       return [];
@@ -58,7 +64,6 @@ export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
     const raw = blog.markdown;
 
     return {
-      slug,
       readingTime: readingTime(raw).text,
       ...properties,
       raw,
@@ -69,7 +74,7 @@ export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
   }
 };
 
-const extractBlogProperties = (data: PageObjectResponse): BlogMetaData | null => {
+export const extractBlogProperties = (data: PageObjectResponse) => {
   const title =
     data.properties["title"] && data.properties["title"].type === "title"
       ? (data.properties["title"].title[0]?.plain_text ?? "")
