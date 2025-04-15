@@ -1,8 +1,8 @@
-import { getAllBlogs } from "@/services/blogs";
 import AllTags from "../../_components/all-tags";
 import unique from "@/lib/unique";
 import BlogCard from "../../_components/blog-card";
 import Error404 from "@/components/screens/404";
+import { getAllBlogs } from "@/services/blogs";
 
 type Props = {
   params: Promise<{
@@ -35,7 +35,7 @@ const BlogByTag = async ({ params }: Props) => {
                 label: t ?? "",
                 href: `/blogs/tags/${t}`,
               })) || []}
-            />  
+            />
           </div>
 
           {/* all remaining blogs */}
@@ -59,17 +59,17 @@ const BlogByTag = async ({ params }: Props) => {
 
 export default BlogByTag;
 
+
 export async function generateStaticParams() {
-  const allBlogs = await getAllBlogs();
+  const posts = await getAllBlogs()
   const tags = unique(
-    allBlogs
+    posts
       ?.map((blog) => {
         return blog.tags;
       })
       ?.flat()
   );
-
   return tags.map((tag) => ({
-    tag,
-  }));
+    tag: tag,
+  }))
 }

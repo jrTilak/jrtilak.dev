@@ -1,4 +1,3 @@
-import { getAllBlogs } from "@/services/blogs";
 import React from "react";
 import PrimaryBlogCard from "./_components/primary-blog-card";
 import SecondaryBlogCard from "./_components/secondary-blog-card";
@@ -6,6 +5,8 @@ import AllTags from "./_components/all-tags";
 import BlogCard from "./_components/blog-card";
 import unique from "@/lib/unique";
 import Error404 from "@/components/screens/404";
+import { Metadata } from "next";
+import { getAllBlogs } from "@/services/blogs";
 
 const Page = async () => {
   const blogs = await getAllBlogs();
@@ -74,3 +75,7 @@ const Page = async () => {
 };
 
 export default Page;
+
+export const metadata: Metadata = {
+  title: `Blogs`,
+};

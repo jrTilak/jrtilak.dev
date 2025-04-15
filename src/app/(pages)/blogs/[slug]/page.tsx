@@ -2,12 +2,13 @@ import Error404 from "@/components/screens/404";
 import { Badge } from "@/components/base/badge";
 import { Separator } from "@/components/base/separator";
 import { cn } from "@/lib/cn";
-import { getBlogBySlug } from "@/services/blogs";
 import { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import MDX from "@/components/mdx/mdx";
+import { getMdxContent } from "@/lib/get-mdx-content";
+import { getAllBlogs, getBlogBySlug } from "@/services/blogs";
 
 type Props = {
   params: Promise<{
@@ -18,7 +19,10 @@ type Props = {
 const Page = async ({ params }: Props) => {
   const { slug } = await params;
   const blog = await getBlogBySlug(decodeURI(slug));
+
   if (!blog) return <Error404 />;
+
+  const { mdxSource: { content } } = await getMdxContent(blog.raw);
 
   return (
     <div className="mt-12">
@@ -79,7 +83,7 @@ const Page = async ({ params }: Props) => {
         <Separator className="mt-6 max-w-5xl" />
         <div className="mx-auto mt-12 flex w-full gap-16">
           <MDX id="blog" className="mx-auto max-w-3xl">
-            {blog.content}
+            {content}
           </MDX>
         </div>
         <div className="sr-only">
@@ -92,9 +96,8 @@ const Page = async ({ params }: Props) => {
 
 export default Page;
 
-export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
-  const { slug } = await params;
-  const blog = await getBlogBySlug(decodeURI(slug));
+export const generateMetadata = async (slug: string): Promise<Metadata> => {
+  const blog = await getBlogBySlug(slug)
   return {
     title: blog?.title,
     description: blog?.description,
@@ -122,10 +125,12 @@ export const generateMetadata = async ({ params }: Props): Promise<Metadata> => 
   };
 };
 
-// export async function generateStaticParams() {
-//   const posts = await getAllBlogs();
 
-//   return posts.map((post) => ({
-//     slug: post.slug,
-//   }));
-// }
+
+export async function generateStaticParams() {
+  const posts = await getAllBlogs()
+
+  return posts.map((post) => ({
+    slug: post.slug,
+  }))
+}

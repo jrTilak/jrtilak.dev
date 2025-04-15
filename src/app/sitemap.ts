@@ -1,4 +1,4 @@
-import { getAllBlogs } from "@/services/blogs";
+import { getAllBlogs } from "@/lib/blogs";
 import { MetadataRoute } from "next";
 
 const sitemap = async (): Promise<MetadataRoute.Sitemap> => {

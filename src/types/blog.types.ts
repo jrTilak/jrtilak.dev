@@ -1,5 +1,3 @@
-import { JSXElementConstructor, ReactElement } from "react";
-
 export type BlogMetaData = Partial<{
   title: string;
   publishedAt: string;
@@ -10,7 +8,7 @@ export type BlogMetaData = Partial<{
 }>;
 
 export interface Blog extends BlogMetaData {
-  content: ReactElement<unknown, string | JSXElementConstructor<unknown>>;
+  raw: string;
   slug: string;
   readingTime: string;
 }

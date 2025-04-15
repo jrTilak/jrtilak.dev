@@ -1,4 +1,4 @@
-import { getAllBlogs, getBlogBySlug } from "@/services/blogs";
+import { getAllBlogs, getBlogBySlug } from "@/lib/blogs";
 import { NextRequest, NextResponse } from "next/server";
 
 export const GET = async (req: NextRequest) => {
