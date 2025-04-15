@@ -43,7 +43,7 @@ const Experience = () => {
                   target="_blank"
                   className="bg-muted size-10 rounded-full p-2 shadow-md"
                 >
-                  <Image
+                  <img
                     src={experience.company.image}
                     alt={experience.company.name}
                     height={80}
@@ -90,7 +90,7 @@ const Experience = () => {
                       {experience.certifications?.map((certification, i) => {
                         const certificationData = getCertificationDetails(certification);
                         return (
-                          <ImageViewer
+                          <imgViewer
                             key={i}
                             src={certificationData.image}
                             title={certificationData.title}
@@ -99,7 +99,7 @@ const Experience = () => {
                                 "hover:scale-110 transition-all max-h-20 aspect-square bg-muted border border-muted rounded-md cursor-pointer",
                             }}
                           >
-                            <Image
+                            <img
                               src={certificationData.image}
                               alt={certificationData.title}
                               height={200}

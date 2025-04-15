@@ -46,7 +46,7 @@ const Page = async ({ params }: Props) => {
           )}
           <div className="mt-4 flex items-center justify-center gap-4">
             <div className="flex h-10 w-10 overflow-hidden rounded-full">
-              <Image
+              <img
                 src={"/images/avatar.png"}
                 alt="user"
                 className="h-full w-full rounded-full object-cover object-center"

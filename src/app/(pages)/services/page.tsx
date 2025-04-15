@@ -44,7 +44,7 @@ const Page = () => {
                 )}
                 <CardHeader>
                   <CardTitle className="flex flex-col gap-2">
-                    <Image className="size-12" src={service.icon} height={48} width={48} alt="" />
+                    <img className="size-12" src={service.icon} height={48} width={48} alt="" />
                     <span>{service.title}</span>
                   </CardTitle>
                   <CardDescription>{service.description}</CardDescription>
@@ -66,7 +66,7 @@ const Page = () => {
                           variant={"outline"}
                           className="w-fit rounded-lg text-xs font-normal capitalize transition-colors hover:shadow-md"
                         >
-                          <Image
+                          <img
                             src={skill?.image}
                             alt={""}
                             width={20}

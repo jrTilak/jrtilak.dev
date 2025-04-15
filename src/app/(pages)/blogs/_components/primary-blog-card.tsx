@@ -53,7 +53,7 @@ const PrimaryBlogCard = (props: Props) => {
         <div className="mt-5 flex items-center gap-2.5">
           <div className="flex items-center gap-3">
             <div className="flex h-6 w-6 overflow-hidden rounded-full">
-              <Image
+              <img
                 src={"/images/avatar.png"}
                 alt="user"
                 className="h-full w-full object-cover object-center"

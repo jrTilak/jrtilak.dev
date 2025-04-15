@@ -9,7 +9,7 @@ const DetailsCard = () => {
       <Card className="hidden flex-col items-center justify-center lg:flex">
         <CardHeader>
           <div className="hidden p-6 lg:block">
-            <Image
+            <img
               src={IMAGES.avatar}
               alt=""
               height={600}

@@ -5,7 +5,21 @@ import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 
 export const getAllBlogs = async (): Promise<Array<Blog>> => {
   try {
-    const blogs = await getAllPages();
+    const blogs = await getAllPages({
+      database_id: process.env.NOTION_DATABASE_ID as string,
+      filter: {
+        property: "draft",
+        checkbox: {
+          equals: false,
+        },
+      },
+      sorts: [
+        {
+          property: "published_date",
+          direction: "descending",
+        },
+      ],
+    });
 
     if (!blogs || blogs?.length === 0) {
       return [];
@@ -33,7 +47,7 @@ export const getAllBlogs = async (): Promise<Array<Blog>> => {
 
 export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
   try {
-    const blog = await getSinglePage(slug);
+    const blog = await getSinglePage(slug, process.env.NOTION_BLOG_DATABASE_ID as string);
 
     if (!blog) return null;
 

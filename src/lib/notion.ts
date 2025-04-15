@@ -2,27 +2,16 @@ import { Client, APIErrorCode, isNotionClientError } from "@notionhq/client";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { NotionConverter } from "notion-to-md";
 import { DefaultExporter } from "notion-to-md/plugins/exporter";
+
 const notion = new Client({
   auth: process.env.NOTION_API_KEY,
 });
 
-export const getAllPages = async (): Promise<PageObjectResponse[] | undefined> => {
+export const getAllPages = async (
+  query: Parameters<typeof notion.databases.query>[0]
+): Promise<PageObjectResponse[] | undefined> => {
   try {
-    const pages = await notion.databases.query({
-      database_id: process.env.NOTION_DATABASE_ID as string,
-      filter: {
-        property: "draft",
-        checkbox: {
-          equals: false,
-        },
-      },
-      sorts: [
-        {
-          property: "published_date",
-          direction: "descending",
-        },
-      ],
-    });
+    const pages = await notion.databases.query(query);
 
     const allPages = pages.results.filter(
       (page): page is PageObjectResponse => page.object === "page"
@@ -40,11 +29,12 @@ export const getAllPages = async (): Promise<PageObjectResponse[] | undefined> =
 };
 
 export const getSinglePage = async (
-  slug: string
+  slug: string,
+  dbId: string
 ): Promise<{ post: PageObjectResponse; markdown: string } | undefined> => {
   try {
     const response = await notion.databases.query({
-      database_id: process.env.NOTION_DATABASE_ID as string,
+      database_id: dbId,
       filter: {
         url: {
           equals: slug,
@@ -66,7 +56,7 @@ export const getSinglePage = async (
     }
 
     // Convert to markdown
-    const markdown = await displayPageMarkdown(singlePost.id);
+    const markdown = await notionToMD(singlePost.id);
 
     return {
       post: singlePost,
@@ -86,7 +76,7 @@ export const getSinglePage = async (
   }
 };
 
-const displayPageMarkdown = async (pageId: string): Promise<string> => {
+export const notionToMD = async (pageId: string): Promise<string> => {
   try {
     const markdownBuffer: Record<string, string> = {};
     const exporter = new DefaultExporter({

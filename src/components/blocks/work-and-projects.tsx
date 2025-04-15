@@ -1,12 +1,12 @@
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/base/card";
 import unique from "@/lib/unique";
-import { Category, ProjectMetaData } from "@/types/project.types";
+import { Project, } from "@/types/project.types";
 import Link from "next/link";
 import ProjectCard from "./project-card";
 import { Button } from "../base/button";
 
 type Props = {
-  projects: ProjectMetaData[];
+  projects: Project[];
   activeCategory: string;
   limit?: number;
 };
@@ -25,8 +25,8 @@ const WorksAndProjects = async ({ projects, activeCategory, limit = Infinity }: 
     activeCategory === "all"
       ? projects
       : projects.filter((p) =>
-          p.categories.includes(decodeURIComponent(activeCategory) as Category)
-        );
+        p.categories.includes(decodeURIComponent(activeCategory))
+      );
 
   if (filteredProjects.length === 0) {
     return null;

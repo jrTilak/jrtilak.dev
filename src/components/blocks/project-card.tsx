@@ -15,22 +15,24 @@ import {
 } from "@/components/base/dialog";
 import Link from "next/link";
 import { GithubIcon, TrendingUpIcon } from "lucide-react";
-import { ProjectMetaData } from "@/types/project.types";
+import { Project, } from "@/types/project.types";
 import { getSkillDetails } from "@/lib/get-skill";
+import { getMdxContent } from "@/lib/get-mdx-content";
+import MDX from "../mdx/mdx";
 
-const ProjectCard = (props: ProjectMetaData) => {
+const ProjectCard = async (props: Project) => {
+  const { mdxSource: { content } } = await getMdxContent(props.content);
   return (
     <Dialog>
       <DialogTrigger>
         <Card className="group hover:bg-muted cursor-pointer transition-colors hover:shadow-md">
           <div className="h-fit w-full">
-            <Image
+            <img
               src={props.image}
               alt={props.title}
               width={300}
               height={200}
               className="h-auto w-full object-cover object-top sm:h-[200px]"
-              quality={100}
             />
           </div>
           <CardHeader className="pt-2">
@@ -65,16 +67,16 @@ const ProjectCard = (props: ProjectMetaData) => {
           </DialogTitle>
           <DialogDescription>
             <Link
-              href={props.urls?.liveUrl ?? props.urls?.sourceUrl ?? "#"}
+              href={props.liveUrl ?? props?.githubUrl ?? "#"}
               target="_blank"
               className="relative"
             >
-              <Image
+              <img
                 src={props.image}
                 alt=""
                 width={1200}
                 height={800}
-                quality={100}
+
                 className="bg-muted h-auto max-h-[300px] w-full rounded-md object-contain object-center shadow-md"
               />
               <Badge
@@ -96,7 +98,7 @@ const ProjectCard = (props: ProjectMetaData) => {
                       key={i}
                       className="w-fit rounded-lg text-sm font-normal capitalize"
                     >
-                      <Image
+                      <img
                         src={skill?.image}
                         alt={tech}
                         width={20}
@@ -109,35 +111,51 @@ const ProjectCard = (props: ProjectMetaData) => {
                 );
               })}
             </div>
-            <div className="flex flex-col gap-1">{props.summary}</div>
+            <div className="flex flex-col gap-1">
+              <MDX id="project" className="[&_p]:!leading-5">{content}</MDX>
+            </div>
           </DialogDescription>
         </DialogHeader>
         <DialogFooter className="flex !flex-row items-center justify-end gap-2">
-          {props.urls?.otherUrls?.map((url, i) => (
-            <Link href={url.url} target="_blank" title={url.label} key={i}>
-              <Button variant={"outline"} size={url.image ? "icon" : "default"}>
-                {url.image && (
-                  <Image
-                    src={url.image}
-                    alt={url.label ?? ""}
-                    width={20}
-                    height={20}
-                    className="size-6 rounded-md"
-                  />
-                )}
-                {url.label && <span>{url.label}</span>}
-              </Button>
-            </Link>
-          ))}
-          {props.urls?.sourceUrl && (
-            <Link href={props.urls?.sourceUrl} target="_blank" title="Source Code">
+          {
+            [
+              {
+                url: props?.playstoreUrl,
+                image: "https://www.svgrepo.com/show/485039/google-play-style.svg",
+              },
+              {
+                url: props?.appstoreUrl,
+                image: "https://www.svgrepo.com/show/447868/apple-store.svg",
+              },
+              {
+                url: props?.webstoreUrl,
+                image: "https://www.svgrepo.com/show/378781/chrome.svg",
+              },
+            ].filter((url) => url.url !== "" && url.url !== undefined)
+              ?.map((url, i) => (
+                <Link href={url.url as string} target="_blank" key={i}>
+                  <Button variant={"outline"} size={url.image ? "icon" : "default"}>
+                    {url.image && (
+                      <img
+                        src={url.image}
+                        alt={""}
+                        width={20}
+                        height={20}
+                        className="size-6 rounded-md"
+                      />
+                    )}
+                  </Button>
+                </Link>
+              ))}
+          {props.githubUrl && (
+            <Link href={props?.githubUrl} target="_blank" title="Source Code">
               <Button variant={"outline"} size={"sm"} className="w-full">
                 <GithubIcon />
               </Button>
             </Link>
           )}
-          {props.urls?.liveUrl && (
-            <Link href={props.urls?.liveUrl} target="_blank" className="flex-grow">
+          {props?.liveUrl && (
+            <Link href={props?.liveUrl} target="_blank" className="flex-grow">
               <Button variant={"outline"} size={"sm"} className="w-full">
                 <span>View Live</span> <TrendingUpIcon className="size-5 sm:ml-2.5" />
               </Button>

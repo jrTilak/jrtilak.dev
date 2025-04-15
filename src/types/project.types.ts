@@ -1,22 +1,17 @@
-import { SkillNames } from "@/constants/skills";
-
-export type Category = "web" | "mobile" | "game" | "other" | "package/lib" | "extension" | "ai";
-
 export type ProjectMetaData = {
   title: string;
-  publishedAt: string;
-  summary: React.ReactNode;
+  publishedAt?: string;
   image: string;
-  techs: SkillNames[];
-  categories: Category[];
-  urls?: {
-    liveUrl?: string;
-    sourceUrl?: string;
-    otherUrls?: {
-      label?: string;
-      url: string;
-      image?: string;
-    }[];
-  };
+  techs: string[];
+  categories: string[];
+  liveUrl?: string;
+  githubUrl?: string;
+  playstoreUrl?: string;
+  appstoreUrl?: string;
+  webstoreUrl?: string;
   type: string;
 };
+
+export interface Project extends ProjectMetaData {
+  content: string;
+}

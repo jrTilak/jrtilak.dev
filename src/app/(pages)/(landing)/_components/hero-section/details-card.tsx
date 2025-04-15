@@ -15,7 +15,7 @@ const DetailsCard = () => {
         <CardHeader>
           <div className="relative hidden h-[350px] items-center justify-center rounded-full p-6 lg:flex">
             <OrbitingCircles />
-            <Image
+            <img
               src={IMAGES.avatar}
               alt=""
               height={600}
@@ -38,7 +38,7 @@ const DetailsCard = () => {
               key={contact.href}
             >
               <Button variant={"outline"} size={"icon"} className="group aspect-square">
-                <Image
+                <img
                   src={contact.image}
                   className="size-4 transition-all group-hover:scale-[1.10] dark:invert"
                   alt=""

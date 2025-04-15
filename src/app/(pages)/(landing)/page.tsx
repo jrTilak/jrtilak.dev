@@ -5,9 +5,10 @@ import Skills from "@/components/blocks/skills";
 import Testimonials from "@/components/blocks/testimonials";
 import AreYouReady from "@/components/blocks/are-you-ready";
 import WorksAndProjects from "@/components/blocks/work-and-projects";
-import { PROJECTS } from "@/constants/projects";
+import { getAllProjects } from "@/lib/project";
 
 const Page = async () => {
+  const projects = await getAllProjects()
   return (
     <div className="flex flex-col gap-9 sm:gap-12">
       <Hero />
@@ -15,7 +16,7 @@ const Page = async () => {
         <TrustedBy />
       </section>
       <Skills id="area-of-expertise" expertiseOnly />
-      <WorksAndProjects projects={PROJECTS} activeCategory="all" limit={9} />
+      <WorksAndProjects projects={projects} activeCategory="all" limit={9} />
       <Testimonials />
       <AreYouReady />
     </div>

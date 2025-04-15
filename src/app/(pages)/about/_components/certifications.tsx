@@ -21,18 +21,18 @@ const Certifications = () => {
         <CardContent className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4">
           {CERTIFICATION.map((certification, i) => (
             <Card key={i} className="group cursor-pointer transition-colors hover:shadow-md">
-              <ImageViewer
+              <imgViewer
                 src={certification.image}
                 title={certification.title}
                 trigger={{
                   className: "w-full h-fit cursor-pointer",
                 }}
               >
-                <Image
+                <img
                   src={certification.image}
                   alt={certification.title}
                   width={600}
-                  quality={100}
+
                   height={400}
                   className="h-auto w-full object-cover object-top sm:h-[200px]"
                 />

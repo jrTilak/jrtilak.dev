@@ -25,7 +25,7 @@ const OrbitingCircles = ({ className, svgClassName, radius }: Props) => {
         svgClassName={svgClassName}
       >
         {skills.slice(0, 2).map((skill, index) => (
-          <Image key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
+          <img key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
         ))}
       </OC>
       <OC
@@ -40,7 +40,7 @@ const OrbitingCircles = ({ className, svgClassName, radius }: Props) => {
           .reverse()
           .filter((skill) => skill.image)
           .map((skill, index) => (
-            <Image key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
+            <img key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
           ))}
       </OC>
     </>
