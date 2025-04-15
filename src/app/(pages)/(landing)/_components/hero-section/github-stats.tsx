@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/base/card";
-import ExportedImage from "next-image-export-optimizer";;
+import Image from "next/image";
 import Link from "next/link";
 
 const GithubStats = () => {
@@ -7,7 +7,7 @@ const GithubStats = () => {
     <Card>
       <CardContent className="min-h-44 p-3 sm:p-6">
         <Link href={"https://github.com/jrTilak"} target="_blank" rel="noopener noreferrer">
-          <ExportedImage
+          <img
             title="jrtilak"
             className="w-full"
             src="https://ghchart.rshah.org/56d364/jrtilak"

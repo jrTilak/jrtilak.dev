@@ -43,7 +43,7 @@ const Experience = () => {
                   target="_blank"
                   className="bg-muted size-10 rounded-full p-2 shadow-md"
                 >
-                  <ExportedImage
+                  <img
                     src={experience.company.image}
                     alt={experience.company.name}
                     height={80}

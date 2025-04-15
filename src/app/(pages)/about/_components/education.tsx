@@ -31,7 +31,7 @@ const Education = () => {
                 !education.college.url && "pointer-events-none"
               )}
             >
-              <ExportedImage
+              <img
                 src={education.college.image ?? IMAGES.placeholders.college}
                 alt={education.college.name}
                 height={80}

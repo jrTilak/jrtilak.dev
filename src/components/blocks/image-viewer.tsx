@@ -8,7 +8,6 @@ import {
   DialogTrigger,
 } from "@/components/base/dialog";
 import useRequestFullScreen from "@/hooks/use-request-full-screen";
-import Image from "next/image";
 import { useRef } from "react";
 import { Button } from "../base/button";
 import { FullscreenIcon, MinimizeIcon } from "lucide-react";
@@ -36,7 +35,7 @@ const ImageViewer = ({ children, src, title, trigger }: Props) => {
             ref={ref}
             className="relative max-h-[70vh] overflow-hidden overflow-y-auto"
           >
-            <Image
+            <img
               src={src}
               alt={title}
               width={1500}
