@@ -6,7 +6,7 @@ import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 export const getAllBlogs = async (): Promise<Array<Blog>> => {
   try {
     const blogs = await getAllPages({
-      database_id: process.env.NOTION_DATABASE_ID as string,
+      database_id: process.env.NOTION_BLOG_DATABASE_ID as string,
       filter: {
         property: "draft",
         checkbox: {

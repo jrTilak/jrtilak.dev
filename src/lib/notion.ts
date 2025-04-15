@@ -17,7 +17,7 @@ export const getAllPages = async (
       (page): page is PageObjectResponse => page.object === "page"
     );
 
-    return allPages;
+    return allPages.filter((page) => page?.id);
   } catch (err) {
     if (isNotionClientError(err) && err.code === APIErrorCode.ObjectNotFound) {
       console.error("Database not found");
