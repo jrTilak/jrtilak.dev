@@ -6,7 +6,14 @@ export const getAllBlogs = async () => {
       revalidate: 60,
     },
     cache: "force-cache",
-  }).then((res) => res.json() as Promise<{ data: Blog[] }>);
+  }).then((res) => {
+    try {
+      return res.json() as Promise<{ data: Blog[] }>;
+    } catch (e) {
+      console.log(e);
+      return { data: [] };
+    }
+  });
 
   return blogs.data;
 };
@@ -17,7 +24,14 @@ export const getBlogBySlug = async (slug: string) => {
       revalidate: 60,
     },
     cache: "force-cache",
-  }).then((res) => res.json() as Promise<{ data: Blog }>);
+  }).then(async (res) => {
+    try {
+      return (await res.json()) as { data: Blog };
+    } catch (e) {
+      console.log(e);
+      return { data: null } as { data: Blog | null };
+    }
+  });
 
   return blog.data;
 };
