@@ -96,8 +96,9 @@ const Page = async ({ params }: Props) => {
 
 export default Page;
 
-export const generateMetadata = async (slug: string): Promise<Metadata> => {
-  const blog = await getBlogBySlug(slug)
+export const generateMetadata = async ({ params }: Props): Promise<Metadata> => {
+  const { slug } = await params;
+  const blog = await getBlogBySlug(decodeURI(slug));
   return {
     title: blog?.title,
     description: blog?.description,
