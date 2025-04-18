@@ -1,6 +1,8 @@
-import { getAllPages, notionToMD } from "@/lib/notion";
+import { getAllPages, notionToMD } from "@/services/notion";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { Project, ProjectMetaData } from "@/types/project.types";
+import { extractImageUrlFromMd } from "@/lib/extract-image-url-from-md";
+import addRemoteImage from "@/lib/add-remote-image";
 
 export const getAllProjects = async (): Promise<Array<Project>> => {
   try {
@@ -16,7 +18,15 @@ export const getAllProjects = async (): Promise<Array<Project>> => {
       projects.map(async (project) => {
         if (!project) return null;
         const properties = extractProjectProperties(project);
+
+        if (!properties) return null;
+
         const content = await notionToMD(project.id);
+
+        const imagesFromMd = extractImageUrlFromMd(content);
+
+        await addRemoteImage([...imagesFromMd, properties.image]);
+
         return {
           ...properties,
           content,

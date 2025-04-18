@@ -5,7 +5,7 @@ import Skills from "@/components/blocks/skills";
 import Testimonials from "@/components/blocks/testimonials";
 import AreYouReady from "@/components/blocks/are-you-ready";
 import WorksAndProjects from "@/components/blocks/work-and-projects";
-import { getAllProjects } from "@/lib/project";
+import { getAllProjects } from "@/services/project";
 
 const Page = async () => {
   const projects = await getAllProjects();

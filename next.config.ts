@@ -4,8 +4,6 @@ const nextConfig: NextConfig = {
   output: "export",
   /* config options here */
   images: {
-    unoptimized: false,
-    minimumCacheTTL: 60 * 99999999,
     qualities: [100],
     loader: "custom",
     imageSizes: [48, 96, 128, 384],
@@ -33,7 +31,7 @@ const nextConfig: NextConfig = {
     nextImageExportOptimizer_storePicturesInWEBP: "true",
     nextImageExportOptimizer_exportFolderName: "next-image-export-optimizer",
     nextImageExportOptimizer_generateAndUseBlurImages: "true",
-    nextImageExportOptimizer_remoteImageCacheTTL: "0",
+    nextImageExportOptimizer_remoteImageCacheTTL: "31536000",
   },
 };
 

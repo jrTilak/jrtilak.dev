@@ -6,7 +6,7 @@ import BlogCard from "./_components/blog-card";
 import unique from "@/lib/unique";
 import Error404 from "@/components/screens/404";
 import { Metadata } from "next";
-import { getAllBlogs } from "@/lib/blogs";
+import { getAllBlogs } from "@/services/blogs";
 
 const Page = async () => {
   const blogs = await getAllBlogs();

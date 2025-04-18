@@ -18,6 +18,7 @@ import { Project } from "@/types/project.types";
 import { getSkillDetails } from "@/lib/get-skill";
 import { getMdxContent } from "@/lib/get-mdx-content";
 import MDX from "../mdx/mdx";
+import ExportedImage from "next-image-export-optimizer";
 
 const ProjectCard = async (props: Project) => {
   const {
@@ -28,7 +29,7 @@ const ProjectCard = async (props: Project) => {
       <DialogTrigger>
         <Card className="group hover:bg-muted cursor-pointer transition-colors hover:shadow-md">
           <div className="h-fit w-full">
-            <img
+            <ExportedImage
               src={props.image}
               alt={props.title}
               width={300}
@@ -72,7 +73,7 @@ const ProjectCard = async (props: Project) => {
               target="_blank"
               className="relative"
             >
-              <img
+              <ExportedImage
                 src={props.image}
                 alt=""
                 width={1200}

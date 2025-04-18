@@ -38,7 +38,7 @@ const DetailsCard = () => {
               key={contact.href}
             >
               <Button variant={"outline"} size={"icon"} className="group aspect-square">
-                <ExportedImage
+                <img
                   src={contact.image}
                   className="size-4 transition-all group-hover:scale-[1.10] dark:invert"
                   alt=""

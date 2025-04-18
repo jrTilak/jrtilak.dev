@@ -1,5 +1,5 @@
 import WorksAndProjects from "@/components/blocks/work-and-projects";
-import { getAllProjects } from "@/lib/project";
+import { getAllProjects } from "@/services/project";
 import React from "react";
 
 const Page = async () => {

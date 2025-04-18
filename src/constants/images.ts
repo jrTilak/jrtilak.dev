@@ -1,6 +1,6 @@
 export const IMAGES = {
   aces: "/images/aces.png",
-  avatar: "/avatar.png",
+  avatar: "/images/avatar.png",
   "neon-shark": "/images/neon-shark.png",
   "prodigy-infotech": "/images/prodigy-infotech.svg",
   "prodigy-infotech2": "/images/prodigy-infotech2.svg",

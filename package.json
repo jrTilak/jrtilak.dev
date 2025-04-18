@@ -4,11 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "tsx scripts/collect-all-remote-image.ts && next build && next-image-export-optimizer",
+    "build": "scripts\\build.cmd",
     "start": "next start",
     "lint": "next lint",
-    "format": "prettier --write .",
-    "export-img": "tsx scripts/collect-all-remote-image.ts"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@next/third-parties": "^15.3.0",

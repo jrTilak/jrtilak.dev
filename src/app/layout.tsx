@@ -32,7 +32,7 @@ export default function Layout({
         <GoogleAnalytics gaId="G-8J0X78E034" />
       </body>
     </html>
-  );
+  )
 }
 
 export const metadata: Metadata = {

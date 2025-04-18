@@ -1,7 +1,9 @@
 import { Blog } from "@/types/blog.types";
 import readingTime from "reading-time";
-import { getAllPages, getSinglePage } from "@/lib/notion";
+import { getAllPages, getSinglePage } from "@/services/notion";
 import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
+import { extractImageUrlFromMd } from "../lib/extract-image-url-from-md";
+import addRemoteImage from "../lib/add-remote-image";
 
 export const getAllBlogs = async (): Promise<Array<Blog>> => {
   try {
@@ -62,6 +64,10 @@ export const getBlogBySlug = async (slug: string): Promise<Blog | null> => {
     if (!properties) return null;
 
     const raw = blog.markdown;
+
+    const imagesFromMd = extractImageUrlFromMd(raw);
+
+    await addRemoteImage([...imagesFromMd, properties.coverImage]);
 
     return {
       readingTime: readingTime(raw).text,

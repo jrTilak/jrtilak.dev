@@ -7,7 +7,7 @@ import Link from "next/link";
 import React from "react";
 import MDX from "@/components/mdx/mdx";
 import { getMdxContent } from "@/lib/get-mdx-content";
-import { getAllBlogs, getBlogBySlug } from "@/lib/blogs";
+import { getAllBlogs, getBlogBySlug } from "@/services/blogs";
 import ExportedImage from "next-image-export-optimizer";;
 
 type Props = {
