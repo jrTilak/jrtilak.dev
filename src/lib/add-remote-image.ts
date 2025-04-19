@@ -1,10 +1,19 @@
 import fs from "fs";
 import path from "path";
 
+const getConfig = (config: string[]) => `/**
+ * @type {import('next-export-optimize-images').Config}
+ */
+const config = {
+  remoteImages: ${JSON.stringify(config, null, 2)},
+}
+
+module.exports = config`;
+
 async function addRemoteImage(image: string | string[]) {
   try {
     const images = Array.isArray(image) ? image : [image];
-    const p = path.resolve(process.cwd(), "remoteOptimizedImages.js");
+    const p = path.resolve(process.cwd(), "export-images.config.js");
 
     let existingData: string[] = [];
 
@@ -12,33 +21,32 @@ async function addRemoteImage(image: string | string[]) {
     if (fs.existsSync(p)) {
       try {
         const fileContent = fs.readFileSync(p, "utf-8");
-        // Handle empty file case
-        if (fileContent.trim() === "") {
-          fs.writeFileSync(p, "module.exports = []");
-        } else {
-          // Parse existing data safely
-          const match = fileContent.match(/module\.exports\s*=\s*(\[.*\])/);
-          if (match) {
+        // Extract existing remoteImages array
+        const match = fileContent.match(/remoteImages:\s*(\[[\s\S]*?\])/);
+        if (match) {
+          try {
             existingData = JSON.parse(match[1]);
+          } catch {
+            console.warn("Error parsing existing remoteImages, creating new array");
+            existingData = [];
           }
         }
       } catch (err) {
         console.warn("Error reading existing file, creating new one:", err);
-        fs.writeFileSync(p, "module.exports = []");
       }
-    } else {
-      // Create new file if it doesn't exist
-      fs.writeFileSync(p, "module.exports = []");
     }
 
     // Filter and combine data
     const newData = [...existingData, ...images].filter(
       (item, index, self) =>
-        item !== "" && item !== null && item !== undefined && self.indexOf(item) === index // Remove duplicates
+        item && // Remove null/undefined
+        item.trim() !== "" && // Remove empty strings
+        self.indexOf(item) === index && // Remove duplicates
+        item.startsWith("http") // Ensure it's a valid URL
     );
 
     // Write the updated data
-    fs.writeFileSync(p, `module.exports = ${JSON.stringify(newData, null, 2)}`);
+    fs.writeFileSync(p, getConfig(newData));
 
     return newData;
   } catch (e) {

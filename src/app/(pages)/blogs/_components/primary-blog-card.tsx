@@ -1,7 +1,9 @@
+import { IMAGES } from "@/constants/images";
 import { calculateTimeAgo } from "@/lib/calculate-time-ago";
 import { cn } from "@/lib/cn";
 import { Blog } from "@/types/blog.types";
-import ExportedImage from "next-image-export-optimizer";;
+import Image from "next-export-optimize-images/image";
+import RemoteImage from 'next-export-optimize-images/remote-image'
 import Link from "next/link";
 
 type Props = Omit<Blog, "content"> & {
@@ -20,7 +22,7 @@ const PrimaryBlogCard = (props: Props) => {
     >
       <div className="flex w-full items-center justify-center overflow-hidden rounded-md lg:max-h-[320px] lg:max-w-[536px]">
         <Link href={`/blogs/${props.slug}`} className="h-full w-full">
-          <ExportedImage
+          <RemoteImage
             className="h-full max-h-72 w-full rounded-md object-cover object-center"
             src={props.coverImage ?? ""}
             alt="hero"
@@ -53,8 +55,8 @@ const PrimaryBlogCard = (props: Props) => {
         <div className="mt-5 flex items-center gap-2.5">
           <div className="flex items-center gap-3">
             <div className="flex h-6 w-6 overflow-hidden rounded-full">
-              <ExportedImage
-                src={"/images/avatar.png"}
+              <Image
+                src={IMAGES.avatar}
                 alt="user"
                 className="h-full w-full object-cover object-center"
                 height={80}

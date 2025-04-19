@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, CardHeader, CardTitle } from "@/components/base/card";
 import { IMAGES } from "@/constants/images";
-import ExportedImage from "next-image-export-optimizer";;
+import Image from 'next-export-optimize-images/image';;
 
 const DetailsCard = () => {
   return (
@@ -9,7 +9,7 @@ const DetailsCard = () => {
       <Card className="hidden flex-col items-center justify-center lg:flex">
         <CardHeader>
           <div className="hidden p-6 lg:block">
-            <ExportedImage
+            <Image
               src={IMAGES.avatar}
               alt=""
               height={600}

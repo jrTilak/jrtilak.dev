@@ -1,6 +1,6 @@
 import { cn } from "@/lib/cn";
 import { Blog } from "@/types/blog.types";
-import ExportedImage from "next-image-export-optimizer";;
+import RemoteImage from 'next-export-optimize-images/remote-image'
 import Link from "next/link";
 import React from "react";
 
@@ -22,7 +22,7 @@ const BlogCard = (props: Props) => {
     >
       <div className="flex w-full items-center justify-center overflow-hidden lg:max-h-[160px] lg:max-w-[238px]">
         <Link href={`/blogs/${props.slug}`} className="h-full w-full">
-          <ExportedImage
+          <RemoteImage
             className="h-full max-h-40 w-full rounded-md object-cover object-center"
             src={props.coverImage ?? ""}
             alt="hero"

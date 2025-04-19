@@ -21,7 +21,7 @@ import { Button } from "@/components/base/button";
 import { Dialog, DialogContent, DialogHeader, DialogTrigger } from "@/components/base/dialog";
 import { IMAGES } from "@/constants/images";
 import Link from "next/link";
-import ExportedImage from "next-image-export-optimizer";
+import Image from 'next-export-optimize-images/image'
 
 const Testimonials = () => {
   return (
@@ -52,7 +52,7 @@ const Testimonials = () => {
                       className="absolute top-4 right-4 size-4 md:size-5"
                     />
                     <div className="flex items-center gap-2.5">
-                      <ExportedImage
+                      <Image
                         src={testimony.image ?? IMAGES.placeholders.avatar}
                         alt={testimony.name}
                         className="size-12 rounded-full object-cover object-center sm:size-16"
@@ -84,7 +84,7 @@ const Testimonials = () => {
                         <DialogContent>
                           <DialogHeader>
                             <div className="flex items-center gap-2.5">
-                              <ExportedImage
+                              <Image
                                 src={testimony.image ?? IMAGES.placeholders.avatar}
                                 alt={testimony.name}
                                 className="size-12 rounded-full object-cover object-center sm:size-16"

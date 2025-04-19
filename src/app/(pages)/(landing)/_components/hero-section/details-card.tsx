@@ -5,7 +5,7 @@ import Link from "next/link";
 import { CONTACTS_LINKS } from "@/constants/contact-links";
 import { IMAGES } from "@/constants/images";
 import OrbitingCircles from "./orbiting-circles";
-import ExportedImage from "next-image-export-optimizer";;
+import Image from "next-export-optimize-images/image";
 
 const DetailsCard = () => {
   return (
@@ -15,7 +15,7 @@ const DetailsCard = () => {
         <CardHeader>
           <div className="relative hidden h-[350px] items-center justify-center rounded-full p-6 lg:flex">
             <OrbitingCircles />
-            <ExportedImage
+            <Image
               src={IMAGES.avatar}
               alt=""
               height={600}

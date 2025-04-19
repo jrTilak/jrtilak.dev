@@ -5,7 +5,7 @@ import { Badge } from "@/components/base/badge";
 import Link from "next/link";
 
 import ImageViewer from "@/components/blocks/image-viewer";
-import ExportedImage from "next-image-export-optimizer";;
+import Image from 'next-export-optimize-images/image';;
 
 const Certifications = () => {
   return (
@@ -28,7 +28,7 @@ const Certifications = () => {
                   className: "w-full h-fit cursor-pointer",
                 }}
               >
-                <ExportedImage
+                <Image
                   src={certification.image}
                   alt={certification.title}
                   width={600}

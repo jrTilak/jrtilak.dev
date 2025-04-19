@@ -3,7 +3,7 @@ import React from "react";
 import { getUniqueRandomNumbers } from "@/lib/get-random-numbers";
 import { SKILLS } from "@/constants/skills";
 import { OrbitingCircles as OC } from "@/components/base/orbiting-circles";
-import ExportedImage from "next-image-export-optimizer";;
+import Image from 'next-export-optimize-images/image';;
 
 type Props = {
   className?: string;
@@ -25,7 +25,7 @@ const OrbitingCircles = ({ className, svgClassName, radius }: Props) => {
         svgClassName={svgClassName}
       >
         {skills.slice(0, 2).map((skill, index) => (
-          <ExportedImage key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
+          <Image key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
         ))}
       </OC>
       <OC
@@ -40,7 +40,7 @@ const OrbitingCircles = ({ className, svgClassName, radius }: Props) => {
           .reverse()
           .filter((skill) => skill.image)
           .map((skill, index) => (
-            <ExportedImage key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
+            <Image key={index} src={skill.image} className="size-4" alt="" height={40} width={40} />
           ))}
       </OC>
     </>

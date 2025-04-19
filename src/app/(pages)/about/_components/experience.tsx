@@ -13,7 +13,7 @@ import { getCertificationDetails } from "@/lib/get-certification";
 import { Separator } from "@/components/base/separator";
 import { cn } from "@/lib/cn";
 import ImageViewer from "@/components/blocks/image-viewer";
-import ExportedImage from "next-image-export-optimizer";;
+import Image from 'next-export-optimize-images/image';;
 
 const Experience = () => {
   const [open, setOpen] = useState("");
@@ -99,7 +99,7 @@ const Experience = () => {
                                 "hover:scale-110 transition-all max-h-20 aspect-square bg-muted border border-muted rounded-md cursor-pointer",
                             }}
                           >
-                            <ExportedImage
+                            <Image
                               src={certificationData.image}
                               alt={certificationData.title}
                               height={200}

@@ -15,7 +15,7 @@ import Link from "next/link";
 import { Badge } from "@/components/base/badge";
 import { cn } from "@/lib/cn";
 import { Metadata } from "next";
-import ExportedImage from "next-image-export-optimizer";;
+import Image from 'next-export-optimize-images/image';;
 
 const Page = () => {
   return (
@@ -67,7 +67,7 @@ const Page = () => {
                           variant={"outline"}
                           className="w-fit rounded-lg text-xs font-normal capitalize transition-colors hover:shadow-md"
                         >
-                          <ExportedImage
+                          <Image
                             src={skill?.image}
                             alt={""}
                             width={20}
