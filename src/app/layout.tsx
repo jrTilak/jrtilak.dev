@@ -37,10 +37,11 @@ export default function Layout({
 
 export const metadata: Metadata = {
   title: {
-    default: "Tilak Thapa | Full Stack Developer",
+    default: "Tilak Thapa | Web/App Developer",
     template: "%s | Tilak Thapa",
   },
-  description: `Curiosity-driven developer with 2.4+ years of expertise building robust web apps using the MERN stack and Next.js, paired with hands-on experience in Docker and cloud deployment on AWS.`,
+  description: `Curiosity-driven full-stack web/app developer, constantly pushing the boundaries of
+          what's possible to create innovative and seamless digital solutions.`,
   authors: [
     {
       name: "Tilak Thapa",
@@ -96,8 +97,9 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    title: `Tilak Thapa | Full Stack Developer`,
-    description: `Curiosity-driven developer with 2.4+ years of expertise building robust web apps using the MERN stack and Next.js, paired with hands-on experience in Docker and cloud deployment on AWS.`,
+    title: `Tilak Thapa | Web/App Developer`,
+    description: `Curiosity-driven full-stack web/app developer, constantly pushing the boundaries of
+          what's possible to create innovative and seamless digital solutions.`,
     images: [
       {
         url: "/preview.png",
