@@ -27,7 +27,7 @@ export const SKILLS = [
   },
   {
     name: "Express.js",
-    href: "https://www.mongodb.com/",
+    href: "https://expressjs.com/",
     image: "https://www.svgrepo.com/show/330398/express.svg",
     showAsExpertise: true,
   },
@@ -39,7 +39,7 @@ export const SKILLS = [
   },
   {
     name: "MongoDb",
-    href: "https://expressjs.com/",
+    href: "https://www.mongodb.com/",
     image: "https://www.svgrepo.com/show/373845/mongo.svg",
     showAsExpertise: true,
   },
