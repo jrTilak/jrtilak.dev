@@ -46,7 +46,7 @@ export const CERTIFICATION = [
   {
     id: "web-dev-bootcamp",
     image: IMAGES.certifications["web-dev-bootcamp"],
-    issuedAt: "July 7 20203",
+    issuedAt: "July 7 2023",
     link: "https://www.udemy.com/certificate/UC-82d64509-0c71-4480-b6a2-f51ec8a3dc1a/",
     title: "The Complete 2023 Web Development Bootcamp",
   },
