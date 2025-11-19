@@ -22,7 +22,7 @@ const DesktopNav = () => {
           <NavLink key={link.href} link={link} isActive={isLinkActive(link.href)} />
         ))}
       </nav>
-      <div className="flex w-fit items-center gap-2.5">
+      <div className="flex w-fit items-center gap-4">
         <ContactButton className="hidden lg:flex" />
         <ThemeToggle className="hidden lg:flex" />
       </div>

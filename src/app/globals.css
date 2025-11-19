@@ -290,4 +290,13 @@
   .container {
     @apply mx-auto max-w-none px-2.5 sm:px-4 md:px-8 2xl:max-w-[1400px];
   }
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
 }
+
+}
+
+
