@@ -1,3 +1,4 @@
+import { Label } from "@radix-ui/react-label";
 import { IMAGES } from "./images";
 
 export const TRUSTED_BY = [
@@ -5,6 +6,11 @@ export const TRUSTED_BY = [
     label: "ACES",
     href: "https://www.aceserc.org/",
     image: IMAGES.aces,
+  },
+  {
+    label: "EXCESS",
+    href: "https://excess.ioepc.edu.np/",
+    image: "/icons/excess.png"
   },
   {
     label: "Neonshark",

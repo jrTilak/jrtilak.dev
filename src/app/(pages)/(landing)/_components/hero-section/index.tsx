@@ -1,8 +1,8 @@
 import React from "react";
-import DetailsCard from "./details-card";
-import MoreInfo from "./more-info";
-import Stats from "./stats";
-import GithubStats from "./github-stats";
+import { DetailsCard } from "./details-card";
+import { MoreInfo } from "./more-info";
+import { Stats } from "./stats";
+import { GithubStats } from "./github-stats";
 
 const Hero = () => {
   return (

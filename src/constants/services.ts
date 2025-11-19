@@ -12,7 +12,7 @@ export type Service = {
 export const SERVICES: Service[] = [
   {
     title: "Web Development",
-    icon: "https://www.svgrepo.com/show/485018/web-page-browser-analysis-screen.svg",
+    icon: "/icons/web-page-browser-analysis-screen.svg",
     description:
       "Crafting dynamic, responsive web applications with an emphasis on seamless user experiences, modern design, and performance.",
     features: [
@@ -30,14 +30,13 @@ export const SERVICES: Service[] = [
       "TailwindCSS",
       "Express.js",
       "MongoDb",
-      "Framer Motion (Motion)",
       "Typescript",
       "Three.js",
     ],
   },
   {
     title: "Backend Development",
-    icon: "https://www.svgrepo.com/show/375397/compute-engine.svg",
+    icon: "/icons/compute-engine.svg",
     description:
       "Building robust, secure, and scalable backends and APIs to power high-performance web applications.",
     features: [
@@ -50,11 +49,11 @@ export const SERVICES: Service[] = [
       "Dockerization & Cloud Deployments",
       "...and more!",
     ],
-    skills: ["Express.js", "Nest.js", "MongoDb", "Node.js", "Firebase"],
+    skills: ["Express.js", "Nest.js", "MongoDb", "Node.js"],
   },
   {
     title: "Mobile App Development",
-    icon: "https://www.svgrepo.com/show/397517/mobile-phone.svg",
+    icon: "/icons/mobile-phone-with-arrow.svg",
     description:
       "Delivering modern, performant, and cross-platform mobile applications using React Native — from development to Play Store publishing.",
     features: [
@@ -66,6 +65,6 @@ export const SERVICES: Service[] = [
       "Rapid Iteration & OTA Updates (via Expo)",
       "...and more!",
     ],
-    skills: ["React Native", "Expo", "Firebase"],
+    skills: ["React Native", "Expo",],
   },
 ];

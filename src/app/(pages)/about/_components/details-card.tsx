@@ -12,9 +12,10 @@ const DetailsCard = () => {
             <Image
               src={IMAGES.avatar}
               alt=""
-              height={600}
-              width={600}
-              className="h-fit w-full rounded-full object-cover object-center"
+              height={300}
+              width={300}
+              quality={100}
+              className="aspect-square w-full rounded-full object-cover object-center"
             />
           </div>
           <CardTitle className="text-4xl">Tilak Thapa 👋</CardTitle>
@@ -24,4 +25,4 @@ const DetailsCard = () => {
   );
 };
 
-export default DetailsCard;
+export { DetailsCard };

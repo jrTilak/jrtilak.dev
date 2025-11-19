@@ -20,7 +20,7 @@ export const STATS = [
   },
   {
     value: Number(EXPERIENCE_IN_YEARS),
-    label: "years of Experience",
+    label: "years in development",
     plus: false,
   },
 ];

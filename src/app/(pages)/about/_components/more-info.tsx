@@ -11,23 +11,17 @@ const MoreInfo = () => {
     <Card className="flex-grow">
       <CardHeader>
         <CardTitle className="text-xl sm:text-4xl">
-          I&apos;m Tilak Thapa, a full-stack web/app developer.
+          I'm Tilak Thapa, a Full-Stack Web & App Developer
         </CardTitle>
         <CardDescription className="flex flex-col gap-5 text-xs sm:text-lg">
           <p>
-            Driven by curiosity and a relentless pursuit of growth, I specialize in building
-            powerful, scalable web applications—going beyond the MERN stack and Next.js to craft
-            seamless digital experiences. 💻
+            Driven by curiosity and a passion for building meaningful digital experiences, I specialize in crafting scalable web and app solutions—going beyond the MERN stack and Next.js to deliver clean, efficient, and user-friendly products. 💻
           </p>
           <p>
-            With over {EXPERIENCE_IN_YEARS} years of hands-on experience, I’ve built and shipped
-            impactful digital solutions that blend clean code with thoughtful user experience. My
-            work reflects a belief in constant iteration, continuous learning, and purposeful
-            creation.
+            With hands-on development experience, I’ve designed and shipped impactful solutions that balance thoughtful UX with maintainable code. I thrive on iteration, continuous learning, and solving complex challenges with elegant, practical solutions.
           </p>
           <p>
-            “Any fool can write code that a computer can understand. Good programmers write code
-            that humans can understand.” — Martin Fowler
+            “Talk is cheap. Show me the code.” — Linus Torvalds
           </p>
         </CardDescription>
       </CardHeader>
@@ -43,4 +37,4 @@ const MoreInfo = () => {
   );
 };
 
-export default MoreInfo;
+export { MoreInfo };

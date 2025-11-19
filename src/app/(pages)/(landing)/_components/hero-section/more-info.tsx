@@ -20,15 +20,11 @@ const MoreInfo = () => {
           🙋‍♂️ Greetings! I&apos;m Tilak Thapa (jrTilak)
         </CardDescription>
         <CardTitle className="text-xl sm:text-4xl">
-          Curiosity-driven full-stack web/app developer, constantly pushing the boundaries of
-          what&apos;s possible to create innovative and seamless digital solutions.
-        </CardTitle>
+          Full-Stack Web/App Developer Turning Complex Problems into Clean, Scalable Solutions. </CardTitle>
       </CardHeader>
       <CardContent className="flex flex-col gap-2">
         <p>
-          I&apos;m currently open to freelance projects, full-time opportunities, and meaningful
-          collaborations. If you&apos;ve got an idea worth building or a challenge worth solving,
-          let&apos;s connect and make it happen. 💼📝🤝
+          I build scalable apps, clean architectures, and refined interfaces across web and mobile. Open to collaborations and opportunities that value strong problem-solving and craftsmanship.
         </p>
       </CardContent>
       <CardFooter className="mt-auto">
@@ -48,4 +44,4 @@ const MoreInfo = () => {
   );
 };
 
-export default MoreInfo;
+export { MoreInfo };

@@ -37,4 +37,4 @@ const Stats = () => {
   );
 };
 
-export default Stats;
+export { Stats };

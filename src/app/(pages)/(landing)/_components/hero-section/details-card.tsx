@@ -54,4 +54,4 @@ const DetailsCard = () => {
   );
 };
 
-export default DetailsCard;
+export { DetailsCard };

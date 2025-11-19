@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import DetailsCard from "./_components/details-card";
-import MoreInfo from "./_components/more-info";
+import { DetailsCard } from "./_components/details-card";
+import { MoreInfo } from "./_components/more-info";
 import Skills from "@/components/blocks/skills";
 import Experience from "./_components/experience";
 import Education from "./_components/education";
