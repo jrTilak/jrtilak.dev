@@ -17,7 +17,7 @@ export default function Layout({
     <html lang="en">
       <body className="scrollbar">
         <ThemeProvider>
-          <div>
+          <div className="">
             <Header />
             <main className="mt-28">{children}</main>
             <Footer />

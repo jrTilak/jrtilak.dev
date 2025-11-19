@@ -1,4 +1,3 @@
-import { Label } from "@radix-ui/react-label";
 import { IMAGES } from "./images";
 
 export const TRUSTED_BY = [
