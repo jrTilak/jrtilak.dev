@@ -2,7 +2,7 @@ import { cn } from "@/lib/cn";
 
 const Card = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
   <div
-    className={cn("bg-card text-card-foreground rounded-xl border shadow", className)}
+    className={cn(" bg-card/30 backdrop-blur-xl text-card-foreground rounded-xl border shadow", className)}
     {...props}
   />
 );

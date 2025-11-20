@@ -106,7 +106,7 @@ const Testimonials = () => {
                               </div>
                             </div>
                           </DialogHeader>
-                          <p>{testimony.content}</p>
+                          <p className="flex-1 overflow-y-auto">{testimony.content}</p>
                         </DialogContent>
                       </Dialog>
                     </p>

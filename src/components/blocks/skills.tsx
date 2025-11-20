@@ -32,7 +32,7 @@ const Skills = ({ expertiseOnly, id }: Props) => {
               href={a.href}
               key={i}
               target="_blank"
-              className="bg-muted flex w-auto flex-col items-center justify-center gap-1 rounded-md px-5 py-3 transition-all hover:shadow-md sm:min-w-32"
+              className="border border-border/50 flex w-auto flex-col items-center justify-center gap-1 rounded-md px-5 py-3 transition-all hover:shadow-md sm:min-w-32"
             >
               <img
                 src={a.image}

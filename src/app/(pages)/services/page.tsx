@@ -29,7 +29,7 @@ const Page = () => {
             {SERVICES.map(({ available = true, ...service }, index) => (
               <Card
                 className={cn(
-                  "border-accent-foreground/50 relative border",
+                  "border-accent-foreground/10 relative border",
                   !available ? "pointer-events-none opacity-80" : "hover:border-primary"
                 )}
                 key={index}

@@ -132,25 +132,4 @@ export const TESTIMONIALS: Testimonial[] = [
     position: "Freelance Client",
     href: "https://www.freelancer.com/u/jrtilak?review_context_id=38904309&review_type=project&frm=jrtilak&sb=t",
   },
-  {
-    name: "Mustafa Can Güzlük",
-    content: (
-      <>
-        He is really a good person, he responds very quickly and he really helped me a lot, the
-        projects he has done are very nice, especially the{" "}
-        <Link
-          href="https://bumblebee.thapatilak.com.np/"
-          className="text-primary underline"
-          target="_blank"
-        >
-          Bumblebee - AI Powered Chatbot project.
-        </Link>
-      </>
-    ),
-    platform: "linkedin",
-    position: "Freelance Associate",
-    href: "https://www.linkedin.com/in/mustafa-can-guzluk/",
-    inShort:
-      "He is really a good person, he responds very quickly and he really helped me a lot, the projects he has done are very nice, especially the Bumblebee - AI Powered Chatbot project.",
-  },
 ];

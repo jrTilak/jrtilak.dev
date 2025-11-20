@@ -13,20 +13,16 @@ type NavLinkProps = {
 
 // Navigation link component
 const NavLink: React.FC<NavLinkProps> = ({ link, isActive, onClick, className }) => (
-  <Link href={link.href}>
-    <Button
-      key={link.href}
-      variant="ghost"
-      onClick={onClick}
-      className={cn(
-        "hover:bg-accent/80 h-fit items-center justify-normal gap-1.5 bg-transparent backdrop-blur-sm",
-        isActive && "!text-primary",
-        className
-      )}
-    >
-      <link.icon className="size-[18px]" />
-      <span>{link.label}</span>
-    </Button>
+  <Link
+    onClick={onClick}
+    className={cn(
+      "items-center justify-center px-4 text-sm gap-1.5 flex gap-2",
+      isActive && "!text-primary",
+      className
+    )}
+    href={link.href}>
+    <link.icon className="size-[18px]" />
+    <span>{link.label}</span>
   </Link>
 );
 
