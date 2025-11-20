@@ -34,7 +34,7 @@ export default function Layout({
                     <stop offset="100%" stopColor="#ec4899" stopOpacity={0} />
                   </radialGradient>
                 </defs>
-                {"{"}/* Center ripple */{"}"}
+                {/* Center ripple */}
                 <circle
                   cx="50%"
                   cy="50%"
@@ -88,7 +88,7 @@ export default function Layout({
                   strokeWidth={1}
                   className="dark:stroke-purple-500/20"
                 />
-                {"{"}/* Top-left ripple */{"}"}
+                {/* Top-left ripple */}
                 <circle
                   cx="20%"
                   cy="20%"
@@ -116,7 +116,7 @@ export default function Layout({
                   strokeWidth="0.5"
                   className="dark:stroke-pink-500/15"
                 />
-                {"{"}/* Bottom-right ripple */{"}"}
+                {/* Bottom-right ripple */}
                 <circle
                   cx="80%"
                   cy="80%"
