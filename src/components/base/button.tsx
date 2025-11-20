@@ -48,7 +48,7 @@ function Button({
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
-    loading?:boolen;
+    loading?:boolean;
   }) {
   const Comp = asChild ? Slot : "button"
 
@@ -65,5 +65,6 @@ function Button({
 }
 
 export { Button, buttonVariants }
+
 
 
