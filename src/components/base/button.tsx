@@ -43,25 +43,27 @@ function Button({
   children,
   disabled,
   asChild = false,
+  loading=false,
   ...props
 }: React.ComponentProps<"button"> &
   VariantProps<typeof buttonVariants> & {
     asChild?: boolean;
-    isLoading?:boolen;
+    loading?:boolen;
   }) {
   const Comp = asChild ? Slot : "button"
 
   return (
     <Comp
       data-slot="button"
-      disabled={isLoading || disabled}
+      disabled={loading || disabled}
       className={cn(buttonVariants({ variant, size, className }))}
       {...props}
     >
-      {isLoading ? "Loading...": children}
+      {loading ? "Loading...": children}
     </Comp>
   )
 }
 
 export { Button, buttonVariants }
+
 
