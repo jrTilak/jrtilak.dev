@@ -37,7 +37,7 @@ export const getAllProjects = async (): Promise<Array<Project>> => {
       return [];
     }
 
-    return files.filter((project) => project !== null).reverse() as Project[];
+    return files.filter((project) => project !== null).reverse().sort((a, b) => a.priority - b.priority) as Project[];
   } catch (error) {
     console.log(error);
     return [];
@@ -66,9 +66,9 @@ export const extractProjectProperties = (data: PageObjectResponse): ProjectMetaD
       ? data.properties["techs"].multi_select.map((tag) => tag.name)
       : [];
 
-  const type =
-    data.properties["type"] && data.properties["type"].type === "select"
-      ? (data.properties["type"].select?.name ?? "")
+  const projectType =
+    data.properties["project_type"] && data.properties["project_type"].type === "select"
+      ? (data.properties["project_type"].select?.name ?? "")
       : "";
 
   const image =
@@ -105,6 +105,8 @@ export const extractProjectProperties = (data: PageObjectResponse): ProjectMetaD
       ? data.properties["webstore_url"].url
       : "";
 
+  const priority: number = (data.properties["priority"] && data.properties["priority"].type === "number") ? data.properties["priority"].number : 999
+
   const obj = {
     title,
     publishedAt,
@@ -116,6 +118,7 @@ export const extractProjectProperties = (data: PageObjectResponse): ProjectMetaD
     githubUrl: githubUrl ?? "",
     playstoreUrl: playstoreUrl ?? "",
     appstoreUrl: appstoreUrl ?? "",
+    priority,
     webstoreUrl: webstoreUrl ?? "",
   };
 

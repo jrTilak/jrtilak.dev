@@ -9,7 +9,8 @@ export type ProjectMetaData = {
   playstoreUrl?: string;
   appstoreUrl?: string;
   webstoreUrl?: string;
-  type: string;
+  projectType: string;
+  priority: number
 };
 
 export interface Project extends ProjectMetaData {

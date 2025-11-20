@@ -63,9 +63,14 @@ const ProjectCard = async (props: Project) => {
         <DialogHeader>
           <DialogTitle className="flex items-center gap-2">
             <span> {props.title}</span> -{" "}
-            <Badge className="font-normal capitalize" variant={"outline"}>
-              {props.type}
-            </Badge>
+            {
+              props.projectType && (
+
+                <Badge className="font-normal capitalize" variant={"outline"}>
+                  {props.projectType}
+                </Badge>
+              )
+            }
           </DialogTitle>
           <DialogDescription>
             <Link
