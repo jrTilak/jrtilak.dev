@@ -49,9 +49,8 @@ const Skills = ({ expertiseOnly, id }: Props) => {
               onClick={() => {
                 setShowMore((prev) => !prev);
               }}
-              className="h-full min-h-[80px] min-w-32 flex-col"
+              className="flex h-full min-h-[80px] min-w-32 flex-col items-center justify-center"
               variant={"outline"}
-              wrapperClassName="flex flex-col items-center justify-center"
             >
               {showMore ? "Show less..." : "Show more..."}
               <ChevronsUpIcon className={cn("size-5 transition-all", !showMore && "rotate-180")} />
