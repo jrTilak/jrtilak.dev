@@ -105,14 +105,14 @@ export const extractProjectProperties = (data: PageObjectResponse): ProjectMetaD
       ? data.properties["webstore_url"].url
       : "";
 
-  const priority: number = (data.properties["priority"] && data.properties["priority"].type === "number") ? data.properties["priority"].number : 999
+  const priority: number = (data.properties["priority"] && data.properties["priority"].type === "number") ? Number(data.properties["priority"].number) : 999
 
   const obj = {
     title,
     publishedAt,
     categories: categories ?? [],
     techs: techs ?? [],
-    type,
+    projectType,
     image,
     liveUrl: liveUrl ?? "",
     githubUrl: githubUrl ?? "",
